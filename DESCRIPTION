@@ -1,6 +1,6 @@
 Package: polyglotr
 Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person("Tomer", "Iwan", , "t.iwan@vu.nl", role = c("aut", "cre"))
 Description: What the package does (one paragraph).
