@@ -1,0 +1,5 @@
+^LICENSE\.md$
+^.*\.Rproj$
+^\.Rproj\.user$
+^build_package\.R$
+^.*.pdf$
