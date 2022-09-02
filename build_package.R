@@ -31,7 +31,7 @@ devtools::build_manual(path = ".")
 usethis::use_version()
 
 ## Build the package, and release it to the correct folder
-devtools::build(path = paste0("G:/DSZ/SA2016/Datasets/Packages/", package_name, "/"))
+devtools::build(path = "../../../Downloads/")
 
 ## Make use of the development version again
 usethis::use_dev_version()
