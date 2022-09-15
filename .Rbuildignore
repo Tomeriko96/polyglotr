@@ -4,3 +4,4 @@
 ^build_package\.R$
 ^.*.pdf$
 ^cran-comments\.md$
+^CRAN-SUBMISSION$
