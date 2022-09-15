@@ -4,7 +4,8 @@ package_name <- basename(rstudioapi::getActiveProject())
 ## Install and load the packages
 build_packages <- c("devtools",
                     "usethis",
-                    "renv")
+                    "renv",
+                    "qpdf")
 
 ## install the packages that are not installed yet
 lapply(build_packages[which(!build_packages %in% installed.packages())],

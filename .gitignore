@@ -39,3 +39,4 @@ vignettes/*.pdf
 .Renviron
 *.pdf
 /build_package.R
+inst/doc

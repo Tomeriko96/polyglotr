@@ -3,3 +3,4 @@
 ^\.Rproj\.user$
 ^build_package\.R$
 ^.*.pdf$
+^cran-comments\.md$

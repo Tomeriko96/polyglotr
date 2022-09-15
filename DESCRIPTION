@@ -1,10 +1,12 @@
 Package: polyglotr
-Title: What the Package Does (One Line, Title Case)
+Title: Translate Text
 Version: 0.0.1.9000
 Authors@R: 
-    person("Tomer", "Iwan", , "t.iwan@vu.nl", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Tomer", "Iwan", , "t.iwan@vu.nl", role = c("aut", "cre", "cph"))
+Description: The goal of the polyglotr package is to provide easy methods to 
+    translate pieces of text.
 License: MIT + file LICENSE
+URL: https://github.com/Tomeriko96/polyglotr/
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
@@ -14,5 +16,8 @@ Imports:
     rvest,
     stringr
 Suggests: 
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+VignetteBuilder: knitr
