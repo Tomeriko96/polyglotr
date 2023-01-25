@@ -1,3 +1,5 @@
+# polyglotr 1.0.2
+
 # polyglotr 1.0.1
 
 # polyglotr 1.0.0

@@ -1,10 +1,10 @@
 Package: polyglotr
 Title: Translate Text
-Version: 1.0.1
+Version: 1.0.2
 Authors@R: 
     person("Tomer", "Iwan", , "t.iwan@vu.nl", role = c("aut", "cre", "cph"))
-Description: The goal of the polyglotr package is to provide easy methods to 
-    translate pieces of text.
+Description: The goal of the this package is to provide easy methods to 
+    translate pieces of text. Functions send requests to translation services online.
 License: MIT + file LICENSE
 URL: https://github.com/Tomeriko96/polyglotr/
 Encoding: UTF-8
