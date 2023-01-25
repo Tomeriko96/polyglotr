@@ -1,3 +1,4 @@
+options(repos = c(PkgMgr="https://packagemanager.rstudio.com/all/__linux__/focal/latest"))
 ## Set project name
 package_name <- basename(rstudioapi::getActiveProject())
 ## =============================================== ==============================
@@ -7,9 +8,11 @@ build_packages <- c("devtools",
                     "renv",
                     "qpdf")
 
+
 ## install the packages that are not installed yet
 lapply(build_packages[which(!build_packages %in% installed.packages())],
        install.packages)
+
 
 
 ## load the packages
@@ -25,14 +28,13 @@ invisible(lapply(build_packages,
 ## Check if the package is correct and can be built.
 devtools::document()
 devtools::check(manual = T)
-devtools::build_manual(path = ".")
-
+devtools::build_manual(path = "~/Downloads/")
 
 ## Increment the version number and check in that change in Git
 usethis::use_version()
 
 ## Build the package, and release it to the correct folder
-devtools::build(path = "../../../Downloads/")
+devtools::build(path = "~/Downloads/")
 
 ## Make use of the development version again
 usethis::use_dev_version()

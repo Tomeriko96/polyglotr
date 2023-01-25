@@ -1,8 +1,11 @@
 #' Translate text using google translate
 #'
-#' @param text Text to translate.
-#' @param target_language Language to translate text to.
-#' @param source_language Language to translate text from
+#' @param text This is the text that you want to translate.
+#' @param target_language This is the language that you want to translate the text into.
+#' The default value for this argument is "en" for English.
+#' @param source_language This is the language of the text that you want to translate.
+#' The default value for this argument is "auto",
+#' which means that the function will try to automatically detect the language of the text.
 #'
 #' @return Translated text.
 #' @export

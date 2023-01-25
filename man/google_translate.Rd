@@ -7,11 +7,14 @@
 google_translate(text, target_language = "en", source_language = "auto")
 }
 \arguments{
-\item{text}{Text to translate.}
+\item{text}{This is the text that you want to translate.}
 
-\item{target_language}{Language to translate text to.}
+\item{target_language}{This is the language that you want to translate the text into.
+The default value for this argument is "en" for English.}
 
-\item{source_language}{Language to translate text from}
+\item{source_language}{This is the language of the text that you want to translate.
+The default value for this argument is "auto",
+which means that the function will try to automatically detect the language of the text.}
 }
 \value{
 Translated text.
