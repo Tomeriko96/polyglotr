@@ -11,7 +11,7 @@
 #' @export
 #'
 #' @examples
-#'\dontrun{
+#'\donttest{
 #'google_translate("I love languages", target_language = "es")
 #'}
 google_translate <- function(text, target_language = "en", source_language = "auto") {
@@ -28,6 +28,10 @@ google_translate <- function(text, target_language = "en", source_language = "au
     rvest::html_nodes("div.result-container") %>%
     rvest::html_text()
 
+  translation <- urltools::url_decode(translation)
+  translation <- gsub("\n", "", translation)
+
   return(translation)
 
 }
+

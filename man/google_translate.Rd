@@ -23,7 +23,7 @@ Translated text.
 Translate text using google translate
 }
 \examples{
-\dontrun{
+\donttest{
 google_translate("I love languages", target_language = "es")
 }
 }

@@ -8,7 +8,7 @@
 #' @export
 #'
 #' @examples
-#'\dontrun{
+#'\donttest{
 #'mymemory_translate("Hello World", target_language = "es", source_language = "en")
 #'}
 mymemory_translate <- function(text, target_language = "en", source_language = "auto") {
