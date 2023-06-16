@@ -48,12 +48,12 @@ Now, let's translate the review column to French using the `polyglotr` package:
 ```{r translated}
 # Translate the review column to French
 translated_reviews <- df %>%
-  dplyr::mutate(french_review = purrr::map(review, ~ google_translate(.x, target_language = "fr", source_language = "en")))
+  dplyr::mutate(french_review = purrr::map_chr(review, ~ google_translate(.x, target_language = "fr", source_language = "en")))
 
 ```
 
 
-In the code snippet above, we utilize the `mutate` function from `dplyr` in conjunction with `purrr::map` to apply the google_translate function from the package to each element in the review column. The translated reviews are stored in a new column named "french_review".
+In the code snippet above, we utilize the `mutate` function from `dplyr` in conjunction with `purrr::map_chr` to apply the google_translate function from the package to each element in the review column. The translated reviews are stored in a new column named "french_review".
 
 # Results
 

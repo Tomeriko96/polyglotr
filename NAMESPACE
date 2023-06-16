@@ -2,6 +2,7 @@
 
 export("%>%")
 export(google_translate)
+export(language_detect)
 export(mymemory_translate)
 export(translate_file)
 importFrom(magrittr,"%>%")
