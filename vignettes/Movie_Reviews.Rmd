@@ -22,7 +22,6 @@ In this vignette, we will demonstrate how to use the `polyglotr` package in comb
 To get started, you need to install the required packages. If you haven't installed the Polyglotr package and the other dependencies, you can use the following code to install them:
 
 ```{r setup}
-install.packages(c("polyglotr", "text2vec", "purrr", "dplyr"), repos = 'http://cran.us.r-project.org')
 library(polyglotr)
 library(purrr)
 library(dplyr)
