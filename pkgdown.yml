@@ -2,8 +2,9 @@ pandoc: 2.19.2
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
+  Movie_Reviews: Movie_Reviews.html
   polyglotr: polyglotr.html
-last_built: 2023-06-16T12:45Z
+last_built: 2023-06-16T13:41Z
 urls:
   reference: https://tomeriko96.github.io/polyglotr/reference
   article: https://tomeriko96.github.io/polyglotr/articles
