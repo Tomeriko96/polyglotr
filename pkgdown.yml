@@ -3,7 +3,7 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   polyglotr: polyglotr.html
-last_built: 2023-06-16T12:27Z
+last_built: 2023-06-16T12:35Z
 urls:
   reference: https://tomeriko96.github.io/polyglotr/reference
   article: https://tomeriko96.github.io/polyglotr/articles
