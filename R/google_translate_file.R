@@ -1,3 +1,19 @@
+#' Translate File
+#'
+#' Translates the content of a file using Google Translate API.
+#'
+#' @param file_path The path to the file to be translated.
+#' @param target_language The target language to translate the file content to. Default is "en".
+#' @param source_language The source language of the file content. Default is "auto".
+#' @param overwrite Logical indicating whether to overwrite the original file with the translated content. Default is FALSE.
+#'
+#' @return NULL
+#'
+#' @examples
+#' \dontrun{
+#' translate_file("path/to/file.txt", target_language = "fr", source_language = "en", overwrite = TRUE)
+#' }
+#' @export
 translate_file <- function(file_path, target_language = "en", source_language = "auto", overwrite = FALSE) {
 
   lines <- readLines(file_path, warn = FALSE, encoding = "UTF-8")
@@ -10,7 +26,7 @@ translate_file <- function(file_path, target_language = "en", source_language = 
     }
   }
 
-  translated_lines <- sapply(lines, translate_line)
+  translated_lines <- vapply(lines, translate_line, character(1))
 
   combined_lines <- mapply(function(original, translated) {
     return(paste0(substr(original, 1, regexpr("[^ ]", original) - 1), translated))

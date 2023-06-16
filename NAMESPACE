@@ -3,4 +3,5 @@
 export("%>%")
 export(google_translate)
 export(mymemory_translate)
+export(translate_file)
 importFrom(magrittr,"%>%")
