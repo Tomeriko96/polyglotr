@@ -14,6 +14,46 @@ knitr::opts_chunk$set(
 )
 ```
 
+# Introduction
+The `polyglotr` package is a language translation tool for the R programming language. It provides convenient functions to translate text using different (free) translation services. This vignette will guide you through the usage of the package and demonstrate how to translate text and files in various languages.
+
+# Installation
+
+You can install the `polyglotr` package from CRAN using the following command:
+
 ```{r setup}
 library(polyglotr)
 ```
+
+
+# Basic usage
+## Translating Text
+
+To translate text using the `polyglotr` package, you can use the `mymemory_translate` and `google_translate` functions. Here's an example of how to translate a simple phrase:
+
+```{r translate text}
+
+text <- "Hello, how are you?"
+
+# Translate using MyMemory Translation API
+translation_mymemory <- mymemory_translate(text, target_language = "fr", source_language = "en")
+
+# Translate using Google Translate
+translation_google <- google_translate(text, target_language = "fr", source_language = "en")
+
+cat(translation_mymemory)
+cat(translation_google)
+```
+
+## Translating Files
+
+The package also provides a function, `translate_file`, to translate the content of a file. Here's an example:
+
+```{r translate file}
+# Translate the content of a file using Google Translate
+# translate_file("path/to/file.txt", target_language = "fr", source_language = "en", overwrite = TRUE)
+
+```
+
+In the above example, the content of the file "file.txt" is translated from English to French using Google Translate. The translated content replaces the original content if the `overwrite` parameter is set to `TRUE`. Otherwise, a new file with the translated content is created.
+
