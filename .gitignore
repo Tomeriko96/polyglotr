@@ -40,3 +40,4 @@ vignettes/*.pdf
 *.pdf
 /build_package.R
 inst/doc
+docs

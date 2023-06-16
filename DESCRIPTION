@@ -6,7 +6,8 @@ Authors@R:
 Description: The goal of the this package is to provide easy methods to 
     translate pieces of text. Functions send requests to translation services online.
 License: MIT + file LICENSE
-URL: https://github.com/Tomeriko96/polyglotr/
+URL: https://github.com/Tomeriko96/polyglotr/,
+    https://tomeriko96.github.io/polyglotr/
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
