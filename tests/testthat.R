@@ -7,4 +7,4 @@
 # * https://testthat.r-lib.org/reference/test_package.html#special-files
 
 
-test_check("polyglotr")
+testthat::test_check("polyglotr")
