@@ -18,8 +18,11 @@ Imports:
     stringr,
     urltools
 Suggests: 
+		dplyr,
     knitr,
+		purrr,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+		text2vec
 Config/testthat/edition: 3
 VignetteBuilder: knitr
