@@ -1,4 +1,4 @@
-# polyglotr (development version)
+# polyglotr 1.1.0
 
 * Added function to detect language.
 * Added vignettes.
