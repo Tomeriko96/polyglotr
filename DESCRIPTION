@@ -12,17 +12,18 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports: 
+    dplyr,
     httr,
     magrittr,
+    purrr,
+    rlang,
     rvest,
     stringr,
     urltools
 Suggests: 
-		dplyr,
     knitr,
-		purrr,
     rmarkdown,
     testthat (>= 3.0.0),
-		text2vec
+    text2vec
 Config/testthat/edition: 3
 VignetteBuilder: knitr
