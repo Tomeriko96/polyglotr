@@ -12,9 +12,9 @@
 #' @export
 #'
 #' @examples
-#'\donttest{
-#'linguee_word_translation("hello", target_language = "es", source_language = "en")
-#'}
+#' \donttest{
+#' linguee_word_translation("hello", target_language = "es", source_language = "en")
+#' }
 linguee_word_translation <- function(word, target_language, source_language, guess_direction = FALSE, follow_corrections = "always") {
   api_root <- "https://linguee-api.fly.dev/api/v2"
   endpoint <- paste0(api_root, "/translations")

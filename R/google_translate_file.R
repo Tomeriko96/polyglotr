@@ -15,7 +15,6 @@
 #' }
 #' @export
 translate_file <- function(file_path, target_language = "en", source_language = "auto", overwrite = FALSE) {
-
   lines <- readLines(file_path, warn = FALSE, encoding = "UTF-8")
 
   translate_line <- function(line) {
@@ -26,11 +25,11 @@ translate_file <- function(file_path, target_language = "en", source_language = 
     }
   }
 
-  translated_lines <- vapply(lines, translate_line, character(1))
+  translated_lines <- Map(translate_line, lines)
 
-  combined_lines <- mapply(function(original, translated) {
+  combined_lines <- Map(function(original, translated) {
     return(paste0(substr(original, 1, regexpr("[^ ]", original) - 1), translated))
-  }, lines, translated_lines, SIMPLIFY = FALSE)
+  }, lines, translated_lines)
 
   if (overwrite) {
     writeLines(combined_lines, con = file_path, sep = "\n", useBytes = FALSE)

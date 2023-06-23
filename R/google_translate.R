@@ -11,16 +11,18 @@
 #' @export
 #'
 #' @examples
-#'\donttest{
-#'google_translate("I love languages", target_language = "es")
-#'}
+#' \donttest{
+#' google_translate("I love languages", target_language = "es")
+#' }
 google_translate <- function(text, target_language = "en", source_language = "auto") {
   formatted_text <- stringr::str_replace_all(text, " ", "%20")
 
-  formatted_link <- paste0("https://translate.google.com/m?tl=",
-                           target_language, "&sl=", source_language,
-                           "&q=",
-                           formatted_text)
+  formatted_link <- paste0(
+    "https://translate.google.com/m?tl=",
+    target_language, "&sl=", source_language,
+    "&q=",
+    formatted_text
+  )
 
   response <- httr::GET(formatted_link)
 
@@ -32,6 +34,4 @@ google_translate <- function(text, target_language = "en", source_language = "au
   translation <- gsub("\n", "", translation)
 
   return(translation)
-
 }
-

@@ -32,7 +32,6 @@ library(polyglotr)
 To translate text using the `polyglotr` package, you can use the `mymemory_translate` and `google_translate` functions. Here's an example of how to translate a simple phrase:
 
 ```{r translate text}
-
 text <- "Hello, how are you?"
 
 # Translate using MyMemory Translation API
@@ -52,7 +51,6 @@ The package also provides a function, `translate_file`, to translate the content
 ```{r translate file}
 # Translate the content of a file using Google Translate
 # translate_file("path/to/file.txt", target_language = "fr", source_language = "en", overwrite = TRUE)
-
 ```
 
 In the above example, the content of the file "file.txt" is translated from English to French using Google Translate. The translated content replaces the original content if the `overwrite` parameter is set to `TRUE`. Otherwise, a new file with the translated content is created.
