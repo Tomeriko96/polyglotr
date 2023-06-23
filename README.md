@@ -1,4 +1,4 @@
-# polyglotr
+# polyglotr <a href='https://github.com/Tomeriko96/polyglotr'><img src='man/figures/hex-polyglotr.png' align="right" height="138.5" /></a>
 
 [![CodeFactor](https://www.codefactor.io/repository/github/Tomeriko96/polyglotr/badge)](https://www.codefactor.io/repository/github/Tomeriko96/polyglotr)
 [![R-CMD-check](https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml)
