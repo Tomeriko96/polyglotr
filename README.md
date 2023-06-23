@@ -8,6 +8,11 @@ R package to translate text.
 
 The `polyglotr` package is a language translation tool for the R programming language. It provides convenient functions to translate text using different (free) translation services. This vignette will guide you through the usage of the package and demonstrate how to translate text and files in various languages.
 
+Currently, the package has functions to communicate with the following services:
+- Google Translate API
+- Mememory API
+- Linguee API (GitHub dev version of `polyglotr` package)
+
 # Installation
 
 To install the package:
@@ -30,7 +35,7 @@ texts <- c("Hello, how are you?",
            "I love programming!", 
            "This is a test.")
 
-languages = c("es", 
+languages <- c("es", 
               "fr", 
               "de")
 
@@ -48,3 +53,5 @@ create_translation_table(texts, languages)
 #> 3              C'est un test.        Das ist ein Test.
 
 ```
+
+
