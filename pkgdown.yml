@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   Movie_Reviews: Movie_Reviews.html
   polyglotr: polyglotr.html
-last_built: 2023-07-12T13:42Z
+last_built: 2023-07-12T13:44Z
 urls:
   reference: https://tomeriko96.github.io/polyglotr/reference
   article: https://tomeriko96.github.io/polyglotr/articles
