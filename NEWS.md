@@ -1,3 +1,5 @@
+# polyglotr 1.2.1
+
 # polyglotr 1.2.0
 
 * Fixes vectorization issue in google_translate()
