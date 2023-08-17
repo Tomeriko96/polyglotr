@@ -19,6 +19,7 @@ Imports:
     rlang,
     rvest,
     stringr,
+    tibble,
     urltools
 Suggests: 
     knitr,
