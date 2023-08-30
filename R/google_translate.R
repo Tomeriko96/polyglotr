@@ -14,7 +14,7 @@
 #' \donttest{
 #' google_translate("I love languages", target_language = "es")
 #' text_to_translate <- c("the", "quick", "brown")
-#' google_translate (text_to_translate, "fr", "en")
+#' google_translate(text_to_translate, "fr", "en")
 #' }
 google_translate <- function(text, target_language = "en", source_language = "auto") {
   is_vector <- is.vector(text) && length(text) > 1
@@ -31,7 +31,7 @@ google_translate <- function(text, target_language = "en", source_language = "au
   if (is_vector) {
     responses <- purrr::map(formatted_link, httr::GET)
 
-    translations <- purrr::map(responses, ~{
+    translations <- purrr::map(responses, ~ {
       translation <- httr::content(.x) %>%
         rvest::html_nodes("div.result-container") %>%
         rvest::html_text()

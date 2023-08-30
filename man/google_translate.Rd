@@ -26,6 +26,6 @@ Translate text using google translate
 \donttest{
 google_translate("I love languages", target_language = "es")
 text_to_translate <- c("the", "quick", "brown")
-google_translate (text_to_translate, "fr", "en")
+google_translate(text_to_translate, "fr", "en")
 }
 }

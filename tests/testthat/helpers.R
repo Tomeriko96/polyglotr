@@ -11,5 +11,5 @@ skip_if_http_error <- function() {
     "&q=",
     formatted_text
   )
-  skip_if(httr::http_error(httr::GET(formatted_link)))
+  testthat::skip_if(httr::http_error(httr::GET(formatted_link)))
 }

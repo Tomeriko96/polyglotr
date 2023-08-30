@@ -15,14 +15,14 @@
 #' translations <- create_translation_table(words, languages)
 #' print(translations)
 create_translation_table <- function(words, languages) {
-  Original_word <- NULL
-  translations <- data.frame(Original_word = words)
+  original_word <- NULL
+  translations <- data.frame(original_word = words)
 
   for (language in languages) {
     column_name <- language
     translations <- translations %>%
       dplyr::mutate("{column_name}" := purrr::map_chr(
-        Original_word,
+        original_word,
         ~ google_translate(., target_language = language)
       ))
   }

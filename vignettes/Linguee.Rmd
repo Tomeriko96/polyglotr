@@ -19,9 +19,7 @@ knitr::opts_chunk$set(
 The `polyglotr` package provides convenient functions to access the Linguee API and retrieve translations, examples, and external sources. This vignette demonstrates the usage of three key functions: `linguee_external_sources()`, `linguee_translation_examples()`, and `linguee_word_translation()`.
 
 ```{r}
-
 library(polyglotr)
-
 ```
 
 
@@ -31,11 +29,9 @@ library(polyglotr)
 The `linguee_external_sources()` function retrieves external sources using the Linguee Translation API. Here's an example usage:
 
 ```{r}
-
-external_sources <- linguee_external_sources("hello", src = "en", dst = "de" ) 
+external_sources <- linguee_external_sources("hello", src = "en", dst = "de")
 
 print(external_sources)
-
 ```
 
 
@@ -45,8 +41,7 @@ The `linguee_translation_examples()` function provides translation examples usin
 
 
 ```{r}
-
-translation_examples <- linguee_translation_examples("hello", src = "en", dst = "de") 
+translation_examples <- linguee_translation_examples("hello", src = "en", dst = "de")
 
 print(translation_examples)
 ```
@@ -59,8 +54,7 @@ The `linguee_word_translation()` function translates a word using the Linguee Tr
 
 
 ```{r}
-
-word_translation <- linguee_word_translation("hello", source_language = "en", target_language = "de") 
+word_translation <- linguee_word_translation("hello", source_language = "en", target_language = "de")
 
 print(word_translation)
 ```
