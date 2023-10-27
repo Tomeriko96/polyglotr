@@ -5,7 +5,6 @@
 #' @param input_file A character string indicating the path to the input file.
 #' @param source_language A character string indicating the source language.
 #' @param target_languages A character vector indicating the target languages.
-#' @param output_dir A character string indicating the directory for the output file. If not provided, the output file is saved in the current working directory.
 #' @return Nothing is returned.
 #' @examples
 #' \dontrun{

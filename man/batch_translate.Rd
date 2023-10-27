@@ -12,8 +12,6 @@ batch_translate(input_file, source_language, target_languages)
 \item{source_language}{A character string indicating the source language.}
 
 \item{target_languages}{A character vector indicating the target languages.}
-
-\item{output_dir}{A character string indicating the directory for the output file. If not provided, the output file is saved in the current working directory.}
 }
 \value{
 Nothing is returned.
