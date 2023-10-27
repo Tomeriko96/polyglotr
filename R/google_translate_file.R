@@ -35,7 +35,7 @@ translate_file <- function(file_path, target_language = "en", source_language = 
     writeLines(combined_lines, con = file_path, sep = "\n", useBytes = FALSE)
   } else {
     file_extension <- tools::file_ext(file_path)
-    new_file_path <- paste0(tools::file_path_sans_ext(file_path), "_translated.", file_extension)
+    new_file_path <- paste0(tools::file_path_sans_ext(file_path), "_", target_language, "_translated.", file_extension)
     writeLines(as.character(combined_lines), con = new_file_path, sep = "\n", useBytes = FALSE)
   }
 
