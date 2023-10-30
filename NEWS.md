@@ -1,3 +1,6 @@
+# polyglotr 1.2.2
+* add batch_translate
+
 # polyglotr 1.2.1
 
 # polyglotr 1.2.0

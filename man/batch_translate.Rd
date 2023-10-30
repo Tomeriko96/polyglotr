@@ -17,7 +17,7 @@ batch_translate(input_file, source_language, target_languages)
 Nothing is returned.
 }
 \description{
-This function translates a file into each target language using the polyglotr package's translate_file function, and saves the translated files in the specified directory.
+This function translates a file into each target language using the polyglotr package's translate_file function, and saves the translated files.
 }
 \examples{
 \dontrun{

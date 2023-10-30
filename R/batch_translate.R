@@ -1,6 +1,6 @@
 #' Batch Translation Function
 #'
-#' This function translates a file into each target language using the polyglotr package's translate_file function, and saves the translated files in the specified directory.
+#' This function translates a file into each target language using the polyglotr package's translate_file function, and saves the translated files.
 #'
 #' @param input_file A character string indicating the path to the input file.
 #' @param source_language A character string indicating the source language.
