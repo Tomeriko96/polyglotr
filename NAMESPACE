@@ -2,6 +2,7 @@
 
 export("%>%")
 export(create_translation_table)
+export(google_get_supported_languages)
 export(google_translate)
 export(language_detect)
 export(linguee_external_sources)

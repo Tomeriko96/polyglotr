@@ -17,6 +17,7 @@ Imports:
     httr,
     magrittr,
     purrr,
+    RCurl,
     rlang,
     rvest,
     stringr,
