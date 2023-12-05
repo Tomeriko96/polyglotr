@@ -19,7 +19,7 @@
 google_translate <- function(text, target_language = "en", source_language = "auto") {
   is_vector <- is.vector(text) && length(text) > 1
 
-  formatted_text <- stringr::str_replace_all(text, " ", "%20")
+  formatted_text <- urltools::url_encode(text)
 
   formatted_link <- paste0(
     "https://translate.google.com/m?tl=",
