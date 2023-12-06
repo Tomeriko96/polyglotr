@@ -1,3 +1,9 @@
+# polyglotr 1.3.0
+* fixes bug concerning special characters in `google_translate()`
+* adds function to retrieve supported languages for Google Translate
+* adds function to validate language codes
+* adds package dataset for the supported languages in Google Translate
+
 # polyglotr 1.2.2
 * add batch_translate
 
