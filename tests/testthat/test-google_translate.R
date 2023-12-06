@@ -43,3 +43,15 @@ test_that("google translate returns translations with special characters", {
   expected_translation <- "The Nile flows through the Sudanese desert to Egypt towards the north and passes through the city of Cairo, located on the large river delta (Nile Delta), then the river crosses the cities of Damietta and Rosetta and flows..."
   expect_equal(translation, expected_translation)
 })
+
+# Unit tests for checking supported languages in Google Translate
+test_that("google_is_valid_language_code: valid codes", {
+  expect_true(google_is_valid_language_code("en"))
+  expect_true(google_is_valid_language_code("fr"))
+  expect_true(google_is_valid_language_code("auto"))
+  expect_true(google_is_valid_language_code("iw"))
+})
+
+test_that("google_is_valid_language_code: invalid codes", {
+  expect_false(google_is_valid_language_code("xx"))
+})

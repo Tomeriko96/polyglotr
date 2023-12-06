@@ -17,6 +17,15 @@
 #' google_translate(text_to_translate, "fr", "en")
 #' }
 google_translate <- function(text, target_language = "en", source_language = "auto") {
+
+  if (!google_is_valid_language_code(target_language)) {
+    stop("Invalid target language code.")
+  }
+
+  if (!google_is_valid_language_code(source_language)) {
+    stop("Invalid source language code.")
+  }
+
   is_vector <- is.vector(text) && length(text) > 1
 
   formatted_text <- urltools::url_encode(text)

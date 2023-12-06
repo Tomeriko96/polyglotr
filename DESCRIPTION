@@ -30,3 +30,6 @@ Suggests:
     text2vec
 Config/testthat/edition: 3
 VignetteBuilder: knitr
+Depends: 
+    R (>= 2.10)
+LazyData: true
