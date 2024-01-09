@@ -1,9 +1,9 @@
 test_that("translation works", {
   expect_equal(
-    google_translate("hello",
-      target_language = "es"
+    google_translate("Hello",
+      target_language = "nl"
     ),
-    "Hola"
+    "Hallo"
   )
 })
 

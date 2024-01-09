@@ -1,3 +1,6 @@
+# polyglotr 1.3.1
+* fixes testing issue in CRAN checks
+
 # polyglotr 1.3.0
 * fixes bug concerning special characters in `google_translate()`
 * adds function to retrieve supported languages for Google Translate
