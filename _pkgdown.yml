@@ -8,10 +8,12 @@ reference:
     contents:
       - batch_translate
       - create_translation_table
+      - create_transliteration_table
       - google_get_supported_languages
       - google_is_valid_language_code
       - google_supported_languages
       - google_translate
+      - google_transliterate
       - language_detect
       - translate_file
 
