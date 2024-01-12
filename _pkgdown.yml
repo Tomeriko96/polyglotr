@@ -2,3 +2,27 @@ url: https://tomeriko96.github.io/polyglotr/
 template:
   bootstrap: 5
 
+reference:
+  - title: Google Translation Methods
+    desc: Methods using Google Translation services
+    contents:
+      - batch_translate
+      - create_translation_table
+      - google_get_supported_languages
+      - google_is_valid_language_code
+      - google_supported_languages
+      - google_translate
+      - language_detect
+      - translate_file
+
+  - title: Linguee Methods
+    desc: Methods using Linguee services
+    contents:
+      - linguee_external_sources
+      - linguee_translation_examples
+      - linguee_word_translation
+
+  - title: MyMemory Methods
+    desc: Methods using MyMemory Translation services
+    contents:
+      - mymemory_translate

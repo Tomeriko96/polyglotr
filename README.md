@@ -16,6 +16,11 @@ Currently, the package has functions to communicate with the following services:
 
 -   Linguee API
 
+# Features
+To see which functions are available, please refer to the reference page of the `polyglotr` package. The [reference](https://Tomeriko96.github.io/polyglotr/reference/index.html) page provides a comprehensive list of functions available in the package, organized by category.
+
+Additionally, the package includes vignettes that provide more detailed information on how to use the functions in the package.
+
 # Installation
 
 To install the package:
