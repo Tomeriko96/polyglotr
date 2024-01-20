@@ -28,3 +28,10 @@ reference:
     desc: Methods using MyMemory Translation services
     contents:
       - mymemory_translate
+
+  - title: Wikimedia Foundation Methods
+    desc: Methods using Wikimedia Foundation Translation services
+    contents:
+      - wikimedia_detect_language
+      - wikipedia_get_language_names
+      - wmcloud_translate

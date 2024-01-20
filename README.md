@@ -16,6 +16,8 @@ Currently, the package has functions to communicate with the following services:
 
 -   Linguee API
 
+-   Wikimedia Translation
+
 # Features
 To see which functions are available, please refer to the reference page of the `polyglotr` package. The [reference](https://Tomeriko96.github.io/polyglotr/reference/index.html) page provides a comprehensive list of functions available in the package, organized by category.
 
