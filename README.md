@@ -10,13 +10,13 @@ The `polyglotr` package is a language translation tool for the R programming lan
 
 Currently, the package has functions to communicate with the following services:
 
--   Google Translate API
+-   [Google Translate](https://translate.google.com/m) API
 
--   Mymemory API
+-   [Mymemory](https://mymemory.translated.net/) API
 
--   Linguee API
+-   [Linguee](https://www.linguee.com/) API
 
--   Wikimedia Translation
+-   [Wikimedia Translation](https://translate.wmcloud.org/) API
 
 # Features
 To see which functions are available, please refer to the reference page of the `polyglotr` package. The [reference](https://Tomeriko96.github.io/polyglotr/reference/index.html) page provides a comprehensive list of functions available in the package, organized by category.
