@@ -29,6 +29,11 @@ reference:
     contents:
       - mymemory_translate
 
+  - title: Pons Methods
+    desc: Methods using Pons Translation services
+    contents:
+      - pons_translate
+
   - title: Wikimedia Foundation Methods
     desc: Methods using Wikimedia Foundation Translation services
     contents:
