@@ -34,6 +34,14 @@ reference:
     contents:
       - pons_translate
 
+  - title: QCRI Methods
+    desc: Methods using QCRI services
+    contents:
+      - qcri_api_key
+      - qcri_get_domains
+      - qcri_get_language_pairs
+      - qcri_translate_text
+
   - title: Wikimedia Foundation Methods
     desc: Methods using Wikimedia Foundation Translation services
     contents:
