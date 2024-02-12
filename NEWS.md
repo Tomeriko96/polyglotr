@@ -1,3 +1,9 @@
+# polyglotr 1.4.0
+* Adds QCRI methods
+* Adds Pons methods
+* Adds Wikimedia Foundation methods
+* Adds Google Transliteration methods
+
 # polyglotr 1.3.1
 * fixes testing issue in CRAN checks
 

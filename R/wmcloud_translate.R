@@ -6,7 +6,7 @@
 #' @param content The content to translate. Can be plain text, a URL (for a webpage), a JSON string, or a Markdown string.
 #' @param target_language The target language for the translation (default is "en").
 #' @param source_language The source language of the content (default is "en").
-#' @param format The format of the content ("html", "json", "markdown", "text", "svg", "webpage").
+#' @param format The format of the content ("json", "markdown", "text", "webpage").
 #' @param model The model to use for the translation (only "nllb200-600M" is currently known to work).
 #'
 #' @return The translated content.
@@ -48,7 +48,7 @@ wmcloud_translate <- function(content,
   url <- "https://translate.wmcloud.org/api/translate"
 
   # List of valid formats
-  valid_formats <- c("html", "json", "markdown", "text", "svg", "webpage")
+  valid_formats <- c("json", "markdown", "text", "webpage")
 
   # List of valid models
   valid_models <- c("nllb200-600M") # Add more models here

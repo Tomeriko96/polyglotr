@@ -19,7 +19,7 @@ wmcloud_translate(
 
 \item{source_language}{The source language of the content (default is "en").}
 
-\item{format}{The format of the content ("html", "json", "markdown", "text", "svg", "webpage").}
+\item{format}{The format of the content ("json", "markdown", "text", "webpage").}
 
 \item{model}{The model to use for the translation (only "nllb200-600M" is currently known to work).}
 }
