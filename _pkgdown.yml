@@ -33,6 +33,7 @@ reference:
     desc: Methods using Pons Translation services
     contents:
       - pons_translate
+      - pons_dictionaries
 
   - title: QCRI Methods
     desc: Methods using QCRI services
