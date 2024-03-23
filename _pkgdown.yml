@@ -24,7 +24,7 @@ reference:
       - linguee_translation_examples
       - linguee_word_translation
 
-  -title: Microsoft Methods
+  - title: Microsoft Methods
     desc: Methods using Microsoft Translation services
     content:
       - microsoft_supported_languages
