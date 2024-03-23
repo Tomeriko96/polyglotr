@@ -26,7 +26,7 @@ reference:
 
   - title: Microsoft Methods
     desc: Methods using Microsoft Translation services
-    content:
+    contents:
       - microsoft_supported_languages
 
   - title: MyMemory Methods
