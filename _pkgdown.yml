@@ -24,6 +24,11 @@ reference:
       - linguee_translation_examples
       - linguee_word_translation
 
+  -title: Microsoft Methods
+    desc: Methods using Microsoft Translation services
+    content:
+      - microsoft_supported_languages
+
   - title: MyMemory Methods
     desc: Methods using MyMemory Translation services
     contents:
