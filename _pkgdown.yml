@@ -54,3 +54,8 @@ reference:
       - wikimedia_detect_language
       - wikipedia_get_language_names
       - wmcloud_translate
+
+  - title: Funtranslation  Methods
+    desc: Methods using Funtranslation services for morse code
+    contents:
+      - translate_to_morse
