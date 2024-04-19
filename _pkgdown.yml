@@ -59,3 +59,4 @@ reference:
     desc: Methods using Funtranslation services for morse code
     contents:
       - translate_to_morse
+      - translate_to_morse_audio
