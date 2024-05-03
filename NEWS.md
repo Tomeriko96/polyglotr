@@ -1,3 +1,7 @@
+# polyglotr 1.5.0
+* Adds Pons dictionary method
+* Adds FunTranslaion methods for morse code
+
 # polyglotr 1.4.0
 * Adds QCRI methods
 * Adds Pons methods
