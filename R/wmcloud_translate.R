@@ -51,7 +51,7 @@ wmcloud_translate <- function(content,
   valid_formats <- c("json", "markdown", "text", "webpage")
 
   # List of valid models
-  valid_models <- c("nllb200-600M") # Add more models here
+  valid_models <- c("nllb200-600M", "nllb-wikipedia", "opusmt-en-bi", "opusmt-en-bcl", "opusmt-en-to", "opusmt-en-chr", "opusmt-en-guw", "opusmt-en-srn", "opusmt-en-ty", "opusmt-en-ve", "opusmt-sv-fi", "softcatala", "indictrans2-indic-en", "indictrans2-en-indic", "indictrans2-indic-indic", "madlad-400")
 
   # Check if format and model are valid
   if (!format %in% valid_formats) {

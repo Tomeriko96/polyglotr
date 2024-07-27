@@ -13,6 +13,7 @@ reference:
       - google_is_valid_language_code
       - google_supported_languages
       - google_translate
+      - google_translate_long_text
       - google_transliterate
       - language_detect
       - translate_file
