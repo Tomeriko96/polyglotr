@@ -1,3 +1,7 @@
+# polyglotr 1.5.1
+* Adds specialized function to translate long text objects
+* Adds more translation models for wmcloud
+
 # polyglotr 1.5.0
 * Adds Pons dictionary method
 * Adds FunTranslaion methods for morse code
