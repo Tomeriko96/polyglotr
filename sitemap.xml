@@ -1,117 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/404.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/articles/Linguee.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/articles/Movie_Reviews.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/articles/polyglotr.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/index.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/batch_translate.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/create_translation_table.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/create_transliteration_table.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/google_get_supported_languages.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/google_is_valid_language_code.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/google_supported_languages.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/google_translate.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/google_transliterate.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/language_detect.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/linguee_external_sources.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/linguee_translation_examples.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/linguee_word_translation.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/microsoft_supported_languages.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/mymemory_translate.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/pipe.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/pons_dictionaries.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/pons_translate.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/qcri_api_key.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/qcri_get_domains.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/qcri_get_language_pairs.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/qcri_translate_text.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/translate_file.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/translate_to_morse.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/translate_to_morse_audio.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/wikimedia_detect_language.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/wikipedia_get_language_names.html</loc>
-  </url>
-  <url>
-    <loc>https://tomeriko96.github.io/polyglotr/reference/wmcloud_translate.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://tomeriko96.github.io/polyglotr/404.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/LICENSE-text.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/LICENSE.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/articles/Linguee.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/articles/Movie_Reviews.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/articles/index.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/articles/polyglotr.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/authors.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/index.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/news/index.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/batch_translate.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/create_translation_table.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/create_transliteration_table.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/google_get_supported_languages.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/google_is_valid_language_code.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/google_supported_languages.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/google_translate.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/google_translate_long_text.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/google_transliterate.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/index.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/language_detect.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/linguee_external_sources.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/linguee_translation_examples.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/linguee_word_translation.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/microsoft_supported_languages.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/mymemory_translate.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/pipe.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/pons_dictionaries.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/pons_translate.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/qcri_api_key.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/qcri_get_domains.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/qcri_get_language_pairs.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/qcri_translate_text.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/translate_file.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/translate_to_morse.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/translate_to_morse_audio.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/wikimedia_detect_language.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/wikipedia_get_language_names.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/wmcloud_translate.html</loc></url>
 </urlset>
+
