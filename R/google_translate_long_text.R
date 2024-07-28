@@ -33,15 +33,8 @@ google_translate_long_text <- function(text, target_language = "en", source_lang
     sapply(split_indices, function(i) substr(text, i, i + chunk_size - 1))
   }
 
-  # Split text into chunks if it's too long
-  if (nchar(text) > chunk_size) {
-    text_chunks <- split_text(text, chunk_size)
-  } else {
-    text_chunks <- list(text)
-  }
-
-  # Translate each chunk
-  translations <- sapply(text_chunks, function(chunk) {
+  # Function to translate a single chunk of text
+  translate_chunk <- function(chunk) {
     formatted_text <- urltools::url_encode(chunk)
     formatted_link <- paste0(
       "https://translate.google.com/m?tl=",
@@ -56,8 +49,32 @@ google_translate_long_text <- function(text, target_language = "en", source_lang
 
     translation <- urltools::url_decode(translation)
     gsub("\n", "", translation)
-  })
+  }
 
-  # Combine translated chunks
-  paste(translations, collapse = " ")
+  # Check if the input is a vector
+  is_vector <- is.vector(text) && length(text) > 1
+
+  if (is_vector) {
+    # Process each element in the vector
+    translations <- sapply(text, function(single_text) {
+      if (nchar(single_text) > chunk_size) {
+        text_chunks <- split_text(single_text, chunk_size)
+      } else {
+        text_chunks <- list(single_text)
+      }
+      translated_chunks <- sapply(text_chunks, translate_chunk)
+      paste(translated_chunks, collapse = " ")
+    })
+  } else {
+    # Process a single string
+    if (nchar(text) > chunk_size) {
+      text_chunks <- split_text(text, chunk_size)
+    } else {
+      text_chunks <- list(text)
+    }
+    translations <- sapply(text_chunks, translate_chunk)
+    translations <- paste(translations, collapse = " ")
+  }
+
+  return(translations)
 }
