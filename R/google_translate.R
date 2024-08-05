@@ -38,10 +38,8 @@ google_translate <- function(text, target_language = "en", source_language = "au
   )
 
   if (is_vector) {
-    responses <- purrr::map(formatted_link, httr::GET)
-
-    translations <- purrr::map(responses, ~ {
-      translation <- httr::content(.x) %>%
+    translations <- purrr::map(formatted_link, ~ {
+      translation <- rvest::read_html(.x) %>%
         rvest::html_nodes("div.result-container") %>%
         rvest::html_text()
 
@@ -53,9 +51,7 @@ google_translate <- function(text, target_language = "en", source_language = "au
 
     return(translations)
   } else {
-    response <- httr::GET(formatted_link)
-
-    translation <- httr::content(response) %>%
+    translation <- rvest::read_html(formatted_link) %>%
       rvest::html_nodes("div.result-container") %>%
       rvest::html_text()
 
