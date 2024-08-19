@@ -21,7 +21,7 @@ test_that("google_translate returns correct translation for unvectorized input",
   text_to_translate <- "I love languages"
   translation <- google_translate(text_to_translate, target_language = "es")
 
-  expected_translation <- "me encantan los idiomas"
+  expected_translation <- "Me encantan los idiomas"
   expect_equal(translation, expected_translation)
 })
 
