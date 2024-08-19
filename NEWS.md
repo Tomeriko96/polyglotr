@@ -1,3 +1,6 @@
+# polyglotr 1.5.2
+* Fixes encoding issue in `google_translate()`
+
 # polyglotr 1.5.1
 * Adds specialized function to translate long text objects
 * Adds more translation models for wmcloud
