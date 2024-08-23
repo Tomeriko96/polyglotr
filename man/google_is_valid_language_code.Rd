@@ -16,7 +16,9 @@ A logical value indicating if the language code is valid.
 This function checks if a given language code is in the \code{google_supported_languages} dataset.
 }
 \examples{
+\dontrun{
 google_is_valid_language_code("en") # TRUE
 google_is_valid_language_code("fr") # TRUE
 google_is_valid_language_code("xx") # FALSE
+}
 }

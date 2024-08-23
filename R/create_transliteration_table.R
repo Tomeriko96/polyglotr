@@ -10,10 +10,12 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' words <- c("Hello world", "Goodbye", "Thank you", "Please")
 #' languages <- c("ar", "he", "el", "ru", "fa")
 #' transliterations <- create_transliteration_table(words, languages)
 #' print(transliterations)
+#' }
 create_transliteration_table <- function(words, languages) {
   original_word <- NULL
   transliterations <- data.frame(original_word = words)

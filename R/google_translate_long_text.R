@@ -12,7 +12,7 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' long_text <- paste(rep("This is a long text to translate.", 100), collapse = " ")
 #' google_translate_long_text(
 #' long_text, target_language = "de",

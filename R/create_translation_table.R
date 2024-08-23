@@ -10,10 +10,12 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' words <- c("Hello", "Translate", "Table", "Script")
 #' languages <- c("es", "fr", "de", "nl")
 #' translations <- create_translation_table(words, languages)
 #' print(translations)
+#' }
 create_translation_table <- function(words, languages) {
   original_word <- NULL
   translations <- data.frame(original_word = words)

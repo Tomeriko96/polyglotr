@@ -18,8 +18,10 @@ A data frame representing the translation table with original words and translat
 This function generates a translation table by translating a list of words into multiple languages.
 }
 \examples{
+\dontrun{
 words <- c("Hello", "Translate", "Table", "Script")
 languages <- c("es", "fr", "de", "nl")
 translations <- create_translation_table(words, languages)
 print(translations)
+}
 }

@@ -18,8 +18,10 @@ A data frame representing the transliteration table with original words and tran
 This function generates a transliteration table by transliterating a list of words into multiple languages.
 }
 \examples{
+\dontrun{
 words <- c("Hello world", "Goodbye", "Thank you", "Please")
 languages <- c("ar", "he", "el", "ru", "fa")
 transliterations <- create_transliteration_table(words, languages)
 print(transliterations)
+}
 }

@@ -28,7 +28,7 @@ This function translates long text from one language to another using Google Tra
 It splits the text into smaller chunks if necessary to handle large inputs.
 }
 \examples{
-\donttest{
+\dontrun{
 long_text <- paste(rep("This is a long text to translate.", 100), collapse = " ")
 google_translate_long_text(
 long_text, target_language = "de",
