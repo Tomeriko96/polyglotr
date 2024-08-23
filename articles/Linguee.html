@@ -87,21 +87,7 @@ usage:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">external_sources</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/linguee_external_sources.html">linguee_external_sources</a></span><span class="op">(</span><span class="st">"hello"</span>, src <span class="op">=</span> <span class="st">"en"</span>, dst <span class="op">=</span> <span class="st">"de"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">external_sources</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 30 × 4</span></span></span>
-<span><span class="co">#&gt;    src                                                     dst   src_url dst_url</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="color: #949494;">"</span>On this forehead of business to elevated cognitive co… <span style="color: #949494;">"</span>Auf… http:/… http:/…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="color: #949494;">"</span>Hello and welcome to a project [...] that aims to col… <span style="color: #949494;">"</span>Hal… http:/… http:/…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="color: #949494;">"</span>Hello people, you'll hardly believe [...] this, but i… <span style="color: #949494;">"</span>Leu… http:/… http:/…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="color: #949494;">"</span>Wu Kun: Hello, everyone, very grateful [...] to all n… <span style="color: #949494;">"</span>Wu … http:/… http:/…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="color: #949494;">"</span>Hello,I am Desperately looking [...] for a new home t… <span style="color: #949494;">"</span>Hal… http:/… http:/…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="color: #949494;">"</span>The two children who are playing Slovakia and Hungary… <span style="color: #949494;">"</span>Die… http:/… http:/…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #949494;">"</span>In our city, the local and foreign tourists, in a pea… <span style="color: #949494;">"</span>In … http:/… http:/…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="color: #949494;">"</span>For example, soup is traditionally eaten in China at … <span style="color: #949494;">"</span>So … http:/… http:/…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="color: #949494;">"</span>Example of application: In case you want to send an S… <span style="color: #949494;">"</span>Anw… http:/… http:/…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #949494;">"</span>It begins with mouth percussion, with playful greetin… <span style="color: #949494;">"</span>Es … http:/… http:/…</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 20 more rows</span></span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">external_sources</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="translation-examples">Translation Examples<a class="anchor" aria-label="anchor" href="#translation-examples"></a>
@@ -112,14 +98,7 @@ example usage:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">translation_examples</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/linguee_translation_examples.html">linguee_translation_examples</a></span><span class="op">(</span><span class="st">"hello"</span>, src <span class="op">=</span> <span class="st">"en"</span>, dst <span class="op">=</span> <span class="st">"de"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">translation_examples</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 3</span></span></span>
-<span><span class="co">#&gt;   source           target            pos         </span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> say hello to     grüßen            verb        </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> say hello        guten Tag sagen   verb        </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Hello everybody! Hallo allerseits! interjection</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> big hello        großes Hallo      noun, neuter</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">translation_examples</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="word-translation">Word Translation<a class="anchor" aria-label="anchor" href="#word-translation"></a>
@@ -129,8 +108,7 @@ word using the Linguee Translation API. Here’s an example usage:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">word_translation</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/linguee_word_translation.html">linguee_word_translation</a></span><span class="op">(</span><span class="st">"hello"</span>, source_language <span class="op">=</span> <span class="st">"en"</span>, target_language <span class="op">=</span> <span class="st">"de"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">word_translation</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "Hallo"      "Hallo!"     "Guten Tag!" "Grüß Gott!" "Grüezi!"</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">word_translation</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

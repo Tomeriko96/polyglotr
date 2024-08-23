@@ -67,15 +67,12 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">words</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Hello world"</span>, <span class="st">"Goodbye"</span>, <span class="st">"Thank you"</span>, <span class="st">"Please"</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="va">words</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Hello world"</span>, <span class="st">"Goodbye"</span>, <span class="st">"Thank you"</span>, <span class="st">"Please"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">languages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ar"</span>, <span class="st">"he"</span>, <span class="st">"el"</span>, <span class="st">"ru"</span>, <span class="st">"fa"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">transliterations</span> <span class="op">&lt;-</span> <span class="fu">create_transliteration_table</span><span class="op">(</span><span class="va">words</span>, <span class="va">languages</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">transliterations</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   original_word         ar         he          el          ru       fa</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   Hello world هالو وورلد הללו וורלד Χελλο ωορλδ Хелло ворлд هلو ورلد</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2       Goodbye       غضبي     גודביי     Γοοδβυε      Гоодбе    گودبی</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3     Thank you     ظنك يو    תחנק יו    Θανκ ιού   Тханк ооо تهانک یو</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4        Please       بليس      פאלעס      Πλέασε      Плеасе    پلاسه</span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

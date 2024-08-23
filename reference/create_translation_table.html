@@ -67,15 +67,12 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">words</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Hello"</span>, <span class="st">"Translate"</span>, <span class="st">"Table"</span>, <span class="st">"Script"</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="va">words</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Hello"</span>, <span class="st">"Translate"</span>, <span class="st">"Table"</span>, <span class="st">"Script"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">languages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"es"</span>, <span class="st">"fr"</span>, <span class="st">"de"</span>, <span class="st">"nl"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">translations</span> <span class="op">&lt;-</span> <span class="fu">create_translation_table</span><span class="op">(</span><span class="va">words</span>, <span class="va">languages</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">translations</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   original_word       es       fr         de       nl</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         Hello     Hola  Bonjour      Hallo    Hallo</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     Translate Traducir Traduire Übersetzen Vertalen</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         Table     Mesa  Tableau      Tisch    Tafel</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4        Script    Guion Scénario     Skript   Script</span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
