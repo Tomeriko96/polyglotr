@@ -8,8 +8,8 @@
 <title>Translate Text • polyglotr</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Translate Text">
 <meta name="description" content="Provide easy methods to translate pieces of text. Functions send requests to translation services online.">
 <meta property="og:description" content="Provide easy methods to translate pieces of text. Functions send requests to translation services online.">
@@ -54,15 +54,43 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="polyglotr-">polyglotr <a href="https://github.com/Tomeriko96/polyglotr" class="external-link"><img src="reference/figures/hex-polyglotr.png" style="float:right; height:200px;" height="200" align="right"></a>
-<a class="anchor" aria-label="anchor" href="#polyglotr-"></a>
+  <main id="main" class="col-md-9"><p align="center">
+&lt;img src=“man/figures/hex-polyglotr.png” alt=“polyglotr” height:200px;” height=“200”&gt;
+</p>
+<div class="page-header"><h1 align="center">
+polyglotr | Multilingual Text Translation
 </h1></div>
-<p><a href="https://www.codefactor.io/repository/github/Tomeriko96/polyglotr" class="external-link"><img src="https://www.codefactor.io/repository/github/Tomeriko96/polyglotr/badge" alt="CodeFactor"></a> <a href="https://app.codecov.io/gh/tomeriko96/polyglotr?branch=main" class="external-link"><img src="https://codecov.io/gh/tomeriko96/polyglotr/branch/main/graph/badge.svg" alt="Codecov test coverage"></a> <a href="https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://CRAN.R-project.org/package=polyglotr/" class="external-link"><img src="https://www.r-pkg.org/badges/version/polyglotr" alt="CRAN status"></a> <a href="https://diffify.com/R/polyglotr" target="_blank" class="external-link"><img src="https://diffify.com/diffify-badge.svg" alt="The diffify page for the R package polyglotr" style="width: 100px; max-width: 100%;"></a> <a href="https://cran.r-project.org/package=polyglotr/" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/last-month/polyglotr?color=green/" alt="CRAN last month downloads"></a> <a href="https://cran.r-project.org/package=polyglotr/" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/polyglotr?color=green/" alt="CRAN downloads"></a></p>
-<p>R package to translate text.</p>
+<div align="center">
+<strong>🌐 Versatile R Package for Text Translation 🗣️</strong> <br> Seamless integration with multiple free translation services for R users. <br><sub>Ideal for translating text, files, and creating multilingual datasets.</sub>
+</div>
+<div align="center">
+<h3>
+<a href="https://cran.r-project.org/web/packages/polyglotr/index.html" class="external-link"> CRAN </a> <span> | </span> <a href="#features"> Features </a> <span> | </span> <a href="#installation"> Installation </a> <span> | </span> <a href="#usage"> Usage </a> <span> | </span> <a href="#contribution"> Contribution </a>
+</h3>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>       <span class="sc">&lt;</span>div align<span class="ot">=</span><span class="st">"center"</span><span class="sc">&gt;</span> <span class="er">&lt;</span>sub<span class="sc">&gt;</span>The ultimate R translation toolkit. Built with ❤️ by <span class="sc">&lt;</span>a href<span class="ot">=</span><span class="st">"https://github.com/Tomeriko96"</span><span class="sc">&gt;</span>Tomeriko96<span class="sc">&lt;</span><span class="er">/</span>a<span class="sc">&gt;</span> and <span class="sc">&lt;</span>a href<span class="ot">=</span><span class="st">"https://github.com/Tomeriko96/polyglotr/graphs/contributors"</span><span class="sc">&gt;</span> contributors <span class="sc">&lt;</span><span class="er">/</span>a<span class="sc">&gt;</span> . <span class="sc">&lt;</span><span class="er">/</span>sub<span class="sc">&gt;</span> <span class="er">&lt;/</span>div<span class="sc">&gt;</span></span></code></pre></div>
+
+<p align="center">
+<a href="https://app.codecov.io/gh/tomeriko96/polyglotr?branch=main" class="external-link"><img src="https://codecov.io/gh/tomeriko96/polyglotr/branch/main/graph/badge.svg" alt="Codecov test coverage"></a> <a href="https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://CRAN.R-project.org/package=polyglotr/" class="external-link"><img src="https://www.r-pkg.org/badges/version/polyglotr" alt="CRAN status"></a> <a href="https://cran.r-project.org/package=polyglotr/" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/last-month/polyglotr?color=green/" alt="CRAN last month downloads"></a> <a href="https://cran.r-project.org/package=polyglotr/" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/polyglotr?color=green/" alt="CRAN downloads"></a> <a href="https://diffify.com/R/polyglotr" target="_blank" class="external-link"><img src="https://diffify.com/diffify-badge.svg" alt="The diffify page for the R package polyglotr" style="width: 100px; max-width: 100%;"></a>
+</p>
+<div class="section level2">
+<h2 id="table-of-contents">Table of Contents<a class="anchor" aria-label="anchor" href="#table-of-contents"></a>
+</h2>
+<ul>
+<li><a href="#overview-">Overview 🌍</a></li>
+<li><a href="#features-">Features 🚀</a></li>
+<li><a href="#installation-">Installation 📦</a></li>
+<li><a href="#quick-start-">Quick Start 🏁</a></li>
+<li><a href="#usage-">Usage 💬</a></li>
+<li><a href="#documentation-">Documentation 📖</a></li>
+<li><a href="#contribution-">Contribution 🤝</a></li>
+<li><a href="#license-%EF%B8%8F">License ⚖️</a></li>
+<li><a href="#citation-">Citation 📝</a></li>
+<li><a href="#related-projects-">Related Projects 🌐</a></li>
+</ul>
 </div>
 <div class="section level1">
-<h1 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+<h1 id="overview-">Overview 🌍<a class="anchor" aria-label="anchor" href="#overview-"></a>
 </h1>
 <p>The <code>polyglotr</code> package is a language translation tool for the R programming language. It provides convenient functions to translate text using different (free) translation services. This vignette will guide you through the usage of the package and demonstrate how to translate text and files in various languages.</p>
 <p>Currently, the package has functions to communicate with the following services:</p>
@@ -80,15 +108,73 @@
 <li>
 <a href="https://translate.wmcloud.org/" class="external-link">Wikimedia Translation</a> API</li>
 </ul>
+<div class="section level2">
+<h2 id="why-polyglotr-">Why polyglotr? 🎯<a class="anchor" aria-label="anchor" href="#why-polyglotr-"></a>
+</h2>
+<p><code>polyglotr</code> stands out as a versatile and user-friendly translation tool for R users. Here’s why you should consider using it:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>No Authentication Hassle</strong> 🔓
+<ul>
+<li>Access multiple translation services without the need for API keys or complex authentication processes.</li>
+<li>Start translating immediately after installation, with no sign-ups or account creation required.</li>
+</ul>
+</li>
+<li>
+<strong>Multiple Services, One Package</strong> 🌐
+<ul>
+<li>Leverage the power of various translation services (Google, Mymemory, Linguee, Pons, QCRI, Wikimedia) through a single, consistent interface.</li>
+<li>Easily switch between services to compare translations or find the best fit for your needs.</li>
+</ul>
+</li>
+<li>
+<strong>R-Native Solution</strong> 📊
+<ul>
+<li>Seamlessly integrate translation capabilities into your R workflows and data analysis pipelines.</li>
+<li>Benefit from R’s data manipulation strengths while performing translations.</li>
+</ul>
+</li>
+<li>
+<strong>Flexibility and Scalability</strong> 🚀
+<ul>
+<li>Translate single phrases, large datasets, or entire files with equal ease.</li>
+<li>Create multilingual datasets effortlessly using built-in functions.</li>
+</ul>
+</li>
+<li>
+<strong>Open Source and Community-Driven</strong> 🤝
+<ul>
+<li>Benefit from continuous improvements and updates driven by user feedback and contributions.</li>
+<li>Adapt the package to your specific needs by accessing and modifying the source code.</li>
+</ul>
+</li>
+<li>
+<strong>Comprehensive Documentation</strong> 📚
+<ul>
+<li>Get started quickly with extensive documentation, vignettes, and examples.</li>
+<li>Access a wide range of use cases and best practices to maximize your translation efficiency.</li>
+</ul>
+</li>
+</ol>
+<p>By choosing polyglotr, you’re opting for a powerful, flexible, and user-friendly translation solution that integrates seamlessly with your R environment, all without the barriers of authentication or service-specific setups.</p>
+</div>
 </div>
 <div class="section level1">
-<h1 id="features">Features<a class="anchor" aria-label="anchor" href="#features"></a>
+<h1 id="features-">Features 🚀<a class="anchor" aria-label="anchor" href="#features-"></a>
 </h1>
+<ul>
+<li>Translate text using multiple free translation services</li>
+<li>Batch translation capabilities</li>
+<li>Language detection</li>
+<li>Create translation tables for multiple languages</li>
+<li>File translation</li>
+<li>Easy-to-use interface for different translation APIs</li>
+</ul>
 <p>To see which functions are available, please refer to the reference page of the <code>polyglotr</code> package. The <a href="https://Tomeriko96.github.io/polyglotr/reference/index.html" class="external-link">reference</a> page provides a comprehensive list of functions available in the package, organized by category.</p>
 <p>Additionally, the package includes vignettes that provide more detailed information on how to use the functions in the package.</p>
 </div>
 <div class="section level1">
-<h1 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+<h1 id="installation-">Installation 📦<a class="anchor" aria-label="anchor" href="#installation-"></a>
 </h1>
 <p>To install the package:</p>
 <p>```{r} # The easiest way is to get polyglotr from CRAN install.packages(“polyglotr”)</p>
@@ -102,7 +188,20 @@
 </h1>
 <p>remotes::install_github(“Tomeriko96/polyglotr”)</p>
 <pre><code>
-# Usage
+
+# Quick Start 🏁
+
+Here's a minimal example to get you started:
+</code></pre>
+<p>library(polyglotr)</p>
+</div>
+<div class="section level1">
+<h1 id="translate-a-simple-phrase">Translate a simple phrase<a class="anchor" aria-label="anchor" href="#translate-a-simple-phrase"></a>
+</h1>
+<p>text &lt;- “Hello, world!” translation &lt;- google_translate(text, target_language = “fr”) print(translation)</p>
+<pre><code>
+
+# Usage 💬
 
 To demonstrate the usage of the `polyglotr` package, let's consider an example where we translate a list of texts into multiple languages using the `create_translation_table` function.
 
@@ -128,6 +227,47 @@ create_translation_table(texts, languages)
 #&gt; 2        J'adore programmer ! Ich liebe Programmieren!
 #&gt; 3              C'est un test.        Das ist ein Test.
 </code></pre>
+</div>
+<div class="section level1">
+<h1 id="documentation-">Documentation 📖<a class="anchor" aria-label="anchor" href="#documentation-"></a>
+</h1>
+<ul>
+<li><a href="https://Tomeriko96.github.io/polyglotr/" class="external-link">Package Website</a></li>
+<li><a href="https://Tomeriko96.github.io/polyglotr/reference/index.html" class="external-link">Reference Manual</a></li>
+<li><a href="https://Tomeriko96.github.io/polyglotr/articles/" class="external-link">Vignettes</a></li>
+</ul>
+</div>
+<div class="section level1">
+<h1 id="contribution-">Contribution 🤝<a class="anchor" aria-label="anchor" href="#contribution-"></a>
+</h1>
+<p>Contributions are welcome! If you’d like to contribute, please:</p>
+<ol style="list-style-type: decimal">
+<li>Fork the repository</li>
+<li>Create your feature branch (git checkout -b feature/AmazingFeature)</li>
+<li>Commit your changes (git commit -m ‘Add some AmazingFeature’)</li>
+<li>Push to the branch (git push origin feature/AmazingFeature)</li>
+<li>Open a Pull Request</li>
+</ol>
+</div>
+<div class="section level1">
+<h1 id="license-️">License ⚖️<a class="anchor" aria-label="anchor" href="#license-%EF%B8%8F"></a>
+</h1>
+<p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
+</div>
+<div class="section level1">
+<h1 id="citation-">Citation 📝<a class="anchor" aria-label="anchor" href="#citation-"></a>
+</h1>
+<p>If you use polyglotr in your research, please cite it as follows:</p>
+<pre><code>Iwan, T. (2023). polyglotr: Multilingual Text Translation in R. R package version 1.0.0.
+https://github.com/Tomeriko96/polyglotr</code></pre>
+</div>
+<div class="section level1">
+<h1 id="related-projects-">Related Projects 🌐<a class="anchor" aria-label="anchor" href="#related-projects-"></a>
+</h1>
+<ul>
+<li>
+<a href="https://github.com/ropensci/googleLanguageR" class="external-link">googleLanguageR</a>: R client for the Google Translation API, Cloud Natural Language API, Cloud Speech API, and Cloud Text-to-Speech API</li>
+</ul>
 </div>
 
   </main><aside class="col-md-3"><div class="links">
