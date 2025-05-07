@@ -17,7 +17,6 @@
 #' google_translate(text_to_translate, "fr", "en")
 #' }
 google_translate <- function(text, target_language = "en", source_language = "auto") {
-
   if (!google_is_valid_language_code(target_language)) {
     stop("Invalid target language code.")
   }
@@ -26,38 +25,61 @@ google_translate <- function(text, target_language = "en", source_language = "au
     stop("Invalid source language code.")
   }
 
+  replace_urls_with_placeholders <- function(sentence) {
+    urls <- stringr::str_extract_all(sentence, "https?://[^\\s]+")[[1]]
+    placeholder_text <- sentence
+    if (length(urls) > 0) {
+      for (i in seq_along(urls)) {
+        placeholder <- paste0("__URL", i, "__")
+        placeholder_text <- stringr::str_replace(placeholder_text, stringr::fixed(urls[i]), placeholder)
+
+      }
+    }
+    list(text = placeholder_text, urls = urls)
+  }
+
+  restore_urls_from_placeholders <- function(translated, urls) {
+    restored_text <- translated
+    for (i in seq_along(urls)) {
+      placeholder <- paste0("__URL", i, "__")
+      restored_text <- stringr::str_replace(restored_text, stringr::fixed(placeholder), urls[i])
+
+      restored_text <- stringr::str_replace(restored_text, stringr::fixed(stringr::str_to_lower(placeholder)), urls[i])
+    }
+    restored_text
+  }
+
   is_vector <- is.vector(text) && length(text) > 1
 
-  formatted_text <- urltools::url_encode(text)
-
-  formatted_link <- paste0(
-    "https://translate.google.com/m?tl=",
-    target_language, "&sl=", source_language,
-    "&q=",
-    formatted_text
-  )
-
   if (is_vector) {
-    translations <- purrr::map(formatted_link, ~ {
-      translation <- rvest::read_html(.x) %>%
+    translations <- purrr::map_chr(text, function(t) {
+      replaced <- replace_urls_with_placeholders(t)
+      encoded <- urltools::url_encode(replaced$text)
+      link <- paste0("https://translate.google.com/m?tl=", target_language,
+                     "&sl=", source_language, "&q=", encoded)
+
+      translated <- rvest::read_html(link) %>%
         rvest::html_nodes("div.result-container") %>%
-        rvest::html_text()
+        rvest::html_text() %>%
+        urltools::url_decode() %>%
+        gsub("\n", "", .)
 
-      translation <- urltools::url_decode(translation)
-      translation <- gsub("\n", "", translation)
-
-      translation
+      restore_urls_from_placeholders(translated, replaced$urls)
     })
-
     return(translations)
   } else {
-    translation <- rvest::read_html(formatted_link) %>%
+    replaced <- replace_urls_with_placeholders(text)
+    encoded <- urltools::url_encode(replaced$text)
+    link <- paste0("https://translate.google.com/m?tl=", target_language,
+                   "&sl=", source_language, "&q=", encoded)
+
+    translated <- rvest::read_html(link) %>%
       rvest::html_nodes("div.result-container") %>%
-      rvest::html_text()
+      rvest::html_text() %>%
+      urltools::url_decode() %>%
+      gsub("\n", "", .)
 
-    translation <- urltools::url_decode(translation)
-    translation <- gsub("\n", "", translation)
-
-    return(translation)
+    return(restore_urls_from_placeholders(translated, replaced$urls))
   }
 }
+
