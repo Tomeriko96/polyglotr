@@ -54,7 +54,7 @@ google_translate <- function(text, target_language = "en", source_language = "au
       restore_urls_from_placeholders(translated, replaced$urls)
     })
 
-    return(translations)
+    translations
 
   } else {
     ## Single input string case
@@ -73,6 +73,6 @@ google_translate <- function(text, target_language = "en", source_language = "au
       gsub("\n", "", .)
 
     ## Return translated sentence with URLs restored
-    return(restore_urls_from_placeholders(translated, replaced$urls))
+    restore_urls_from_placeholders(translated, replaced$urls)
   }
 }
