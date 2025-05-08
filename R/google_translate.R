@@ -1,6 +1,3 @@
-## helperfunctions/google_translate.R
-source("helperfunctions/url_helpers.R")
-
 #' Translate text using google translate
 #'
 #' @param text This is the text that you want to translate.
