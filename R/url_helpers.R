@@ -46,10 +46,10 @@ replace_urls_with_placeholders <- function(sentence) {
 restore_urls_from_placeholders <- function(translated, urls) {
   restored_text <- translated
   for (i in seq_along(urls)) {
-    placeholder <- paste0("__URL", i, "__")
+    placeholder <- paste0("(?i)__url", i, "__")
 
     ## Replace exact placeholder
-    restored_text <- stringr::str_replace(restored_text, stringr::fixed(placeholder), urls[i])
+    restored_text <- stringr::str_replace(restored_text, placeholder, urls[i])
 
     ## Also try replacing lowercase version in case translation changed casing
     restored_text <- stringr::str_replace(restored_text, stringr::fixed(stringr::str_to_lower(placeholder)), urls[i])
