@@ -11,8 +11,6 @@
 #'   \item{text}{The input sentence with URLs replaced by placeholders.}
 #'   \item{urls}{A character vector of the extracted URLs.}
 #' }
-#' @examples
-#' replace_urls_with_placeholders("Visit http://example.com or https://site.org for more info.")
 #'
 replace_urls_with_placeholders <- function(sentence) {
   ## Match any protocol-style pattern like http://, https://, ftp://, htt:// etc.
@@ -40,8 +38,6 @@ replace_urls_with_placeholders <- function(sentence) {
 #' @param urls A character vector of the original URLs to restore.
 #'
 #' @return A character string with the placeholders replaced by the corresponding URLs.
-#' @examples
-#' restore_urls_from_placeholders("Visit __URL1__ for info.", c("http://example.com"))
 #'
 restore_urls_from_placeholders <- function(translated, urls) {
   restored_text <- translated

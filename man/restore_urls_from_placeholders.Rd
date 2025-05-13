@@ -18,7 +18,3 @@ A character string with the placeholders replaced by the corresponding URLs.
 Replaces placeholders like \verb{__URL1__}, \verb{__URL2__}, etc. in a translated sentence back with their original URLs.
 Handles both original and lowercased versions of the placeholder (to account for translation artifacts).
 }
-\examples{
-restore_urls_from_placeholders("Visit __URL1__ for info.", c("http://example.com"))
-
-}

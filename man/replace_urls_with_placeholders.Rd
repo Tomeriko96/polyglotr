@@ -21,7 +21,3 @@ Detects and replaces protocol-style links (e.g., \verb{http://}, \verb{https://}
 with unique placeholders like \verb{__URL1__}, \verb{__URL2__}, etc. This is useful for preparing text for
 translation or further processing while preserving original URLs.
 }
-\examples{
-replace_urls_with_placeholders("Visit http://example.com or https://site.org for more info.")
-
-}

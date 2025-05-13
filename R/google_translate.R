@@ -25,6 +25,7 @@
 #' google_translate("Visit http://example.com for more info.", target_language = "de")
 #' }
 google_translate <- function(text, target_language = "en", source_language = "auto") {
+  . <- NULL
   ## Validate target language code
   if (!google_is_valid_language_code(target_language)) {
     stop("Invalid target language code.")
