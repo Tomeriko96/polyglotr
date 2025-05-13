@@ -2,37 +2,42 @@
 % Please edit documentation in R/google_translate_long_text.R
 \name{google_translate_long_text}
 \alias{google_translate_long_text}
-\title{Translate long text using Google Translate}
+\title{Translate Long Text Using Google Translate}
 \usage{
 google_translate_long_text(
   text,
   target_language = "en",
   source_language = "auto",
-  chunk_size = 1000
+  chunk_size = 1000,
+  preserve_newlines = FALSE
 )
 }
 \arguments{
-\item{text}{The long text to translate. Should be a single string.}
+\item{text}{A single character string with the text to translate.}
 
-\item{target_language}{The language to translate the text into. Default is "en" for English.}
+\item{target_language}{The language code to translate the text into (default: "en" for English).}
 
-\item{source_language}{The language of the input text. Default is "auto" for automatic detection.}
+\item{source_language}{The language code of the input text (default: "auto" for automatic detection).}
 
-\item{chunk_size}{The maximum number of characters to send in a single translation request. Default is 1000.}
+\item{chunk_size}{Maximum number of characters per translation request (default: 1000).}
+
+\item{preserve_newlines}{Logical; if TRUE, preserves newlines between chunks in the output. If FALSE (default), newlines are replaced with spaces.}
 }
 \value{
-A single string containing the translated text.
+A single character string containing the translated text.
 }
 \description{
-This function translates long text from one language to another using Google Translate.
-It splits the text into smaller chunks if necessary to handle large inputs.
+Translates long text from one language to another using Google Translate by splitting the input into manageable chunks if necessary.
 }
 \examples{
 \dontrun{
 long_text <- paste(rep("This is a long text to translate.", 100), collapse = " ")
 google_translate_long_text(
-long_text, target_language = "de",
-source_language = "en",
-chunk_size = 500)
+  long_text,
+  target_language = "de",
+  source_language = "en",
+  chunk_size = 500,
+  preserve_newlines = TRUE
+)
 }
 }
