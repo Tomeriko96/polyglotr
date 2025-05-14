@@ -61,3 +61,10 @@ reference:
     contents:
       - translate_to_morse
       - translate_to_morse_audio
+
+  - title: Helpers
+    desc: Helper functions for the package
+    contents:
+      - replace_urls_with_placeholders
+      - restore_urls_from_placeholders
+

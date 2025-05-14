@@ -9,7 +9,7 @@ data_reference_index_missing <- function(pkg = ".", depth = 1L) {
 
   # Cross-reference complete list of topics vs. topics found in index page
   all_topics <- meta %>%
-    map(~ pkgdown:::select_topics(.$contents, pkg$topics)) %>%
+    map(~ pkgdown:::select_topics(.$contents, pkg$topics, error_path = ".")) %>%
     reduce(union)
   in_index <- seq_along(pkg$topics$name) %in% all_topics
 
