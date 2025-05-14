@@ -1,5 +1,5 @@
 <p align="center"><img src="man/figures/hex-polyglotr.png" alt="polyglotr" height:200px;" height="200"></p> <h1 align="center">polyglotr | Multilingual Text Translation</h1> <div align="center"> <strong>🌐 Versatile R Package for Text Translation 🗣️</strong> <br> Seamless integration with multiple free translation services for R users. <br> <sub>Ideal for translating text, files, and creating multilingual datasets.</sub> </div>
-<div align="center"> <h3> <a href="https://cran.r-project.org/web/packages/polyglotr/index.html"> CRAN </a> <span> | </span> 
+<div align="center"> <h3> <a href="https://CRAN.R-project.org/package=polyglotr/"> CRAN </a> <span> | </span> 
            <a href="#features"> Features </a> <span> | </span> 
            <a href="#installation"> Installation </a> <span> | </span> 
            <a href="#usage"> Usage </a> <span> | </span> 
