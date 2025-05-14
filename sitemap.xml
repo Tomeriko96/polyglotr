@@ -32,6 +32,8 @@
 <url><loc>https://tomeriko96.github.io/polyglotr/reference/qcri_get_domains.html</loc></url>
 <url><loc>https://tomeriko96.github.io/polyglotr/reference/qcri_get_language_pairs.html</loc></url>
 <url><loc>https://tomeriko96.github.io/polyglotr/reference/qcri_translate_text.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/replace_urls_with_placeholders.html</loc></url>
+<url><loc>https://tomeriko96.github.io/polyglotr/reference/restore_urls_from_placeholders.html</loc></url>
 <url><loc>https://tomeriko96.github.io/polyglotr/reference/translate_file.html</loc></url>
 <url><loc>https://tomeriko96.github.io/polyglotr/reference/translate_to_morse.html</loc></url>
 <url><loc>https://tomeriko96.github.io/polyglotr/reference/translate_to_morse_audio.html</loc></url>
