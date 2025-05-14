@@ -1,3 +1,5 @@
+# polyglotr 1.6.0
+
 # polyglotr 1.5.2
 * Fixes encoding issue in `google_translate()`
 
