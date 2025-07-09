@@ -1,3 +1,6 @@
+# polyglotr 1.6.1
+* Fixes language codes in `google_translate()` for Traditional and Simple Chinese
+
 # polyglotr 1.6.0
 
 # polyglotr 1.5.2
