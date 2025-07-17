@@ -43,3 +43,4 @@ inst/doc
 docs
 test_new_services.R
 NEW_SERVICES.md
+validate_services.R
