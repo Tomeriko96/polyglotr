@@ -4,7 +4,9 @@ Version: 1.6.1
 Authors@R: 
     person("Tomer", "Iwan", , "t.iwan@vu.nl", role = c("aut", "cre", "cph"))
 Description: Provide easy methods to translate pieces of text.
-  Functions send requests to translation services online.
+  Functions send requests to translation services online including Google Translate,
+  Mymemory, Linguee, Pons, QCRI, Wikimedia Translation, Microsoft Translator,
+  Yandex Translate, DeepL, LibreTranslate, Reverso Context, Naver Papago, and Glosbe.
 License: MIT + file LICENSE
 URL: https://github.com/Tomeriko96/polyglotr/,
     https://tomeriko96.github.io/polyglotr/
