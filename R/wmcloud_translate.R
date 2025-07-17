@@ -3,10 +3,10 @@
 #' This function sends a POST request to the WMCloud translation API with the specified parameters,
 #' parses the JSON response, and returns the translated content.
 #'
-#' @param content The content to translate. Can be plain text, a URL (for a webpage), a JSON string, or a Markdown string.
+#' @param content The content to translate. Can be plain text, a URL (for a webpage), a JSON string, a Markdown string, HTML content, or SVG content.
 #' @param target_language The target language for the translation (default is "en").
 #' @param source_language The source language of the content (default is "en").
-#' @param format The format of the content ("json", "markdown", "text", "webpage").
+#' @param format The format of the content ("html", "json", "markdown", "svg", "text", "webpage").
 #' @param model The model to use for the translation (only "nllb200-600M" is currently known to work).
 #'
 #' @return The translated content.
@@ -37,6 +37,15 @@
 #'
 #' This is a [link to Wikipedia](https://wikipedia.org)
 #'                 ', target_language = "es", source_language = "en", format = "markdown")
+#'
+#' # Translate HTML content
+#' wmcloud_translate('<h1>Hello World</h1>
+#' <p>This is a paragraph with <a href="https://example.com">a link</a>.</p>
+#'                 ', target_language = "es", source_language = "en", format = "html")
+#'
+#' # Translate SVG content
+#' wmcloud_translate('<svg><text x="10" y="20">Hello World</text></svg>
+#'                 ', target_language = "es", source_language = "en", format = "svg")
 #' }
 #' @export
 wmcloud_translate <- function(content,
@@ -48,7 +57,7 @@ wmcloud_translate <- function(content,
   url <- "https://translate.wmcloud.org/api/translate"
 
   # List of valid formats
-  valid_formats <- c("json", "markdown", "text", "webpage")
+  valid_formats <- c("html", "json", "markdown", "svg", "text", "webpage")
 
   # List of valid models
   valid_models <- c("nllb200-600M", "nllb-wikipedia", "opusmt-en-bi", "opusmt-en-bcl", "opusmt-en-to", "opusmt-en-chr", "opusmt-en-guw", "opusmt-en-srn", "opusmt-en-ty", "opusmt-en-ve", "opusmt-sv-fi", "softcatala", "indictrans2-indic-en", "indictrans2-en-indic", "indictrans2-indic-indic", "madlad-400")
