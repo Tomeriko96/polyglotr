@@ -46,6 +46,7 @@ Currently, the package has functions to communicate with the following services:
 -   [LibreTranslate](https://libretranslate.com/) API
 -   [Reverso Context](https://context.reverso.net/translation/) API
 -   [Naver Papago](https://papago.naver.com/) API
+-   [Oxford Dictionaries](https://developer.oxforddictionaries.com/) API
 -   [Glosbe](https://translate.glosbe.com/) API
 
 ## Why polyglotr? 🎯
