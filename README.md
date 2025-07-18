@@ -40,14 +40,9 @@ Currently, the package has functions to communicate with the following services:
 -   [Pons](https://en.pons.com/translate) API
 -   [QCRI](https://mt.qcri.org/api/) API
 -   [Wikimedia Translation](https://translate.wmcloud.org/) API
--   [Microsoft Translator](https://www.microsoft.com/en-us/translator/) API
--   [Yandex Translate](https://translate.yandex.com/) API
--   [DeepL](https://www.deepl.com/en/translator/) API
--   [LibreTranslate](https://libretranslate.com/) API
--   [Reverso Context](https://context.reverso.net/translation/) API
--   [Naver Papago](https://papago.naver.com/) API
--   [Oxford Dictionaries](https://developer.oxforddictionaries.com/) API
--   [Glosbe](https://translate.glosbe.com/) API
+-   Simple Translate (reliable web-based translation)
+-   Alternative Translate (backup translation service)
+-   Reliable Translate (multi-service fallback system)
 
 ## Why polyglotr? 🎯
 
