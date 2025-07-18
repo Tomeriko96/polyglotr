@@ -1,0 +1,420 @@
+---
+title: "File Translation Workflow"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{File Translation Workflow}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+```{r setup}
+library(polyglotr)
+```
+
+# File Translation Workflow
+
+This vignette demonstrates how to use `translate_file()` for end-to-end automation of document translation. This workflow is particularly useful for localizing documents, data exports, and batch processing of text files.
+
+## Overview
+
+The file translation workflow allows you to:
+
+- Translate entire `.txt` or `.csv` files automatically
+- Handle different text encodings properly
+- Choose between overwriting original files or creating new translated versions
+- Process multiple files in batch operations
+- Maintain file structure while translating content
+
+## Basic File Translation
+
+Let's start by creating a sample file and translating it:
+
+```{r basic_translation}
+# Create a sample text file
+sample_text <- c(
+  "Welcome to our application!",
+  "Please enter your username and password.",
+  "Click the submit button to continue.",
+  "If you need help, contact our support team."
+)
+
+# Write to a temporary file
+temp_file <- tempfile(fileext = ".txt")
+writeLines(sample_text, temp_file, useBytes = FALSE)
+
+# Translate the file to Spanish
+translate_file(
+  file_path = temp_file,
+  target_language = "es",
+  source_language = "en",
+  overwrite = FALSE
+)
+
+# Check if the translated file was created
+spanish_file <- paste0(tools::file_path_sans_ext(temp_file), "_es_translated.txt")
+if (file.exists(spanish_file)) {
+  translated_content <- readLines(spanish_file, encoding = "UTF-8")
+  print("Translated content:")
+  print(translated_content)
+}
+```
+
+## Working with Different File Types
+
+### Text Files (.txt)
+
+For simple text files, the translation process is straightforward:
+
+```{r txt_files}
+# Create a documentation file
+doc_content <- c(
+  "User Manual",
+  "",
+  "Chapter 1: Getting Started",
+  "This chapter covers the basics of using our software.",
+  "",
+  "Chapter 2: Advanced Features", 
+  "Learn about advanced functionality and customization options.",
+  "",
+  "For technical support, email support@company.com"
+)
+
+doc_file <- tempfile(fileext = ".txt")
+writeLines(doc_content, doc_file)
+
+# Translate to multiple languages
+languages <- c("fr", "de", "it")
+
+for (lang in languages) {
+  translate_file(
+    file_path = doc_file,
+    target_language = lang,
+    source_language = "en",
+    overwrite = FALSE
+  )
+}
+
+# List created files
+translated_files <- list.files(
+  path = dirname(doc_file),
+  pattern = paste0(basename(tools::file_path_sans_ext(doc_file)), "_.*_translated\\.txt"),
+  full.names = TRUE
+)
+
+print("Created translation files:")
+print(translated_files)
+```
+
+### CSV Files with Text Content
+
+For CSV files containing text data:
+
+```{r csv_files}
+# Create a sample CSV with product descriptions
+product_data <- data.frame(
+  product_id = 1:4,
+  name = c("Laptop Computer", "Wireless Mouse", "USB Keyboard", "Monitor Stand"),
+  description = c(
+    "High-performance laptop for business and gaming",
+    "Ergonomic wireless mouse with precision tracking",
+    "Mechanical keyboard with backlit keys",
+    "Adjustable monitor stand for better ergonomics"
+  ),
+  stringsAsFactors = FALSE
+)
+
+csv_file <- tempfile(fileext = ".csv")
+write.csv(product_data, csv_file, row.names = FALSE)
+
+# Note: For CSV files, you might want to extract text columns first
+# and translate them separately to maintain data structure
+```
+
+## Encoding Considerations
+
+Proper encoding handling is crucial for international text:
+
+```{r encoding_handling}
+# Create text with special characters
+international_text <- c(
+  "Café au lait",           # French accents
+  "Niño pequeño",          # Spanish tilde
+  "Mädchen",               # German umlaut
+  "Москва",                # Cyrillic
+  "こんにちは"                # Japanese
+)
+
+# Write with UTF-8 encoding
+utf8_file <- tempfile(fileext = ".txt")
+writeLines(international_text, utf8_file, useBytes = FALSE)
+
+# Read back to verify encoding
+readback <- readLines(utf8_file, encoding = "UTF-8")
+print("Original with special characters:")
+print(readback)
+
+# Translate (function handles UTF-8 internally)
+translate_file(
+  file_path = utf8_file,
+  target_language = "en",
+  source_language = "auto",  # Auto-detect mixed languages
+  overwrite = FALSE
+)
+```
+
+## Overwrite vs. New File Options
+
+Understanding when to use each option:
+
+```{r overwrite_options}
+# Sample content for testing
+test_content <- c(
+  "This is the original document.",
+  "It contains important information.",
+  "We want to translate it to Spanish."
+)
+
+original_file <- tempfile(fileext = ".txt")
+writeLines(test_content, original_file)
+
+# Option 1: Create new file (overwrite = FALSE)
+# This preserves the original and creates a new translated version
+translate_file(
+  file_path = original_file,
+  target_language = "es",
+  source_language = "en",
+  overwrite = FALSE  # Creates new file with "_es_translated" suffix
+)
+
+# Option 2: Overwrite original (overwrite = TRUE)
+# Use this when you want to replace the original file
+backup_file <- tempfile(fileext = ".txt")
+file.copy(original_file, backup_file)  # Create backup first
+
+translate_file(
+  file_path = backup_file,
+  target_language = "es", 
+  source_language = "en",
+  overwrite = TRUE  # Replaces original content
+)
+
+# Check results
+print("Original file still exists:")
+print(file.exists(original_file))
+
+print("New translated file created:")
+spanish_version <- paste0(tools::file_path_sans_ext(original_file), "_es_translated.txt")
+print(file.exists(spanish_version))
+```
+
+## Batch Processing Workflow
+
+For processing multiple files efficiently:
+
+```{r batch_processing}
+# Create multiple sample files
+file_contents <- list(
+  readme = c("Welcome to our project", "Installation instructions", "Usage examples"),
+  help = c("Frequently Asked Questions", "How to get support", "Contact information"),
+  terms = c("Terms of Service", "Privacy Policy", "User Agreement")
+)
+
+# Create temporary directory for batch processing
+batch_dir <- tempdir()
+file_paths <- character()
+
+for (name in names(file_contents)) {
+  file_path <- file.path(batch_dir, paste0(name, ".txt"))
+  writeLines(file_contents[[name]], file_path)
+  file_paths <- c(file_paths, file_path)
+}
+
+# Batch translate all files to multiple languages
+target_languages <- c("es", "fr", "de")
+
+batch_translate_files <- function(files, languages) {
+  results <- list()
+  
+  for (file in files) {
+    file_results <- list()
+    
+    for (lang in languages) {
+      tryCatch({
+        translate_file(
+          file_path = file,
+          target_language = lang,
+          source_language = "en",
+          overwrite = FALSE
+        )
+        
+        # Record successful translation
+        translated_file <- paste0(tools::file_path_sans_ext(file), "_", lang, "_translated.txt")
+        file_results[[lang]] <- translated_file
+        
+      }, error = function(e) {
+        warning(paste("Failed to translate", basename(file), "to", lang, ":", e$message))
+        file_results[[lang]] <- NA
+      })
+    }
+    
+    results[[basename(file)]] <- file_results
+  }
+  
+  return(results)
+}
+
+# Execute batch translation
+batch_results <- batch_translate_files(file_paths, target_languages)
+
+# Summary of results
+print("Batch translation summary:")
+for (file in names(batch_results)) {
+  cat("\nFile:", file, "\n")
+  for (lang in names(batch_results[[file]])) {
+    status <- if (is.na(batch_results[[file]][[lang]])) "FAILED" else "SUCCESS"
+    cat("  ", lang, ":", status, "\n")
+  }
+}
+```
+
+## Error Handling and Validation
+
+Robust file translation with proper error handling:
+
+```{r error_handling}
+translate_file_safely <- function(file_path, target_language, source_language = "auto", overwrite = FALSE) {
+  # Validate inputs
+  if (!file.exists(file_path)) {
+    stop("File does not exist: ", file_path)
+  }
+  
+  if (!is.character(target_language) || nchar(target_language) == 0) {
+    stop("Invalid target language")
+  }
+  
+  # Check file size (avoid very large files)
+  file_size <- file.info(file_path)$size
+  max_size <- 1024 * 1024  # 1MB limit for example
+  
+  if (file_size > max_size) {
+    warning("File is quite large (", round(file_size/1024), "KB). Translation may take time.")
+  }
+  
+  # Attempt translation with error handling
+  tryCatch({
+    translate_file(
+      file_path = file_path,
+      target_language = target_language,
+      source_language = source_language,
+      overwrite = overwrite
+    )
+    
+    # Validate output was created
+    if (!overwrite) {
+      expected_output <- paste0(tools::file_path_sans_ext(file_path), "_", target_language, "_translated.", tools::file_ext(file_path))
+      if (file.exists(expected_output)) {
+        return(list(success = TRUE, output_file = expected_output))
+      } else {
+        return(list(success = FALSE, error = "Output file was not created"))
+      }
+    } else {
+      return(list(success = TRUE, output_file = file_path))
+    }
+    
+  }, error = function(e) {
+    return(list(success = FALSE, error = e$message))
+  })
+}
+
+# Example usage with error handling
+test_file <- tempfile(fileext = ".txt")
+writeLines(c("Hello world", "This is a test"), test_file)
+
+result <- translate_file_safely(
+  file_path = test_file,
+  target_language = "es",
+  overwrite = FALSE
+)
+
+if (result$success) {
+  cat("Translation successful! Output:", result$output_file, "\n")
+} else {
+  cat("Translation failed:", result$error, "\n")
+}
+```
+
+## Advanced File Processing
+
+### Preserving File Structure
+
+For complex documents, you might want to preserve certain elements:
+
+```{r structure_preservation}
+# Function to translate while preserving markdown structure
+translate_markdown_file <- function(file_path, target_language) {
+  lines <- readLines(file_path, encoding = "UTF-8")
+  translated_lines <- character(length(lines))
+  
+  for (i in seq_along(lines)) {
+    line <- lines[i]
+    
+    # Skip translation for certain patterns
+    if (grepl("^#", line) ||           # Headers
+        grepl("^```", line) ||         # Code blocks
+        grepl("^\\s*$", line) ||       # Empty lines
+        grepl("^\\[.*\\]\\(.*\\)$", line)) {  # Links
+      translated_lines[i] <- line
+    } else {
+      # Translate regular text
+      translated_lines[i] <- google_translate(line, target_language = target_language)
+    }
+  }
+  
+  # Write translated version
+  output_file <- paste0(tools::file_path_sans_ext(file_path), "_", target_language, ".md")
+  writeLines(translated_lines, output_file, useBytes = FALSE)
+  return(output_file)
+}
+
+# Example with markdown content
+md_content <- c(
+  "# User Guide",
+  "",
+  "Welcome to our application.",
+  "",
+  "## Getting Started",
+  "",
+  "Follow these steps to begin:",
+  "1. Download the software",
+  "2. Install following the wizard",
+  "3. Launch and create an account"
+)
+
+md_file <- tempfile(fileext = ".md")
+writeLines(md_content, md_file)
+
+# Translate preserving structure
+translated_md <- translate_markdown_file(md_file, "es")
+print(paste("Translated markdown saved to:", translated_md))
+```
+
+## Best Practices
+
+1. **Always backup original files** before using `overwrite = TRUE`
+2. **Test with small files first** before batch processing
+3. **Handle encoding explicitly** for international content
+4. **Implement error handling** for production workflows
+5. **Validate translations** for critical documents
+6. **Consider file size limits** for API-based translation services
+
+## Conclusion
+
+The `translate_file()` function provides a powerful foundation for automating document translation workflows. By combining proper encoding handling, error management, and batch processing techniques, you can efficiently localize documents and data exports for international audiences.
