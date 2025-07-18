@@ -1,0 +1,248 @@
+---
+title: "Translation Table Workflow"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Translation Table Workflow}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+```{r setup}
+library(polyglotr)
+library(dplyr)
+```
+
+# Translation Table Workflow
+
+This vignette demonstrates how to use `create_translation_table()` to translate a vector of phrases across multiple languages, creating a comprehensive multilingual reference table. This is particularly useful for localization projects and multilingual data preparation workflows.
+
+## Overview
+
+The `create_translation_table()` function allows you to:
+
+- Translate multiple phrases simultaneously across several target languages
+- Generate organized tabular output for easy reference
+- Support multilingual workflows and localization projects
+- Create consistent translations for UI elements, documentation, or data labels
+
+## Basic Usage
+
+Let's start with a simple example translating common UI elements:
+
+```{r basic_example}
+# Define phrases to translate
+ui_phrases <- c("Welcome", "Login", "Password", "Submit", "Cancel", "Help")
+
+# Define target languages
+languages <- c("es", "fr", "de", "it")
+
+# Create translation table
+translation_table <- create_translation_table(ui_phrases, languages)
+print(translation_table)
+```
+
+This creates a data frame with the original English phrases and their translations in Spanish (es), French (fr), German (de), and Italian (it).
+
+## Multiple API Comparison
+
+While `create_translation_table()` uses Google Translate by default, you can compare results across different translation APIs for quality assurance. Here's how to create an enhanced function that supports multiple APIs:
+
+```{r api_comparison}
+# Enhanced function to support multiple translation APIs
+create_translation_table_multi_api <- function(words, languages, apis = c("google", "mymemory")) {
+  results <- data.frame(original_word = words)
+  
+  for (language in languages) {
+    for (api in apis) {
+      column_name <- paste0(language, "_", api)
+      
+      if (api == "google") {
+        results[[column_name]] <- sapply(words, function(x) {
+          google_translate(x, target_language = language, source_language = "en")
+        })
+      } else if (api == "mymemory") {
+        results[[column_name]] <- sapply(words, function(x) {
+          mymemory_translate(x, target_language = language, source_language = "en")
+        })
+      }
+    }
+  }
+  
+  return(results)
+}
+
+# Sample phrases for comparison
+phrases <- c("Good morning", "Thank you very much", "How are you today?")
+
+# Create comparison table with multiple APIs
+comparison_table <- create_translation_table_multi_api(
+  words = phrases, 
+  languages = c("fr", "es"), 
+  apis = c("google", "mymemory")
+)
+
+print(comparison_table)
+
+# You can also use the standard function and add MyMemory translations
+google_table <- create_translation_table(phrases, c("fr", "es"))
+
+# Add MyMemory translations for comparison
+google_table$fr_mymemory <- sapply(phrases, function(x) {
+  mymemory_translate(x, target_language = "fr", source_language = "en")
+})
+
+google_table$es_mymemory <- sapply(phrases, function(x) {
+  mymemory_translate(x, target_language = "es", source_language = "en")
+})
+
+print("Standard function with added MyMemory translations:")
+print(google_table)
+```
+
+## Advanced Multilingual Workflow
+
+For larger localization projects, you can organize your workflow systematically:
+
+```{r advanced_workflow}
+# Define categories of phrases
+navigation_phrases <- c("Home", "About", "Contact", "Services", "Portfolio")
+form_phrases <- c("First Name", "Last Name", "Email Address", "Phone Number", "Message")
+action_phrases <- c("Save", "Delete", "Edit", "Share", "Download", "Print")
+
+# Define comprehensive language set
+target_languages <- c("es", "fr", "de", "it", "pt", "nl", "sv", "no")
+
+# Create separate translation tables for each category
+navigation_table <- create_translation_table(navigation_phrases, target_languages)
+form_table <- create_translation_table(form_phrases, target_languages)
+action_table <- create_translation_table(action_phrases, target_languages)
+
+# Add category identifier
+navigation_table$category <- "Navigation"
+form_table$category <- "Forms"
+action_table$category <- "Actions"
+
+# Combine into master translation table
+master_table <- rbind(navigation_table, form_table, action_table)
+
+# Display summary
+print(paste("Total phrases translated:", nrow(master_table)))
+print(paste("Languages covered:", length(target_languages)))
+```
+
+## Working with Tibbles and Tidyverse
+
+For more advanced data manipulation, you can use the tidyverse ecosystem:
+
+```{r tidyverse_workflow}
+library(tibble)
+library(dplyr)
+
+# Create a more structured approach
+content_data <- tibble(
+  phrase_id = 1:8,
+  category = c("greetings", "greetings", "farewells", "farewells", 
+               "questions", "questions", "responses", "responses"),
+  priority = c("high", "medium", "high", "medium", 
+               "high", "medium", "high", "medium"),
+  english = c("Hello", "Good morning", "Goodbye", "See you later",
+              "What is your name?", "Where are you from?", 
+              "My name is...", "I am from...")
+)
+
+# Create translations for priority languages first
+priority_languages <- c("es", "fr", "de")
+translations <- create_translation_table(content_data$english, priority_languages)
+
+# Combine with original metadata
+final_table <- bind_cols(content_data, translations[, -1])  # Remove duplicate original_word column
+
+# Filter and organize as needed
+high_priority <- final_table %>% 
+  filter(priority == "high") %>%
+  select(phrase_id, category, english, es, fr, de)
+
+print(high_priority)
+```
+
+## Export Options
+
+Translation tables can be exported in various formats for different use cases:
+
+```{r export_examples}
+# For web development - JSON-like structure
+phrases <- c("Welcome", "Login", "Logout")
+web_translations <- create_translation_table(phrases, c("es", "fr", "de"))
+
+# Create key-value structure for each language
+create_json_structure <- function(table, lang) {
+  keys <- tolower(gsub(" ", "_", table$original_word))
+  values <- table[[lang]]
+  structure <- setNames(values, keys)
+  return(structure)
+}
+
+spanish_json <- create_json_structure(web_translations, "es")
+french_json <- create_json_structure(web_translations, "fr")
+
+print("Spanish translations:")
+print(spanish_json)
+
+# For documentation purposes - wide format table
+doc_table <- web_translations %>%
+  rename(English = original_word, Spanish = es, French = fr, German = de)
+
+print("Documentation table:")
+print(doc_table)
+```
+
+## Best Practices
+
+When working with translation tables:
+
+1. **Consistency**: Use the same source language throughout your project
+2. **Context**: Group related phrases for better translation context
+3. **Validation**: Compare multiple APIs for critical translations
+4. **Organization**: Use categories and metadata to organize large translation sets
+5. **Backup**: Save translation tables as they represent significant work
+
+```{r best_practices}
+# Example of organized translation workflow
+project_config <- list(
+  source_language = "en",
+  target_languages = c("es", "fr", "de", "it"),
+  categories = c("ui", "content", "errors", "help")
+)
+
+# Define phrases by category
+ui_phrases <- c("Menu", "Search", "Filter", "Sort")
+error_phrases <- c("Invalid input", "Connection failed", "File not found")
+
+# Create translations with metadata
+create_categorized_table <- function(phrases, category, config) {
+  table <- create_translation_table(phrases, config$target_languages)
+  table$category <- category
+  table$source_lang <- config$source_language
+  table$created_date <- Sys.Date()
+  return(table)
+}
+
+ui_table <- create_categorized_table(ui_phrases, "ui", project_config)
+error_table <- create_categorized_table(error_phrases, "errors", project_config)
+
+# Combine and organize
+complete_table <- rbind(ui_table, error_table)
+print(head(complete_table))
+```
+
+## Conclusion
+
+The `create_translation_table()` function provides a powerful foundation for multilingual workflows. By combining it with tidyverse tools and structured approaches, you can efficiently manage localization projects of any size. The tabular format makes it easy to review, validate, and export translations for various applications.
