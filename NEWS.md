@@ -1,10 +1,3 @@
-# polyglotr 1.6.2
-* Adds extended Pons dictionary functionality
-* Adds `pons_dictionary_search()` for searching words in dictionaries
-* Adds `pons_word_examples()` for getting example sentences
-* Adds `pons_word_definitions()` for getting word definitions
-* Adds `pons_word_synonyms()` for getting synonyms
-
 # polyglotr 1.6.1
 * Fixes language codes in `google_translate()` for Traditional and Simple Chinese
 
