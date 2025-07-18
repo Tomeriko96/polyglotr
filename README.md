@@ -40,6 +40,9 @@ Currently, the package has functions to communicate with the following services:
 -   [Pons](https://en.pons.com/translate) API
 -   [QCRI](https://mt.qcri.org/api/) API
 -   [Wikimedia Translation](https://translate.wmcloud.org/) API
+-   Simple Translate (reliable web-based translation)
+-   Alternative Translate (backup translation service)
+-   Reliable Translate (multi-service fallback system)
 
 ## Why polyglotr? 🎯
 
