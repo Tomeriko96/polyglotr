@@ -1,0 +1,198 @@
+---
+title: "Apertium Translation with polyglotr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Apertium Translation with polyglotr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+```{r setup}
+library(polyglotr)
+```
+
+# Introduction to Apertium Translation
+
+This vignette introduces the Apertium translation functionality in the `polyglotr` package. Apertium is an open-source machine translation platform that provides free translation services without requiring API keys or authentication.
+
+## What is Apertium?
+
+[Apertium](https://apertium.org/) is a free, open-source machine translation platform that:
+
+- Provides rule-based machine translation
+- Requires no authentication or API keys
+- Offers translation between many language pairs
+- Has a public API available at `https://apertium.org/apy/`
+- Aligns perfectly with polyglotr's philosophy of providing access to free translation services
+
+## Basic Usage
+
+The `translate_apertium()` function provides a simple interface to translate text using the Apertium API:
+
+```{r basic-usage}
+# Basic translation from English to Spanish
+result <- translate_apertium(
+  text = "Hello, world!", 
+  target_language = "es", 
+  source_language = "en"
+)
+print(result)
+
+# Translation from Spanish to English
+result <- translate_apertium(
+  text = "Hola, mundo!", 
+  target_language = "en", 
+  source_language = "es"
+)
+print(result)
+```
+
+## Checking Available Language Pairs
+
+Before translating, you can check which language pairs are supported by making a request to the `/listPairs` endpoint:
+
+```{r list-pairs, eval=FALSE}
+# Example of how to check available language pairs (manual approach)
+# This would typically be done outside of R or with a custom function
+library(httr)
+library(jsonlite)
+
+response <- GET("https://apertium.org/apy/listPairs")
+pairs <- content(response)
+
+# The response contains an array of objects like:
+# {"sourceLanguage":"en","targetLanguage":"es"}
+head(pairs, 10)
+```
+
+## Translating Multiple Texts
+
+You can translate multiple pieces of text by using vectorization or loops:
+
+```{r multiple-texts}
+# Vector of texts to translate
+texts <- c(
+  "Good morning", 
+  "How are you?", 
+  "Thank you very much",
+  "See you later"
+)
+
+# Translate each text
+translations <- sapply(texts, function(text) {
+  translate_apertium(
+    text = text,
+    target_language = "es",
+    source_language = "en"
+  )
+})
+
+# Display results
+data.frame(
+  English = texts,
+  Spanish = translations,
+  stringsAsFactors = FALSE
+)
+```
+
+## Custom Host Configuration
+
+The function allows you to specify a custom host if you're using a different Apertium instance:
+
+```{r custom-host}
+# Using default host (https://apertium.org/apy)
+translate_apertium("Hello", "es", "en")
+
+# Using a custom host (if available)
+translate_apertium(
+  text = "Hello", 
+  target_language = "es", 
+  source_language = "en",
+  host = "https://your-custom-apertium-server.com/apy"
+)
+```
+
+## Error Handling
+
+The function includes basic error handling for common issues:
+
+```{r error-handling}
+# Example of handling potential errors
+tryCatch({
+  result <- translate_apertium("Hello", "invalid-lang", "en")
+  print(result)
+}, error = function(e) {
+  cat("Translation error:", e$message, "\n")
+})
+```
+
+## Comparison with Other Services
+
+Apertium offers several advantages within the polyglotr ecosystem:
+
+1. **No API Keys**: Unlike Google Translate or Microsoft Translator, Apertium requires no authentication
+2. **Open Source**: The entire platform is open source and transparent
+3. **Free**: No usage limits or costs
+4. **Privacy**: Requests are not tracked for commercial purposes
+5. **Rule-based**: Uses linguistic rules rather than statistical methods
+
+```{r comparison}
+# Compare translations across services
+text <- "The weather is beautiful today"
+
+# Apertium translation
+apertium_result <- translate_apertium(text, "es", "en")
+
+# MyMemory translation (also free, but different approach)
+mymemory_result <- mymemory_translate(text, "es", "en")
+
+data.frame(
+  Service = c("Apertium", "MyMemory"),
+  Translation = c(apertium_result, mymemory_result),
+  stringsAsFactors = FALSE
+)
+```
+
+## Best Practices
+
+When using Apertium translation:
+
+1. **Check Language Support**: Verify that your desired language pair is supported
+2. **Handle Network Errors**: Always wrap calls in error handling for network issues
+3. **Batch Processing**: For multiple translations, consider adding delays to be respectful to the service
+4. **Text Preprocessing**: Clean your text of special characters that might cause issues
+
+```{r best-practices}
+# Example of robust translation function
+safe_translate_apertium <- function(text, target_lang, source_lang, max_retries = 3) {
+  for (attempt in 1:max_retries) {
+    tryCatch({
+      result <- translate_apertium(text, target_lang, source_lang)
+      return(result)
+    }, error = function(e) {
+      if (attempt == max_retries) {
+        stop("Translation failed after ", max_retries, " attempts: ", e$message)
+      }
+      Sys.sleep(1)  # Wait before retry
+    })
+  }
+}
+
+# Usage
+result <- safe_translate_apertium("Hello world", "es", "en")
+print(result)
+```
+
+## Conclusion
+
+The `translate_apertium()` function provides a simple, free, and open-source solution for machine translation within the polyglotr package. It's particularly useful for users who want to avoid API keys and usage limits while still accessing quality machine translation services.
+
+For more information about Apertium, visit [https://apertium.org/](https://apertium.org/) and explore their documentation at [https://apertium.org/apy/](https://apertium.org/apy/).

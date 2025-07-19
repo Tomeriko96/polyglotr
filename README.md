@@ -35,6 +35,7 @@ The `polyglotr` package is a language translation tool for the R programming lan
 Currently, the package has functions to communicate with the following services:
 
 -   [Google Translate](https://translate.google.com/m) API
+-   [Apertium](https://apertium.org/apy/) API
 -   [Mymemory](https://mymemory.translated.net/) API
 -   [Linguee](https://www.linguee.com/) API
 -   [Pons](https://en.pons.com/translate) API
@@ -106,10 +107,14 @@ Here's a minimal example to get you started:
 ```
 library(polyglotr)
 
-# Translate a simple phrase
+# Translate a simple phrase using Google Translate
 text <- "Hello, world!"
 translation <- google_translate(text, target_language = "fr")
 print(translation)
+
+# Translate using Apertium (no API key required)
+translation_apertium <- translate_apertium(text, target_language = "es", source_language = "en")
+print(translation_apertium)
 
 ```
  
