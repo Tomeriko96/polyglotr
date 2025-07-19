@@ -57,20 +57,18 @@ print(result)
 
 ## Checking Available Language Pairs
 
-Before translating, you can check which language pairs are supported by making a request to the `/listPairs` endpoint:
+Before translating, you can check which language pairs are supported using the `apertium_get_language_pairs()` function:
 
 ```{r list-pairs, eval=FALSE}
-# Example of how to check available language pairs (manual approach)
-# This would typically be done outside of R or with a custom function
-library(httr)
-library(jsonlite)
-
-response <- GET("https://apertium.org/apy/listPairs")
-pairs <- content(response)
+# Get available language pairs
+pairs <- apertium_get_language_pairs()
 
 # The response contains an array of objects like:
 # {"sourceLanguage":"en","targetLanguage":"es"}
 head(pairs, 10)
+
+# You can also use a custom host
+pairs <- apertium_get_language_pairs(host = "https://your-custom-server.com/apy")
 ```
 
 ## Translating Multiple Texts

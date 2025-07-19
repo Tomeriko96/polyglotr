@@ -60,3 +60,31 @@ test_that("function handles vectorization correctly", {
   # Test empty vector handling
   expect_error(translate_apertium(character(0), "es", "en"))
 })
+
+test_that("apertium_get_language_pairs works", {
+  skip_on_cran()
+  skip_if_offline()
+  
+  result <- apertium_get_language_pairs()
+  
+  expect_type(result, "list")
+  expect_true(length(result) > 0)
+  
+  # Check that the first element has the expected structure
+  if (length(result) > 0) {
+    first_pair <- result[[1]]
+    expect_true("sourceLanguage" %in% names(first_pair))
+    expect_true("targetLanguage" %in% names(first_pair))
+  }
+})
+
+test_that("apertium_get_language_pairs handles custom host", {
+  skip_on_cran()
+  skip_if_offline()
+  
+  # Test with default host
+  expect_no_error(apertium_get_language_pairs())
+  
+  # Test with explicit default host
+  expect_no_error(apertium_get_language_pairs(host = "https://apertium.org/apy"))
+})
