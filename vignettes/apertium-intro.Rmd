@@ -67,8 +67,6 @@ pairs <- apertium_get_language_pairs()
 # {"sourceLanguage":"en","targetLanguage":"es"}
 head(pairs, 10)
 
-# You can also use a custom host
-pairs <- apertium_get_language_pairs(host = "https://your-custom-server.com/apy")
 ```
 
 ## Translating Multiple Texts
@@ -109,13 +107,6 @@ The function allows you to specify a custom host if you're using a different Ape
 # Using default host (https://apertium.org/apy)
 apertium_translate("Hello", "es", "en")
 
-# Using a custom host (if available)
-apertium_translate(
-  text = "Hello", 
-  target_language = "es", 
-  source_language = "en",
-  host = "https://your-custom-apertium-server.com/apy"
-)
 ```
 
 ## Error Handling

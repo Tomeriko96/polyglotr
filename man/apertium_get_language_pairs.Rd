@@ -20,7 +20,5 @@ This function retrieves the supported language pairs from the Apertium API.
 pairs <- apertium_get_language_pairs()
 head(pairs, 5)
 
-# Using custom host
-pairs <- apertium_get_language_pairs(host = "https://your-custom-apertium-server.com/apy")
 }
 }

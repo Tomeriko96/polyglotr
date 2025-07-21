@@ -12,8 +12,6 @@
 #' pairs <- apertium_get_language_pairs()
 #' head(pairs, 5)
 #'
-#' # Using custom host
-#' pairs <- apertium_get_language_pairs(host = "https://your-custom-apertium-server.com/apy")
 #' }
 apertium_get_language_pairs <- function(host = "https://apertium.org/apy") {
 
