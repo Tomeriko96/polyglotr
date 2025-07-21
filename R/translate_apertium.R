@@ -12,20 +12,20 @@
 #' \donttest{
 #' translate_apertium("Hello World", target_language = "es", source_language = "en")
 #' translate_apertium("Hola mundo", target_language = "en", source_language = "es")
-#' 
+#'
 #' # Translate multiple texts
 #' texts <- c("Hello", "Good morning", "Thank you")
 #' translate_apertium(texts, target_language = "es", source_language = "en")
 #' }
 translate_apertium <- function(text, target_language, source_language, host = "https://apertium.org/apy") {
-  
+
   # Handle vectorized input
   if (length(text) > 1) {
     return(sapply(text, function(single_text) {
       translate_apertium(single_text, target_language, source_language, host)
     }, USE.NAMES = FALSE))
   }
-  
+
   formatted_text <- urltools::url_encode(text)
 
   formatted_link <- paste0(
@@ -41,7 +41,7 @@ translate_apertium <- function(text, target_language, source_language, host = "h
   response <- httr::GET(formatted_link) %>%
     httr::content()
 
-  translation <- response$translatedText
+  translation <- response$responseData$translatedText
 
   return(translation)
 }
