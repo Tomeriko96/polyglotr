@@ -35,6 +35,12 @@ reference:
     contents:
       - mymemory_translate
 
+  - title: Apertium Methods
+    desc: Methods using Apertium Translation services
+    contents:
+      - apertium_get_language_pairs
+      - apertium_translate
+
   - title: Pons Methods
     desc: Methods using Pons Translation services
     contents:
