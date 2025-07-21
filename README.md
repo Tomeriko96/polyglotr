@@ -113,7 +113,7 @@ translation <- google_translate(text, target_language = "fr")
 print(translation)
 
 # Translate using Apertium (no API key required)
-translation_apertium <- translate_apertium(text, target_language = "es", source_language = "en")
+translation_apertium <- apertium_translate(text, target_language = "es", source_language = "en")
 print(translation_apertium)
 
 ```

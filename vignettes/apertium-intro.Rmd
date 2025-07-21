@@ -35,11 +35,11 @@ This vignette introduces the Apertium translation functionality in the `polyglot
 
 ## Basic Usage
 
-The `translate_apertium()` function provides a simple interface to translate text using the Apertium API:
+The `apertium_translate()` function provides a simple interface to translate text using the Apertium API:
 
 ```{r basic-usage}
 # Basic translation from English to Spanish
-result <- translate_apertium(
+result <- apertium_translate(
   text = "Hello, world!", 
   target_language = "es", 
   source_language = "en"
@@ -47,7 +47,7 @@ result <- translate_apertium(
 print(result)
 
 # Translation from Spanish to English
-result <- translate_apertium(
+result <- apertium_translate(
   text = "Hola, mundo!", 
   target_language = "en", 
   source_language = "es"
@@ -86,7 +86,7 @@ texts <- c(
 
 # Translate each text
 translations <- sapply(texts, function(text) {
-  translate_apertium(
+  apertium_translate(
     text = text,
     target_language = "es",
     source_language = "en"
@@ -107,10 +107,10 @@ The function allows you to specify a custom host if you're using a different Ape
 
 ```{r custom-host}
 # Using default host (https://apertium.org/apy)
-translate_apertium("Hello", "es", "en")
+apertium_translate("Hello", "es", "en")
 
 # Using a custom host (if available)
-translate_apertium(
+apertium_translate(
   text = "Hello", 
   target_language = "es", 
   source_language = "en",
@@ -125,7 +125,7 @@ The function includes basic error handling for common issues:
 ```{r error-handling}
 # Example of handling potential errors
 tryCatch({
-  result <- translate_apertium("Hello", "invalid-lang", "en")
+  result <- apertium_translate("Hello", "invalid-lang", "en")
   print(result)
 }, error = function(e) {
   cat("Translation error:", e$message, "\n")
@@ -147,7 +147,7 @@ Apertium offers several advantages within the polyglotr ecosystem:
 text <- "The weather is beautiful today"
 
 # Apertium translation
-apertium_result <- translate_apertium(text, "es", "en")
+apertium_result <- apertium_translate(text, "es", "en")
 
 # MyMemory translation (also free, but different approach)
 mymemory_result <- mymemory_translate(text, "es", "en")
@@ -170,10 +170,10 @@ When using Apertium translation:
 
 ```{r best-practices}
 # Example of robust translation function
-safe_translate_apertium <- function(text, target_lang, source_lang, max_retries = 3) {
+safe_apertium_translate <- function(text, target_lang, source_lang, max_retries = 3) {
   for (attempt in 1:max_retries) {
     tryCatch({
-      result <- translate_apertium(text, target_lang, source_lang)
+      result <- apertium_translate(text, target_lang, source_lang)
       return(result)
     }, error = function(e) {
       if (attempt == max_retries) {
@@ -185,12 +185,12 @@ safe_translate_apertium <- function(text, target_lang, source_lang, max_retries 
 }
 
 # Usage
-result <- safe_translate_apertium("Hello world", "es", "en")
+result <- safe_apertium_translate("Hello world", "es", "en")
 print(result)
 ```
 
 ## Conclusion
 
-The `translate_apertium()` function provides a simple, free, and open-source solution for machine translation within the polyglotr package. It's particularly useful for users who want to avoid API keys and usage limits while still accessing quality machine translation services.
+The `apertium_translate()` function provides a simple, free, and open-source solution for machine translation within the polyglotr package. It's particularly useful for users who want to avoid API keys and usage limits while still accessing quality machine translation services.
 
 For more information about Apertium, visit [https://apertium.org/](https://apertium.org/) and explore their documentation at [https://apertium.org/apy/](https://apertium.org/apy/).

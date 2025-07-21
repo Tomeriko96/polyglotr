@@ -38,7 +38,7 @@ reference:
   - title: Apertium Methods
     desc: Methods using Apertium Translation services
     contents:
-      - translate_apertium
+      - apertium_translate
 
   - title: Pons Methods
     desc: Methods using Pons Translation services
