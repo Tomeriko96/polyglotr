@@ -36,7 +36,8 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/Linguee.html">Introduction to Linguee API</a></li>
+<li><a class="dropdown-item" href="articles/apertium-intro.html">Apertium Translation with polyglotr</a></li>
+    <li><a class="dropdown-item" href="articles/Linguee.html">Introduction to Linguee API</a></li>
     <li><a class="dropdown-item" href="articles/Movie_Reviews.html">Translation of Movie Reviews</a></li>
   </ul>
 </li>
@@ -97,6 +98,8 @@ polyglotr | Multilingual Text Translation
 <ul>
 <li>
 <a href="https://translate.google.com/m" class="external-link">Google Translate</a> API</li>
+<li>
+<a href="https://apertium.org/apy/" class="external-link">Apertium</a> API</li>
 <li>
 <a href="https://mymemory.translated.net/" class="external-link">Mymemory</a> API</li>
 <li>
@@ -196,9 +199,14 @@ Here's a minimal example to get you started:
 <p>library(polyglotr)</p>
 </div>
 <div class="section level1">
-<h1 id="translate-a-simple-phrase">Translate a simple phrase<a class="anchor" aria-label="anchor" href="#translate-a-simple-phrase"></a>
+<h1 id="translate-a-simple-phrase-using-google-translate">Translate a simple phrase using Google Translate<a class="anchor" aria-label="anchor" href="#translate-a-simple-phrase-using-google-translate"></a>
 </h1>
 <p>text &lt;- “Hello, world!” translation &lt;- google_translate(text, target_language = “fr”) print(translation)</p>
+</div>
+<div class="section level1">
+<h1 id="translate-using-apertium-no-api-key-required">Translate using Apertium (no API key required)<a class="anchor" aria-label="anchor" href="#translate-using-apertium-no-api-key-required"></a>
+</h1>
+<p>translation_apertium &lt;- apertium_translate(text, target_language = “es”, source_language = “en”) print(translation_apertium)</p>
 <pre><code>
 
 # Usage 💬

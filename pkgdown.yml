@@ -2,10 +2,11 @@ pandoc: 3.1.11
 pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
+  apertium-intro: apertium-intro.html
   Linguee: Linguee.html
   Movie_Reviews: Movie_Reviews.html
   polyglotr: polyglotr.html
-last_built: 2025-07-09T09:22Z
+last_built: 2025-07-21T06:49Z
 urls:
   reference: https://tomeriko96.github.io/polyglotr/reference
   article: https://tomeriko96.github.io/polyglotr/articles
