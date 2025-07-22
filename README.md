@@ -20,6 +20,7 @@
 - [Features 🚀](#features-)
 - [Installation 📦](#installation-)
 - [Quick Start 🏁](#quick-start-)
+- [Shiny Web App 📱](#shiny-web-app-)
 - [Usage 💬](#usage-)
 - [Documentation 📖](#documentation-)
 - [Contribution 🤝](#contribution-)
@@ -81,6 +82,7 @@ By choosing polyglotr, you're opting for a powerful, flexible, and user-friendly
 - Create translation tables for multiple languages
 - File translation
 - Easy-to-use interface for different translation APIs
+- **NEW: Interactive Shiny web application for non-R users** 📱
 
 To see which functions are available, please refer to the reference page of the `polyglotr` package. The [reference](https://Tomeriko96.github.io/polyglotr/reference/index.html) page provides a comprehensive list of functions available in the package, organized by category.
 
@@ -118,6 +120,46 @@ print(translation_apertium)
 
 ```
  
+
+# Shiny Web App 📱
+
+`polyglotr` now includes a user-friendly web application that makes translation services accessible to users without R programming knowledge!
+
+## Launching the App
+
+```r
+library(polyglotr)
+
+# Launch the app with default settings
+launch_polyglotr_app()
+
+# Or with custom settings
+launch_polyglotr_app(port = 3838, launch.browser = TRUE)
+```
+
+## App Features
+
+- **Multiple Translation Services**: Choose from Google Translate, MyMemory, PONS, Linguee, QCRI, Apertium, and Wikimedia Cloud
+- **Language Detection**: Automatically detect the source language of your text
+- **Dynamic Language Selection**: Available languages update based on the selected translation service
+- **User-Friendly Interface**: Clean dashboard design with intuitive controls
+- **No Coding Required**: Perfect for non-R users who want to access polyglotr's capabilities
+
+## Installation Requirements
+
+To use the Shiny app, you'll need these additional packages:
+
+```r
+install.packages(c("shiny", "shinydashboard", "DT"))
+```
+
+The app provides an intuitive interface where users can:
+1. Select their preferred translation service
+2. Enter text to translate
+3. Choose source and target languages
+4. Use automatic language detection
+5. View translation results instantly
+
 
 # Usage 💬
 

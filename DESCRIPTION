@@ -28,7 +28,11 @@ Suggests:
     knitr,
     rmarkdown,
     testthat (>= 3.0.0),
-    text2vec
+    text2vec,
+    shiny,
+    shinydashboard,
+    shinyjs,
+    DT
 Config/testthat/edition: 3
 VignetteBuilder: knitr
 Depends: 
