@@ -19,6 +19,8 @@ knitr::opts_chunk$set(
 library(polyglotr)
 library(dplyr)
 library(tibble)
+library(purrr)
+
 ```
 
 # Language Detection and Conditional Translation
@@ -139,7 +141,7 @@ process_feedback <- function(text) {
 }
 
 # Apply to all feedback entries
-processed_results <- map_dfr(mixed_data$user_feedback, process_feedback)
+processed_results <- purrr::map_dfr(mixed_data$user_feedback, process_feedback)
 
 # Combine with original data
 enhanced_data <- bind_cols(mixed_data, processed_results)
@@ -154,7 +156,6 @@ For more sophisticated data processing workflows:
 
 ```{r advanced_tidyverse}
 library(stringr)
-library(purrr)
 
 # Enhanced processing function with more details
 enhanced_language_processing <- function(df, text_column) {
@@ -292,114 +293,6 @@ print("Sample of processed data:")
 print(processed_large %>% 
       select(id, detected_lang, is_english, content, english_text) %>%
       head(10))
-```
-
-## Text Analysis on Standardized Content
-
-Once you have English-standardized text, you can perform consistent analysis:
-
-```{r text_analysis}
-# Analyze sentiment or keywords on standardized English text
-analyze_standardized_text <- function(df) {
-  df %>%
-    mutate(
-      # Simple text metrics
-      word_count = str_count(english_text, "\\S+"),
-      char_count = nchar(english_text),
-      
-      # Simple sentiment indicators (basic approach)
-      positive_words = str_count(english_text, "\\b(good|great|excellent|amazing|fantastic|outstanding|satisfied)\\b"),
-      negative_words = str_count(english_text, "\\b(bad|poor|terrible|awful|disappointing|unsatisfied)\\b"),
-      
-      # Basic sentiment score
-      sentiment_score = positive_words - negative_words,
-      sentiment_category = case_when(
-        sentiment_score > 0 ~ "positive",
-        sentiment_score < 0 ~ "negative", 
-        TRUE ~ "neutral"
-      )
-    )
-}
-
-# Apply analysis
-analyzed_data <- processed_large %>%
-  analyze_standardized_text()
-
-# Summary by original language
-language_sentiment_summary <- analyzed_data %>%
-  group_by(detected_lang) %>%
-  summarise(
-    count = n(),
-    avg_sentiment = mean(sentiment_score),
-    positive_rate = mean(sentiment_category == "positive"),
-    avg_word_count = mean(word_count),
-    .groups = "drop"
-  )
-
-print("Sentiment analysis by original language:")
-print(language_sentiment_summary)
-```
-
-## Error Handling and Quality Control
-
-Implement robust error handling for production workflows:
-
-```{r error_handling}
-safe_language_detect <- function(text) {
-  tryCatch({
-    result <- language_detect(text)
-    return(list(language = result, error = NULL))
-  }, error = function(e) {
-    return(list(language = "unknown", error = e$message))
-  })
-}
-
-safe_translate <- function(text, target_lang = "en") {
-  tryCatch({
-    result <- google_translate(text, target_language = target_lang)
-    return(list(translation = result, error = NULL))
-  }, error = function(e) {
-    return(list(translation = text, error = e$message))
-  })
-}
-
-# Robust processing function
-robust_language_processing <- function(df, text_col) {
-  df %>%
-    mutate(
-      # Safe language detection
-      detection_result = map(!!rlang::sym(text_col), safe_language_detect),
-      detected_lang = map_chr(detection_result, ~ .x$language),
-      detection_error = map_chr(detection_result, ~ ifelse(is.null(.x$error), "", .x$error)),
-      
-      # Determine translation need
-      needs_translation = detected_lang != "unknown" & !str_detect(detected_lang, "en"),
-      
-      # Safe translation
-      translation_result = map2(!!rlang::sym(text_col), needs_translation,
-                               ~ if (.y) safe_translate(.x) else list(translation = .x, error = NULL)),
-      english_text = map_chr(translation_result, ~ .x$translation),
-      translation_error = map_chr(translation_result, ~ ifelse(is.null(.x$error), "", .x$error)),
-      
-      # Quality indicators
-      has_errors = detection_error != "" | translation_error != "",
-      processing_quality = case_when(
-        has_errors ~ "error",
-        detected_lang == "unknown" ~ "uncertain",
-        needs_translation & english_text != !!rlang::sym(text_col) ~ "translated",
-        !needs_translation ~ "original_english",
-        TRUE ~ "unchanged"
-      )
-    ) %>%
-    select(-detection_result, -translation_result)
-}
-
-# Apply robust processing
-robust_results <- robust_language_processing(mixed_data, "user_feedback")
-
-print("Robust processing results with error handling:")
-print(robust_results %>% 
-      select(id, detected_lang, processing_quality, has_errors))
 ```
 
 ## Best Practices

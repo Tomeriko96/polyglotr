@@ -214,35 +214,6 @@ When working with translation tables:
 4. **Organization**: Use categories and metadata to organize large translation sets
 5. **Backup**: Save translation tables as they represent significant work
 
-```{r best_practices}
-# Example of organized translation workflow
-project_config <- list(
-  source_language = "en",
-  target_languages = c("es", "fr", "de", "it"),
-  categories = c("ui", "content", "errors", "help")
-)
-
-# Define phrases by category
-ui_phrases <- c("Menu", "Search", "Filter", "Sort")
-error_phrases <- c("Invalid input", "Connection failed", "File not found")
-
-# Create translations with metadata
-create_categorized_table <- function(phrases, category, config) {
-  table <- create_translation_table(phrases, config$target_languages)
-  table$category <- category
-  table$source_lang <- config$source_language
-  table$created_date <- Sys.Date()
-  return(table)
-}
-
-ui_table <- create_categorized_table(ui_phrases, "ui", project_config)
-error_table <- create_categorized_table(error_phrases, "errors", project_config)
-
-# Combine and organize
-complete_table <- rbind(ui_table, error_table)
-print(head(complete_table))
-```
-
 ## Conclusion
 
 The `create_translation_table()` function provides a powerful foundation for multilingual workflows. By combining it with tidyverse tools and structured approaches, you can efficiently manage localization projects of any size. The tabular format makes it easy to review, validate, and export translations for various applications.
