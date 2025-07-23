@@ -1,0 +1,309 @@
+---
+title: "Language Detection and Conditional Translation"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Language Detection and Conditional Translation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+```{r setup}
+library(polyglotr)
+library(dplyr)
+library(tibble)
+library(purrr)
+
+```
+
+# Language Detection and Conditional Translation
+
+This vignette demonstrates how to detect input languages and translate only non-English text, integrating seamlessly with tidyverse workflows. This approach is particularly useful for cleaning multilingual datasets and processing mixed-language content efficiently.
+
+## Overview
+
+Language detection and conditional translation allows you to:
+
+- Automatically identify the language of text inputs
+- Selectively translate only non-English content
+- Process mixed-language datasets efficiently
+- Integrate with tidyverse workflows for data manipulation
+- Clean and standardize multilingual datasets
+
+## Basic Language Detection
+
+Let's start with simple language detection:
+
+```{r basic_detection}
+# Sample texts in different languages
+sample_texts <- c(
+  "Hello, how are you today?",           # English
+  "Bonjour, comment allez-vous?",        # French  
+  "Hola, ¿cómo estás hoy?",             # Spanish
+  "Guten Tag, wie geht es Ihnen?",      # German
+  "Ciao, come stai oggi?"               # Italian
+)
+
+# Detect languages
+detected_languages <- sapply(sample_texts, language_detect)
+print("Detected languages:")
+print(detected_languages)
+```
+
+## Conditional Translation Function
+
+Create a function that only translates non-English text:
+
+```{r conditional_translation}
+translate_if_not_english <- function(text, target_language = "en") {
+  # Detect language of the input text
+  detected_lang <- language_detect(text)
+  
+  # Check if the detected language is English
+  is_english <- grepl("en", detected_lang, ignore.case = TRUE)
+  
+  if (is_english) {
+    # Return original text if already English
+    return(list(
+      original = text,
+      translated = text,
+      was_translated = FALSE,
+      detected_language = detected_lang
+    ))
+  } else {
+    # Translate to English if not English
+    translated_text <- google_translate(text, target_language = target_language, source_language = "auto")
+    return(list(
+      original = text,
+      translated = translated_text,
+      was_translated = TRUE,
+      detected_language = detected_lang
+    ))
+  }
+}
+
+# Test the function
+test_text_fr <- "Bonjour, j'aimerais acheter un billet."
+result <- translate_if_not_english(test_text_fr)
+
+print("Conditional translation result:")
+print(paste("Original:", result$original))
+print(paste("Translated:", result$translated))
+print(paste("Was translated:", result$was_translated))
+print(paste("Detected language:", result$detected_language))
+```
+
+## Working with Tibbles and Mixed-Language Data
+
+Here's a practical example with a tibble containing mixed-language rows:
+
+```{r mixed_language_tibble}
+# Create a dataset with mixed languages (typical of user-generated content)
+mixed_data <- tibble(
+  id = 1:8,
+  user_feedback = c(
+    "Great product, very satisfied!",                    # English
+    "Excelente producto, muy satisfecho!",               # Spanish
+    "Produit fantastique, je le recommande!",            # French
+    "This service exceeded my expectations.",            # English
+    "Der Service war wirklich hervorragend.",            # German
+    "Servizio eccellente, davvero impressionante!",     # Italian
+    "The delivery was fast and reliable.",               # English
+    "La livraison était rapide et fiable."               # French
+  ),
+  rating = c(5, 5, 4, 5, 4, 5, 4, 4),
+  category = rep(c("product", "service"), 4)
+)
+
+print("Original mixed-language dataset:")
+print(mixed_data)
+```
+
+Now let's detect languages and conditionally translate:
+
+```{r detect_and_translate}
+# Function to process each text entry
+process_feedback <- function(text) {
+  result <- translate_if_not_english(text)
+  return(tibble(
+    original_text = result$original,
+    english_text = result$translated,
+    was_translated = result$was_translated,
+    detected_language = result$detected_language
+  ))
+}
+
+# Apply to all feedback entries
+processed_results <- purrr::map_dfr(mixed_data$user_feedback, process_feedback)
+
+# Combine with original data
+enhanced_data <- bind_cols(mixed_data, processed_results)
+
+print("Enhanced dataset with language detection and translation:")
+print(enhanced_data)
+```
+
+## Advanced Tidyverse Integration
+
+For more sophisticated data processing workflows:
+
+```{r advanced_tidyverse}
+library(stringr)
+
+# Enhanced processing function with more details
+enhanced_language_processing <- function(df, text_column) {
+  df %>%
+    mutate(
+      # Detect language for each text entry
+      detected_lang = map_chr(!!rlang::sym(text_column), 
+                             ~ tryCatch(language_detect(.x), error = function(e) "unknown")),
+      
+      # Determine if translation is needed
+      needs_translation = !str_detect(detected_lang, "en"),
+      
+      # Translate only non-English text
+      english_text = map2_chr(!!rlang::sym(text_column), needs_translation,
+                             ~ if (.y) {
+                               tryCatch(google_translate(.x, target_language = "en"), 
+                                       error = function(e) .x)
+                             } else {
+                               .x
+                             }),
+      
+      # Add translation confidence/status
+      translation_status = case_when(
+        detected_lang == "unknown" ~ "detection_failed",
+        !needs_translation ~ "already_english", 
+        english_text != !!rlang::sym(text_column) ~ "translated",
+        TRUE ~ "translation_failed"
+      )
+    )
+}
+
+# Apply enhanced processing
+result_data <- enhanced_language_processing(mixed_data, "user_feedback")
+
+print("Advanced processing results:")
+print(result_data %>% select(id, detected_lang, needs_translation, translation_status))
+```
+
+## Batch Processing with Language Filtering
+
+Process large datasets efficiently by filtering and batching:
+
+```{r batch_filtering}
+# Create larger sample dataset
+large_dataset <- tibble(
+  id = 1:20,
+  content = c(
+    # Mix of English and non-English content
+    "Amazing service quality",                           # EN
+    "Fantástico servicio al cliente",                   # ES  
+    "Service client exceptionnel",                      # FR
+    "Great user experience",                            # EN
+    "Esperienza utente eccellente",                     # IT
+    "Ausgezeichnete Benutzerführung",                  # DE
+    "Fast shipping and delivery",                       # EN
+    "Livraison rapide et efficace",                    # FR
+    "Excellent product quality",                        # EN
+    "Qualità del prodotto superiore",                  # IT
+    "Easy to use interface",                           # EN
+    "Interfaz muy fácil de usar",                      # ES
+    "Highly recommend this product",                    # EN
+    "Je recommande vivement ce produit",               # FR
+    "Outstanding customer support",                     # EN
+    "Soporte al cliente sobresaliente",                # ES
+    "Very satisfied with purchase",                     # EN
+    "Sehr zufrieden mit dem Kauf",                     # DE
+    "Will definitely buy again",                       # EN
+    "Sicuramente acquisterò di nuovo"                  # IT
+  ),
+  timestamp = Sys.time() + sample(-1000:1000, 20),
+  priority = sample(c("high", "medium", "low"), 20, replace = TRUE)
+)
+
+# Efficient batch processing workflow
+batch_process_languages <- function(df, text_col, batch_size = 5) {
+  # First, detect languages for all entries
+  df_with_detection <- df %>%
+    mutate(
+      row_id = row_number(),
+      detected_lang = map_chr(!!rlang::sym(text_col), 
+                             ~ tryCatch(language_detect(.x), error = function(e) "en")),
+      is_english = str_detect(detected_lang, "en")
+    )
+  
+  # Separate English and non-English content
+  english_content <- df_with_detection %>% filter(is_english)
+  non_english_content <- df_with_detection %>% filter(!is_english)
+  
+  # Process non-English content in batches
+  if (nrow(non_english_content) > 0) {
+    non_english_content <- non_english_content %>%
+      mutate(
+        batch_id = ceiling(row_number() / batch_size),
+        english_text = map_chr(!!rlang::sym(text_col),
+                              ~ tryCatch(google_translate(.x, target_language = "en"),
+                                        error = function(e) .x))
+      )
+  } else {
+    non_english_content <- non_english_content %>%
+      mutate(batch_id = integer(0), english_text = character(0))
+  }
+  
+  # For English content, keep original text
+  english_content <- english_content %>%
+    mutate(
+      batch_id = NA_integer_,
+      english_text = !!rlang::sym(text_col)
+    )
+  
+  # Combine results
+  result <- bind_rows(english_content, non_english_content) %>%
+    arrange(row_id) %>%
+    select(-row_id)
+  
+  return(result)
+}
+
+# Apply batch processing
+processed_large <- batch_process_languages(large_dataset, "content", batch_size = 3)
+
+# Summary statistics
+summary_stats <- processed_large %>%
+  summarise(
+    total_entries = n(),
+    english_entries = sum(is_english),
+    translated_entries = sum(!is_english),
+    translation_rate = mean(!is_english),
+    unique_languages = n_distinct(detected_lang)
+  )
+
+print("Processing summary:")
+print(summary_stats)
+
+print("Sample of processed data:")
+print(processed_large %>% 
+      select(id, detected_lang, is_english, content, english_text) %>%
+      head(10))
+```
+
+## Best Practices
+
+1. **Validate language detection** - Check detection confidence when possible
+2. **Handle errors gracefully** - Implement fallback strategies for failed translations
+3. **Batch process efficiently** - Group similar operations to minimize API calls
+4. **Monitor quality** - Track translation success rates and errors
+5. **Cache results** - Store language detection and translation results to avoid redundant API calls
+6. **Test with edge cases** - Handle empty strings, special characters, and mixed content
+
+## Conclusion
+
+Language detection and conditional translation provide powerful tools for cleaning and standardizing multilingual datasets. By integrating with tidyverse workflows, you can efficiently process mixed-language content, enabling consistent analysis and insights across diverse linguistic data sources.
