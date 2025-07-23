@@ -1,3 +1,6 @@
+# polyglotr 1.7.0
+* Adds Shiny app
+
 # polyglotr 1.6.1
 * Fixes language codes in `google_translate()` for Traditional and Simple Chinese
 
