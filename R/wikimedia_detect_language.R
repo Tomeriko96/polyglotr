@@ -6,11 +6,12 @@
 #' @param text The text whose language is to be detected.
 #'
 #' @return The detected language.
-#'
-#' @examples
+#' @examples{
+#' \donttest{
 #' # Detect the language of a text
 #' wikimedia_detect_language("Hallo, wereld")
-#'
+#' }
+#' }
 #' @export
 wikimedia_detect_language <- function(text) {
   # Define the URL of the API

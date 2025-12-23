@@ -17,7 +17,10 @@ This function sends a POST request to the Wikimedia Language ID API with the spe
 parses the JSON response, and returns the detected language.
 }
 \examples{
+{
+\donttest{
 # Detect the language of a text
 wikimedia_detect_language("Hallo, wereld")
-
+}
+}
 }

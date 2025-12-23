@@ -1,3 +1,6 @@
+# polyglotr 1.7.1
+* Changed maintainer email address.
+
 # polyglotr 1.7.0
 * Adds Shiny app
 
