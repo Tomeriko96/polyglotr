@@ -9,7 +9,7 @@ Automatically detects and preserves URLs by temporarily replacing them with plac
 
     <a class="navbar-brand me-2" href="../index.html">polyglotr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,7 +82,7 @@ The default value is "auto", which attempts automatic language detection.</p></d
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># Translate a simple sentence</span></span></span>
 <span class="r-in"><span><span class="fu">google_translate</span><span class="op">(</span><span class="st">"I love languages"</span>, target_language <span class="op">=</span> <span class="st">"es"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Amo los idiomas"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "me encantan los idiomas"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Translate a vector of words</span></span></span>
 <span class="r-in"><span><span class="va">text_to_translate</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"the"</span>, <span class="st">"quick"</span>, <span class="st">"brown"</span><span class="op">)</span></span></span>
@@ -91,7 +91,7 @@ The default value is "auto", which attempts automatic language detection.</p></d
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Translate text containing a URL</span></span></span>
 <span class="r-in"><span><span class="fu">google_translate</span><span class="op">(</span><span class="st">"Visit http://example.com for more info."</span>, target_language <span class="op">=</span> <span class="st">"de"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Besuchen Sie http://example.com für weitere Informationen."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Weitere Informationen finden Sie unter http://example.com."</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
@@ -104,7 +104,7 @@ The default value is "auto", which attempts automatic language detection.</p></d
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>

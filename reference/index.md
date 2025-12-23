@@ -1,0 +1,121 @@
+# Package index
+
+## Google Translation Methods
+
+Methods using Google Translation services
+
+- [`batch_translate()`](https://tomeriko96.github.io/polyglotr/reference/batch_translate.md)
+  : Batch Translation Function
+- [`create_translation_table()`](https://tomeriko96.github.io/polyglotr/reference/create_translation_table.md)
+  : Create a Translation Table
+- [`create_transliteration_table()`](https://tomeriko96.github.io/polyglotr/reference/create_transliteration_table.md)
+  : Create a Transliteration Table
+- [`google_get_supported_languages()`](https://tomeriko96.github.io/polyglotr/reference/google_get_supported_languages.md)
+  : Get Supported Languages
+- [`google_is_valid_language_code()`](https://tomeriko96.github.io/polyglotr/reference/google_is_valid_language_code.md)
+  : Check if a language code is valid
+- [`google_supported_languages`](https://tomeriko96.github.io/polyglotr/reference/google_supported_languages.md)
+  : Google Supported Languages
+- [`google_translate()`](https://tomeriko96.github.io/polyglotr/reference/google_translate.md)
+  : Translate text using Google Translate
+- [`google_translate_long_text()`](https://tomeriko96.github.io/polyglotr/reference/google_translate_long_text.md)
+  : Translate Long Text Using Google Translate
+- [`google_transliterate()`](https://tomeriko96.github.io/polyglotr/reference/google_transliterate.md)
+  : Transliterate a single word or a sentence to the required language.
+- [`language_detect()`](https://tomeriko96.github.io/polyglotr/reference/language_detect.md)
+  : Detect Language using Google Translate API
+- [`translate_file()`](https://tomeriko96.github.io/polyglotr/reference/translate_file.md)
+  : Translate File
+
+## Linguee Methods
+
+Methods using Linguee services
+
+- [`linguee_external_sources()`](https://tomeriko96.github.io/polyglotr/reference/linguee_external_sources.md)
+  : Retrieve external sources using Linguee Translation API
+- [`linguee_translation_examples()`](https://tomeriko96.github.io/polyglotr/reference/linguee_translation_examples.md)
+  : Provide translation examples using Linguee Translation API
+- [`linguee_word_translation()`](https://tomeriko96.github.io/polyglotr/reference/linguee_word_translation.md)
+  : Translate word using Linguee Translation API
+
+## Microsoft Methods
+
+Methods using Microsoft Translation services
+
+- [`microsoft_supported_languages()`](https://tomeriko96.github.io/polyglotr/reference/microsoft_supported_languages.md)
+  : Get the set of languages currently supported by the Microsoft
+  Translator API
+
+## MyMemory Methods
+
+Methods using MyMemory Translation services
+
+- [`mymemory_translate()`](https://tomeriko96.github.io/polyglotr/reference/mymemory_translate.md)
+  : Translate text using mymemory translate
+
+## Apertium Methods
+
+Methods using Apertium Translation services
+
+- [`apertium_get_language_pairs()`](https://tomeriko96.github.io/polyglotr/reference/apertium_get_language_pairs.md)
+  : Get Apertium Language Pairs
+- [`apertium_translate()`](https://tomeriko96.github.io/polyglotr/reference/apertium_translate.md)
+  : Translate text using Apertium
+
+## Pons Methods
+
+Methods using Pons Translation services
+
+- [`pons_translate()`](https://tomeriko96.github.io/polyglotr/reference/pons_translate.md)
+  : Translate text using PONS
+- [`pons_dictionaries()`](https://tomeriko96.github.io/polyglotr/reference/pons_dictionaries.md)
+  : Get the list of available dictionaries from PONS API
+
+## QCRI Methods
+
+Methods using QCRI services
+
+- [`qcri_api_key()`](https://tomeriko96.github.io/polyglotr/reference/qcri_api_key.md)
+  : Get the QCRI API key from the environment variable
+- [`qcri_get_domains()`](https://tomeriko96.github.io/polyglotr/reference/qcri_get_domains.md)
+  : QCRI Get Domains
+- [`qcri_get_language_pairs()`](https://tomeriko96.github.io/polyglotr/reference/qcri_get_language_pairs.md)
+  : QCRI Get Language Pairs
+- [`qcri_translate_text()`](https://tomeriko96.github.io/polyglotr/reference/qcri_translate_text.md)
+  : QCRI Translate Text
+
+## Wikimedia Foundation Methods
+
+Methods using Wikimedia Foundation Translation services
+
+- [`wikimedia_detect_language()`](https://tomeriko96.github.io/polyglotr/reference/wikimedia_detect_language.md)
+  : Detect the language of a text
+- [`wikipedia_get_language_names()`](https://tomeriko96.github.io/polyglotr/reference/wikipedia_get_language_names.md)
+  : Get language names
+- [`wmcloud_translate()`](https://tomeriko96.github.io/polyglotr/reference/wmcloud_translate.md)
+  : Translate content using WMCloud
+
+## Funtranslation Methods
+
+Methods using Funtranslation services for morse code
+
+- [`translate_to_morse()`](https://tomeriko96.github.io/polyglotr/reference/translate_to_morse.md)
+  : Translate Text to Morse Code using the FunTranslations API
+- [`translate_to_morse_audio()`](https://tomeriko96.github.io/polyglotr/reference/translate_to_morse_audio.md)
+  : Translate English Text to Morse Code with Audio
+
+## Helpers
+
+Helper functions for the package
+
+- [`replace_urls_with_placeholders()`](https://tomeriko96.github.io/polyglotr/reference/replace_urls_with_placeholders.md)
+  : Replace URLs in a sentence with placeholders
+- [`restore_urls_from_placeholders()`](https://tomeriko96.github.io/polyglotr/reference/restore_urls_from_placeholders.md)
+  : Restore URLs from placeholders in a translated text
+
+## Shiny App
+
+Shiny app for interactive translation
+
+- [`launch_polyglotr_app()`](https://tomeriko96.github.io/polyglotr/reference/launch_polyglotr_app.md)
+  : Launch polyglotr Shiny App

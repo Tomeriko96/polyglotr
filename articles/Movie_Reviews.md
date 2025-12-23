@@ -1,0 +1,65 @@
+# Translation of Movie Reviews
+
+## Introduction
+
+In this vignette, we will demonstrate how to use the `polyglotr` package
+in combination with other packages like text2vec, purrr, and dplyr to
+translate movie reviews into French.
+
+## Installation
+
+To get started, you need to install the required packages. If you
+haven’t installed the Polyglotr package and the other dependencies, you
+can use the following code to install them:
+
+``` r
+library(polyglotr)
+library(purrr)
+library(dplyr)
+library(text2vec)
+```
+
+## Translating Movie Reviews
+
+To demonstrate the translation of movie reviews, we will use the
+movie_review dataset from the text2vec package. In the code below, we
+load the necessary packages and create a subset of the `movie_review`
+dataset with the first 10 rows, which will be used for the translation.
+
+``` r
+df <- head(movie_review, 10)
+glimpse(df)
+
+## show reviews
+df$review
+```
+
+Now, let’s translate the review column to French using the `polyglotr`
+package:
+
+``` r
+# Translate the review column to French
+translated_reviews <- df %>%
+  dplyr::mutate(french_review = purrr::map_chr(review, ~ google_translate(.x, target_language = "fr", source_language = "en")))
+```
+
+In the code snippet above, we utilize the `mutate` function from `dplyr`
+in conjunction with
+[`purrr::map_chr`](https://purrr.tidyverse.org/reference/map.html) to
+apply the google_translate function from the package to each element in
+the review column. The translated reviews are stored in a new column
+named “french_review”.
+
+## Results
+
+Let’s examine the translated movie reviews:
+
+``` r
+glimpse(translated_reviews)
+
+translated_reviews$french_review
+```
+
+The output will display the first few rows of the translated movie
+reviews, including the original review column and the corresponding
+French translation in the “french_review” column.
