@@ -1,0 +1,16 @@
+{
+  "name": "R package dev",
+  "image": "rocker/tidyverse:latest",
+  "remoteUser": "rstudio",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "REditorSupport.r",
+        "ms-vscode.test-adapter-converter"
+      ]
+    }
+  },
+  "postCreateCommand": "R -q -e \"install.packages(c('devtools', 'usethis', 'pak'), repos='https://cran.rstudio.com/'); pak::local_install_deps(upgrade=FALSE); devtools::install(dependencies=TRUE, upgrade=FALSE)\"",
+  "forwardPorts": [3838]
+}
+

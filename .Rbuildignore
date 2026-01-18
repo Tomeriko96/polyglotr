@@ -13,3 +13,5 @@
 ^docs$
 ^pkgdown$
 ^codecov\.yml$
+
+^\.devcontainer$
