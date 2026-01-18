@@ -2,6 +2,8 @@
 
 ## polyglotr 1.7.1
 
+CRAN release: 2026-01-11
+
 - Changed maintainer email address.
 
 ## polyglotr 1.7.0
