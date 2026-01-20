@@ -39,7 +39,7 @@
 - [Quick Start](#quick-start-)
 - [Shiny Web App](#shiny-web-app-)
 - [Usage](#usage-)
-- [Documentation](#documentation-)
+- [Troubleshooting](#troubleshooting-)
 - [Contribution](#contribution-)
 - [License](#license-️)
 - [Citation](#citation-)
@@ -64,34 +64,13 @@ Currently, the package has functions to communicate with the following services:
 
 ## Why polyglotr?
 
-`polyglotr` stands out as a versatile and user-friendly translation tool for R users. Here's why you should consider using it:
+`polyglotr` offers a streamlined translation experience for R users:
 
-
-1. **No Authentication Hassle**
-   - Access multiple translation services without API keys or complex authentication.
-   - Start translating immediately after installation, with no sign-ups or accounts.
-
-2. **Multiple Services, One Package**
-   - Use various translation services (Google, Mymemory, Linguee, Pons, QCRI, Wikimedia) through a single interface.
-   - Easily switch between services to compare translations or find the best fit.
-
-3. **R-Native Solution**
-   - Integrate translation capabilities into your R workflows and data analysis pipelines.
-   - Benefit from R's data manipulation strengths while translating.
-
-4. **Flexibility and Scalability**
-   - Translate single phrases, large datasets, or entire files with equal ease.
-   - Create multilingual datasets using built-in functions.
-
-5. **Open Source and Community-Driven**
-   - Continuous improvements and updates driven by user feedback and contributions.
-   - Adapt the package to your needs by accessing and modifying the source code.
-
-6. **Comprehensive Documentation**
-   - Get started quickly with extensive documentation, vignettes, and examples.
-   - Access a wide range of use cases and best practices.
-
-By choosing polyglotr, you're opting for a powerful, flexible, and user-friendly translation solution that integrates seamlessly with your R environment, all without the barriers of authentication or service-specific setups.
+- **No API Keys Required** - Start translating immediately after installation
+- **Multiple Services** - Access 7 translation services through one interface
+- **R-Native Integration** - Seamlessly incorporate translation into data workflows
+- **Flexible Usage** - Translate single phrases, datasets, or entire files
+- **Open Source** - Community-driven with comprehensive documentation
 
 
 
@@ -112,7 +91,13 @@ Additionally, the package includes vignettes that provide more detailed informat
 
 # Installation
 
-To install the package:
+## System Requirements
+
+- R (>= 3.6.0)
+- Internet connection for translation services
+- Optional for Shiny app: `shiny`, `shinydashboard`, `DT`
+
+## Install Package
 
 ```{r}
 # The easiest way is to get polyglotr from CRAN
@@ -129,7 +114,7 @@ remotes::install_github("Tomeriko96/polyglotr")
 
 Here's a minimal example to get you started: 
 
-```
+```{r}
 library(polyglotr)
 
 # Translate a simple phrase using Google Translate
@@ -140,7 +125,6 @@ print(translation)
 # Translate using Apertium (no API key required)
 translation_apertium <- apertium_translate(text, target_language = "es", source_language = "en")
 print(translation_apertium)
-
 ```
  
 
@@ -207,11 +191,29 @@ create_translation_table(texts, languages)
 ```
 
 
-# Documentation
+# Troubleshooting
+
+## Common Issues
+
+**Translation fails or returns empty results**
+- Check your internet connection
+- Verify the target language is supported by the chosen service
+- Some services have rate limits - try again later
+
+**Shiny app won't launch**
+- Ensure required packages are installed: `install.packages(c("shiny", "shinydashboard", "DT"))`
+- Check if the specified port is available
+
+**Language detection not working**
+- Not all services support language detection
+- Try using a different translation service
+
+## Getting Help
 
 - [Package Website](https://Tomeriko96.github.io/polyglotr/)
 - [Reference Manual](https://Tomeriko96.github.io/polyglotr/reference/index.html)
 - [Vignettes](https://Tomeriko96.github.io/polyglotr/articles/)
+- [GitHub Issues](https://github.com/Tomeriko96/polyglotr/issues)
 
 
 
