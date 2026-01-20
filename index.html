@@ -86,7 +86,7 @@ polyglotr | Multilingual Text Translation
 <li><a href="#quick-start-">Quick Start</a></li>
 <li><a href="#shiny-web-app-">Shiny Web App</a></li>
 <li><a href="#usage-">Usage</a></li>
-<li><a href="#documentation-">Documentation</a></li>
+<li><a href="#troubleshooting-">Troubleshooting</a></li>
 <li><a href="#contribution-">Contribution</a></li>
 <li><a href="#license-%EF%B8%8F">License</a></li>
 <li><a href="#citation-">Citation</a></li>
@@ -117,52 +117,19 @@ polyglotr | Multilingual Text Translation
 <div class="section level2">
 <h2 id="why-polyglotr">Why polyglotr?<a class="anchor" aria-label="anchor" href="#why-polyglotr"></a>
 </h2>
-<p><code>polyglotr</code> stands out as a versatile and user-friendly translation tool for R users. Here’s why you should consider using it:</p>
-<ol style="list-style-type: decimal">
-<li>
-<strong>No Authentication Hassle</strong>
+<p><code>polyglotr</code> offers a streamlined translation experience for R users:</p>
 <ul>
-<li>Access multiple translation services without API keys or complex authentication.</li>
-<li>Start translating immediately after installation, with no sign-ups or accounts.</li>
-</ul>
-</li>
 <li>
-<strong>Multiple Services, One Package</strong>
-<ul>
-<li>Use various translation services (Google, Mymemory, Linguee, Pons, QCRI, Wikimedia) through a single interface.</li>
-<li>Easily switch between services to compare translations or find the best fit.</li>
-</ul>
-</li>
+<strong>No API Keys Required</strong> - Start translating immediately after installation</li>
 <li>
-<strong>R-Native Solution</strong>
-<ul>
-<li>Integrate translation capabilities into your R workflows and data analysis pipelines.</li>
-<li>Benefit from R’s data manipulation strengths while translating.</li>
-</ul>
-</li>
+<strong>Multiple Services</strong> - Access 7 translation services through one interface</li>
 <li>
-<strong>Flexibility and Scalability</strong>
-<ul>
-<li>Translate single phrases, large datasets, or entire files with equal ease.</li>
-<li>Create multilingual datasets using built-in functions.</li>
-</ul>
-</li>
+<strong>R-Native Integration</strong> - Seamlessly incorporate translation into data workflows</li>
 <li>
-<strong>Open Source and Community-Driven</strong>
-<ul>
-<li>Continuous improvements and updates driven by user feedback and contributions.</li>
-<li>Adapt the package to your needs by accessing and modifying the source code.</li>
-</ul>
-</li>
+<strong>Flexible Usage</strong> - Translate single phrases, datasets, or entire files</li>
 <li>
-<strong>Comprehensive Documentation</strong>
-<ul>
-<li>Get started quickly with extensive documentation, vignettes, and examples.</li>
-<li>Access a wide range of use cases and best practices.</li>
+<strong>Open Source</strong> - Community-driven with comprehensive documentation</li>
 </ul>
-</li>
-</ol>
-<p>By choosing polyglotr, you’re opting for a powerful, flexible, and user-friendly translation solution that integrates seamlessly with your R environment, all without the barriers of authentication or service-specific setups.</p>
 </div>
 </div>
 <div class="section level1">
@@ -183,8 +150,21 @@ polyglotr | Multilingual Text Translation
 <div class="section level1">
 <h1 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h1>
-<p>To install the package:</p>
+<div class="section level2">
+<h2 id="system-requirements">System Requirements<a class="anchor" aria-label="anchor" href="#system-requirements"></a>
+</h2>
+<ul>
+<li>R (&gt;= 3.6.0)</li>
+<li>Internet connection for translation services</li>
+<li>Optional for Shiny app: <code>shiny</code>, <code>shinydashboard</code>, <code>DT</code>
+</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="install-package">Install Package<a class="anchor" aria-label="anchor" href="#install-package"></a>
+</h2>
 <p>```{r} # The easiest way is to get polyglotr from CRAN install.packages(“polyglotr”)</p>
+</div>
 </div>
 <div class="section level1">
 <h1 id="alternatively-install-the-development-version-from-github">Alternatively, install the development version from GitHub<a class="anchor" aria-label="anchor" href="#alternatively-install-the-development-version-from-github"></a>
@@ -200,34 +180,33 @@ polyglotr | Multilingual Text Translation
 # Quick Start
 
 Here's a minimal example to get you started:
-</code></pre>
-<p>library(polyglotr)</p>
-</div>
-<div class="section level1">
-<h1 id="translate-a-simple-phrase-using-google-translate">Translate a simple phrase using Google Translate<a class="anchor" aria-label="anchor" href="#translate-a-simple-phrase-using-google-translate"></a>
-</h1>
-<p>text &lt;- “Hello, world!” translation &lt;- google_translate(text, target_language = “fr”) print(translation)</p>
-</div>
-<div class="section level1">
-<h1 id="translate-using-apertium-no-api-key-required">Translate using Apertium (no API key required)<a class="anchor" aria-label="anchor" href="#translate-using-apertium-no-api-key-required"></a>
-</h1>
-<p>translation_apertium &lt;- apertium_translate(text, target_language = “es”, source_language = “en”) print(translation_apertium)</p>
-<pre><code>
 
-
-# Shiny Web App
-
-&lt;a href="https://edulytics.shinyapps.io/polyglotr/" target="_blank"&gt;&lt;img src="https://img.shields.io/badge/Shiny%20App-Live-blue?logo=R" alt="Shiny App Deployed"&gt;&lt;/a&gt;
-
-`polyglotr` includes a web application for translation services, accessible to users without R programming knowledge.
-
-## Launching the App
-
-```r
+```{r}
 library(polyglotr)
-launch_polyglotr_app()
-# Or with custom settings
-launch_polyglotr_app(port = 3838, launch.browser = TRUE)</code></pre>
+
+# Translate a simple phrase using Google Translate
+text &lt;- "Hello, world!"
+translation &lt;- google_translate(text, target_language = "fr")
+print(translation)
+
+# Translate using Apertium (no API key required)
+translation_apertium &lt;- apertium_translate(text, target_language = "es", source_language = "en")
+print(translation_apertium)</code></pre>
+</div>
+<div class="section level1">
+<h1 id="shiny-web-app">Shiny Web App<a class="anchor" aria-label="anchor" href="#shiny-web-app"></a>
+</h1>
+<p><a href="https://edulytics.shinyapps.io/polyglotr/" target="_blank" class="external-link"><img src="https://img.shields.io/badge/Shiny%20App-Live-blue?logo=R" alt="Shiny App Deployed"></a></p>
+<p><code>polyglotr</code> includes a web application for translation services, accessible to users without R programming knowledge.</p>
+<div class="section level2">
+<h2 id="launching-the-app">Launching the App<a class="anchor" aria-label="anchor" href="#launching-the-app"></a>
+</h2>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Tomeriko96/polyglotr/" class="external-link">polyglotr</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/launch_polyglotr_app.html">launch_polyglotr_app</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># Or with custom settings</span></span>
+<span><span class="fu"><a href="reference/launch_polyglotr_app.html">launch_polyglotr_app</a></span><span class="op">(</span>port <span class="op">=</span> <span class="fl">3838</span>, launch.browser <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+</div>
 <div class="section level2">
 <h2 id="app-features">App Features<a class="anchor" aria-label="anchor" href="#app-features"></a>
 </h2>
@@ -257,11 +236,29 @@ launch_polyglotr_app(port = 3838, launch.browser = TRUE)</code></pre>
 <p>#&gt; Original_word es #&gt; 1 Hello, how are you? ¿Hola, cómo estás? #&gt; 2 I love programming! ¡Me encanta programar! #&gt; 3 This is a test. Esto es una prueba. #&gt; fr de #&gt; 1 Bonjour comment allez-vous? Hallo, wie geht’s dir? #&gt; 2 J’adore programmer ! Ich liebe Programmieren! #&gt; 3 C’est un test. Das ist ein Test.</p>
 <pre><code>
 
-# Documentation
+# Troubleshooting
+
+## Common Issues
+
+**Translation fails or returns empty results**
+- Check your internet connection
+- Verify the target language is supported by the chosen service
+- Some services have rate limits - try again later
+
+**Shiny app won't launch**
+- Ensure required packages are installed: `install.packages(c("shiny", "shinydashboard", "DT"))`
+- Check if the specified port is available
+
+**Language detection not working**
+- Not all services support language detection
+- Try using a different translation service
+
+## Getting Help
 
 - [Package Website](https://Tomeriko96.github.io/polyglotr/)
 - [Reference Manual](https://Tomeriko96.github.io/polyglotr/reference/index.html)
 - [Vignettes](https://Tomeriko96.github.io/polyglotr/articles/)
+- [GitHub Issues](https://github.com/Tomeriko96/polyglotr/issues)
 
 
 
