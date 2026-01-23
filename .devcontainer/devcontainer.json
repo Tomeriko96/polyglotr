@@ -1,6 +1,8 @@
 {
   "name": "R package dev",
-  "image": "rocker/tidyverse:latest",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "remoteUser": "rstudio",
   "customizations": {
     "vscode": {
@@ -10,7 +12,7 @@
       ]
     }
   },
-  "postCreateCommand": "R -q -e \"install.packages(c('devtools', 'usethis', 'pak'), repos='https://cran.rstudio.com/'); pak::local_install_deps(upgrade=FALSE); devtools::install(dependencies=TRUE, upgrade=FALSE)\"",
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
   "forwardPorts": [3838]
 }
 
