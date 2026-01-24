@@ -29,10 +29,4 @@ RUN set -eux; \
     fi; \
     nvim --version | head -n1
 
-# Install Claude CLI
-RUN curl -fsSL https://claude.ai/install.sh | bash
-
-# Install OpenCode CLI
-RUN curl -fsSL https://opencode.ai/install | bash
-
 USER rstudio

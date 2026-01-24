@@ -36,5 +36,9 @@ curl -fsSL https://claude.ai/install.sh | bash
 echo "🛠️ Installing OpenCode CLI..."
 curl -fsSL https://opencode.ai/install | bash
 
+# Install GitHub Copilot CLI as rstudio user
+echo "🛠️ Installing GitHub Copilot CLI..."
+curl -fsSL https://gh.io/copilot-install | bash
+
 echo "✅ CLI tools installed and PATH updated."
 
