@@ -34,10 +34,7 @@
 create_table <- function(words, languages, fn = google_translate) {
   result <- data.frame(original_word = words, stringsAsFactors = FALSE)
   for (lang in languages) {
-    result[[lang]] <- vapply(
-      words, fn, character(1),
-      target_language = lang
-    )
+    result[[lang]] <- translate_vectorized(fn, words, target_language = lang)
   }
   result
 }

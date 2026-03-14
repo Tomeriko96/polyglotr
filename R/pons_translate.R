@@ -1,3 +1,4 @@
+#' @keywords internal
 pons_headers <- c(
   "authority"        = "api.pons.com",
   "accept"           = "*/*",
@@ -11,6 +12,7 @@ pons_headers <- c(
   "sec-fetch-site"   = "same-site"
 )
 
+#' @keywords internal
 pons_request <- function(t, target_language, source_language, headers) {
   result <- http_post_json(
     "https://api.pons.com/text-translation-web/v4/translate?locale=en",

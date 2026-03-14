@@ -1,3 +1,16 @@
+#' Apply a single-text translation function across a character vector
+#'
+#' @param fn A function with signature \code{fn(text, ...)} that translates a
+#'   single string.
+#' @param text A character vector of strings to translate.
+#' @param ... Additional arguments passed to \code{fn}.
+#'
+#' @return A character vector the same length as \code{text}.
+#' @keywords internal
+translate_vectorized <- function(fn, text, ...) {
+  vapply(text, fn, character(1), ..., USE.NAMES = FALSE)
+}
+
 #' Perform a GET request and return parsed JSON
 #'
 #' @param url Character. The request URL.

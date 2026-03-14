@@ -1,19 +1,4 @@
-#' Translate File
-#'
-#' Translates the content of a file using Google Translate API.
-#'
-#' @param file_path The path to the file to be translated.
-#' @param target_language The target language to translate the file content to. Default is "en".
-#' @param source_language The source language of the file content. Default is "auto".
-#' @param overwrite Logical indicating whether to overwrite the original file with the translated content. Default is FALSE.
-#'
-#' @return NULL
-#'
-#' @examples
-#' \dontrun{
-#' translate_file("path/to/file.txt", target_language = "fr", source_language = "en", overwrite = TRUE)
-#' }
-#' @export
+#' @keywords internal
 translate_file_line <- function(line, target_language, source_language) {
   if (startsWith(line, "#'")) {
     paste0("#' ", google_translate(
@@ -29,6 +14,23 @@ translate_file_line <- function(line, target_language, source_language) {
   }
 }
 
+#' Translate File
+#'
+#' Translates the content of a file using Google Translate.
+#'
+#' @param file_path The path to the file to be translated.
+#' @param target_language The target language to translate the file content to. Default is \code{"en"}.
+#' @param source_language The source language of the file content. Default is \code{"auto"}.
+#' @param overwrite Logical. If \code{TRUE}, overwrite the original file. If \code{FALSE}
+#'   (default), write to a new file named \code{<base>_<target_language>_translated.<ext>}.
+#'
+#' @return The path to the written file, returned invisibly.
+#'
+#' @examples
+#' \dontrun{
+#' translate_file("path/to/file.txt", target_language = "fr", source_language = "en", overwrite = TRUE)
+#' }
+#' @export
 translate_file <- function(file_path, target_language = "en", source_language = "auto",
                            overwrite = FALSE) {
   lines <- readLines(file_path, warn = FALSE, encoding = "UTF-8")

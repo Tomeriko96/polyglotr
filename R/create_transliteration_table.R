@@ -22,6 +22,11 @@
 #'   }
 #' )
 #' }
+#' @keywords internal
+transliterate_for_table <- function(text, target_language) {
+  google_transliterate(text, language_tag = target_language, num = 1)
+}
+
 create_transliteration_table <- function(words, languages) {
   .Deprecated(
     "create_table",
@@ -31,8 +36,5 @@ create_transliteration_table <- function(words, languages) {
       "google_transliterate(text, target_language, num = 1) instead."
     )
   )
-  fn <- function(text, target_language) {
-    google_transliterate(text, language_tag = target_language, num = 1)
-  }
-  create_table(words, languages, fn = fn)
+  create_table(words, languages, fn = transliterate_for_table)
 }
