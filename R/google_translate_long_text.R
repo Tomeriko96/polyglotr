@@ -36,13 +36,11 @@ google_translate_long_text <- function(text,
     )
   )
 
-  result <- vapply(text, function(t) {
-    google_translate(t,
-      target_language = target_language,
-      source_language = source_language,
-      chunk_size = chunk_size
-    )
-  }, character(1), USE.NAMES = FALSE)
+  result <- google_translate(text,
+    target_language = target_language,
+    source_language = source_language,
+    chunk_size = chunk_size
+  )
 
   if (!preserve_newlines) {
     result <- gsub("\n", " ", result)

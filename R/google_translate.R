@@ -21,6 +21,16 @@
 #' google_translate(c("the", "quick", "brown"), target_language = "fr", source_language = "en")
 #' google_translate("Visit http://example.com for more info.", target_language = "de")
 #' }
+google_translate_chunked <- function(t, target_language, source_language, chunk_size) {
+  replaced <- replace_urls_with_placeholders(t)
+  chunks <- split_text_at_words(replaced$text, chunk_size)
+  translated_chunks <- vapply(chunks, google_scrape, character(1),
+                              target_language, source_language,
+                              USE.NAMES = FALSE)
+  translated <- paste(translated_chunks, collapse = " ")
+  restore_urls_from_placeholders(translated, replaced$urls)
+}
+
 google_translate <- function(text, target_language = "en", source_language = "auto",
                               chunk_size = 1000) {
   if (!google_is_valid_language_code(target_language)) {
@@ -29,16 +39,7 @@ google_translate <- function(text, target_language = "en", source_language = "au
   if (!google_is_valid_language_code(source_language)) {
     stop("Invalid source language code.")
   }
-
-  translate_single <- function(t) {
-    replaced <- replace_urls_with_placeholders(t)
-    chunks <- split_text_at_words(replaced$text, chunk_size)
-    translated_chunks <- vapply(chunks, function(chunk) {
-      google_scrape(chunk, target_language, source_language)
-    }, character(1))
-    translated <- paste(translated_chunks, collapse = " ")
-    restore_urls_from_placeholders(translated, replaced$urls)
-  }
-
-  vapply(text, translate_single, character(1), USE.NAMES = FALSE)
+  vapply(text, google_translate_chunked, character(1),
+         target_language, source_language, chunk_size,
+         USE.NAMES = FALSE)
 }

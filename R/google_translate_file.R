@@ -14,26 +14,28 @@
 #' translate_file("path/to/file.txt", target_language = "fr", source_language = "en", overwrite = TRUE)
 #' }
 #' @export
+translate_file_line <- function(line, target_language, source_language) {
+  if (startsWith(line, "#'")) {
+    paste0("#' ", google_translate(
+      substr(line, 3, nchar(line)),
+      target_language = target_language,
+      source_language = source_language
+    ))
+  } else {
+    google_translate(line,
+      target_language = target_language,
+      source_language = source_language
+    )
+  }
+}
+
 translate_file <- function(file_path, target_language = "en", source_language = "auto",
                            overwrite = FALSE) {
   lines <- readLines(file_path, warn = FALSE, encoding = "UTF-8")
 
-  translate_line <- function(line) {
-    if (startsWith(line, "#'")) {
-      paste0("#' ", google_translate(
-        substr(line, 3, nchar(line)),
-        target_language = target_language,
-        source_language = source_language
-      ))
-    } else {
-      google_translate(line,
-        target_language = target_language,
-        source_language = source_language
-      )
-    }
-  }
-
-  translated_lines <- vapply(lines, translate_line, character(1), USE.NAMES = FALSE)
+  translated_lines <- vapply(lines, translate_file_line, character(1),
+                             target_language, source_language,
+                             USE.NAMES = FALSE)
 
   combined_lines <- mapply(function(original, translated) {
     leading_ws <- sub("^([ \t]*).*$", "\\1", original)
