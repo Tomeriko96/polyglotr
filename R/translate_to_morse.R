@@ -7,37 +7,17 @@
 #' @return A list containing the translated Morse code text and other metadata.
 #' @export
 translate_to_morse <- function(text, api_key = NULL) {
-  url <- "https://api.funtranslations.com/translate/morse.json"
-  payload <- list(text = text)
+  headers <- if (!is.null(api_key)) c("X-FunTranslations-Api-Secret" = api_key) else character()
 
-  # Add API key if provided
-  if (!is.null(api_key)) {
-    headers <- c("X-FunTranslations-Api-Secret" = api_key)
-  } else {
-    headers <- NULL
-  }
+  result <- http_post_json(
+    "https://api.funtranslations.com/translate/morse.json",
+    body = list(text = text),
+    headers = headers
+  )
 
-  # Make the API request
-  response <- httr::POST(url, body = payload, httr::add_headers(headers))
-
-  # Check the response status
-  if (httr::status_code(response) == 200) {
-    # Parse the JSON response
-    result <- jsonlite::fromJSON(httr::content(response, "text"))
-
-    # Extract the relevant information
-    morse_code <- result$contents$translated
-    text_translated <- result$contents$text
-    translation_type <- result$contents$translation
-
-    # Return the results as a list
-    return(list(
-      morse_code = morse_code,
-      text_translated = text_translated,
-      translation_type = translation_type
-    ))
-  } else {
-    # Handle error cases
-    stop(paste("Error:", httr::status_code(response), httr::content(response, "text")))
-  }
+  list(
+    morse_code       = result$contents$translated,
+    text_translated  = result$contents$text,
+    translation_type = result$contents$translation
+  )
 }

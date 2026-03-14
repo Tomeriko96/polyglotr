@@ -1,66 +1,52 @@
-#' Transliterate a single word or a sentence to the required language.
+#' Transliterate a word or sentence to a target script
 #'
-#' @param text The word or sentence to transliterate from Latin/Roman (English) script.
-#' @param language_tag The target language's ISO639 code. The default value for this argument is "el" for Greek.
-#' @param num The maximum number of suggestions to fetch. The default value for this argument is 5.
+#' Uses the Google Input Tools API to produce romanisation suggestions for a
+#' word or sentence. Multi-word input is handled by transliterating each word
+#' individually and merging the suggestion lists.
 #'
-#' @return Character vector of transliterated sentences or larger pieces of text.
+#' @param text The word or sentence to transliterate from Latin/Roman script.
+#' @param language_tag The target language ISO 639 code. Default: \code{"el"}
+#'   (Greek).
+#' @param num Maximum number of transliteration suggestions to return. Default:
+#'   \code{5}.
+#'
+#' @return A character vector of up to \code{num} transliterated suggestions.
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' google_transliterate("Hello world", "fr", 10)
-#' google_transliterate("hello", "el", 10)
+#' google_transliterate("hello", "el", 5)
+#' google_transliterate("Hello world", "ar", 3)
 #' }
 google_transliterate <- function(text, language_tag = "el", num = 5) {
-  # Check if language code is valid
   if (!google_is_valid_language_code(language_tag)) {
     stop("Invalid language code.")
   }
 
-  # Check if the input is a single word or a sentence
-  if (grepl("\\s+", text)) {
-    # It's a sentence
-    # Split the text into words
-    words <- strsplit(text, " ")[[1]]
-
-    # Transliterate each word
-    transliterated_words <- lapply(words, function(word) {
-      # Define the API URL
-      api_url <- paste0('https://inputtools.google.com/request?text=', word, '&itc=', language_tag, '-t-i0-und&num=', num, '&cp=0&cs=1&ie=utf-8&oe=utf-8&app=test')
-
-      # Send the GET request
-      response <- httr::GET(api_url)
-
-      # Parse the response content as JSON
-      content <- httr::content(response, "text")
-      json_content <- jsonlite::fromJSON(content, simplifyVector = TRUE)
-
-      # Extract the transliterated outputs
-      transliterations <- json_content[[2]][[1]][[2]]
-
-      return(transliterations)
-    })
-
-    # Merge the transliterated words into a single string for each suggestion
-    merged_transliterated_words <- do.call(mapply, c(function(...) paste(..., sep = " "), transliterated_words, SIMPLIFY = TRUE, USE.NAMES = FALSE))
-
-    return(merged_transliterated_words)
-  } else {
-    # It's a single word
-    # Define the API URL
-    api_url <- paste0('https://inputtools.google.com/request?text=', text, '&itc=', language_tag, '-t-i0-und&num=', num, '&cp=0&cs=1&ie=utf-8&oe=utf-8&app=test')
-
-    # Send the GET request
-    response <- httr::GET(api_url)
-
-    # Parse the response content as JSON
-    content <- httr::content(response, "text")
-    json_content <- jsonlite::fromJSON(content, simplifyVector = TRUE)
-
-    # Extract the transliterated outputs
-    transliterations <- json_content[[2]][[1]][[2]]
-
-    return(transliterations)
+  transliterate_word <- function(word) {
+    api_url <- sprintf(
+      "https://inputtools.google.com/request?text=%s&itc=%s-t-i0-und&num=%d&cp=0&cs=1&ie=utf-8&oe=utf-8&app=test",
+      utils::URLencode(word, repeated = TRUE),
+      language_tag,
+      num
+    )
+    json_content <- httr2::request(api_url) |>
+      httr2::req_perform() |>
+      httr2::resp_body_json(simplifyVector = TRUE)
+    json_content[[2]][[1]][[2]]
   }
+
+  words <- strsplit(text, " ")[[1]]
+
+  if (length(words) == 1) {
+    return(transliterate_word(words[[1]]))
+  }
+
+  transliterated_words <- lapply(words, transliterate_word)
+  do.call(
+    mapply,
+    c(list(FUN = function(...) paste(..., sep = " ")),
+      transliterated_words,
+      list(SIMPLIFY = TRUE, USE.NAMES = FALSE))
+  )
 }

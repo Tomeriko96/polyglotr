@@ -17,28 +17,5 @@
 #' qcri_get_domains()
 #' }
 qcri_get_domains <- function(api_key = qcri_api_key()) {
-  # Get the API key
-  if (is.null(api_key)) {
-    api_key <- qcri_api_key()
-  }
-
-  # Set up the URL parameters
-  url_params <- list(key = api_key)
-
-  # Make the request
-  response <- httr::GET(
-    url = "https://mt.qcri.org/api/v1/getDomains",
-    query = url_params
-  )
-
-  # Check the status code
-  if (httr::status_code(response) >= 400) {
-    stop("Request failed with status code ", httr::status_code(response))
-  }
-
-  # Parse the response
-  content <- httr::content(response, "parsed")
-
-  # Return the response
-  return(content)
+  http_get_json("https://mt.qcri.org/api/v1/getDomains", query = list(key = api_key))
 }

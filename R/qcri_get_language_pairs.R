@@ -14,23 +14,5 @@
 #' qcri_get_language_pairs()
 #' }
 qcri_get_language_pairs <- function(api_key = qcri_api_key()) {
-  # Get the API key
-  if (is.null(api_key)) {
-    api_key <- qcri_api_key()
-  }
-
-  # Set up the URL parameters
-  url_params <- list(key = api_key)
-
-  # Make the request
-  response <- httr::GET(
-    url = "https://mt.qcri.org/api/v1/getLanguagePairs",
-    query = url_params
-  )
-
-  # Parse the response
-  content <- httr::content(response, "parsed")
-
-  # Return the response
-  return(content)
+  http_get_json("https://mt.qcri.org/api/v1/getLanguagePairs", query = list(key = api_key))
 }

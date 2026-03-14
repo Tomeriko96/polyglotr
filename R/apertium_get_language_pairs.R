@@ -14,13 +14,6 @@
 #'
 #' }
 apertium_get_language_pairs <- function(host = "https://apertium.org/apy") {
-
-  formatted_link <- paste0(host, "/listPairs")
-
-  response <- httr::GET(formatted_link) %>%
-    httr::content()
-
-  df_pairs <- purrr::map_dfr(response$responseData, tibble::as_tibble)
-
-  return(df_pairs)
+  result <- http_get_json(paste0(host, "/listPairs"))
+  do.call(rbind, lapply(result$responseData, as.data.frame, stringsAsFactors = FALSE))
 }

@@ -15,32 +15,25 @@
 #' \donttest{
 #' linguee_word_translation("hello", target_language = "es", source_language = "en")
 #' }
-linguee_word_translation <- function(word, target_language, source_language, guess_direction = FALSE, follow_corrections = "always") {
-  api_root <- "https://linguee-api.fly.dev/api/v2"
-  endpoint <- paste0(api_root, "/translations")
-
-  params <- list(
-    query = word,
-    src = source_language,
-    dst = target_language,
-    guess_direction = tolower(guess_direction),
-    follow_corrections = follow_corrections
+linguee_word_translation <- function(word, target_language, source_language,
+                                      guess_direction = FALSE,
+                                      follow_corrections = "always") {
+  translation_data <- http_get_json(
+    "https://linguee-api.fly.dev/api/v2/translations",
+    query = list(
+      query              = word,
+      src                = source_language,
+      dst                = target_language,
+      guess_direction    = tolower(as.character(guess_direction)),
+      follow_corrections = follow_corrections
+    )
   )
 
-  response <- httr::GET(url = endpoint, query = params)
-  if (response$status_code != 200) {
-    stop("Error: API request failed with status code ", response$status_code)
-  }
-
-  translation_data <- httr::content(response, "parsed")
-
   translated_options <- character()
-
   for (lemma in translation_data) {
     for (translation in lemma$translations) {
-      translated_options <- append(translated_options, translation$text)
+      translated_options <- c(translated_options, translation$text)
     }
   }
-
-  return(translated_options)
+  translated_options
 }

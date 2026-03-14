@@ -1,3 +1,40 @@
+# polyglotr 1.8.0 (development)
+
+## Breaking changes / deprecations
+
+* `google_translate_long_text()` is deprecated. `google_translate()` now handles
+  long texts automatically via the `chunk_size` parameter (default 1000 chars,
+  split at word boundaries). Replace all calls with `google_translate()`.
+* `create_translation_table()` is deprecated. Use `create_table()` instead.
+* `create_transliteration_table()` is deprecated. Use `create_table()` with a
+  custom `fn` argument instead.
+
+## Improvements
+
+* `google_translate()` fixes silent `character(0)` return on texts exceeding
+  Google's URL length limit (issue #13). Text is now automatically chunked at
+  word boundaries before sending requests.
+* `google_translate()` now accepts character vectors of any length (vectorised).
+* New `create_table()` function replaces the two deprecated table builders with
+  a single, function-agnostic interface.
+* `batch_translate()` fixed: was incorrectly calling `google_translate()` on a
+  file path instead of `translate_file()`.
+* `mymemory_translate()`: fixed URL encoding (was only escaping spaces).
+* `pons_translate()`: fixed vectorisation bug — single-string branch was dead
+  code due to `is.vector()` always returning `TRUE` for character vectors.
+* `translate_to_morse_audio()`: API key now sent as a request header instead of
+  a URL query parameter; endpoint upgraded from HTTP to HTTPS.
+* `batch_translate()` missing `@export` tag restored.
+
+## Infrastructure
+
+* Migrated all HTTP calls from `httr` to `httr2`; removed dependencies on
+  `dplyr`, `httr`, `jsonlite`, `magrittr`, `purrr`, `RCurl`, `rlang`,
+  `stringr`, `tibble`, and `urltools`. Package now imports only `httr2` and
+  `rvest`.
+* Minimum R version bumped to 4.1 (native pipe `|>` support).
+* Removed magrittr `%>%` re-export.
+
 # polyglotr 1.7.1
 * Changed maintainer email address.
 

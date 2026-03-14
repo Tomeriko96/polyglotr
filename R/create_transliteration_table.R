@@ -1,33 +1,38 @@
 #' Create a Transliteration Table
 #'
-#' This function generates a transliteration table by transliterating a list of words into multiple languages.
+#' @description
+#' **Deprecated.** Use \code{\link{create_table}} with a custom \code{fn}
+#' argument instead.
 #'
-#' @param words A character vector containing the words to be transliterated.
-#' @param languages A character vector specifying the target languages for transliteration.
-#' @return A data frame representing the transliteration table with original words and transliterations in each language.
+#' @param words A character vector of words to transliterate.
+#' @param languages A character vector of target language codes.
 #'
-#' @importFrom rlang :=
+#' @return A data frame with an \code{original_word} column and one column per
+#'   language.
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' words <- c("Hello world", "Goodbye", "Thank you", "Please")
-#' languages <- c("ar", "he", "el", "ru", "fa")
-#' transliterations <- create_transliteration_table(words, languages)
-#' print(transliterations)
+#' # Deprecated — use create_table() instead:
+#' create_table(
+#'   c("Hello", "Goodbye"),
+#'   c("ar", "el"),
+#'   fn = function(text, target_language) {
+#'     google_transliterate(text, target_language, num = 1)
+#'   }
+#' )
 #' }
 create_transliteration_table <- function(words, languages) {
-  original_word <- NULL
-  transliterations <- data.frame(original_word = words)
-
-  for (language in languages) {
-    column_name <- language
-    transliterations <- transliterations %>%
-      dplyr::mutate("{column_name}" := purrr::map_chr(
-        original_word,
-        ~ google_transliterate(., language, num=1)
-      ))
+  .Deprecated(
+    "create_table",
+    msg = paste(
+      "create_transliteration_table() is deprecated.",
+      "Use create_table() with fn = function(text, target_language)",
+      "google_transliterate(text, target_language, num = 1) instead."
+    )
+  )
+  fn <- function(text, target_language) {
+    google_transliterate(text, language_tag = target_language, num = 1)
   }
-
-  return(transliterations)
+  create_table(words, languages, fn = fn)
 }

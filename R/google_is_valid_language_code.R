@@ -17,7 +17,7 @@ google_is_valid_language_code <- function(language_code) {
     return(TRUE)
   }
 
-  if (language_code %in% polyglotr::google_supported_languages$`ISO-639 code`) {
+  if (language_code %in% google_supported_languages$`ISO-639 code`) {
     return(TRUE)
   } else {
     return(FALSE)

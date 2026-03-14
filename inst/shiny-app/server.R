@@ -106,17 +106,12 @@ server <- function(input, output, session) {
   # Translation function
   translate_text <- function(text, service, source_lang, target_lang, api_key = NULL) {
     switch(service,
-      "google" = google_translate(text, target_language = target_lang, source_language = source_lang),
+      "google"   = google_translate(text, target_language = target_lang, source_language = source_lang),
       "mymemory" = mymemory_translate(text, target_language = target_lang, source_language = source_lang),
-      "pons" = pons_translate(text, target_language = target_lang, source_language = source_lang),
-      "linguee" = {
-        # Linguee returns multiple options, we'll take the first one
+      "pons"     = pons_translate(text, target_language = target_lang, source_language = source_lang),
+      "linguee"  = {
         result <- linguee_word_translation(text, target_language = target_lang, source_language = source_lang)
-        if (length(result) > 0 && !is.na(result[1]) && result[1] != "") {
-          result[1] 
-        } else {
-          "No translation found. Try a single word or different language pair."
-        }
+        paste(result, collapse = ", ")
       },
       "qcri" = {
         if (is.null(api_key) || api_key == "") {
@@ -129,8 +124,8 @@ server <- function(input, output, session) {
         tryCatch({
           apertium_translate(text, target_language = target_lang, source_language = source_lang)
         }, error = function(e) {
-          paste0("Apertium translation failed. This might be due to unsupported language pair (", 
-                 source_lang, " → ", target_lang, ") or service unavailability. Error: ", e$message)
+          paste0("Apertium translation failed. This might be due to unsupported language pair (",
+                 source_lang, " \u2192 ", target_lang, ") or service unavailability. Error: ", e$message)
         })
       },
       "wmcloud" = wmcloud_translate(text, target_language = target_lang, source_language = source_lang, format = "text"),

@@ -1,84 +1,44 @@
 #' Translate text using Google Translate
 #'
-#' Translates input text to a specified language using the Google Translate mobile web interface.
-#' Automatically detects and preserves URLs by temporarily replacing them with placeholders.
+#' Translates one or more strings using the Google Translate mobile web
+#' interface. URLs in the text are preserved through the translation. Long
+#' texts are automatically split into chunks at word boundaries and reassembled.
 #'
-#' @param text This is the text that you want to translate. Can be a single string or a vector of strings.
-#' @param target_language This is the language that you want to translate the text into.
-#' The default value is "en" (English).
-#' @param source_language This is the language of the text to be translated.
-#' The default value is "auto", which attempts automatic language detection.
+#' @param text A character vector of one or more strings to translate.
+#' @param target_language Language code to translate into. Default: \code{"en"}.
+#' @param source_language Language code of the input text. Default: \code{"auto"}
+#'   for automatic detection.
+#' @param chunk_size Maximum number of characters per translation request.
+#'   Default: \code{1000}. Reduce if translations return empty results.
 #'
-#' @return A translated string or vector of translated strings, matching the length of the input.
+#' @return A character vector of translated strings, the same length as
+#'   \code{text}.
 #' @export
 #'
 #' @examples
 #' \donttest{
-#' # Translate a simple sentence
 #' google_translate("I love languages", target_language = "es")
-#'
-#' # Translate a vector of words
-#' text_to_translate <- c("the", "quick", "brown")
-#' google_translate(text_to_translate, "fr", "en")
-#'
-#' # Translate text containing a URL
+#' google_translate(c("the", "quick", "brown"), target_language = "fr", source_language = "en")
 #' google_translate("Visit http://example.com for more info.", target_language = "de")
 #' }
-google_translate <- function(text, target_language = "en", source_language = "auto") {
-  . <- NULL
-  ## Validate target language code
+google_translate <- function(text, target_language = "en", source_language = "auto",
+                              chunk_size = 1000) {
   if (!google_is_valid_language_code(target_language)) {
     stop("Invalid target language code.")
   }
-
-  ## Validate source language code
   if (!google_is_valid_language_code(source_language)) {
     stop("Invalid source language code.")
   }
 
-  ## Check if input is a vector of strings
-  is_vector <- is.vector(text) && length(text) > 1
-
-  if (is_vector) {
-    ## Translate each sentence in the vector
-    translations <- purrr::map_chr(text, function(t) {
-      replaced <- replace_urls_with_placeholders(t)
-      encoded <- urltools::url_encode(replaced$text)
-
-      ## Construct the Google Translate mobile URL
-      link <- paste0("https://translate.google.com/m?tl=", target_language,
-                     "&sl=", source_language, "&q=", encoded)
-
-      ## Scrape the translation from the resulting page
-      translated <- rvest::read_html(link) %>%
-        rvest::html_nodes("div.result-container") %>%
-        rvest::html_text() %>%
-        urltools::url_decode() %>%
-        gsub("\n", "", .)
-
-      ## Restore URLs and return the final translated string
-      restore_urls_from_placeholders(translated, replaced$urls)
-    })
-
-    translations
-
-  } else {
-    ## Single input string case
-    replaced <- replace_urls_with_placeholders(text)
-    encoded <- urltools::url_encode(replaced$text)
-
-    ## Create the translation URL
-    link <- paste0("https://translate.google.com/m?tl=", target_language,
-                   "&sl=", source_language, "&q=", encoded)
-
-    ## Fetch and decode the translated content
-    translated <- rvest::read_html(link) %>%
-      rvest::html_nodes("div.result-container") %>%
-      rvest::html_text() %>%
-      urltools::url_decode() %>%
-      gsub("\n", "", .)
-
-    ## Return translated sentence with URLs restored
+  translate_single <- function(t) {
+    replaced <- replace_urls_with_placeholders(t)
+    chunks <- split_text_at_words(replaced$text, chunk_size)
+    translated_chunks <- vapply(chunks, function(chunk) {
+      google_scrape(chunk, target_language, source_language)
+    }, character(1))
+    translated <- paste(translated_chunks, collapse = " ")
     restore_urls_from_placeholders(translated, replaced$urls)
   }
+
+  vapply(text, translate_single, character(1), USE.NAMES = FALSE)
 }

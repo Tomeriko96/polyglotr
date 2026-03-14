@@ -139,19 +139,15 @@ ui <- dashboardPage(
             h4("Using polyglotr in R:"),
             p("This app is powered by the", strong("polyglotr"), "R package. Here are some code examples:"),
             
-            h5("Basic Translation:"),
-            tags$pre(tags$code('
+             h5("Basic Translation (all providers, robust):"),
+             tags$pre(tags$code('
 library(polyglotr)
 
-# Google Translate
-google_translate("Hello world", target_language = "es")
-
-# MyMemory
-mymemory_translate("Hello world", target_language = "fr", source_language = "en")
-
-# PONS Dictionary
-pons_translate("house", target_language = "de", source_language = "en")
-            ')),
+# Unified translation interface (recommended)
+polyglotr_translate("Hello world", service = "google", target_lang = "es")
+polyglotr_translate("Hello world", service = "mymemory", source_lang = "en", target_lang = "fr")
+polyglotr_translate("house", service = "pons", source_lang = "en", target_lang = "de")
+             ')),
             
             h5("Language Detection:"),
             tags$pre(tags$code('

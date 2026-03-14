@@ -1,8 +1,10 @@
-#' Translate text using MyMemory
+#' Translate text using Apertium
 #'
 #' @param text A character vector of one or more strings to translate.
-#' @param target_language Language code to translate into. Default: \code{"en"}.
-#' @param source_language Language code of the input. Default: \code{"auto"}.
+#' @param target_language Language code to translate into.
+#' @param source_language Language code of the input.
+#' @param host Host URL for the Apertium API. Default:
+#'   \code{"https://apertium.org/apy"}.
 #'
 #' @return A character vector of translated strings, the same length as
 #'   \code{text}.
@@ -10,12 +12,15 @@
 #'
 #' @examples
 #' \donttest{
-#' mymemory_translate("Hello World", target_language = "es", source_language = "en")
+#' apertium_translate("Hello World", target_language = "es", source_language = "en")
+#' apertium_translate(c("Hello", "Good morning"), target_language = "es", source_language = "en")
 #' }
-mymemory_translate <- function(text, target_language = "en", source_language = "auto") {
+apertium_translate <- function(text, target_language, source_language,
+                                host = "https://apertium.org/apy") {
   translate_single <- function(t) {
     url <- sprintf(
-      "https://api.mymemory.translated.net/get?q=%s&langpair=%s|%s",
+      "%s/translate?q=%s&langpair=%s|%s",
+      host,
       utils::URLencode(t, repeated = TRUE),
       source_language,
       target_language

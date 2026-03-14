@@ -7,40 +7,23 @@
 #' @return A list containing the translated Morse code text, the Morse code audio as a base64-encoded string, and other metadata.
 #' @export
 translate_to_morse_audio <- function(text, api_key = NULL) {
-  # Construct the API endpoint URL
-  url <- paste0("http://api.funtranslations.com/translate/morse/audio.json?text=",
-                utils::URLencode(text))
-
-  # Add API key if provided
-  if (!is.null(api_key)) {
-    url <- paste0(url, "&X-FunTranslations-Api-Secret=", api_key)
-  }
-
-  # Make the API request
-  response <- httr::GET(url)
-
-  # Check if the request was successful
-  if (httr::status_code(response) == 200) {
-    # Parse the JSON response
-    result <- jsonlite::fromJSON(httr::content(response, "text"))
-
-    # Extract the relevant information
-    morse_code_text <- result$contents$text
-    morse_code_audio <- result$contents$translated$audio
-    speed_output <- result$contents$speed
-    tone_output <- result$contents$tone
-    translation_info <- result$contents$translation
-
-    # Return the results as a list
-    return(list(
-      morse_code_text = morse_code_text,
-      morse_code_audio = morse_code_audio,
-      speed = speed_output,
-      tone = tone_output,
-      translation_info = translation_info
-    ))
+  headers <- if (!is.null(api_key)) {
+    c("X-FunTranslations-Api-Secret" = api_key)
   } else {
-    # Handle error cases
-    stop(paste("Error:", httr::status_code(response), httr::content(response, "text")))
+    character()
   }
+
+  result <- http_get_json(
+    "https://api.funtranslations.com/translate/morse/audio.json",
+    query   = list(text = text),
+    headers = headers
+  )
+
+  list(
+    morse_code_text  = result$contents$text,
+    morse_code_audio = result$contents$translated$audio,
+    speed            = result$contents$speed,
+    tone             = result$contents$tone,
+    translation_info = result$contents$translation
+  )
 }

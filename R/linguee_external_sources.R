@@ -1,42 +1,31 @@
-#' Retrieve external sources using Linguee Translation API
+#' Retrieve external sources using the Linguee API
 #'
-#' @param query The word or phrase for which you want to retrieve external sources.
-#' @param src The source language of the word or phrase. Accepts language codes such as "en", "es", "fr", etc.
-#' @param dst The target language for the external source retrieval. Accepts language codes such as "en", "es", "fr", etc.
-#' @param limit The maximum number of external sources to retrieve. Defaults to 5.
+#' @param query The word or phrase to look up.
+#' @param source_language Source language code (e.g. \code{"en"}).
+#' @param target_language Target language code (e.g. \code{"es"}).
+#' @param limit Maximum number of sources to return. Default: \code{5}.
 #'
-#' @return A dataframe of external sources with columns: src, dst, src_url, dst_url.
+#' @return A data frame with columns \code{src}, \code{dst}, \code{src_url},
+#'   \code{dst_url}.
+#'
+#' @seealso \code{\link{linguee_word_translation}},
+#'   \code{\link{linguee_translation_examples}}
+#' @export
 #'
 #' @examples
 #' \donttest{
-#' linguee_external_sources(query = "hello", src = "en", dst = "es")
+#' linguee_external_sources(query = "hello", source_language = "en", target_language = "es")
 #' }
-#'
-#' @seealso linguee_word_translation, linguee_translation_examples
-#'
-#'
-#' @export
-linguee_external_sources <- function(query, src, dst, limit = 5) {
-  api_root <- "https://linguee-api.fly.dev/api/v2/external_sources"
-  endpoint <- api_root
-
-  params <- list(
-    query = query,
-    src = src,
-    dst = dst,
-    limit = limit
+linguee_external_sources <- function(query, source_language, target_language, limit = 5) {
+  external_sources <- http_get_json(
+    "https://linguee-api.fly.dev/api/v2/external_sources",
+    query = list(
+      query = query,
+      src   = source_language,
+      dst   = target_language,
+      limit = limit
+    )
   )
 
-  response <- httr::GET(url = endpoint, query = params)
-
-  if (response$status_code != 200) {
-    stop("Error: API request failed with status code ", response$status_code)
-  }
-
-  external_sources <- httr::content(response, "parsed")
-
-  # Combine the individual lists into a single dataframe
-  sources_df <- dplyr::bind_rows(external_sources)
-
-  return(sources_df)
+  do.call(rbind, lapply(external_sources, as.data.frame, stringsAsFactors = FALSE))
 }

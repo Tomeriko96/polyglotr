@@ -44,51 +44,33 @@ wmcloud_translate <- function(content,
                               source_language = "en",
                               format = "text",
                               model = "nllb200-600M") {
-  # Define the URL of the API
-  url <- "https://translate.wmcloud.org/api/translate"
-
-  # List of valid formats
   valid_formats <- c("json", "markdown", "text", "webpage")
-
-  # List of valid models
-  valid_models <- c("nllb200-600M", "nllb-wikipedia", "opusmt-en-bi", "opusmt-en-bcl", "opusmt-en-to", "opusmt-en-chr", "opusmt-en-guw", "opusmt-en-srn", "opusmt-en-ty", "opusmt-en-ve", "opusmt-sv-fi", "softcatala", "indictrans2-indic-en", "indictrans2-en-indic", "indictrans2-indic-indic", "madlad-400")
-
-  # Check if format and model are valid
-  if (!format %in% valid_formats) {
-    stop(paste("Invalid format. Must be one of:", paste(valid_formats, collapse = ", ")))
-  }
-  if (!model %in% valid_models) {
-    stop(paste("Invalid model. Must be one of:", paste(valid_models, collapse = ", ")))
-  }
-
-  # Create a list of parameters to send in the POST request
-  body <- list(
-    source_language = source_language,
-    target_language = target_language,
-    format = format,
-    model = model,
-    content = content
+  valid_models  <- c(
+    "nllb200-600M", "nllb-wikipedia", "opusmt-en-bi", "opusmt-en-bcl",
+    "opusmt-en-to", "opusmt-en-chr", "opusmt-en-guw", "opusmt-en-srn",
+    "opusmt-en-ty", "opusmt-en-ve", "opusmt-sv-fi", "softcatala",
+    "indictrans2-indic-en", "indictrans2-en-indic", "indictrans2-indic-indic",
+    "madlad-400"
   )
 
-  # Convert the list to a JSON string
-  json_body <- jsonlite::toJSON(body, auto_unbox = TRUE)
-
-  # Set the content type of the request to 'application/json'
-  headers <- c("Content-Type" = "application/json")
-
-  # Send the POST request and get the response
-  response <- httr::POST(url, body = json_body, httr::add_headers(headers))
-
-  # Check if the request was successful
-  if (httr::status_code(response) != 200) {
-    stop("Request failed with status ", httr::status_code(response))
+  if (!format %in% valid_formats) {
+    stop("Invalid format. Must be one of: ", paste(valid_formats, collapse = ", "))
+  }
+  if (!model %in% valid_models) {
+    stop("Invalid model. Must be one of: ", paste(valid_models, collapse = ", "))
   }
 
-  # Parse the response
-  result <- httr::content(response, "parsed")
+  result <- http_post_json(
+    "https://translate.wmcloud.org/api/translate",
+    body = list(
+      source_language = source_language,
+      target_language = target_language,
+      format          = format,
+      model           = model,
+      content         = content
+    )
+  )
 
-  # Extract the translated content from the response
-  translation <- result$translation
-
-  return(translation)
+  result$translation
 }
+

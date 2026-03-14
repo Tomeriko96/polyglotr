@@ -1,33 +1,24 @@
 #' Create a Translation Table
 #'
-#' This function generates a translation table by translating a list of words into multiple languages.
+#' @description
+#' **Deprecated.** Use \code{\link{create_table}} instead.
 #'
-#' @param words A character vector containing the words to be translated.
-#' @param languages A character vector specifying the target languages for translation.
-#' @return A data frame representing the translation table with original words and translations in each language.
+#' @param words A character vector of words to translate.
+#' @param languages A character vector of target language codes.
 #'
-#' @importFrom rlang :=
+#' @return A data frame with an \code{original_word} column and one column per
+#'   language.
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' words <- c("Hello", "Translate", "Table", "Script")
-#' languages <- c("es", "fr", "de", "nl")
-#' translations <- create_translation_table(words, languages)
-#' print(translations)
+#' # Deprecated — use create_table() instead:
+#' create_table(c("Hello", "Goodbye"), c("es", "fr"))
 #' }
 create_translation_table <- function(words, languages) {
-  original_word <- NULL
-  translations <- data.frame(original_word = words)
-
-  for (language in languages) {
-    column_name <- language
-    translations <- translations %>%
-      dplyr::mutate("{column_name}" := purrr::map_chr(
-        original_word,
-        ~ google_translate(., target_language = language)
-      ))
-  }
-
-  return(translations)
+  .Deprecated(
+    "create_table",
+    msg = "create_translation_table() is deprecated. Use create_table() instead."
+  )
+  create_table(words, languages, fn = google_translate)
 }

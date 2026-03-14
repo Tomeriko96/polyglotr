@@ -12,18 +12,9 @@ BugReports: https://github.com/Tomeriko96/polyglotr/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
-Imports: 
-    dplyr,
-    httr,
-    jsonlite,
-    magrittr,
-    purrr,
-    RCurl,
-    rlang,
-    rvest,
-    stringr,
-    tibble,
-    urltools
+Imports:
+    httr2,
+    rvest
 Suggests: 
     knitr,
     rmarkdown,
@@ -35,6 +26,6 @@ Suggests:
     DT
 Config/testthat/edition: 3
 VignetteBuilder: knitr
-Depends: 
-    R (>= 2.10)
+Depends:
+    R (>= 4.1)
 LazyData: true
