@@ -1,6 +1,7 @@
 # Apertium Translation with polyglotr
 
 ``` r
+
 library(polyglotr)
 ```
 
@@ -31,6 +32,7 @@ function provides a simple interface to translate text using the
 Apertium API:
 
 ``` r
+
 # Basic translation from English to Spanish
 result <- apertium_translate(
   text = "Hello, world!", 
@@ -56,6 +58,7 @@ using the
 function:
 
 ``` r
+
 # Get available language pairs
 pairs <- apertium_get_language_pairs()
 
@@ -70,6 +73,7 @@ You can translate multiple pieces of text by using vectorization or
 loops:
 
 ``` r
+
 # Vector of texts to translate
 texts <- c(
   "Good morning", 
@@ -101,6 +105,7 @@ The function allows you to specify a custom host if you’re using a
 different Apertium instance:
 
 ``` r
+
 # Using default host (https://apertium.org/apy)
 apertium_translate("Hello", "es", "en")
 ```
@@ -110,6 +115,7 @@ apertium_translate("Hello", "es", "en")
 The function includes basic error handling for common issues:
 
 ``` r
+
 # Example of handling potential errors
 tryCatch({
   result <- apertium_translate("Hello", "invalid-lang", "en")
@@ -132,6 +138,7 @@ Apertium offers several advantages within the polyglotr ecosystem:
     methods
 
 ``` r
+
 # Compare translations across services
 text <- "The weather is beautiful today"
 
@@ -162,6 +169,7 @@ When using Apertium translation:
     might cause issues
 
 ``` r
+
 # Example of robust translation function
 safe_apertium_translate <- function(text, target_lang, source_lang, max_retries = 3) {
   for (attempt in 1:max_retries) {

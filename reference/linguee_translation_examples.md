@@ -54,6 +54,7 @@ linguee_word_translation
 ``` r
 # \donttest{
 linguee_translation_examples(query = "hello", src = "en", dst = "es")
-#> # A tibble: 0 × 0
+#> linguee-api is unavailable: Couldn't resolve host name [linguee-api.fly.dev]:
+#> Could not resolve host: linguee-api.fly.dev
 # }
 ```

@@ -1,6 +1,7 @@
 # Translation Table Workflow
 
 ``` r
+
 library(polyglotr)
 library(dplyr)
 ```
@@ -31,6 +32,7 @@ function allows you to:
 Let’s start with a simple example translating common UI elements:
 
 ``` r
+
 # Define phrases to translate
 ui_phrases <- c("Welcome", "Login", "Password", "Submit", "Cancel", "Help")
 
@@ -55,6 +57,7 @@ different translation APIs for quality assurance. Here’s how to create
 an enhanced function that supports multiple APIs:
 
 ``` r
+
 # Enhanced function to support multiple translation APIs
 create_translation_table_multi_api <- function(words, languages, apis = c("google", "mymemory")) {
   results <- data.frame(original_word = words)
@@ -112,6 +115,7 @@ For larger localization projects, you can organize your workflow
 systematically:
 
 ``` r
+
 # Define categories of phrases
 navigation_phrases <- c("Home", "About", "Contact", "Services", "Portfolio")
 form_phrases <- c("First Name", "Last Name", "Email Address", "Phone Number", "Message")
@@ -144,6 +148,7 @@ For more advanced data manipulation, you can use the tidyverse
 ecosystem:
 
 ``` r
+
 library(tibble)
 library(dplyr)
 
@@ -180,6 +185,7 @@ Translation tables can be exported in various formats for different use
 cases:
 
 ``` r
+
 # For web development - JSON-like structure
 phrases <- c("Welcome", "Login", "Logout")
 web_translations <- create_translation_table(phrases, c("es", "fr", "de"))

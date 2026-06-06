@@ -14,6 +14,7 @@ You can install the `polyglotr` package from CRAN using the following
 command:
 
 ``` r
+
 library(polyglotr)
 ```
 
@@ -26,6 +27,7 @@ To translate text using the `polyglotr` package, you can use the
 of how to translate a simple phrase:
 
 ``` r
+
 text <- "Hello, how are you?"
 
 # Translate using MyMemory Translation API
@@ -44,6 +46,7 @@ The package also provides a function, `translate_file`, to translate the
 content of a file. Here’s an example:
 
 ``` r
+
 # Translate the content of a file using Google Translate
 # translate_file("path/to/file.txt", target_language = "fr", source_language = "en", overwrite = TRUE)
 ```

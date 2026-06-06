@@ -13,6 +13,7 @@ haven’t installed the Polyglotr package and the other dependencies, you
 can use the following code to install them:
 
 ``` r
+
 library(polyglotr)
 library(purrr)
 library(dplyr)
@@ -27,6 +28,7 @@ load the necessary packages and create a subset of the `movie_review`
 dataset with the first 10 rows, which will be used for the translation.
 
 ``` r
+
 df <- head(movie_review, 10)
 glimpse(df)
 
@@ -38,6 +40,7 @@ Now, let’s translate the review column to French using the `polyglotr`
 package:
 
 ``` r
+
 # Translate the review column to French
 translated_reviews <- df %>%
   dplyr::mutate(french_review = purrr::map_chr(review, ~ google_translate(.x, target_language = "fr", source_language = "en")))
@@ -55,6 +58,7 @@ named “french_review”.
 Let’s examine the translated movie reviews:
 
 ``` r
+
 glimpse(translated_reviews)
 
 translated_reviews$french_review

@@ -16,7 +16,7 @@ A dataframe of language names.
 ## Examples
 
 ``` r
-# Get language names
+# \donttest{
 wikipedia_get_language_names()
 #>          language_tag                                       name
 #> 1                  aa                                       Afar
@@ -430,1012 +430,1020 @@ wikipedia_get_language_names()
 #> 409               fon                                        Fon
 #> 410               fos                                     Siraya
 #> 411                fr                                     French
-#> 412             fr-ca                            Canadian French
-#> 413             fr-ch                               Swiss French
-#> 414               frc                               Cajun French
-#> 415               frk                                   Frankish
-#> 416               frm                              Middle French
-#> 417               fro                                 Old French
-#> 418               frp                                    Arpitan
-#> 419               frr                           Northern Frisian
-#> 420               frs                            Eastern Frisian
-#> 421               fsl                       French Sign Language
-#> 422               fud                                    Futunan
-#> 423               fuf                                      Pular
-#> 424               fur                                   Friulian
-#> 425               fvr                                        Fur
-#> 426                fy                            Western Frisian
-#> 427                ga                                      Irish
-#> 428               gaa                                         Ga
-#> 429               gag                                     Gagauz
-#> 430               gah                                    Alekano
-#> 431               gan                                        Gan
-#> 432          gan-hans                Gan (Simplified Han script)
-#> 433          gan-hant               Gan (Traditional Han script)
-#> 434               gay                                       Gayo
-#> 435               gba                                      Gbaya
-#> 436               gbb                                   Kaytetye
-#> 437               gbk                                      Gaddi
-#> 438          gbk-deva                  Gaddi (Devanagari script)
-#> 439          gbk-takr                       Gaddi (Takri script)
-#> 440               gbm                                   Garhwali
-#> 441               gbz                           Zoroastrian Dari
-#> 442               gcf                        Guadeloupean Creole
-#> 443               gcr                             Guianan Creole
-#> 444                gd                            Scottish Gaelic
-#> 445               gem                         Germanic languages
-#> 446               gez                                       Geez
-#> 447               gil                                 Gilbertese
-#> 448               gju                                     Gujari
-#> 449          gju-arab                     Gujari (Arabic script)
-#> 450          gju-deva                 Gujari (Devanagari script)
-#> 451                gl                                   Galician
-#> 452               gld                                      Nanai
-#> 453               glh                           Northwest Pashai
-#> 454               glk                                     Gilaki
-#> 455               gmh                         Middle High German
-#> 456               gml                          Middle Low German
-#> 457               gmy                            Mycenaean Greek
-#> 458                gn                                    Guarani
-#> 459               gnq                                      Ganaʼ
-#> 460               goh                            Old High German
-#> 461               gom                               Goan Konkani
-#> 462          gom-deva           Goan Konkani (Devanagari script)
-#> 463          gom-latn                Goan Konkani (Latin script)
-#> 464               gon                                      Gondi
-#> 465               gor                                  Gorontalo
-#> 466               got                                     Gothic
-#> 467               gpe                            Ghanaian Pidgin
-#> 468               grb                                      Grebo
-#> 469               grc                              Ancient Greek
-#> 470               gsg                       German Sign Language
-#> 471               gsw                                  Alemannic
-#> 472            gsw-fr                                   Alsatian
-#> 473                gu                                   Gujarati
-#> 474               guc                                      Wayuu
-#> 475               gum                                  Guambiano
-#> 476               gur                                     Frafra
-#> 477               guw                                        Gun
-#> 478               guz                                      Gusii
-#> 479                gv                                       Manx
-#> 480               gwi                                   Gwichʼin
-#> 481               gya                                      Gbaya
-#> 482                ha                                      Hausa
-#> 483           ha-arab                      Hausa (Arabic script)
-#> 484           ha-latn                       Hausa (Latin script)
-#> 485             ha-ne                              Hausa (Niger)
-#> 486               hac                                     Gurani
-#> 487               hai                                      Haida
-#> 488               hak                              Hakka Chinese
-#> 489          hak-hans              Hakka (Simplified Han script)
-#> 490          hak-hant             Hakka (Traditional Han script)
-#> 491          hak-latn                       Hakka (Latin script)
-#> 492               hav                                       Havu
-#> 493               haw                                   Hawaiian
-#> 494               hax                             Southern Haida
-#> 495               haz                                   Hazaragi
-#> 496               hbo                            Biblical Hebrew
-#> 497                he                                     Hebrew
-#> 498                hi                                      Hindi
-#> 499           hi-kthi                      Hindi (Kaithi script)
-#> 500           hi-latn                              Hindi (Latin)
-#> 501               hif                                 Fiji Hindi
-#> 502          hif-deva             Fiji Hindi (Devanagari script)
-#> 503          hif-latn                  Fiji Hindi (Latin script)
-#> 504               hil                                 Hiligaynon
-#> 505               him                             Western Pahari
-#> 506               hit                                    Hittite
-#> 507          hit-latn                     Hittite (Latin script)
-#> 508          hit-xsux                 Hittite (Cuneiform script)
-#> 509               hke                                      Hunde
-#> 510               hmn                                      Hmong
-#> 511               hne                              Chhattisgarhi
-#> 512               hnj                                 Hmong Njua
-#> 513               hno                            Northern Hindko
-#> 514                ho                                  Hiri Motu
-#> 515               hoc                                         Ho
-#> 516          hoc-latn                          Ho (Latin script)
-#> 517                hr                                   Croatian
-#> 518               hrx                                    Hunsrik
-#> 519               hsb                              Upper Sorbian
-#> 520               hsn                                      Xiang
-#> 521          hsn-hans              Xiang (Simplified Han script)
-#> 522          hsn-hant             Xiang (Traditional Han script)
-#> 523                ht                             Haitian Creole
-#> 524               hts                                      Hadza
-#> 525                hu                                  Hungarian
-#> 526         hu-formal                 Hungarian (formal address)
-#> 527               hup                                       Hupa
-#> 528               hur                                 Halkomelem
-#> 529                hy                                   Armenian
-#> 530               hyw                           Western Armenian
-#> 531                hz                                     Herero
-#> 532                ia                                Interlingua
-#> 533               iba                                       Iban
-#> 534               ibb                                     Ibibio
-#> 535                id                                 Indonesian
-#> 536                ie                                Interlingue
-#> 537               ifu                             Mayoyao Ifugao
-#> 538                ig                                       Igbo
-#> 539               igb                                      Ebira
-#> 540               igl                                      Igala
-#> 541                ii                                 Sichuan Yi
-#> 542               ijo                             Ijaw languages
-#> 543                ik                                    Inupiaq
-#> 544          ike-cans    Eastern Canadian (Aboriginal syllabics)
-#> 545          ike-latn            Eastern Canadian (Latin script)
-#> 546               ikt                 Western Canadian Inuktitut
-#> 547               ilo                                      Iloko
-#> 548               inc                       Indo-Aryan languages
-#> 549               ine                    Indo-European languages
-#> 550               inh                                     Ingush
-#> 551                io                                        Ido
-#> 552               ira                          Iranian languages
-#> 553               iro                        Iroquoian languages
-#> 554                is                                  Icelandic
-#> 555               ish                                       Esan
-#> 556          isk-arab                 Ishkashimi (Arabic script)
-#> 557          isk-cyrl               Ishkashimi (Cyrillic script)
-#> 558          isk-latn                  Ishkashimi (Latin script)
-#> 559               ist                                    Istriot
-#> 560               isu                                        Isu
-#> 561          isv-cyrl              Interslavic (Cyrillic script)
-#> 562          isv-latn                 Interslavic (Latin script)
-#> 563                it                                    Italian
-#> 564                iu                                  Inuktitut
-#> 565               ivb                                     Ibatan
-#> 566               izh                                    Ingrian
-#> 567                ja                                   Japanese
-#> 568           ja-hani                    Japanese (Kanji script)
-#> 569           ja-hira                 Japanese (Hiragana script)
-#> 570           ja-hrkt                     Japanese (Kana script)
-#> 571           ja-kana                 Japanese (Katakana script)
-#> 572               jac                                     Popti'
-#> 573               jak                                      Jakun
-#> 574               jam                    Jamaican Creole English
-#> 575               jbo                                     Lojban
-#> 576               jdt                                  Judeo-Tat
-#> 577          jdt-cyrl                Judeo-Tat (Cyrillic script)
-#> 578               jgo                                     Ngomba
-#> 579               jje                                       Jeju
-#> 580               jmc                                    Machame
-#> 581               jpr                              Judeo-Persian
-#> 582               jrb                               Judeo-Arabic
-#> 583               jut                                     Jutish
-#> 584                jv                                   Javanese
-#> 585           jv-java                 Javanese (Javanese script)
-#> 586                ka                                   Georgian
-#> 587               kaa                                Kara-Kalpak
-#> 588               kab                                     Kabyle
-#> 589               kac                                     Kachin
-#> 590               kag                                    Kajaman
-#> 591               kai                                   Karekare
-#> 592               kaj                                        Jju
-#> 593               kam                                      Kamba
-#> 594               kar                          Karenic languages
-#> 595               kaw                                       Kawi
-#> 596               kbd                                  Kabardian
-#> 597          kbd-cyrl                Kabardian (Cyrillic script)
-#> 598          kbd-latn                   Kabardian (Latin script)
-#> 599               kbl                                    Kanembu
-#> 600               kbp                                     Kabiye
-#> 601               kcg                                       Tyap
-#> 602               kck                                    Kalanga
-#> 603               kde                                    Makonde
-#> 604               kea                               Kabuverdianu
-#> 605               kek                                   Qʼeqchiʼ
-#> 606               ken                                    Kenyang
-#> 607               ker                                       Kera
-#> 608               kfo                                       Koro
-#> 609               kfr                                     Kutchi
-#> 610                kg                                      Kongo
-#> 611               kge                                   Komering
-#> 612          kge-arab                   Komering (Arabic script)
-#> 613               kgg                                    Kusunda
-#> 614               kgp                                   Kaingang
-#> 615               kha                                      Khasi
-#> 616               khi                          Khoisan languages
-#> 617               kho                                  Khotanese
-#> 618               khq                               Koyra Chiini
-#> 619               khw                                     Khowar
-#> 620                ki                                     Kikuyu
-#> 621               kip                                Sheshi Kham
-#> 622               kiu                                  Kirmanjki
-#> 623                kj                                   Kuanyama
-#> 624               kjh                                     Khakas
-#> 625               kjp                                Eastern Pwo
-#> 626                kk                                     Kazakh
-#> 627           kk-arab                     Kazakh (Arabic script)
-#> 628             kk-cn                             Kazakh (China)
-#> 629           kk-cyrl                   Kazakh (Cyrillic script)
-#> 630             kk-kz                        Kazakh (Kazakhstan)
-#> 631           kk-latn                      Kazakh (Latin script)
-#> 632             kk-tr                            Kazakh (Turkey)
-#> 633               kkj                                       Kako
-#> 634                kl                                Kalaallisut
-#> 635               kld                                 Gamilaraay
-#> 636               kln                                   Kalenjin
-#> 637               kls                                    Kalasha
-#> 638          kls-arab                    Kalasha (Arabic script)
-#> 639          kls-latn                     Kalasha (Latin script)
-#> 640                km                                      Khmer
-#> 641               kmb                                   Kimbundu
-#> 642               kmr                           Northern Kurdish
-#> 643          kmr-arab           Northern Kurdish (Arabic script)
-#> 644          kmr-latn            Northern Kurdish (Latin script)
-#> 645               kmz                           Khorasani Turkic
-#> 646                kn                                    Kannada
-#> 647               knc                             Central Kanuri
-#> 648               kne                                  Kankanaey
-#> 649               knn                      Maharashtrian Konkani
-#> 650               knq                                     Kintaq
-#> 651                ko                                     Korean
-#> 652             ko-cn                             Korean (China)
-#> 653           ko-hani                      Korean (Hanja script)
-#> 654           ko-kore                      Korean (mixed script)
-#> 655             ko-kp                       Korean (North Korea)
-#> 656               koi                               Komi-Permyak
-#> 657               kok                                    Konkani
-#> 658               kos                                   Kosraean
-#> 659               koy                                    Koyukon
-#> 660               kpe                                     Kpelle
-#> 661               kqr                                 Kimaragang
-#> 662               kqt                        Klias River Kadazan
-#> 663               kqv                                     Okolod
-#> 664                kr                                     Kanuri
-#> 665               krc                            Karachay-Balkar
-#> 666               kri                                       Krio
-#> 667               krj                                  Kinaray-a
-#> 668               krl                                   Karelian
-#> 669               kro                              Kru languages
-#> 670               kru                                     Kurukh
-#> 671                ks                                   Kashmiri
-#> 672           ks-arab                   Kashmiri (Arabic script)
-#> 673           ks-deva               Kashmiri (Devanagari script)
-#> 674               ksb                                   Shambala
-#> 675               ksf                                      Bafia
-#> 676               ksh                                  Colognian
-#> 677               ksw                                S'gaw Karen
-#> 678          ksy-beng               Kharia Thar (Bengali script)
-#> 679                ku                                    Kurdish
-#> 680           ku-arab                    Kurdish (Arabic script)
-#> 681           ku-latn                     Kurdish (Latin script)
-#> 682               kum                                      Kumyk
-#> 683               kus                                     Kusaal
-#> 684               kut                                    Kutenai
-#> 685                kv                                       Komi
-#> 686               kve                                  Kalabakan
-#> 687                kw                                    Cornish
-#> 688               kwk                                  Kwakʼwala
-#> 689               kxd                               Brunei Malay
-#> 690               kxi                             Keningau Murut
-#> 691               kxn                                    Kanowit
-#> 692               kxv                                       Kuvi
-#> 693                ky                                     Kyrgyz
-#> 694          kyw-beng                   Kurmali (Bengali script)
-#> 695          kyw-deva                Kurmali (Devanagari script)
-#> 696                la                                      Latin
-#> 697               lad                                     Ladino
-#> 698          lad-hebr                     Ladino (Hebrew script)
-#> 699          lad-latn                      Ladino (Latin script)
-#> 700               lag                                      Langi
-#> 701               lah                            Western Panjabi
-#> 702               laj                                      Lango
-#> 703               lam                                      Lamba
-#> 704                lb                              Luxembourgish
-#> 705               lbe                                        Lak
-#> 706               lcm                                     Tungag
-#> 707               ldn                                     Láadan
-#> 708               lem                                   Nomaande
-#> 709               lez                                   Lezghian
-#> 710               lfn                         Lingua Franca Nova
-#> 711                lg                                      Ganda
-#> 712                li                                 Limburgish
-#> 713               lij                                   Ligurian
-#> 714            lij-mc                                 Monégasque
-#> 715               lil                                   Lillooet
-#> 716               liv                                   Livonian
-#> 717               ljp                                Lampung Api
-#> 718               lki                                       Laki
-#> 719               lkt                                     Lakota
-#> 720               lld                                      Ladin
-#> 721               lmn                                    Lambadi
-#> 722               lmo                                    Lombard
-#> 723                ln                                    Lingala
-#> 724               lns                                    Lamnso'
-#> 725                lo                                        Lao
-#> 726               lol                                      Mongo
-#> 727               lou                           Louisiana Creole
-#> 728               loz                                       Lozi
-#> 729               lrc                              Northern Luri
-#> 730               lsm                                     Saamia
-#> 731                lt                                 Lithuanian
-#> 732               ltg                                  Latgalian
-#> 733                lu                               Luba-Katanga
-#> 734               lua                                 Luba-Lulua
-#> 735               lud                                      Ludic
-#> 736               lui                                    Luiseno
-#> 737               lun                                      Lunda
-#> 738               luo                                        Luo
-#> 739               lus                                       Mizo
-#> 740               lut                                Lushootseed
-#> 741               luy                                      Luyia
-#> 742               luz                              Southern Luri
-#> 743                lv                                    Latvian
-#> 744               lzh                           Literary Chinese
-#> 745               lzz                                        Laz
-#> 746               mad                                   Madurese
-#> 747               maf                                       Mafa
-#> 748               mag                                     Magahi
-#> 749               mai                                   Maithili
-#> 750               mak                                    Makasar
-#> 751          mak-bugi                  Makasar (Buginese script)
-#> 752               man                                   Mandingo
-#> 753               map                     Austronesian languages
-#> 754           map-bms                                 Banyumasan
-#> 755               mas                                      Masai
-#> 756               maw                                   Mampruli
-#> 757               mcn                                      Massa
-#> 758               mcp                                       Maka
-#> 759               mde                                       Maba
-#> 760               mdf                                     Moksha
-#> 761               mdh                               Maguindanaon
-#> 762               mdr                                     Mandar
-#> 763               men                                      Mende
-#> 764               mer                                       Meru
-#> 765               mey                                 Hassaniyya
-#> 766               mfa                     Kelantan-Pattani Malay
-#> 767               mfe                                   Morisyen
-#> 768                mg                                   Malagasy
-#> 769               mga                               Middle Irish
-#> 770               mgh                             Makhuwa-Meetto
-#> 771               mgo                                      Metaʼ
-#> 772                mh                                Marshallese
-#> 773               mhk                                    Mungaka
-#> 774               mhn                                    Mòcheno
-#> 775               mhr                               Eastern Mari
-#> 776                mi                                      Māori
-#> 777               mic                                    Mi'kmaw
-#> 778               mid                                    Mandaic
-#> 779               min                                Minangkabau
-#> 780               miq                                    Miskito
-#> 781               mis                       unsupported language
-#> 782               mix                                     Mixtec
-#> 783          mjx-beng                    Mahali (Bengali script)
-#> 784                mk                                 Macedonian
-#> 785               mkh                                  Mon-Khmer
-#> 786                ml                                  Malayalam
-#> 787                mn                                  Mongolian
-#> 788           mn-cyrl                Mongolian (Cyrillic script)
-#> 789           mn-mong               Mongolian (Mongolian script)
-#> 790               mnc                                     Manchu
-#> 791          mnc-latn                      Manchu (Latin script)
-#> 792          mnc-mong                  Manchu (Mongolian script)
-#> 793               mni                                   Manipuri
-#> 794          mni-beng                  Manipuri (Bengali script)
-#> 795               mnj                                      Munji
-#> 796               mno                           Manobo languages
-#> 797               mnq                                     Minriq
-#> 798               mns                                      Mansi
-#> 799               mnw                                        Mon
-#> 800                mo                                   Moldovan
-#> 801               moe                                 Innu-aimun
-#> 802               moh                                     Mohawk
-#> 803               mos                                      Mossi
-#> 804                mr                                    Marathi
-#> 805           mr-modi                      Marathi (Modi script)
-#> 806               mrh                                       Mara
-#> 807               mrj                               Western Mari
-#> 808               mrt                             Marghi Central
-#> 809               mrv                                  Mangareva
-#> 810                ms                                      Malay
-#> 811           ms-arab                        Malay (Jawi script)
-#> 812               msi                                Sabah Malay
-#> 813                mt                                    Maltese
-#> 814               mua                                    Mundang
-#> 815               mui                                       Musi
-#> 816               mul                         multiple languages
-#> 817               mun                            Munda languages
-#> 818               mus                                   Muscogee
-#> 819               mvf                       Peripheral Mongolian
-#> 820               mvi                                     Miyako
-#> 821          mvi-hira                   Miyako (Hiragana script)
-#> 822               mvv                                      Tagol
-#> 823               mwl                                  Mirandese
-#> 824               mwr                                    Marwari
-#> 825               mwv                                   Mentawai
-#> 826               mww                                  Hmong Daw
-#> 827          mww-latn                   Hmong Daw (Latin script)
-#> 828                my                                    Burmese
-#> 829               mye                                      Myene
-#> 830               myn                            Mayan languages
-#> 831               myv                                      Erzya
-#> 832               mzn                                Mazanderani
-#> 833                na                                      Nauru
-#> 834               nah                                    Nahuatl
-#> 835               nai      Indigenous languages of North America
-#> 836               nan                                     Minnan
-#> 837          nan-hani                        Minnan (Han script)
-#> 838          nan-hans             Minnan (Simplified Han script)
-#> 839          nan-hant            Minnan (Traditional Han script)
-#> 840  nan-latn-pehoeji                         Minnan (Pe̍h-ōe-jī)
-#> 841    nan-latn-tailo                            Minnan (Tâi-lô)
-#> 842               nap                                 Neapolitan
-#> 843               naq                                       Nama
-#> 844                nb                           Norwegian Bokmål
-#> 845                nd                              North Ndebele
-#> 846               nds                                 Low German
-#> 847            nds-nl                                  Low Saxon
-#> 848                ne                                     Nepali
-#> 849               new                                     Newari
-#> 850                ng                                     Ndonga
-#> 851               nge                                     Ngémba
-#> 852               nia                                       Nias
-#> 853               nic                      Niger–Congo languages
-#> 854               nit                        Southeastern Kolami
-#> 855               niu                                     Niuean
-#> 856               njo                                    Ao Naga
-#> 857                nl                                      Dutch
-#> 858             nl-be                                    Flemish
-#> 859       nl-informal                   Dutch (informal address)
-#> 860               nla                                   Ngombala
-#> 861               nmg                                     Kwasio
-#> 862               nmz                                      Nawdm
-#> 863                nn                          Norwegian Nynorsk
-#> 864       nn-hognorsk                         Norwegian Høgnorsk
-#> 865               nnh                                  Ngiemboon
-#> 866               nnz                                   Nda'Nda'
-#> 867                no                                  Norwegian
-#> 868               nod                              Northern Thai
-#> 869          nod-thai                Northern Thai (Thai script)
-#> 870               nog                                      Nogai
-#> 871               non                                  Old Norse
-#> 872          non-runr                   Old Norse (Runic script)
-#> 873               nov                                     Novial
-#> 874               nqo                                       N’Ko
-#> 875                nr                              South Ndebele
-#> 876            nrf-gg                                Guernésiais
-#> 877            nrf-je                                   Jèrriais
-#> 878               nrm                                     Norman
-#> 879               nsk                                    Naskapi
-#> 880               nsl                    Norwegian Sign Language
-#> 881               nso                             Northern Sotho
-#> 882               ntd                             Sesayap Tidung
-#> 883               nub                           Nubian languages
-#> 884               nup                                       Nupe
-#> 885               nus                                       Nuer
-#> 886                nv                                     Navajo
-#> 887               nwc                           Classical Newari
-#> 888               nxm                                   Numidian
-#> 889                ny                                     Nyanja
-#> 890               nym                                   Nyamwezi
-#> 891               nyn                                   Nyankole
-#> 892               nyo                                      Nyoro
-#> 893               nys                                    Nyungar
-#> 894               nzi                                      Nzima
-#> 895               obt                                 Old Breton
-#> 896                oc                                    Occitan
-#> 897               oco                                Old Cornish
-#> 898               odt                                  Old Dutch
-#> 899               ofs                                Old Frisian
-#> 900                oj                                     Ojibwa
-#> 901               ojb                        Northwestern Ojibwa
-#> 902               ojc                             Central Ojibwa
-#> 903               ojp                               Old Japanese
-#> 904          ojp-hani                Old Japanese (Kanji script)
-#> 905          ojp-hira             Old Japanese (Hiragana script)
-#> 906               ojs                                   Oji-Cree
-#> 907               ojw                             Western Ojibwa
-#> 908               oka                                   Okanagan
-#> 909               olo                             Livvi-Karelian
-#> 910                om                                      Oromo
-#> 911               oma                                Omaha-Ponca
-#> 912               ood                                    O'odham
-#> 913                or                                       Odia
-#> 914                os                                    Ossetic
-#> 915               osa                                      Osage
-#> 916          osa-latn                       Osage (Latin script)
-#> 917               osi                                      Osing
-#> 918               osx                                  Old Saxon
-#> 919               ota                            Ottoman Turkish
-#> 920               otk                                Old Turkish
-#> 921               oto                          Otomian languages
-#> 922               ovd                                  Elfdalian
-#> 923               owl                                  Old Welsh
-#> 924                pa                                    Punjabi
-#> 925           pa-guru                  Punjabi (Gurmukhi script)
-#> 926               paa                           Papuan languages
-#> 927               pag                                 Pangasinan
-#> 928               pal                                    Pahlavi
-#> 929          pal-phli     Pahlavi (Inscriptional Pahlavi script)
-#> 930          pal-phlp           Pahlavi (Psalter Pahlavi script)
-#> 931          pal-phlv              Pahlavi (Book Pahlavi script)
-#> 932               pam                                   Pampanga
-#> 933               pao                            Northern Paiute
-#> 934               pap                                 Papiamento
-#> 935            pap-aw                         Papiamento (Aruba)
-#> 936               paq                                      Parya
-#> 937               pau                                    Palauan
-#> 938               pbb                                       Páez
-#> 939               pcd                                     Picard
-#> 940               pcm                            Nigerian Pidgin
-#> 941               pdc                        Pennsylvania German
-#> 942               pdt                               Plautdietsch
-#> 943               peo                                Old Persian
-#> 944               pfl                            Palatine German
-#> 945               pgd                                   Gāndhārī
-#> 946          pgd-arab                   Gāndhārī (Arabic script)
-#> 947          pgd-deva               Gāndhārī (Devanagari script)
-#> 948          pgd-khar               Gāndhārī (Kharoshthi script)
-#> 949               pgl                            Primitive Irish
-#> 950               phi                       Philippine languages
-#> 951               phl                                     Palula
-#> 952               phn                                 Phoenician
-#> 953          phn-latn                  Phoenician (Latin script)
-#> 954          phn-phnx             Phoenician (Phoenician script)
-#> 955               phr                             Pahari-Potwari
-#> 956                pi                                       Pali
-#> 957           pi-sidd                      Pali (Siddham script)
-#> 958               pih                           Pitcairn-Norfolk
-#> 959               pis                                      Pijin
-#> 960               pjt                             Pitjantjatjara
-#> 961               pkc                                    Paekche
-#> 962               pko                                     Pökoot
-#> 963               pks                     Pakistan Sign Language
-#> 964                pl                                     Polish
-#> 965               plv                         Southwest Palawano
-#> 966               plw                    Brooke's Point Palawano
-#> 967               pms                                Piedmontese
-#> 968               pnb                            Western Punjabi
-#> 969               pnt                                     Pontic
-#> 970               pon                                  Pohnpeian
-#> 971               pov                       Upper Guinea Crioulo
-#> 972               ppl                                      Nawat
-#> 973               ppu                              Papora-Hoanya
-#> 974               pqm                     Maliseet-Passamaquoddy
-#> 975               pra                                    Prakrit
-#> 976               prc                                    Parachi
-#> 977               prg                                   Prussian
-#> 978               pro                              Old Provençal
-#> 979               prs                                       Dari
-#> 980                ps                                     Pashto
-#> 981             ps-af                       Pashto (Afghanistan)
-#> 982             ps-pk                          Pashto (Pakistan)
-#> 983               psh                           Southwest Pashai
-#> 984               psi                           Southeast Pashai
-#> 985               psu                          Sauraseni Prākrit
-#> 986          psu-arab          Sauraseni Prākrit (Arabic script)
-#> 987          psu-brah          Sauraseni Prākrit (Brahmi script)
-#> 988          psu-deva      Sauraseni Prākrit (Devanagari script)
-#> 989          psu-guru        Sauraseni Prākrit (Gurmukhi script)
-#> 990                pt                                 Portuguese
-#> 991         pt-ao1990   Portuguese (1990 Orthographic Agreement)
-#> 992             pt-br                       Brazilian Portuguese
-#> 993       pt-colb1945   Portuguese (1945 Orthographic Agreement)
-#> 994             pt-pt                        European Portuguese
-#> 995               pwn                                     Paiwan
-#> 996               pyu                                     Puyuma
-#> 997                qu                                    Quechua
-#> 998               quc                                    Kʼicheʼ
-#> 999               qug                Chimborazo Highland Quichua
-#> 1000              qwh                     Huaylas Ancash Quechua
-#> 1001              qxp                               Puno Quechua
-#> 1002              qxq                                    Qashqai
-#> 1003              qya                                     Quenya
-#> 1004              rag                                    Logooli
-#> 1005              rah                                      Rabha
-#> 1006              raj                                 Rajasthani
-#> 1007              rap                                    Rapanui
-#> 1008              rar                                 Rarotongan
-#> 1009              rcf                      Réunion Creole French
-#> 1010              rej                                     Rejang
-#> 1011              rgn                                   Romagnol
-#> 1012              rhg                                   Rohingya
-#> 1013         rhg-arab                   Rohingya (Arabic script)
-#> 1014         rhg-rohg          Rohingya (Hanifi Rohingya script)
-#> 1015              rif                                    Riffian
-#> 1016              rki                                  Arakanese
-#> 1017              rkt                                   Rangpuri
-#> 1018               rm                                    Romansh
-#> 1019         rm-puter                                      Putèr
-#> 1020         rm-rumgr                         Rumantsch Grischun
-#> 1021      rm-surmiran                                   Surmiran
-#> 1022       rm-sursilv                                  Sursilvan
-#> 1023       rm-sutsilv                                  Sutsilvan
-#> 1024      rm-vallader                                   Vallader
-#> 1025              rmc                          Carpathian Romani
-#> 1026              rmf                               Finnish Kalo
-#> 1027              rmg                        Traveller Norwegian
-#> 1028              rml                              Baltic Romani
-#> 1029         rml-cyrl            Baltic Romani (Cyrillic script)
-#> 1030              rmn                              Balkan Romani
-#> 1031              rmo                               Sinte Romani
-#> 1032              rmw                               Welsh-Romani
-#> 1033              rmy                                Vlax Romani
-#> 1034               rn                                      Rundi
-#> 1035               ro                                   Romanian
-#> 1036            ro-md                                  Moldavian
-#> 1037              roa                          Romance languages
-#> 1038          roa-rup                                  Aromanian
-#> 1039         roa-tara                                  Tarantino
-#> 1040              rof                                      Rombo
-#> 1041              rom                                     Romany
-#> 1042              rsk                            Pannonian Rusyn
-#> 1043              rtm                                    Rotuman
-#> 1044               ru                                    Russian
-#> 1045      ru-petr1708              Russian (Petrine orthography)
-#> 1046              rue                                      Rusyn
-#> 1047              rug                                    Roviana
-#> 1048              ruo                             Istro Romanian
-#> 1049              rup                                  Aromanian
-#> 1050              ruq                           Megleno-Romanian
-#> 1051         ruq-cyrl         Megleno-Romanian (Cyrillic script)
-#> 1052         ruq-latn            Megleno-Romanian (Latin script)
-#> 1053              rut                                      Rutul
-#> 1054               rw                                Kinyarwanda
-#> 1055              rwk                                        Rwa
-#> 1056              rwr                            Marwari (India)
-#> 1057              rys                                    Yaeyama
-#> 1058         rys-hira                  Yaeyama (Hiragana script)
-#> 1059              ryu                                   Okinawan
-#> 1060         ryu-hira                 Okinawan (Hiragana script)
-#> 1061               sa                                   Sanskrit
-#> 1062          sa-sidd                  Sanskrit (Siddham script)
-#> 1063              sad                                    Sandawe
-#> 1064              sah                                      Yakut
-#> 1065              sai        South American indigenous languages
-#> 1066              sal                         Salishan languages
-#> 1067              sam                          Samaritan Aramaic
-#> 1068              saq                                    Samburu
-#> 1069              sas                                      Sasak
-#> 1070              sat                                    Santali
-#> 1071         sat-beng                   Santali (Bengali script)
-#> 1072         sat-latn                     Santali (Latin script)
-#> 1073         sat-orya                     Santali (Oriya script)
-#> 1074              saz                                 Saurashtra
-#> 1075              sba                                    Ngambay
-#> 1076              sbp                                      Sangu
-#> 1077               sc                                  Sardinian
-#> 1078              scl                                      Shina
-#> 1079              scn                                   Sicilian
-#> 1080              sco                                      Scots
-#> 1081               sd                                     Sindhi
-#> 1082          sd-deva                 Sindhi (Devanagari script)
-#> 1083          sd-gujr                   Sindhi (Gujarati script)
-#> 1084          sd-khoj                     Sindhi (Khojki script)
-#> 1085          sd-sind                  Sindhi (Khudawadi script)
-#> 1086              sdc                        Sassarese Sardinian
-#> 1087              sdh                           Southern Kurdish
-#> 1088         sdh-arab           Southern Kurdish (Arabic script)
-#> 1089         sdh-latn            Southern Kurdish (Latin script)
-#> 1090              sdo                               Bukar–Sadong
-#> 1091               se                              Northern Sami
-#> 1092            se-fi                    Northern Sami (Finland)
-#> 1093            se-no                     Northern Sami (Norway)
-#> 1094            se-se                     Northern Sami (Sweden)
-#> 1095              sea                                      Semai
-#> 1096              see                                     Seneca
-#> 1097              seh                                       Sena
-#> 1098              sei                                       Seri
-#> 1099              sel                                     Selkup
-#> 1100              sem                          Semitic languages
-#> 1101              ser                                    Serrano
-#> 1102              ses                            Koyraboro Senni
-#> 1103               sg                                      Sango
-#> 1104              sga                                  Old Irish
-#> 1105              sgh                                    Shughni
-#> 1106         sgh-arab                    Shughni (Arabic script)
-#> 1107         sgh-cyrl                  Shughni (Cyrillic script)
-#> 1108         sgh-latn                     Shughni (Latin script)
-#> 1109              sgn                             sign languages
-#> 1110              sgs                                 Samogitian
-#> 1111         sgy-arab                  Sanglechi (Arabic script)
-#> 1112         sgy-latn                   Sanglechi (Latin script)
-#> 1113               sh                             Serbo-Croatian
-#> 1114          sh-cyrl           Serbo-Croatian (Cyrillic script)
-#> 1115          sh-latn              Serbo-Croatian (Latin script)
-#> 1116              shd                               Kundal Shahi
-#> 1117              shi                                  Tachelhit
-#> 1118         shi-latn                   Tachelhit (Latin script)
-#> 1119         shi-tfng                Tachelhit (Tifinagh script)
-#> 1120              shn                                       Shan
-#> 1121              shu                             Chadian Arabic
-#> 1122              shy                                    Shawiya
-#> 1123         shy-arab                    Shawiya (Arabic script)
-#> 1124         shy-latn                     Shawiya (Latin script)
-#> 1125         shy-tfng                  Shawiya (Tifinagh script)
-#> 1126               si                                    Sinhala
-#> 1127              sia                                Akkala Sami
-#> 1128              sid                                     Sidamo
-#> 1129           simple                             Simple English
-#> 1130              sio                           Siouan languages
-#> 1131              sit                     Sino-Tibetan languages
-#> 1132              sjd                                Kildin Sami
-#> 1133              sje                                  Pite Sami
-#> 1134              sjk                                  Kemi Sami
-#> 1135              sjn                                   Sindarin
-#> 1136              sjo                                       Xibe
-#> 1137              sjt                                   Ter Sami
-#> 1138              sju                                   Ume Sami
-#> 1139               sk                                     Slovak
-#> 1140              skr                                    Saraiki
-#> 1141         skr-arab                    Saraiki (Arabic script)
-#> 1142               sl                                  Slovenian
-#> 1143              sla                           Slavic languages
-#> 1144              slh                       Southern Lushootseed
-#> 1145              sli                             Lower Silesian
-#> 1146              slr                                      Salar
-#> 1147              sly                                    Selayar
-#> 1148               sm                                     Samoan
-#> 1149              sma                              Southern Sami
-#> 1150              smi                             Sámi languages
-#> 1151              smj                                  Lule Sami
-#> 1152              smn                                 Inari Sami
-#> 1153              sms                                 Skolt Sami
-#> 1154               sn                                      Shona
-#> 1155              sne                                      Jagoi
-#> 1156              snk                                    Soninke
-#> 1157               so                                     Somali
-#> 1158              sog                                    Sogdien
-#> 1159              son                          Songhay languages
-#> 1160              spv                                 Sambalpuri
-#> 1161               sq                                   Albanian
-#> 1162               sr                                    Serbian
-#> 1163          sr-cyrl                  Serbian (Cyrillic script)
-#> 1164            sr-ec                  Serbian (Cyrillic script)
-#> 1165            sr-el                     Serbian (Latin script)
-#> 1166          sr-latn                     Serbian (Latin script)
-#> 1167            sr-me                                Montenegrin
-#> 1168         srh-arab                   Sarikoli (Arabic script)
-#> 1169         srh-cyrl                 Sarikoli (Cyrillic script)
-#> 1170         srh-latn                    Sarikoli (Latin script)
-#> 1171              srk                                   Serudung
-#> 1172              srn                               Sranan Tongo
-#> 1173              sro                      Campidanese Sardinian
-#> 1174              srq                                    Sirionó
-#> 1175              srr                                      Serer
-#> 1176               ss                                      Swati
-#> 1177              ssa                     Nilo-Saharan languages
-#> 1178              ssb                              Southern Sama
-#> 1179              ssf                                       Thao
-#> 1180              ssy                                       Saho
-#> 1181               st                             Southern Sotho
-#> 1182              sth                                     Shelta
-#> 1183              stq                          Saterland Frisian
-#> 1184              str                             Straits Salish
-#> 1185              sty                             Siberian Tatar
-#> 1186               su                                  Sundanese
-#> 1187              suk                                     Sukuma
-#> 1188              sus                                       Susu
-#> 1189              sux                                   Sumerian
-#> 1190         sux-latn                    Sumerian (Latin script)
-#> 1191         sux-xsux                Sumerian (Cuneiform script)
-#> 1192              suz                                     Sunwar
-#> 1193               sv                                    Swedish
-#> 1194              sva                                       Svan
-#> 1195               sw                                    Swahili
-#> 1196            sw-cd                              Congo Swahili
-#> 1197              swb                                   Comorian
-#> 1198              sxr                                     Saaroa
-#> 1199              sxu                                Upper Saxon
-#> 1200              syc                           Classical Syriac
-#> 1201              syl                                    Sylheti
-#> 1202         syl-beng                   Sylheti (Bengali script)
-#> 1203         syl-sylo             Sylheti (Sylheti Nagri script)
-#> 1204              syr                                     Syriac
-#> 1205              szl                                   Silesian
-#> 1206              szy                                   Sakizaya
-#> 1207               ta                                      Tamil
-#> 1208              tai                              Tai languages
-#> 1209              tao                                       Yami
-#> 1210              tay                                     Atayal
-#> 1211              tbl                                      Tboli
-#> 1212              tce                          Southern Tutchone
-#> 1213              tcy                                       Tulu
-#> 1214              tdd                                   Tai Nuea
-#> 1215               te                                     Telugu
-#> 1216              tem                                      Timne
-#> 1217              teo                                       Teso
-#> 1218              ter                                     Tereno
-#> 1219              tet                                      Tetum
-#> 1220               tg                                      Tajik
-#> 1221          tg-cyrl                    Tajik (Cyrillic script)
-#> 1222          tg-latn                       Tajik (Latin script)
-#> 1223              tgx                                     Tagish
-#> 1224               th                                       Thai
-#> 1225              thq                              Kochila Tharu
-#> 1226              thr                                 Rana Tharu
-#> 1227              tht                                    Tahltan
-#> 1228               ti                                   Tigrinya
-#> 1229              tig                                      Tigre
-#> 1230              tih                                    Timugon
-#> 1231              tiv                                        Tiv
-#> 1232              tji                             Northern Tujia
-#> 1233               tk                                    Turkmen
-#> 1234              tkl                                  Tokelauan
-#> 1235              tkr                                    Tsakhur
-#> 1236               tl                                    Tagalog
-#> 1237              tlb                                     Tobelo
-#> 1238              tlh                                    Klingon
-#> 1239         tlh-latn                     Klingon (Latin script)
-#> 1240         tlh-piqd                   Klingon (Klingon script)
-#> 1241              tli                                    Tlingit
-#> 1242              tly                                     Talysh
-#> 1243         tly-cyrl                   Talysh (Cyrillic script)
-#> 1244              tmh                                   Tamashek
-#> 1245              tmr                  Jewish Babylonian Aramaic
-#> 1246               tn                                     Tswana
-#> 1247              tnq                                      Taíno
-#> 1248               to                                     Tongan
-#> 1249              tog                                Nyasa Tonga
-#> 1250              toi                            Tonga (Botatwe)
-#> 1251              tok                                  Toki Pona
-#> 1252              tpi                                  Tok Pisin
-#> 1253               tr                                    Turkish
-#> 1254              trp                                   Kokborok
-#> 1255              tru                                     Turoyo
-#> 1256              trv                                     Taroko
-#> 1257              trw                                    Torwali
-#> 1258               ts                                     Tsonga
-#> 1259              tsd                                  Tsakonian
-#> 1260              tsg                                     Tausug
-#> 1261              tsi                                  Tsimshian
-#> 1262              tsu                                      Tsou 
-#> 1263               tt                                      Tatar
-#> 1264          tt-cyrl                    Tatar (Cyrillic script)
-#> 1265          tt-latn                       Tatar (Latin script)
-#> 1266              ttj                                      Tooro
-#> 1267              ttm                          Northern Tutchone
-#> 1268              ttt                                 Muslim Tat
-#> 1269              tui                                     Tupuri
-#> 1270              tum                                    Tumbuka
-#> 1271              tup                           Tupian languages
-#> 1272              tut                           Altaic languages
-#> 1273              tvl                                     Tuvalu
-#> 1274              tvu                                      Tunen
-#> 1275               tw                                        Twi
-#> 1276              twd                                    Tweants
-#> 1277              twq                                    Tasawaq
-#> 1278              txa                                  Tombonuwo
-#> 1279              txg                                     Tangut
-#> 1280         txo-beng                      Toto (Bengali script)
-#> 1281         txo-toto                         Toto (Toto script)
-#> 1282              txx                                     Tatana
-#> 1283               ty                                   Tahitian
-#> 1284              tyv                                   Tuvinian
-#> 1285              tzl                                   Talossan
-#> 1286              tzm                    Central Atlas Tamazight
-#> 1287              udm                                     Udmurt
-#> 1288               ug                                     Uyghur
-#> 1289          ug-arab                     Uyghur (Arabic script)
-#> 1290          ug-cyrl                   Uyghur (Cyrillic script)
-#> 1291          ug-latn                      Uyghur (Latin script)
-#> 1292              uga                                   Ugaritic
-#> 1293               uk                                  Ukrainian
-#> 1294              ulc                                       Ulch
-#> 1295              uln                               Unserdeutsch
-#> 1296              umb                                    Umbundu
-#> 1297              umu                                     Munsee
-#> 1298              und                      undetermined language
-#> 1299              unr                                    Mundari
-#> 1300         unr-deva                Mundari (Devanagari script)
-#> 1301         unr-nagm               Mundari (Nag Mundari script)
-#> 1302               ur                                       Urdu
-#> 1303              urk                                Urak Lawoiʼ
-#> 1304              ush                                     Ushoji
-#> 1305              uun                                      Pazeh
-#> 1306               uz                                      Uzbek
-#> 1307          uz-cyrl                    Uzbek (Cyrillic script)
-#> 1308          uz-latn                       Uzbek (Latin script)
-#> 1309              vai                                        Vai
-#> 1310               ve                                      Venda
-#> 1311              vec                                   Venetian
-#> 1312              vep                                       Veps
-#> 1313               vi                                 Vietnamese
-#> 1314          vi-hani                    Vietnamese (Han script)
-#> 1315              vls                               West Flemish
-#> 1316              vmf                            Main-Franconian
-#> 1317              vmw                                    Makhuwa
-#> 1318               vo                                    Volapük
-#> 1319              vot                                      Votic
-#> 1320              vro                                       Võro
-#> 1321              vun                                      Vunjo
-#> 1322              vut                                       Vute
-#> 1323               wa                                    Walloon
-#> 1324              wae                                     Walser
-#> 1325              wak                         Wakashan languages
-#> 1326              wal                                   Wolaytta
-#> 1327              war                                      Waray
-#> 1328              was                                      Washo
-#> 1329         wbl-arab                      Wakhi (Arabic script)
-#> 1330      wbl-arab-af         Wakhi (Arabic script, Afghanistan)
-#> 1331      wbl-arab-cn               Wakhi (Arabic script, China)
-#> 1332      wbl-arab-pk            Wakhi (Arabic script, Pakistan)
-#> 1333         wbl-cyrl                    Wakhi (Cyrillic script)
-#> 1334         wbl-latn                       Wakhi (Latin script)
-#> 1335              wbp                                   Warlpiri
-#> 1336              wen                          Sorbian languages
-#> 1337              wes                          Pidgin (Cameroon)
-#> 1338              wlm                               Middle Welsh
-#> 1339              wls                                  Wallisian
-#> 1340              wlx                                       Wali
-#> 1341               wo                                      Wolof
-#> 1342              wsg                             Adilabad Gondi
-#> 1343              wsv                        Wotapuri-Katarqalai
-#> 1344              wuu                                         Wu
-#> 1345         wuu-hans                 Wu (Simplified Han script)
-#> 1346         wuu-hant                Wu (Traditional Han script)
-#> 1347              wya                                    Wyandot
-#> 1348              wyi                                 Woiwurrung
-#> 1349              xal                                     Kalmyk
-#> 1350              xbm                              Middle Breton
-#> 1351               xh                                      Xhosa
-#> 1352              xmf                                 Mingrelian
-#> 1353              xmm                               Manado Malay
-#> 1354              xnb                                 Kanakanavu
-#> 1355              xno                               Anglo-Norman
-#> 1356              xnr                                     Kangri
-#> 1357         xnr-deva                 Kangri (Devanagari script)
-#> 1358         xnr-takr                      Kangri (Takri script)
-#> 1359              xog                                       Soga
-#> 1360              xon                                   Konkomba
-#> 1361              xpu                                      Punic
-#> 1362              xsu                                     Sanumá
-#> 1363              xsy                                   Saisiyat
-#> 1364         yah-cyrl               Yazghulami (Cyrillic script)
-#> 1365         yah-latn                  Yazghulami (Latin script)
-#> 1366         yai-cyrl                 Yaghnobi (Cyrillic script)
-#> 1367         yai-latn                    Yaghnobi (Latin script)
-#> 1368              yao                                        Yao
-#> 1369              yap                                     Yapese
-#> 1370              yas                                     Nugunu
-#> 1371              yat                                    Yambeta
-#> 1372              yav                                    Yangben
-#> 1373              ybb                                      Yemba
-#> 1374              ydd                            Eastern Yiddish
-#> 1375              ydg                                     Yidgha
-#> 1376              yec                                    Yeniche
-#> 1377               yi                                    Yiddish
-#> 1378              ykg                            Tundra Yukaghir
-#> 1379               yo                                     Yoruba
-#> 1380              yoi                                   Yonaguni
-#> 1381         yoi-hira                 Yonaguni (Hiragana script)
-#> 1382              yox                                      Yoron
-#> 1383         yox-hira                    Yoron (Hiragana script)
-#> 1384              ypk                            Yupik languages
-#> 1385              yrk                                     Nenets
-#> 1386              yrl                                  Nheengatu
-#> 1387              yua                               Yucatec Maya
-#> 1388              yue                                  Cantonese
-#> 1389         yue-hans          Cantonese (Simplified Han script)
-#> 1390         yue-hant         Cantonese (Traditional Han script)
-#> 1391               za                                     Zhuang
-#> 1392              zai                            Isthmus Zapotec
-#> 1393              zap                                    Zapotec
-#> 1394              zbl                                Blissymbols
-#> 1395              zea                                  Zeelandic
-#> 1396              zen                                     Zenaga
-#> 1397              zgh                Standard Moroccan Tamazight
-#> 1398         zgh-latn Standard Moroccan Tamazight (Latin script)
-#> 1399               zh                                    Chinese
-#> 1400     zh-classical                           Literary Chinese
-#> 1401            zh-cn                            Chinese (China)
-#> 1402          zh-hans                         Simplified Chinese
-#> 1403          zh-hant                        Traditional Chinese
-#> 1404            zh-hk                        Chinese (Hong Kong)
-#> 1405       zh-min-nan                                     Minnan
-#> 1406            zh-mo                            Chinese (Macau)
-#> 1407            zh-my                         Chinese (Malaysia)
-#> 1408            zh-sg                        Chinese (Singapore)
-#> 1409            zh-tw                           Chinese (Taiwan)
-#> 1410           zh-yue                                  Cantonese
-#> 1411              zmi                      Negeri Sembilan Malay
-#> 1412              znd                            Zande languages
-#> 1413              zpu                            Yalálag Zapotec
-#> 1414               zu                                       Zulu
-#> 1415              zun                                       Zuni
-#> 1416              zxx                      no linguistic content
-#> 1417              zza                                       Zaza
+#> 412             fr-be                             Belgian French
+#> 413             fr-ca                            Canadian French
+#> 414             fr-ch                               Swiss French
+#> 415               frc                               Cajun French
+#> 416               frk                                   Frankish
+#> 417               frm                              Middle French
+#> 418               fro                                 Old French
+#> 419               frp                                    Arpitan
+#> 420               frr                           Northern Frisian
+#> 421               frs                            Eastern Frisian
+#> 422               fsl                       French Sign Language
+#> 423               fud                                    Futunan
+#> 424               fuf                                      Pular
+#> 425               fur                                   Friulian
+#> 426               fvr                                        Fur
+#> 427                fy                            Western Frisian
+#> 428                ga                                      Irish
+#> 429               gaa                                         Ga
+#> 430               gag                                     Gagauz
+#> 431               gah                                    Alekano
+#> 432               gan                                        Gan
+#> 433          gan-hans                Gan (Simplified Han script)
+#> 434          gan-hant               Gan (Traditional Han script)
+#> 435               gay                                       Gayo
+#> 436               gba                                      Gbaya
+#> 437               gbb                                   Kaytetye
+#> 438               gbk                                      Gaddi
+#> 439          gbk-deva                  Gaddi (Devanagari script)
+#> 440          gbk-takr                       Gaddi (Takri script)
+#> 441               gbm                                   Garhwali
+#> 442               gbz                           Zoroastrian Dari
+#> 443               gcf                        Guadeloupean Creole
+#> 444               gcr                             Guianan Creole
+#> 445                gd                            Scottish Gaelic
+#> 446               gem                         Germanic languages
+#> 447               gez                                       Geez
+#> 448               gil                                 Gilbertese
+#> 449               gju                                     Gujari
+#> 450          gju-arab                     Gujari (Arabic script)
+#> 451          gju-deva                 Gujari (Devanagari script)
+#> 452                gl                                   Galician
+#> 453               gld                                      Nanai
+#> 454               glh                           Northwest Pashai
+#> 455               glk                                     Gilaki
+#> 456               gmh                         Middle High German
+#> 457               gml                          Middle Low German
+#> 458               gmy                            Mycenaean Greek
+#> 459                gn                                    Guarani
+#> 460               gnq                                      Ganaʼ
+#> 461               goh                            Old High German
+#> 462               gom                               Goan Konkani
+#> 463          gom-deva           Goan Konkani (Devanagari script)
+#> 464          gom-latn                Goan Konkani (Latin script)
+#> 465               gon                                      Gondi
+#> 466               gor                                  Gorontalo
+#> 467               got                                     Gothic
+#> 468               gpe                            Ghanaian Pidgin
+#> 469               grb                                      Grebo
+#> 470               grc                              Ancient Greek
+#> 471               gsg                       German Sign Language
+#> 472               gsw                                  Alemannic
+#> 473            gsw-fr                                   Alsatian
+#> 474                gu                                   Gujarati
+#> 475               guc                                      Wayuu
+#> 476               gum                                  Guambiano
+#> 477               gur                                     Frafra
+#> 478               guw                                        Gun
+#> 479               guz                                      Gusii
+#> 480                gv                                       Manx
+#> 481               gwi                                   Gwichʼin
+#> 482               gya                                      Gbaya
+#> 483                ha                                      Hausa
+#> 484           ha-arab                      Hausa (Arabic script)
+#> 485           ha-latn                       Hausa (Latin script)
+#> 486             ha-ne                              Hausa (Niger)
+#> 487               hac                                     Gurani
+#> 488               hai                                      Haida
+#> 489               hak                              Hakka Chinese
+#> 490          hak-hans              Hakka (Simplified Han script)
+#> 491          hak-hant             Hakka (Traditional Han script)
+#> 492          hak-latn                       Hakka (Latin script)
+#> 493               hav                                       Havu
+#> 494               haw                                   Hawaiian
+#> 495               hax                             Southern Haida
+#> 496               haz                                   Hazaragi
+#> 497               hbo                            Biblical Hebrew
+#> 498                he                                     Hebrew
+#> 499               hea                     Northern Qiandong Miao
+#> 500                hi                                      Hindi
+#> 501           hi-kthi                      Hindi (Kaithi script)
+#> 502           hi-latn                              Hindi (Latin)
+#> 503               hif                                 Fiji Hindi
+#> 504          hif-deva             Fiji Hindi (Devanagari script)
+#> 505          hif-latn                  Fiji Hindi (Latin script)
+#> 506               hil                                 Hiligaynon
+#> 507               him                             Western Pahari
+#> 508               hit                                    Hittite
+#> 509          hit-latn                     Hittite (Latin script)
+#> 510          hit-xsux                 Hittite (Cuneiform script)
+#> 511               hke                                      Hunde
+#> 512               hmn                                      Hmong
+#> 513               hne                              Chhattisgarhi
+#> 514               hnj                                 Hmong Njua
+#> 515               hno                            Northern Hindko
+#> 516                ho                                  Hiri Motu
+#> 517               hoc                                         Ho
+#> 518          hoc-latn                          Ho (Latin script)
+#> 519                hr                                   Croatian
+#> 520               hrx                                    Hunsrik
+#> 521               hsb                              Upper Sorbian
+#> 522               hsn                                      Xiang
+#> 523          hsn-hans              Xiang (Simplified Han script)
+#> 524          hsn-hant             Xiang (Traditional Han script)
+#> 525                ht                             Haitian Creole
+#> 526               hts                                      Hadza
+#> 527                hu                                  Hungarian
+#> 528         hu-formal                 Hungarian (formal address)
+#> 529               hup                                       Hupa
+#> 530               hur                                 Halkomelem
+#> 531                hy                                   Armenian
+#> 532               hyw                           Western Armenian
+#> 533                hz                                     Herero
+#> 534                ia                                Interlingua
+#> 535               iba                                       Iban
+#> 536               ibb                                     Ibibio
+#> 537                id                                 Indonesian
+#> 538                ie                                Interlingue
+#> 539               ifu                             Mayoyao Ifugao
+#> 540                ig                                       Igbo
+#> 541               igb                                      Ebira
+#> 542               igl                                      Igala
+#> 543                ii                                 Sichuan Yi
+#> 544               ijo                             Ijaw languages
+#> 545                ik                                    Inupiaq
+#> 546          ike-cans    Eastern Canadian (Aboriginal syllabics)
+#> 547          ike-latn            Eastern Canadian (Latin script)
+#> 548               ikt                 Western Canadian Inuktitut
+#> 549               ilo                                      Iloko
+#> 550               inc                       Indo-Aryan languages
+#> 551               ine                    Indo-European languages
+#> 552               inh                                     Ingush
+#> 553                io                                        Ido
+#> 554               ira                          Iranian languages
+#> 555               iro                        Iroquoian languages
+#> 556                is                                  Icelandic
+#> 557               ish                                       Esan
+#> 558          isk-arab                 Ishkashimi (Arabic script)
+#> 559          isk-cyrl               Ishkashimi (Cyrillic script)
+#> 560          isk-latn                  Ishkashimi (Latin script)
+#> 561               ist                                    Istriot
+#> 562               isu                                        Isu
+#> 563               isv                            medžuslovjansky
+#> 564          isv-cyrl              Interslavic (Cyrillic script)
+#> 565          isv-latn                 Interslavic (Latin script)
+#> 566                it                                    Italian
+#> 567                iu                                  Inuktitut
+#> 568               ivb                                     Ibatan
+#> 569               izh                                    Ingrian
+#> 570                ja                                   Japanese
+#> 571           ja-hani                    Japanese (Kanji script)
+#> 572           ja-hira                 Japanese (Hiragana script)
+#> 573           ja-hrkt                     Japanese (Kana script)
+#> 574           ja-kana                 Japanese (Katakana script)
+#> 575               jac                                     Popti'
+#> 576               jak                                      Jakun
+#> 577               jam                    Jamaican Creole English
+#> 578               jax                                Jambi Malay
+#> 579               jbo                                     Lojban
+#> 580               jdt                                  Judeo-Tat
+#> 581          jdt-cyrl                Judeo-Tat (Cyrillic script)
+#> 582               jgo                                     Ngomba
+#> 583               jje                                       Jeju
+#> 584               jmc                                    Machame
+#> 585               jpr                              Judeo-Persian
+#> 586               jrb                               Judeo-Arabic
+#> 587               juk                                      Wapan
+#> 588               jut                                     Jutish
+#> 589                jv                                   Javanese
+#> 590           jv-java                 Javanese (Javanese script)
+#> 591                ka                                   Georgian
+#> 592               kaa                                Kara-Kalpak
+#> 593               kab                                     Kabyle
+#> 594               kac                                     Kachin
+#> 595               kag                                    Kajaman
+#> 596               kai                                   Karekare
+#> 597               kaj                                        Jju
+#> 598               kam                                      Kamba
+#> 599               kar                          Karenic languages
+#> 600               kaw                                       Kawi
+#> 601               kbd                                  Kabardian
+#> 602          kbd-cyrl                Kabardian (Cyrillic script)
+#> 603          kbd-latn                   Kabardian (Latin script)
+#> 604               kbl                                    Kanembu
+#> 605               kbp                                     Kabiye
+#> 606               kcg                                       Tyap
+#> 607               kck                                    Kalanga
+#> 608               kde                                    Makonde
+#> 609               kea                        Cape Verdean Creole
+#> 610               kek                                   Qʼeqchiʼ
+#> 611               ken                                    Kenyang
+#> 612               ker                                       Kera
+#> 613               kfo                                       Koro
+#> 614               kfr                                     Kutchi
+#> 615                kg                                      Kongo
+#> 616               kge                                   Komering
+#> 617          kge-arab                   Komering (Arabic script)
+#> 618               kgg                                    Kusunda
+#> 619               kgp                                   Kaingang
+#> 620               kha                                      Khasi
+#> 621               khi                          Khoisan languages
+#> 622               kho                                  Khotanese
+#> 623               khq                               Koyra Chiini
+#> 624               khw                                     Khowar
+#> 625                ki                                     Kikuyu
+#> 626               kip                                Sheshi Kham
+#> 627               kiu                                  Kirmanjki
+#> 628                kj                                   Kuanyama
+#> 629               kjh                                     Khakas
+#> 630               kjp                                Eastern Pwo
+#> 631                kk                                     Kazakh
+#> 632           kk-arab                     Kazakh (Arabic script)
+#> 633             kk-cn                             Kazakh (China)
+#> 634           kk-cyrl                   Kazakh (Cyrillic script)
+#> 635             kk-kz                        Kazakh (Kazakhstan)
+#> 636           kk-latn                      Kazakh (Latin script)
+#> 637             kk-tr                            Kazakh (Turkey)
+#> 638               kkj                                       Kako
+#> 639                kl                                Kalaallisut
+#> 640               kld                                 Gamilaraay
+#> 641               kln                                   Kalenjin
+#> 642               kls                                    Kalasha
+#> 643          kls-arab                    Kalasha (Arabic script)
+#> 644          kls-latn                     Kalasha (Latin script)
+#> 645                km                                      Khmer
+#> 646               kmb                                   Kimbundu
+#> 647               kmr                           Northern Kurdish
+#> 648          kmr-arab           Northern Kurdish (Arabic script)
+#> 649          kmr-latn            Northern Kurdish (Latin script)
+#> 650               kmz                           Khorasani Turkic
+#> 651                kn                                    Kannada
+#> 652               knc                             Central Kanuri
+#> 653               kne                                  Kankanaey
+#> 654               knn                      Maharashtrian Konkani
+#> 655               knq                                     Kintaq
+#> 656                ko                                     Korean
+#> 657             ko-cn                             Korean (China)
+#> 658           ko-hani                      Korean (Hanja script)
+#> 659           ko-kore                      Korean (mixed script)
+#> 660             ko-kp                       Korean (North Korea)
+#> 661               koi                               Komi-Permyak
+#> 662               kok                                    Konkani
+#> 663               kos                                   Kosraean
+#> 664               koy                                    Koyukon
+#> 665               kpe                                     Kpelle
+#> 666               kqr                                 Kimaragang
+#> 667               kqt                        Klias River Kadazan
+#> 668               kqv                                     Okolod
+#> 669                kr                                     Kanuri
+#> 670               krc                            Karachay-Balkar
+#> 671               kri                                       Krio
+#> 672               krj                                  Kinaray-a
+#> 673               krl                                   Karelian
+#> 674               kro                              Kru languages
+#> 675               kru                                     Kurukh
+#> 676                ks                                   Kashmiri
+#> 677           ks-arab                   Kashmiri (Arabic script)
+#> 678           ks-deva               Kashmiri (Devanagari script)
+#> 679               ksb                                   Shambala
+#> 680               ksf                                      Bafia
+#> 681               ksh                                  Colognian
+#> 682               ksw                                S'gaw Karen
+#> 683          ksy-beng               Kharia Thar (Bengali script)
+#> 684                ku                                    Kurdish
+#> 685           ku-arab                    Kurdish (Arabic script)
+#> 686           ku-latn                     Kurdish (Latin script)
+#> 687               kum                                      Kumyk
+#> 688               kus                                     Kusaal
+#> 689               kut                                    Kutenai
+#> 690                kv                                       Komi
+#> 691               kve                                  Kalabakan
+#> 692                kw                                    Cornish
+#> 693               kwk                                  Kwakʼwala
+#> 694               kxd                               Brunei Malay
+#> 695               kxi                             Keningau Murut
+#> 696               kxn                                    Kanowit
+#> 697               kxv                                       Kuvi
+#> 698                ky                                     Kyrgyz
+#> 699          kyw-beng                   Kurmali (Bengali script)
+#> 700          kyw-deva                Kurmali (Devanagari script)
+#> 701                la                                      Latin
+#> 702               lad                                     Ladino
+#> 703          lad-hebr                     Ladino (Hebrew script)
+#> 704          lad-latn                      Ladino (Latin script)
+#> 705               lag                                      Langi
+#> 706               lah                            Western Panjabi
+#> 707               laj                                      Lango
+#> 708               lam                                      Lamba
+#> 709                lb                              Luxembourgish
+#> 710               lbe                                        Lak
+#> 711               lcm                                     Tungag
+#> 712               ldn                                     Láadan
+#> 713               lem                                   Nomaande
+#> 714               lez                                   Lezghian
+#> 715               lfn                         Lingua Franca Nova
+#> 716                lg                                      Ganda
+#> 717                li                                 Limburgish
+#> 718             li-be                         Belgian Limburgish
+#> 719             li-nl                           Dutch Limburgish
+#> 720               lij                                   Ligurian
+#> 721            lij-mc                                 Monégasque
+#> 722               lil                                   Lillooet
+#> 723               liv                                   Livonian
+#> 724               ljp                                Lampung Api
+#> 725               lki                                       Laki
+#> 726               lkt                                     Lakota
+#> 727               lld                                      Ladin
+#> 728               lmn                                    Lambadi
+#> 729               lmo                                    Lombard
+#> 730                ln                                    Lingala
+#> 731               lns                                    Lamnso'
+#> 732                lo                                        Lao
+#> 733               lol                                      Mongo
+#> 734               lou                           Louisiana Creole
+#> 735               loz                                       Lozi
+#> 736               lrc                              Northern Luri
+#> 737               lsm                                     Saamia
+#> 738                lt                                 Lithuanian
+#> 739               ltg                                  Latgalian
+#> 740                lu                               Luba-Katanga
+#> 741               lua                                 Luba-Lulua
+#> 742               lud                                      Ludic
+#> 743               lui                                    Luiseno
+#> 744               lun                                      Lunda
+#> 745               luo                                        Luo
+#> 746               lus                                       Mizo
+#> 747               lut                                Lushootseed
+#> 748               luy                                      Luyia
+#> 749               luz                              Southern Luri
+#> 750                lv                                    Latvian
+#> 751               lzh                           Literary Chinese
+#> 752               lzz                                        Laz
+#> 753               mad                                   Madurese
+#> 754               maf                                       Mafa
+#> 755               mag                                     Magahi
+#> 756               mai                                   Maithili
+#> 757               mak                                    Makasar
+#> 758          mak-bugi                  Makasar (Buginese script)
+#> 759               man                                   Mandingo
+#> 760               map                     Austronesian languages
+#> 761           map-bms                                 Banyumasan
+#> 762               mas                                      Masai
+#> 763               maw                                   Mampruli
+#> 764               mcn                                      Massa
+#> 765               mcp                                       Maka
+#> 766               mde                                       Maba
+#> 767               mdf                                     Moksha
+#> 768               mdh                               Maguindanaon
+#> 769               mdr                                     Mandar
+#> 770               men                                      Mende
+#> 771               mer                                       Meru
+#> 772               mey                                 Hassaniyya
+#> 773               mfa                     Kelantan-Pattani Malay
+#> 774               mfe                                   Morisyen
+#> 775                mg                                   Malagasy
+#> 776               mga                               Middle Irish
+#> 777               mgh                             Makhuwa-Meetto
+#> 778               mgo                                      Metaʼ
+#> 779                mh                                Marshallese
+#> 780               mhk                                    Mungaka
+#> 781               mhn                                    Mòcheno
+#> 782               mhr                               Eastern Mari
+#> 783                mi                                      Māori
+#> 784               mic                                    Mi'kmaw
+#> 785               mid                                    Mandaic
+#> 786               min                                Minangkabau
+#> 787               miq                                    Miskito
+#> 788               mis                       unsupported language
+#> 789               mix                                     Mixtec
+#> 790          mjx-beng                    Mahali (Bengali script)
+#> 791                mk                                 Macedonian
+#> 792               mkh                                  Mon-Khmer
+#> 793                ml                                  Malayalam
+#> 794                mn                                  Mongolian
+#> 795           mn-cyrl                Mongolian (Cyrillic script)
+#> 796           mn-mong               Mongolian (Mongolian script)
+#> 797               mnc                                     Manchu
+#> 798          mnc-latn                      Manchu (Latin script)
+#> 799          mnc-mong                  Manchu (Mongolian script)
+#> 800               mni                                   Manipuri
+#> 801          mni-beng                  Manipuri (Bengali script)
+#> 802               mnj                                      Munji
+#> 803               mno                           Manobo languages
+#> 804               mnq                                     Minriq
+#> 805               mns                                      Mansi
+#> 806               mnw                                        Mon
+#> 807                mo                                   Moldovan
+#> 808               moe                                 Innu-aimun
+#> 809               moh                                     Mohawk
+#> 810               mos                                      Mossi
+#> 811                mr                                    Marathi
+#> 812           mr-modi                      Marathi (Modi script)
+#> 813               mrh                                       Mara
+#> 814               mrj                               Western Mari
+#> 815               mrt                             Marghi Central
+#> 816               mrv                                  Mangareva
+#> 817                ms                                      Malay
+#> 818           ms-arab                        Malay (Jawi script)
+#> 819               msi                                Sabah Malay
+#> 820                mt                                    Maltese
+#> 821               mua                                    Mundang
+#> 822               mui                                       Musi
+#> 823               mul                         multiple languages
+#> 824               mun                            Munda languages
+#> 825               mus                                   Muscogee
+#> 826               mvf                       Peripheral Mongolian
+#> 827               mvi                                     Miyako
+#> 828          mvi-hira                   Miyako (Hiragana script)
+#> 829               mvv                                      Tagol
+#> 830               mwl                                  Mirandese
+#> 831               mwr                                    Marwari
+#> 832               mwv                                   Mentawai
+#> 833               mww                                  Hmong Daw
+#> 834          mww-latn                   Hmong Daw (Latin script)
+#> 835                my                                    Burmese
+#> 836               mye                                      Myene
+#> 837               myn                            Mayan languages
+#> 838               myv                                      Erzya
+#> 839               mzn                                Mazanderani
+#> 840                na                                      Nauru
+#> 841               nah                                    Nahuatl
+#> 842               nai      Indigenous languages of North America
+#> 843               nan                                     Minnan
+#> 844          nan-hani                        Minnan (Han script)
+#> 845          nan-hans             Minnan (Simplified Han script)
+#> 846          nan-hant            Minnan (Traditional Han script)
+#> 847  nan-latn-pehoeji                         Minnan (Pe̍h-ōe-jī)
+#> 848    nan-latn-tailo                            Minnan (Tâi-lô)
+#> 849               nap                                 Neapolitan
+#> 850               naq                                       Nama
+#> 851                nb                           Norwegian Bokmål
+#> 852                nd                              North Ndebele
+#> 853               nds                                 Low German
+#> 854            nds-nl                                  Low Saxon
+#> 855                ne                                     Nepali
+#> 856               new                                     Newari
+#> 857                ng                                     Ndonga
+#> 858               nge                                     Ngémba
+#> 859               nia                                       Nias
+#> 860               nic                      Niger–Congo languages
+#> 861               nit                        Southeastern Kolami
+#> 862               niu                                     Niuean
+#> 863               njo                                    Ao Naga
+#> 864                nl                                      Dutch
+#> 865             nl-be                                    Flemish
+#> 866       nl-informal                   Dutch (informal address)
+#> 867               nla                                   Ngombala
+#> 868               nmg                                     Kwasio
+#> 869               nmz                                      Nawdm
+#> 870                nn                          Norwegian Nynorsk
+#> 871       nn-hognorsk                         Norwegian Høgnorsk
+#> 872               nnh                                  Ngiemboon
+#> 873               nnz                                   Nda'Nda'
+#> 874                no                                  Norwegian
+#> 875               nod                              Northern Thai
+#> 876          nod-thai                Northern Thai (Thai script)
+#> 877               nog                                      Nogai
+#> 878               non                                  Old Norse
+#> 879          non-runr                   Old Norse (Runic script)
+#> 880               nov                                     Novial
+#> 881               nqo                                       N’Ko
+#> 882                nr                              South Ndebele
+#> 883            nrf-gg                                Guernésiais
+#> 884            nrf-je                                   Jèrriais
+#> 885               nrm                                     Norman
+#> 886               nsk                                    Naskapi
+#> 887               nsl                    Norwegian Sign Language
+#> 888               nso                             Northern Sotho
+#> 889               ntd                             Sesayap Tidung
+#> 890               nub                           Nubian languages
+#> 891               nup                                       Nupe
+#> 892               nus                                       Nuer
+#> 893                nv                                     Navajo
+#> 894               nwc                           Classical Newari
+#> 895               nxm                                   Numidian
+#> 896                ny                                     Nyanja
+#> 897               nym                                   Nyamwezi
+#> 898               nyn                                   Nyankole
+#> 899               nyo                                      Nyoro
+#> 900               nys                                    Nyungar
+#> 901               nzi                                      Nzima
+#> 902               obt                                 Old Breton
+#> 903                oc                                    Occitan
+#> 904               oco                                Old Cornish
+#> 905               odt                                  Old Dutch
+#> 906               ofs                                Old Frisian
+#> 907                oj                                     Ojibwa
+#> 908               ojb                        Northwestern Ojibwa
+#> 909               ojc                             Central Ojibwa
+#> 910               ojp                               Old Japanese
+#> 911          ojp-hani                Old Japanese (Kanji script)
+#> 912          ojp-hira             Old Japanese (Hiragana script)
+#> 913               ojs                                   Oji-Cree
+#> 914               ojw                             Western Ojibwa
+#> 915               oka                                   Okanagan
+#> 916               olo                             Livvi-Karelian
+#> 917                om                                      Oromo
+#> 918               oma                                Omaha-Ponca
+#> 919               ood                                    O'odham
+#> 920                or                                       Odia
+#> 921                os                                    Ossetic
+#> 922               osa                                      Osage
+#> 923          osa-latn                       Osage (Latin script)
+#> 924               osi                                      Osing
+#> 925               osx                                  Old Saxon
+#> 926               ota                            Ottoman Turkish
+#> 927               otk                                Old Turkish
+#> 928               oto                          Otomian languages
+#> 929               ovd                                  Elfdalian
+#> 930               owl                                  Old Welsh
+#> 931                pa                                    Punjabi
+#> 932           pa-guru                  Punjabi (Gurmukhi script)
+#> 933               paa                           Papuan languages
+#> 934               pag                                 Pangasinan
+#> 935               pal                                    Pahlavi
+#> 936          pal-phli     Pahlavi (Inscriptional Pahlavi script)
+#> 937          pal-phlp           Pahlavi (Psalter Pahlavi script)
+#> 938          pal-phlv              Pahlavi (Book Pahlavi script)
+#> 939               pam                                   Pampanga
+#> 940               pao                            Northern Paiute
+#> 941               pap                                 Papiamento
+#> 942            pap-aw                         Papiamento (Aruba)
+#> 943               paq                                      Parya
+#> 944               pau                                    Palauan
+#> 945               pbb                                       Páez
+#> 946               pcd                                     Picard
+#> 947               pcm                            Nigerian Pidgin
+#> 948               pdc                        Pennsylvania German
+#> 949               pdt                               Plautdietsch
+#> 950               peo                                Old Persian
+#> 951               pfl                            Palatine German
+#> 952               pgd                                   Gāndhārī
+#> 953          pgd-arab                   Gāndhārī (Arabic script)
+#> 954          pgd-deva               Gāndhārī (Devanagari script)
+#> 955          pgd-khar               Gāndhārī (Kharoshthi script)
+#> 956               pgl                            Primitive Irish
+#> 957               phi                       Philippine languages
+#> 958               phl                                     Palula
+#> 959               phn                                 Phoenician
+#> 960          phn-latn                  Phoenician (Latin script)
+#> 961          phn-phnx             Phoenician (Phoenician script)
+#> 962               phr                             Pahari-Potwari
+#> 963                pi                                       Pali
+#> 964           pi-sidd                      Pali (Siddham script)
+#> 965               pih                           Pitcairn-Norfolk
+#> 966               pis                                      Pijin
+#> 967               pjt                             Pitjantjatjara
+#> 968               pkc                                    Paekche
+#> 969               pko                                     Pökoot
+#> 970               pks                     Pakistan Sign Language
+#> 971                pl                                     Polish
+#> 972               plv                         Southwest Palawano
+#> 973               plw                    Brooke's Point Palawano
+#> 974               pms                                Piedmontese
+#> 975               pnb                            Western Punjabi
+#> 976               pnt                                     Pontic
+#> 977               pon                                  Pohnpeian
+#> 978               pov                       Upper Guinea Crioulo
+#> 979               ppl                                      Nawat
+#> 980               ppu                              Papora-Hoanya
+#> 981               pqm                     Maliseet-Passamaquoddy
+#> 982               pra                                    Prakrit
+#> 983               prc                                    Parachi
+#> 984               prg                                   Prussian
+#> 985               pro                              Old Provençal
+#> 986               prs                                       Dari
+#> 987                ps                                     Pashto
+#> 988             ps-af                       Pashto (Afghanistan)
+#> 989             ps-pk                          Pashto (Pakistan)
+#> 990               psh                           Southwest Pashai
+#> 991               psi                           Southeast Pashai
+#> 992               psu                          Sauraseni Prākrit
+#> 993          psu-arab          Sauraseni Prākrit (Arabic script)
+#> 994          psu-brah          Sauraseni Prākrit (Brahmi script)
+#> 995          psu-deva      Sauraseni Prākrit (Devanagari script)
+#> 996          psu-guru        Sauraseni Prākrit (Gurmukhi script)
+#> 997                pt                                 Portuguese
+#> 998         pt-ao1990   Portuguese (1990 Orthographic Agreement)
+#> 999             pt-br                       Brazilian Portuguese
+#> 1000      pt-colb1945   Portuguese (1945 Orthographic Agreement)
+#> 1001            pt-pt                        European Portuguese
+#> 1002              pwn                                     Paiwan
+#> 1003              pwo                                Western Pwo
+#> 1004              pyu                                     Puyuma
+#> 1005               qu                                    Quechua
+#> 1006              quc                                    Kʼicheʼ
+#> 1007              qug                Chimborazo Highland Quichua
+#> 1008              qwh                     Huaylas Ancash Quechua
+#> 1009              qxp                               Puno Quechua
+#> 1010              qxq                                    Qashqai
+#> 1011              qya                                     Quenya
+#> 1012              rag                                    Logooli
+#> 1013              rah                                      Rabha
+#> 1014              raj                                 Rajasthani
+#> 1015              rap                                    Rapanui
+#> 1016              rar                                 Rarotongan
+#> 1017              rcf                      Réunion Creole French
+#> 1018              rej                                     Rejang
+#> 1019              rgn                                   Romagnol
+#> 1020              rhg                                   Rohingya
+#> 1021         rhg-arab                   Rohingya (Arabic script)
+#> 1022         rhg-rohg          Rohingya (Hanifi Rohingya script)
+#> 1023              rif                                    Riffian
+#> 1024              rki                                  Arakanese
+#> 1025              rkt                                   Rangpuri
+#> 1026               rm                                    Romansh
+#> 1027         rm-puter                                      Putèr
+#> 1028         rm-rumgr                         Rumantsch Grischun
+#> 1029      rm-surmiran                                   Surmiran
+#> 1030       rm-sursilv                                  Sursilvan
+#> 1031       rm-sutsilv                                  Sutsilvan
+#> 1032      rm-vallader                                   Vallader
+#> 1033              rmc                          Carpathian Romani
+#> 1034              rmf                               Finnish Kalo
+#> 1035              rmg                        Traveller Norwegian
+#> 1036              rml                              Baltic Romani
+#> 1037         rml-cyrl            Baltic Romani (Cyrillic script)
+#> 1038              rmn                              Balkan Romani
+#> 1039              rmo                               Sinte Romani
+#> 1040              rmw                               Welsh-Romani
+#> 1041              rmy                                Vlax Romani
+#> 1042               rn                                      Rundi
+#> 1043               ro                                   Romanian
+#> 1044            ro-md                                  Moldavian
+#> 1045              roa                          Romance languages
+#> 1046          roa-rup                                  Aromanian
+#> 1047         roa-tara                                  Tarantino
+#> 1048              rof                                      Rombo
+#> 1049              rom                                     Romany
+#> 1050              rsk                            Pannonian Rusyn
+#> 1051              rtm                                    Rotuman
+#> 1052               ru                                    Russian
+#> 1053      ru-petr1708              Russian (Petrine orthography)
+#> 1054              rue                                      Rusyn
+#> 1055              rug                                    Roviana
+#> 1056              ruo                             Istro Romanian
+#> 1057              rup                                  Aromanian
+#> 1058              ruq                           Megleno-Romanian
+#> 1059         ruq-cyrl         Megleno-Romanian (Cyrillic script)
+#> 1060         ruq-latn            Megleno-Romanian (Latin script)
+#> 1061              rut                                      Rutul
+#> 1062               rw                                Kinyarwanda
+#> 1063              rwk                                        Rwa
+#> 1064              rwr                            Marwari (India)
+#> 1065              rys                                    Yaeyama
+#> 1066         rys-hira                  Yaeyama (Hiragana script)
+#> 1067              ryu                                   Okinawan
+#> 1068         ryu-hira                 Okinawan (Hiragana script)
+#> 1069               sa                                   Sanskrit
+#> 1070          sa-sidd                  Sanskrit (Siddham script)
+#> 1071              sad                                    Sandawe
+#> 1072              sah                                      Yakut
+#> 1073              sai        South American indigenous languages
+#> 1074              sal                         Salishan languages
+#> 1075              sam                          Samaritan Aramaic
+#> 1076              saq                                    Samburu
+#> 1077              sas                                      Sasak
+#> 1078              sat                                    Santali
+#> 1079         sat-beng                   Santali (Bengali script)
+#> 1080         sat-latn                     Santali (Latin script)
+#> 1081         sat-orya                     Santali (Oriya script)
+#> 1082              saz                                 Saurashtra
+#> 1083              sba                                    Ngambay
+#> 1084              sbp                                      Sangu
+#> 1085               sc                                  Sardinian
+#> 1086              scl                                      Shina
+#> 1087              scn                                   Sicilian
+#> 1088              sco                                      Scots
+#> 1089               sd                                     Sindhi
+#> 1090          sd-deva                 Sindhi (Devanagari script)
+#> 1091          sd-gujr                   Sindhi (Gujarati script)
+#> 1092          sd-khoj                     Sindhi (Khojki script)
+#> 1093          sd-sind                  Sindhi (Khudawadi script)
+#> 1094              sdc                        Sassarese Sardinian
+#> 1095              sdh                           Southern Kurdish
+#> 1096         sdh-arab           Southern Kurdish (Arabic script)
+#> 1097         sdh-latn            Southern Kurdish (Latin script)
+#> 1098              sdo                               Bukar–Sadong
+#> 1099               se                              Northern Sami
+#> 1100            se-fi                    Northern Sami (Finland)
+#> 1101            se-no                     Northern Sami (Norway)
+#> 1102            se-se                     Northern Sami (Sweden)
+#> 1103              sea                                      Semai
+#> 1104              see                                     Seneca
+#> 1105              seh                                       Sena
+#> 1106              sei                                       Seri
+#> 1107              sel                                     Selkup
+#> 1108              sem                          Semitic languages
+#> 1109              ser                                    Serrano
+#> 1110              ses                            Koyraboro Senni
+#> 1111               sg                                      Sango
+#> 1112              sga                                  Old Irish
+#> 1113              sgh                                    Shughni
+#> 1114         sgh-arab                    Shughni (Arabic script)
+#> 1115         sgh-cyrl                  Shughni (Cyrillic script)
+#> 1116         sgh-latn                     Shughni (Latin script)
+#> 1117              sgn                             sign languages
+#> 1118              sgs                                 Samogitian
+#> 1119         sgy-arab                  Sanglechi (Arabic script)
+#> 1120         sgy-latn                   Sanglechi (Latin script)
+#> 1121               sh                             Serbo-Croatian
+#> 1122          sh-cyrl           Serbo-Croatian (Cyrillic script)
+#> 1123          sh-latn              Serbo-Croatian (Latin script)
+#> 1124              shd                               Kundal Shahi
+#> 1125              shi                                  Tachelhit
+#> 1126         shi-latn                   Tachelhit (Latin script)
+#> 1127         shi-tfng                Tachelhit (Tifinagh script)
+#> 1128              shn                                       Shan
+#> 1129              shu                             Chadian Arabic
+#> 1130              shy                                    Shawiya
+#> 1131         shy-arab                    Shawiya (Arabic script)
+#> 1132         shy-latn                     Shawiya (Latin script)
+#> 1133         shy-tfng                  Shawiya (Tifinagh script)
+#> 1134               si                                    Sinhala
+#> 1135              sia                                Akkala Sami
+#> 1136              sid                                     Sidamo
+#> 1137           simple                             Simple English
+#> 1138              sio                           Siouan languages
+#> 1139              sit                     Sino-Tibetan languages
+#> 1140              sjd                                Kildin Sami
+#> 1141              sje                                  Pite Sami
+#> 1142              sjk                                  Kemi Sami
+#> 1143              sjn                                   Sindarin
+#> 1144              sjo                                       Xibe
+#> 1145              sjt                                   Ter Sami
+#> 1146              sju                                   Ume Sami
+#> 1147               sk                                     Slovak
+#> 1148              skr                                    Saraiki
+#> 1149         skr-arab                    Saraiki (Arabic script)
+#> 1150               sl                                  Slovenian
+#> 1151              sla                           Slavic languages
+#> 1152              slh                       Southern Lushootseed
+#> 1153              sli                             Lower Silesian
+#> 1154              slr                                      Salar
+#> 1155              sly                                    Selayar
+#> 1156               sm                                     Samoan
+#> 1157              sma                              Southern Sami
+#> 1158              smi                             Sámi languages
+#> 1159              smj                                  Lule Sami
+#> 1160              smn                                 Inari Sami
+#> 1161              sms                                 Skolt Sami
+#> 1162               sn                                      Shona
+#> 1163              sne                                      Jagoi
+#> 1164              snk                                    Soninke
+#> 1165               so                                     Somali
+#> 1166              sog                                    Sogdien
+#> 1167              son                          Songhay languages
+#> 1168              spv                                 Sambalpuri
+#> 1169               sq                                   Albanian
+#> 1170               sr                                    Serbian
+#> 1171          sr-cyrl                  Serbian (Cyrillic script)
+#> 1172            sr-ec                  Serbian (Cyrillic script)
+#> 1173            sr-el                     Serbian (Latin script)
+#> 1174          sr-latn                     Serbian (Latin script)
+#> 1175            sr-me                                Montenegrin
+#> 1176         srh-arab                   Sarikoli (Arabic script)
+#> 1177         srh-cyrl                 Sarikoli (Cyrillic script)
+#> 1178         srh-latn                    Sarikoli (Latin script)
+#> 1179              srk                                   Serudung
+#> 1180              srn                               Sranan Tongo
+#> 1181              sro                      Campidanese Sardinian
+#> 1182              srq                                    Sirionó
+#> 1183              srr                                      Serer
+#> 1184               ss                                      Swati
+#> 1185              ssa                     Nilo-Saharan languages
+#> 1186              ssb                              Southern Sama
+#> 1187              ssf                                       Thao
+#> 1188              ssy                                       Saho
+#> 1189               st                             Southern Sotho
+#> 1190              sth                                     Shelta
+#> 1191              stq                          Saterland Frisian
+#> 1192              str                             Straits Salish
+#> 1193              sty                             Siberian Tatar
+#> 1194               su                                  Sundanese
+#> 1195              suk                                     Sukuma
+#> 1196              sus                                       Susu
+#> 1197              sux                                   Sumerian
+#> 1198         sux-latn                    Sumerian (Latin script)
+#> 1199         sux-xsux                Sumerian (Cuneiform script)
+#> 1200              suz                                     Sunwar
+#> 1201               sv                                    Swedish
+#> 1202              sva                                       Svan
+#> 1203               sw                                    Swahili
+#> 1204            sw-cd                              Congo Swahili
+#> 1205              swb                                   Comorian
+#> 1206              sxr                                     Saaroa
+#> 1207              sxu                                Upper Saxon
+#> 1208              syc                           Classical Syriac
+#> 1209              syl                                    Sylheti
+#> 1210         syl-beng                   Sylheti (Bengali script)
+#> 1211         syl-sylo             Sylheti (Sylheti Nagri script)
+#> 1212              syr                                     Syriac
+#> 1213              szl                                   Silesian
+#> 1214              szy                                   Sakizaya
+#> 1215               ta                                      Tamil
+#> 1216              tai                              Tai languages
+#> 1217              tao                                       Yami
+#> 1218              tay                                     Atayal
+#> 1219              tbl                                      Tboli
+#> 1220              tce                          Southern Tutchone
+#> 1221              tcy                                       Tulu
+#> 1222              tdd                                   Tai Nuea
+#> 1223               te                                     Telugu
+#> 1224              tem                                      Timne
+#> 1225              teo                                       Teso
+#> 1226              ter                                     Tereno
+#> 1227              tet                                      Tetum
+#> 1228               tg                                      Tajik
+#> 1229          tg-cyrl                    Tajik (Cyrillic script)
+#> 1230          tg-latn                       Tajik (Latin script)
+#> 1231              tgx                                     Tagish
+#> 1232               th                                       Thai
+#> 1233              thq                              Kochila Tharu
+#> 1234              thr                                 Rana Tharu
+#> 1235              tht                                    Tahltan
+#> 1236               ti                                   Tigrinya
+#> 1237              tig                                      Tigre
+#> 1238              tih                                    Timugon
+#> 1239              tiv                                        Tiv
+#> 1240              tji                             Northern Tujia
+#> 1241               tk                                    Turkmen
+#> 1242              tkl                                  Tokelauan
+#> 1243              tkr                                    Tsakhur
+#> 1244               tl                                    Tagalog
+#> 1245              tlb                                     Tobelo
+#> 1246              tlh                                    Klingon
+#> 1247         tlh-latn                     Klingon (Latin script)
+#> 1248         tlh-piqd                   Klingon (Klingon script)
+#> 1249              tli                                    Tlingit
+#> 1250              tly                                     Talysh
+#> 1251         tly-cyrl                   Talysh (Cyrillic script)
+#> 1252              tmh                                   Tamashek
+#> 1253              tmr                  Jewish Babylonian Aramaic
+#> 1254               tn                                     Tswana
+#> 1255              tnq                                      Taíno
+#> 1256               to                                     Tongan
+#> 1257              tog                                Nyasa Tonga
+#> 1258              toi                            Tonga (Botatwe)
+#> 1259              tok                                  Toki Pona
+#> 1260              tpi                                  Tok Pisin
+#> 1261               tr                                    Turkish
+#> 1262              trp                                   Kokborok
+#> 1263              tru                                     Turoyo
+#> 1264              trv                                     Taroko
+#> 1265              trw                                    Torwali
+#> 1266               ts                                     Tsonga
+#> 1267              tsd                                  Tsakonian
+#> 1268              tsg                                     Tausug
+#> 1269              tsi                                  Tsimshian
+#> 1270              tsu                                       Tsou
+#> 1271               tt                                      Tatar
+#> 1272          tt-cyrl                    Tatar (Cyrillic script)
+#> 1273          tt-latn                       Tatar (Latin script)
+#> 1274              ttj                                      Tooro
+#> 1275              ttm                          Northern Tutchone
+#> 1276              ttt                                 Muslim Tat
+#> 1277              tui                                     Tupuri
+#> 1278              tum                                    Tumbuka
+#> 1279              tup                           Tupian languages
+#> 1280              tut                           Altaic languages
+#> 1281              tvl                                     Tuvalu
+#> 1282              tvu                                      Tunen
+#> 1283               tw                                        Twi
+#> 1284              twd                                    Tweants
+#> 1285              twq                                    Tasawaq
+#> 1286              txa                                  Tombonuwo
+#> 1287              txg                                     Tangut
+#> 1288         txo-beng                      Toto (Bengali script)
+#> 1289         txo-toto                         Toto (Toto script)
+#> 1290              txx                                     Tatana
+#> 1291               ty                                   Tahitian
+#> 1292              tyv                                   Tuvinian
+#> 1293              tzl                                   Talossan
+#> 1294              tzm                    Central Atlas Tamazight
+#> 1295              udm                                     Udmurt
+#> 1296               ug                                     Uyghur
+#> 1297          ug-arab                     Uyghur (Arabic script)
+#> 1298          ug-cyrl                   Uyghur (Cyrillic script)
+#> 1299          ug-latn                      Uyghur (Latin script)
+#> 1300              uga                                   Ugaritic
+#> 1301               uk                                  Ukrainian
+#> 1302              ulc                                       Ulch
+#> 1303              uln                               Unserdeutsch
+#> 1304              umb                                    Umbundu
+#> 1305              umu                                     Munsee
+#> 1306              und                      undetermined language
+#> 1307              unr                                    Mundari
+#> 1308         unr-deva                Mundari (Devanagari script)
+#> 1309         unr-nagm               Mundari (Nag Mundari script)
+#> 1310               ur                                       Urdu
+#> 1311              urk                                Urak Lawoiʼ
+#> 1312              ush                                     Ushoji
+#> 1313              uun                                      Pazeh
+#> 1314               uz                                      Uzbek
+#> 1315          uz-cyrl                    Uzbek (Cyrillic script)
+#> 1316          uz-latn                       Uzbek (Latin script)
+#> 1317              vai                                        Vai
+#> 1318               ve                                      Venda
+#> 1319              vec                                   Venetian
+#> 1320              vep                                       Veps
+#> 1321               vi                                 Vietnamese
+#> 1322          vi-hani                    Vietnamese (Han script)
+#> 1323              vls                               West Flemish
+#> 1324              vmf                            Main-Franconian
+#> 1325              vmw                                    Makhuwa
+#> 1326               vo                                    Volapük
+#> 1327              vot                                      Votic
+#> 1328              vro                                       Võro
+#> 1329              vun                                      Vunjo
+#> 1330              vut                                       Vute
+#> 1331               wa                                    Walloon
+#> 1332              wae                                     Walser
+#> 1333              wak                         Wakashan languages
+#> 1334              wal                                   Wolaytta
+#> 1335              war                                      Waray
+#> 1336              was                                      Washo
+#> 1337         wbl-arab                      Wakhi (Arabic script)
+#> 1338      wbl-arab-af         Wakhi (Arabic script, Afghanistan)
+#> 1339      wbl-arab-cn               Wakhi (Arabic script, China)
+#> 1340      wbl-arab-pk            Wakhi (Arabic script, Pakistan)
+#> 1341         wbl-cyrl                    Wakhi (Cyrillic script)
+#> 1342         wbl-latn                       Wakhi (Latin script)
+#> 1343              wbp                                   Warlpiri
+#> 1344              wen                          Sorbian languages
+#> 1345              wes                          Pidgin (Cameroon)
+#> 1346              wlm                               Middle Welsh
+#> 1347              wls                                  Wallisian
+#> 1348              wlx                                       Wali
+#> 1349               wo                                      Wolof
+#> 1350              wsg                             Adilabad Gondi
+#> 1351              wsv                        Wotapuri-Katarqalai
+#> 1352              wuu                                         Wu
+#> 1353         wuu-hans                 Wu (Simplified Han script)
+#> 1354         wuu-hant                Wu (Traditional Han script)
+#> 1355              wya                                    Wyandot
+#> 1356              wyi                                 Woiwurrung
+#> 1357              xal                                     Kalmyk
+#> 1358              xbm                              Middle Breton
+#> 1359               xh                                      Xhosa
+#> 1360              xmf                                 Mingrelian
+#> 1361              xmm                               Manado Malay
+#> 1362              xnb                                 Kanakanavu
+#> 1363              xno                               Anglo-Norman
+#> 1364              xnr                                     Kangri
+#> 1365         xnr-deva                 Kangri (Devanagari script)
+#> 1366         xnr-takr                      Kangri (Takri script)
+#> 1367              xog                                       Soga
+#> 1368              xon                                   Konkomba
+#> 1369              xpu                                      Punic
+#> 1370              xsu                                     Sanumá
+#> 1371              xsy                                   Saisiyat
+#> 1372         yah-cyrl               Yazghulami (Cyrillic script)
+#> 1373         yah-latn                  Yazghulami (Latin script)
+#> 1374         yai-cyrl                 Yaghnobi (Cyrillic script)
+#> 1375         yai-latn                    Yaghnobi (Latin script)
+#> 1376              yao                                        Yao
+#> 1377              yap                                     Yapese
+#> 1378              yas                                     Nugunu
+#> 1379              yat                                    Yambeta
+#> 1380              yav                                    Yangben
+#> 1381              ybb                                      Yemba
+#> 1382              ydd                            Eastern Yiddish
+#> 1383              ydg                                     Yidgha
+#> 1384              yec                                    Yeniche
+#> 1385               yi                                    Yiddish
+#> 1386              ykg                            Tundra Yukaghir
+#> 1387               yo                                     Yoruba
+#> 1388              yoi                                   Yonaguni
+#> 1389         yoi-hira                 Yonaguni (Hiragana script)
+#> 1390              yox                                      Yoron
+#> 1391         yox-hira                    Yoron (Hiragana script)
+#> 1392              ypk                            Yupik languages
+#> 1393              yrk                                     Nenets
+#> 1394              yrl                                  Nheengatu
+#> 1395              yua                               Yucatec Maya
+#> 1396              yue                                  Cantonese
+#> 1397         yue-hans          Cantonese (Simplified Han script)
+#> 1398         yue-hant         Cantonese (Traditional Han script)
+#> 1399               za                                     Zhuang
+#> 1400              zai                            Isthmus Zapotec
+#> 1401              zap                                    Zapotec
+#> 1402              zbl                                Blissymbols
+#> 1403              zea                                  Zeelandic
+#> 1404              zen                                     Zenaga
+#> 1405              zgh                Standard Moroccan Tamazight
+#> 1406         zgh-latn Standard Moroccan Tamazight (Latin script)
+#> 1407               zh                                    Chinese
+#> 1408     zh-classical                           Literary Chinese
+#> 1409            zh-cn                            Chinese (China)
+#> 1410          zh-hans                         Simplified Chinese
+#> 1411          zh-hant                        Traditional Chinese
+#> 1412            zh-hk                        Chinese (Hong Kong)
+#> 1413       zh-min-nan                                     Minnan
+#> 1414            zh-mo                            Chinese (Macau)
+#> 1415            zh-my                         Chinese (Malaysia)
+#> 1416            zh-sg                        Chinese (Singapore)
+#> 1417            zh-tw                           Chinese (Taiwan)
+#> 1418           zh-yue                                  Cantonese
+#> 1419              zmi                      Negeri Sembilan Malay
+#> 1420              znd                            Zande languages
+#> 1421              zpu                            Yalálag Zapotec
+#> 1422               zu                                       Zulu
+#> 1423              zun                                       Zuni
+#> 1424              zxx                      no linguistic content
+#> 1425              zza                                       Zaza
 #>                              autonym
 #> 1                           Qafár af
 #> 2                          Arbërisht
@@ -1474,7 +1482,7 @@ wikipedia_get_language_names()
 #> 35                                  
 #> 36                                  
 #> 37                                  
-#> 38                                  
+#> 38                              Akan
 #> 39                                  
 #> 40                                  
 #> 41                                  
@@ -1850,27 +1858,27 @@ wikipedia_get_language_names()
 #> 411                         français
 #> 412                                 
 #> 413                                 
-#> 414                  français cadien
-#> 415                                 
+#> 414                                 
+#> 415                  français cadien
 #> 416                                 
 #> 417                                 
-#> 418                          arpetan
-#> 419                       Nordfriisk
-#> 420                                 
-#> 421                                 
+#> 418                                 
+#> 419                          arpetan
+#> 420                       Nordfriisk
+#> 421                       Oostfräisk
 #> 422                                 
 #> 423                                 
-#> 424                           furlan
-#> 425                   poor’íŋ belé’ŋ
-#> 426                            Frysk
-#> 427                          Gaeilge
-#> 428                               Ga
-#> 429                           Gagauz
-#> 430                                 
-#> 431                             贛語
-#> 432                     赣语（简体）
-#> 433                     贛語（繁體）
-#> 434                                 
+#> 424                                 
+#> 425                           furlan
+#> 426                   poor’íŋ belé’ŋ
+#> 427                            Frysk
+#> 428                          Gaeilge
+#> 429                               Ga
+#> 430                           Gagauz
+#> 431                                 
+#> 432                             贛語
+#> 433                     赣语（简体）
+#> 434                     贛語（繁體）
 #> 435                                 
 #> 436                                 
 #> 437                                 
@@ -1878,928 +1886,928 @@ wikipedia_get_language_names()
 #> 439                                 
 #> 440                                 
 #> 441                                 
-#> 442                  kréyòl Gwadloup
-#> 443                 kriyòl gwiyannen
-#> 444                         Gàidhlig
-#> 445                                 
+#> 442                                 
+#> 443                  kréyòl Gwadloup
+#> 444                 kriyòl gwiyannen
+#> 445                         Gàidhlig
 #> 446                                 
 #> 447                                 
 #> 448                                 
 #> 449                                 
 #> 450                                 
-#> 451                           galego
-#> 452                             на̄ни
-#> 453                                 
-#> 454                            گیلکی
-#> 455                                 
+#> 451                                 
+#> 452                           galego
+#> 453                             на̄ни
+#> 454                                 
+#> 455                            گیلکی
 #> 456                                 
 #> 457                                 
-#> 458                          Avañe'ẽ
-#> 459                                 
+#> 458                                 
+#> 459                          Avañe'ẽ
 #> 460                                 
-#> 461     गोंयची कोंकणी / Gõychi Konknni
-#> 462                      गोंयची कोंकणी
-#> 463                   Gõychi Konknni
-#> 464                                 
-#> 465                 Bahasa Hulontalo
-#> 466                           𐌲𐌿𐍄𐌹𐍃𐌺
-#> 467                  Ghanaian Pidgin
-#> 468                                 
-#> 469                  Ἀρχαία ἑλληνικὴ
-#> 470                                 
-#> 471                      Alemannisch
-#> 472                                 
-#> 473                           ગુજરાતી
-#> 474                       wayuunaiki
-#> 475                                 
-#> 476                         farefare
-#> 477                           gungbe
-#> 478                                 
-#> 479                            Gaelg
-#> 480                                 
+#> 461                                 
+#> 462     गोंयची कोंकणी / Gõychi Konknni
+#> 463                      गोंयची कोंकणी
+#> 464                   Gõychi Konknni
+#> 465                                 
+#> 466                 Bahasa Hulontalo
+#> 467                           𐌲𐌿𐍄𐌹𐍃𐌺
+#> 468                  Ghanaian Pidgin
+#> 469                                 
+#> 470                  Ἀρχαία ἑλληνικὴ
+#> 471                                 
+#> 472                      Alemannisch
+#> 473                                 
+#> 474                           ગુજરાતી
+#> 475                       wayuunaiki
+#> 476                                 
+#> 477                         farefare
+#> 478                           gungbe
+#> 479                                 
+#> 480                            Gaelg
 #> 481                                 
-#> 482                            Hausa
-#> 483                                 
+#> 482                                 
+#> 483                            Hausa
 #> 484                                 
 #> 485                                 
 #> 486                                 
 #> 487                                 
-#> 488              客家語 / Hak-kâ-ngî
-#> 489                   客家语（简体）
-#> 490                   客家語（繁體）
-#> 491          Hak-kâ-ngî (Pha̍k-fa-sṳ)
-#> 492                                 
-#> 493                          Hawaiʻi
-#> 494                                 
+#> 488                                 
+#> 489              客家語 / Hak-kâ-ngî
+#> 490                   客家语（简体）
+#> 491                   客家語（繁體）
+#> 492          Hak-kâ-ngî (Pha̍k-fa-sṳ)
+#> 493                                 
+#> 494                          Hawaiʻi
 #> 495                                 
 #> 496                                 
-#> 497                            עברית
-#> 498                            हिन्दी
+#> 497                                 
+#> 498                            עברית
 #> 499                                 
-#> 500                                 
-#> 501                       Fiji Hindi
+#> 500                            हिन्दी
+#> 501                                 
 #> 502                                 
 #> 503                       Fiji Hindi
-#> 504                          Ilonggo
-#> 505                                 
-#> 506                                 
+#> 504                                 
+#> 505                       Fiji Hindi
+#> 506                          Ilonggo
 #> 507                                 
 #> 508                                 
-#> 509                          kihunde
+#> 509                                 
 #> 510                                 
-#> 511                                 
+#> 511                          kihunde
 #> 512                                 
-#> 513                            ہندکو
-#> 514                        Hiri Motu
-#> 515                                 
-#> 516                               Ho
-#> 517                         hrvatski
-#> 518                          Hunsrik
-#> 519                    hornjoserbsce
-#> 520                             湘語
-#> 521                                 
-#> 522                                 
-#> 523                   Kreyòl ayisyen
+#> 513                                 
+#> 514                                 
+#> 515                            ہندکو
+#> 516                        Hiri Motu
+#> 517                                 
+#> 518                               Ho
+#> 519                         hrvatski
+#> 520                          Hunsrik
+#> 521                    hornjoserbsce
+#> 522                             湘語
+#> 523                                 
 #> 524                                 
-#> 525                           magyar
-#> 526                  magyar (formal)
-#> 527                                 
-#> 528                                 
-#> 529                          հայերեն
-#> 530                   Արեւմտահայերէն
-#> 531                       Otsiherero
-#> 532                      interlingua
-#> 533                        Jaku Iban
-#> 534                           ibibio
-#> 535                 Bahasa Indonesia
-#> 536                      Interlingue
-#> 537                                 
-#> 538                             Igbo
+#> 525                   Kreyòl ayisyen
+#> 526                                 
+#> 527                           magyar
+#> 528                  magyar (formal)
+#> 529                                 
+#> 530                                 
+#> 531                          հայերեն
+#> 532                   Արեւմտահայերէն
+#> 533                       Otsiherero
+#> 534                      interlingua
+#> 535                        Jaku Iban
+#> 536                           ibibio
+#> 537                 Bahasa Indonesia
+#> 538                      Interlingue
 #> 539                                 
-#> 540                            Igala
-#> 541                             ꆇꉙ
-#> 542                                 
-#> 543                        Iñupiatun
-#> 544                           ᐃᓄᒃᑎᑐᑦ
-#> 545                        inuktitut
-#> 546                                 
-#> 547                          Ilokano
+#> 540                             Igbo
+#> 541                                 
+#> 542                            Igala
+#> 543                             ꆇꉙ
+#> 544                                 
+#> 545                        Iñupiatun
+#> 546                           ᐃᓄᒃᑎᑐᑦ
+#> 547                        inuktitut
 #> 548                                 
-#> 549                                 
-#> 550                         гӀалгӀай
-#> 551                              Ido
-#> 552                                 
-#> 553                                 
-#> 554                         íslenska
+#> 549                          Ilokano
+#> 550                                 
+#> 551                                 
+#> 552                         гӀалгӀай
+#> 553                              Ido
+#> 554                                 
 #> 555                                 
-#> 556                                 
+#> 556                         íslenska
 #> 557                                 
 #> 558                                 
 #> 559                                 
 #> 560                                 
-#> 561                  меджусловјанскы
-#> 562                  medžuslovjansky
-#> 563                         italiano
-#> 564               ᐃᓄᒃᑎᑐᑦ / inuktitut
-#> 565                                 
-#> 566                                 
-#> 567                           日本語
+#> 561                                 
+#> 562                                 
+#> 563                  medžuslovjansky
+#> 564                  меджусловјанскы
+#> 565                  medžuslovjansky
+#> 566                         italiano
+#> 567               ᐃᓄᒃᑎᑐᑦ / inuktitut
 #> 568                                 
 #> 569                                 
-#> 570                                 
+#> 570                           日本語
 #> 571                                 
 #> 572                                 
 #> 573                                 
-#> 574                           Patois
-#> 575                      la .lojban.
+#> 574                                 
+#> 575                                 
 #> 576                                 
-#> 577                                 
+#> 577                           Patois
 #> 578                                 
-#> 579                                 
+#> 579                      la .lojban.
 #> 580                                 
 #> 581                                 
 #> 582                                 
-#> 583                             jysk
-#> 584                             Jawa
-#> 585                               ꦗꦮ
-#> 586                          ქართული
-#> 587                    Qaraqalpaqsha
-#> 588                        Taqbaylit
-#> 589                                 
-#> 590                                 
-#> 591                      Karai-karai
-#> 592                              Jju
-#> 593                                 
+#> 583                                 
+#> 584                                 
+#> 585                                 
+#> 586                                 
+#> 587                                 
+#> 588                             jysk
+#> 589                             Jawa
+#> 590                               ꦗꦮ
+#> 591                          ქართული
+#> 592                    Qaraqalpaqsha
+#> 593                        Taqbaylit
 #> 594                                 
 #> 595                                 
-#> 596                         адыгэбзэ
-#> 597                         адыгэбзэ
+#> 596                      Karai-karai
+#> 597                              Jju
 #> 598                                 
 #> 599                                 
-#> 600                           Kabɩyɛ
-#> 601                             Tyap
-#> 602                                 
+#> 600                                 
+#> 601                         адыгэбзэ
+#> 602                         адыгэбзэ
 #> 603                                 
-#> 604                     kabuverdianu
-#> 605                                 
-#> 606                                 
+#> 604                                 
+#> 605                           Kabɩyɛ
+#> 606                             Tyap
 #> 607                                 
 #> 608                                 
-#> 609                                 
-#> 610                            Kongo
-#> 611                         Kumoring
+#> 609                     kabuverdianu
+#> 610                                 
+#> 611                                 
 #> 612                                 
 #> 613                                 
 #> 614                                 
-#> 615                                 
-#> 616                                 
+#> 615                            Kongo
+#> 616                         Kumoring
 #> 617                                 
 #> 618                                 
-#> 619                            کھوار
-#> 620                           Gĩkũyũ
+#> 619                                 
+#> 620                                 
 #> 621                                 
-#> 622                        Kırmancki
-#> 623                         Kwanyama
-#> 624                            хакас
-#> 625                              ဖၠုံလိက်
-#> 626                          қазақша
-#> 627                  قازاقشا (تٴوتە)
-#> 628                  قازاقشا (جۇنگو)
-#> 629                  қазақша (кирил)
-#> 630              қазақша (Қазақстан)
-#> 631                  qazaqşa (latın)
-#> 632                qazaqşa (Türkïya)
-#> 633                                 
-#> 634                      kalaallisut
-#> 635                                 
-#> 636                                 
-#> 637                                 
+#> 622                                 
+#> 623                                 
+#> 624                            کھوار
+#> 625                           Gĩkũyũ
+#> 626                                 
+#> 627                        Kırmancki
+#> 628                         Kwanyama
+#> 629                            хакас
+#> 630                              ဖၠုံလိက်
+#> 631                          қазақша
+#> 632                  قازاقشا (تٴوتە)
+#> 633                  قازاقشا (جۇنگو)
+#> 634                  қазақша (кирил)
+#> 635              қазақша (Қазақстан)
+#> 636                  qazaqşa (latın)
+#> 637                qazaqşa (Türkïya)
 #> 638                                 
-#> 639                                 
-#> 640                         ភាសាខ្មែរ
+#> 639                      kalaallisut
+#> 640                                 
 #> 641                                 
 #> 642                                 
 #> 643                                 
 #> 644                                 
-#> 645                                 
-#> 646                             ಕನ್ನಡ
-#> 647                     Yerwa Kanuri
+#> 645                         ភាសាខ្មែរ
+#> 646                                 
+#> 647                                 
 #> 648                                 
 #> 649                                 
 #> 650                                 
-#> 651                           한국어
-#> 652                                 
+#> 651                             ಕನ್ನಡ
+#> 652                     Yerwa Kanuri
 #> 653                                 
 #> 654                                 
-#> 655                           조선말
-#> 656                       перем коми
+#> 655                                 
+#> 656                           한국어
 #> 657                                 
 #> 658                                 
 #> 659                                 
-#> 660                                 
-#> 661                                 
+#> 660                           조선말
+#> 661                       перем коми
 #> 662                                 
 #> 663                                 
-#> 664                           kanuri
-#> 665                 къарачай-малкъар
-#> 666                             Krio
-#> 667                        Kinaray-a
-#> 668                           karjal
-#> 669                                 
-#> 670                                 
-#> 671                             کٲشُر
-#> 672                             کٲشُر
-#> 673                             कॉशुर
+#> 664                                 
+#> 665                                 
+#> 666                                 
+#> 667                                 
+#> 668                                 
+#> 669                           kanuri
+#> 670                 къарачай-малкъар
+#> 671                             Krio
+#> 672                        Kinaray-a
+#> 673                           karjal
 #> 674                                 
 #> 675                                 
-#> 676                       Ripoarisch
-#> 677                               စှီၤ
-#> 678                                 
-#> 679                            kurdî
-#> 680                   کوردی (عەرەبی)
-#> 681                   kurdî (latînî)
-#> 682                          къумукъ
-#> 683                           Kʋsaal
-#> 684                                 
-#> 685                             коми
-#> 686                                 
-#> 687                         kernowek
-#> 688                                 
+#> 676                             کٲشُر
+#> 677                             کٲشُر
+#> 678                             कॉशुर
+#> 679                                 
+#> 680                                 
+#> 681                       Ripoarisch
+#> 682                               စှီၤ
+#> 683                                 
+#> 684                            kurdî
+#> 685                   کوردی (عەرەبی)
+#> 686                   kurdî (latînî)
+#> 687                          къумукъ
+#> 688                           Kʋsaal
 #> 689                                 
-#> 690                                 
+#> 690                             коми
 #> 691                                 
-#> 692                                 
-#> 693                         кыргызча
+#> 692                         kernowek
+#> 693                                 
 #> 694                                 
 #> 695                                 
-#> 696                           Latina
-#> 697                           Ladino
-#> 698                                 
+#> 696                                 
+#> 697                                 
+#> 698                         кыргызча
 #> 699                                 
 #> 700                                 
-#> 701                                 
-#> 702                                 
+#> 701                           Latina
+#> 702                           Ladino
 #> 703                                 
-#> 704                   Lëtzebuergesch
-#> 705                            лакку
+#> 704                                 
+#> 705                                 
 #> 706                                 
 #> 707                                 
 #> 708                                 
-#> 709                            лезги
-#> 710               Lingua Franca Nova
-#> 711                          Luganda
-#> 712                         Limburgs
-#> 713                           Ligure
-#> 714                                 
-#> 715                                 
-#> 716                         Līvõ kēļ
-#> 717                      Lampung Api
-#> 718                             لەکی
+#> 709                   Lëtzebuergesch
+#> 710                            лакку
+#> 711                                 
+#> 712                                 
+#> 713                                 
+#> 714                            лезги
+#> 715               Lingua Franca Nova
+#> 716                          Luganda
+#> 717                         Limburgs
+#> 718                                 
 #> 719                                 
-#> 720                            Ladin
+#> 720                           Ligure
 #> 721                                 
-#> 722                          lombard
-#> 723                          lingála
-#> 724                                 
-#> 725                              ລາວ
-#> 726                                 
-#> 727                                 
-#> 728                           Silozi
-#> 729                      لۊری شومالی
-#> 730                                 
-#> 731                         lietuvių
-#> 732                          latgaļu
+#> 722                                 
+#> 723                         Līvõ kēļ
+#> 724                      Lampung Api
+#> 725                             لەکی
+#> 726                      Lakȟótiyapi
+#> 727                            Ladin
+#> 728                                 
+#> 729                          lombard
+#> 730                          lingála
+#> 731                                 
+#> 732                              ລາວ
 #> 733                                 
-#> 734                           ciluba
-#> 735                                 
-#> 736                                 
+#> 734                                 
+#> 735                           Silozi
+#> 736                      لۊری شومالی
 #> 737                                 
-#> 738                                 
-#> 739                       Mizo ţawng
+#> 738                         lietuvių
+#> 739                          latgaļu
 #> 740                                 
-#> 741                                 
-#> 742                      لئری دوٙمینی
-#> 743                         latviešu
-#> 744                             文言
-#> 745                           Lazuri
-#> 746                          Madhurâ
+#> 741                           ciluba
+#> 742                                 
+#> 743                                 
+#> 744                                 
+#> 745                                 
+#> 746                       Mizo ţawng
 #> 747                                 
-#> 748                             मगही
-#> 749                            मैथिली
-#> 750                                 
-#> 751                                 
-#> 752                                 
-#> 753                                 
-#> 754                  Basa Banyumasan
-#> 755                                 
-#> 756                                 
+#> 748                                 
+#> 749                      لئری دوٙمینی
+#> 750                         latviešu
+#> 751                             文言
+#> 752                           Lazuri
+#> 753                          Madhurâ
+#> 754                                 
+#> 755                             मगही
+#> 756                            मैथिली
 #> 757                                 
 #> 758                                 
 #> 759                                 
-#> 760                          мокшень
-#> 761                                 
+#> 760                                 
+#> 761                  Basa Banyumasan
 #> 762                                 
 #> 763                                 
 #> 764                                 
 #> 765                                 
 #> 766                                 
-#> 767                                 
-#> 768                         Malagasy
+#> 767                          мокшень
+#> 768                                 
 #> 769                                 
 #> 770                                 
 #> 771                                 
-#> 772                             Ebon
+#> 772                                 
 #> 773                                 
 #> 774                                 
-#> 775                       олык марий
-#> 776                            Māori
+#> 775                         Malagasy
+#> 776                                 
 #> 777                                 
 #> 778                                 
-#> 779                      Minangkabau
+#> 779                             Ebon
 #> 780                                 
 #> 781                                 
-#> 782                                 
-#> 783                                 
-#> 784                       македонски
+#> 782                       олык марий
+#> 783                            Māori
+#> 784                                 
 #> 785                                 
-#> 786                           മലയാളം
-#> 787                           монгол
+#> 786                      Minangkabau
+#> 787                                 
 #> 788                                 
 #> 789                                 
-#> 790                      manju gisun
-#> 791                      manju gisun
-#> 792                      ᠮᠠᠨᠵᡠ ᡤᡳᠰᡠᠨ
-#> 793                         ꯃꯤꯇꯩ ꯂꯣꯟ
-#> 794                                 
+#> 790                                 
+#> 791                       македонски
+#> 792                                 
+#> 793                           മലയാളം
+#> 794                           монгол
 #> 795                                 
 #> 796                                 
-#> 797                                 
-#> 798                                 
-#> 799                           ဘာသာမန်
-#> 800                     молдовеняскэ
+#> 797                      manju gisun
+#> 798                      manju gisun
+#> 799                      ᠮᠠᠨᠵᡠ ᡤᡳᠰᡠᠨ
+#> 800                         ꯃꯤꯇꯩ ꯂꯣꯟ
 #> 801                                 
 #> 802                                 
-#> 803                            moore
-#> 804                            मराठी
+#> 803                                 
+#> 804                                 
 #> 805                                 
-#> 806                             Mara
-#> 807                       кырык мары
+#> 806                           ဘာသာမန်
+#> 807                     молдовеняскэ
 #> 808                                 
 #> 809                                 
-#> 810                    Bahasa Melayu
-#> 811                       بهاس ملايو
+#> 810                            moore
+#> 811                            मराठी
 #> 812                                 
-#> 813                            Malti
-#> 814                                 
-#> 815                   Baso Palembang
+#> 813                             Mara
+#> 814                       кырык мары
+#> 815                                 
 #> 816                                 
-#> 817                                 
-#> 818                          Mvskoke
+#> 817                    Bahasa Melayu
+#> 818                       بهاس ملايو
 #> 819                                 
-#> 820                                 
+#> 820                            Malti
 #> 821                                 
-#> 822                                 
-#> 823                         Mirandés
+#> 822                   Baso Palembang
+#> 823                                 
 #> 824                                 
-#> 825                                 
+#> 825                          Mvskoke
 #> 826                                 
 #> 827                                 
-#> 828                        မြန်မာဘာသာ
+#> 828                                 
 #> 829                                 
-#> 830                                 
-#> 831                           эрзянь
-#> 832                          مازِرونی
-#> 833                   Dorerin Naoero
-#> 834                          Nāhuatl
-#> 835                                 
-#> 836              閩南語 / Bân-lâm-gí
+#> 830                         Mirandés
+#> 831                                 
+#> 832                                 
+#> 833                                 
+#> 834                                 
+#> 835                        မြန်မာဘာသာ
+#> 836                                 
 #> 837                                 
-#> 838                                 
-#> 839               閩南語（傳統漢字）
-#> 840           Bân-lâm-gí (Pe̍h-ōe-jī)
-#> 841              Bân-lâm-gí (Tâi-lô)
-#> 842                       Napulitano
-#> 843                                 
-#> 844                     norsk bokmål
+#> 838                           эрзянь
+#> 839                          مازِرونی
+#> 840                   Dorerin Naoero
+#> 841                          Nāhuatl
+#> 842                                 
+#> 843              閩南語 / Bân-lâm-gí
+#> 844                                 
 #> 845                                 
-#> 846                     Plattdüütsch
-#> 847                     Nedersaksies
-#> 848                            नेपाली
-#> 849                        नेपाल भाषा
-#> 850                        Oshiwambo
-#> 851                                 
-#> 852                          Li Niha
-#> 853                                 
-#> 854                              కొలామి
-#> 855                             Niuē
-#> 856                                 
-#> 857                       Nederlands
+#> 846               閩南語（傳統漢字）
+#> 847           Bân-lâm-gí (Pe̍h-ōe-jī)
+#> 848              Bân-lâm-gí (Tâi-lô)
+#> 849                       Napulitano
+#> 850                                 
+#> 851                     norsk bokmål
+#> 852                                 
+#> 853                     Plattdüütsch
+#> 854                     Nedersaksies
+#> 855                            नेपाली
+#> 856                        नेपाल भाषा
+#> 857                        Oshiwambo
 #> 858                                 
-#> 859           Nederlands (informeel)
+#> 859                          Li Niha
 #> 860                                 
-#> 861                                 
-#> 862                            nawdm
-#> 863                    norsk nynorsk
-#> 864                                 
+#> 861                              కొలామి
+#> 862                             Niuē
+#> 863                                 
+#> 864                       Nederlands
 #> 865                                 
-#> 866                                 
-#> 867                            norsk
-#> 868                            ᨣᩤᩴᨾᩮᩬᩥᨦ
-#> 869                                 
-#> 870                          ногайша
+#> 866           Nederlands (informeel)
+#> 867                                 
+#> 868                                 
+#> 869                            nawdm
+#> 870                    norsk nynorsk
 #> 871                                 
 #> 872                                 
-#> 873                           Novial
-#> 874                              ߒߞߏ
-#> 875              isiNdebele seSewula
+#> 873                                 
+#> 874                            norsk
+#> 875                            ᨣᩤᩴᨾᩮᩬᩥᨦ
 #> 876                                 
-#> 877                                 
-#> 878                        Nouormand
+#> 877                          ногайша
+#> 878                                 
 #> 879                                 
-#> 880                                 
-#> 881                 Sesotho sa Leboa
-#> 882                                 
+#> 880                           Novial
+#> 881                              ߒߞߏ
+#> 882              isiNdebele seSewula
 #> 883                                 
-#> 884                             Nupe
-#> 885                                 
-#> 886                      Diné bizaad
+#> 884                                 
+#> 885                        Nouormand
+#> 886                                 
 #> 887                                 
-#> 888                                 
-#> 889                        Chi-Chewa
+#> 888                 Sesotho sa Leboa
+#> 889                                 
 #> 890                                 
-#> 891                       runyankore
-#> 892                         Orunyoro
-#> 893                           Nyunga
+#> 891                             Nupe
+#> 892                                 
+#> 893                      Diné bizaad
 #> 894                                 
 #> 895                                 
-#> 896                          occitan
+#> 896                        Chi-Chewa
 #> 897                                 
-#> 898                                 
-#> 899                                 
-#> 900                                 
-#> 901                      Ojibwemowin
+#> 898                       runyankore
+#> 899                         Orunyoro
+#> 900                           Nyunga
+#> 901                                 
 #> 902                                 
-#> 903                                 
+#> 903                          occitan
 #> 904                                 
 #> 905                                 
 #> 906                                 
 #> 907                                 
-#> 908                                 
-#> 909                    livvinkarjala
-#> 910                           Oromoo
+#> 908                      Ojibwemowin
+#> 909                                 
+#> 910                                 
 #> 911                                 
 #> 912                                 
-#> 913                              ଓଡ଼ିଆ
-#> 914                             ирон
+#> 913                                 
+#> 914                                 
 #> 915                                 
-#> 916                                 
-#> 917                                 
+#> 916                    livvinkarjala
+#> 917                           Oromoo
 #> 918                                 
 #> 919                                 
-#> 920                                 
-#> 921                                 
+#> 920                              ଓଡ଼ିଆ
+#> 921                             ирон
 #> 922                                 
 #> 923                                 
-#> 924                            ਪੰਜਾਬੀ
+#> 924                                 
 #> 925                                 
 #> 926                                 
-#> 927                       Pangasinan
+#> 927                                 
 #> 928                                 
 #> 929                                 
 #> 930                                 
-#> 931                                 
-#> 932                      Kapampangan
+#> 931                            ਪੰਜਾਬੀ
+#> 932                                 
 #> 933                                 
-#> 934                       Papiamentu
-#> 935               Papiamento (Aruba)
+#> 934                       Pangasinan
+#> 935                                 
 #> 936                                 
 #> 937                                 
 #> 938                                 
-#> 939                           Picard
-#> 940                            Naijá
-#> 941                          Deitsch
-#> 942                     Plautdietsch
+#> 939                      Kapampangan
+#> 940                                 
+#> 941                       Papiamentu
+#> 942               Papiamento (Aruba)
 #> 943                                 
-#> 944                         Pälzisch
+#> 944                                 
 #> 945                                 
-#> 946                                 
-#> 947                                 
-#> 948                                 
-#> 949                                 
+#> 946                           Picard
+#> 947                            Naijá
+#> 948                          Deitsch
+#> 949                     Plautdietsch
 #> 950                                 
-#> 951                                 
+#> 951                         Pälzisch
 #> 952                                 
 #> 953                                 
 #> 954                                 
 #> 955                                 
-#> 956                             पालि
+#> 956                                 
 #> 957                                 
-#> 958                 Norfuk / Pitkern
+#> 958                                 
 #> 959                                 
 #> 960                                 
 #> 961                                 
 #> 962                                 
-#> 963                                 
-#> 964                           polski
-#> 965                                 
+#> 963                             पालि
+#> 964                                 
+#> 965                 Norfuk / Pitkern
 #> 966                                 
-#> 967                       Piemontèis
-#> 968                           پنجابی
-#> 969                         Ποντιακά
+#> 967                                 
+#> 968                                 
+#> 969                                 
 #> 970                                 
-#> 971                                 
-#> 972                            Nawat
+#> 971                           polski
+#> 972                                 
 #> 973                                 
-#> 974                                 
-#> 975                                 
-#> 976                                 
-#> 977                        prūsiskan
+#> 974                       Piemontèis
+#> 975                           پنجابی
+#> 976                         Ποντιακά
+#> 977                                 
 #> 978                                 
-#> 979                                 
-#> 980                             پښتو
+#> 979                            Nawat
+#> 980                                 
 #> 981                                 
 #> 982                                 
 #> 983                                 
-#> 984                                 
+#> 984                        prūsiskan
 #> 985                                 
 #> 986                                 
-#> 987                                 
+#> 987                             پښتو
 #> 988                                 
 #> 989                                 
-#> 990                        português
+#> 990                                 
 #> 991                                 
-#> 992              português do Brasil
+#> 992                                 
 #> 993                                 
 #> 994                                 
-#> 995                       pinayuanan
+#> 995                                 
 #> 996                                 
-#> 997                        Runa Simi
+#> 997                        português
 #> 998                                 
-#> 999                       Runa shimi
+#> 999              português do Brasil
 #> 1000                                
 #> 1001                                
-#> 1002                                
+#> 1002                      pinayuanan
 #> 1003                                
 #> 1004                                
-#> 1005                                
+#> 1005                       Runa Simi
 #> 1006                                
-#> 1007                                
+#> 1007                      Runa shimi
 #> 1008                                
 #> 1009                                
 #> 1010                                
-#> 1011                        Rumagnôl
+#> 1011                                
 #> 1012                                
 #> 1013                                
 #> 1014                                
-#> 1015                         Tarifit
-#> 1016                             ရခိုင်
+#> 1015                                
+#> 1016                                
 #> 1017                                
-#> 1018                       rumantsch
-#> 1019                                
+#> 1018                                
+#> 1019                        Rumagnôl
 #> 1020                                
 #> 1021                                
 #> 1022                                
-#> 1023                                
-#> 1024                                
-#> 1025                     romaňi čhib
-#> 1026                                
+#> 1023                         Tarifit
+#> 1024                             ရခိုင်
+#> 1025                                
+#> 1026                       rumantsch
 #> 1027                                
 #> 1028                                
 #> 1029                                
 #> 1030                                
 #> 1031                                
 #> 1032                                
-#> 1033                     romani čhib
-#> 1034                        ikirundi
-#> 1035                          română
+#> 1033                     romaňi čhib
+#> 1034                                
+#> 1035                                
 #> 1036                                
 #> 1037                                
-#> 1038                     armãneashti
-#> 1039                       tarandíne
+#> 1038                                
+#> 1039                                
 #> 1040                                
-#> 1041                                
-#> 1042                           руски
-#> 1043                                
-#> 1044                         русский
+#> 1041                     romani čhib
+#> 1042                        ikirundi
+#> 1043                          română
+#> 1044                                
 #> 1045                                
-#> 1046                      русиньскый
-#> 1047                                
+#> 1046                     armãneashti
+#> 1047                       tarandíne
 #> 1048                                
-#> 1049                     armãneashti
-#> 1050                        Vlăheşte
-#> 1051                        Влахесте
-#> 1052                        Vlăheşte
-#> 1053                      мыхаӀбишды
-#> 1054                    Ikinyarwanda
+#> 1049                                
+#> 1050                           руски
+#> 1051                                
+#> 1052                         русский
+#> 1053                                
+#> 1054                      русиньскый
 #> 1055                                
 #> 1056                                
-#> 1057                                
-#> 1058                                
-#> 1059                    うちなーぐち
-#> 1060                                
-#> 1061                           संस्कृतम्
-#> 1062                                
+#> 1057                     armãneashti
+#> 1058                        Vlăheşte
+#> 1059                        Влахесте
+#> 1060                        Vlăheşte
+#> 1061                      мыхаӀбишды
+#> 1062                    Ikinyarwanda
 #> 1063                                
-#> 1064                       саха тыла
+#> 1064                                
 #> 1065                                
 #> 1066                                
-#> 1067                                
+#> 1067                    うちなーぐち
 #> 1068                                
-#> 1069                           Sasak
-#> 1070                         ᱥᱟᱱᱛᱟᱲᱤ
+#> 1069                           संस्कृतम्
+#> 1070                                
 #> 1071                                
-#> 1072                                
+#> 1072                       саха тыла
 #> 1073                                
 #> 1074                                
 #> 1075                                
 #> 1076                                
-#> 1077                           sardu
-#> 1078                                
-#> 1079                       sicilianu
-#> 1080                           Scots
-#> 1081                            سنڌي
+#> 1077                           Sasak
+#> 1078                         ᱥᱟᱱᱛᱟᱲᱤ
+#> 1079                                
+#> 1080                                
+#> 1081                                
 #> 1082                                
 #> 1083                                
 #> 1084                                
-#> 1085                                
-#> 1086                       Sassaresu
-#> 1087                     کوردی خوارگ
-#> 1088                                
-#> 1089                                
+#> 1085                           sardu
+#> 1086                                
+#> 1087                       sicilianu
+#> 1088                           Scots
+#> 1089                            سنڌي
 #> 1090                                
-#> 1091                 davvisámegiella
-#> 1092  davvisámegiella (Suoma bealde)
-#> 1093 davvisámegiella (Norgga bealde)
-#> 1094  davvisámegiella (Ruoŧa bealde)
-#> 1095                                
+#> 1091                                
+#> 1092                                
+#> 1093                                
+#> 1094                       Sassaresu
+#> 1095                     کوردی خوارگ
 #> 1096                                
 #> 1097                                
-#> 1098                     Cmique Itom
-#> 1099                                
-#> 1100                                
-#> 1101                                
-#> 1102                 Koyraboro Senni
-#> 1103                           Sängö
+#> 1098                                
+#> 1099                 davvisámegiella
+#> 1100  davvisámegiella (Suoma bealde)
+#> 1101 davvisámegiella (Norgga bealde)
+#> 1102  davvisámegiella (Ruoŧa bealde)
+#> 1103                                
 #> 1104                                
 #> 1105                                
-#> 1106                                
+#> 1106                     Cmique Itom
 #> 1107                                
 #> 1108                                
 #> 1109                                
-#> 1110                      žemaitėška
-#> 1111                                
+#> 1110                 Koyraboro Senni
+#> 1111                           Sängö
 #> 1112                                
-#> 1113 srpskohrvatski / српскохрватски
-#> 1114       српскохрватски (ћирилица)
-#> 1115       srpskohrvatski (latinica)
+#> 1113                                
+#> 1114                                
+#> 1115                                
 #> 1116                                
-#> 1117                         Taclḥit
-#> 1118                         Taclḥit
-#> 1119                         ⵜⴰⵛⵍⵃⵉⵜ
-#> 1120                              တႆး
-#> 1121                                
-#> 1122                         tacawit
-#> 1123                                
-#> 1124                         tacawit
-#> 1125                                
-#> 1126                            සිංහල
-#> 1127                                
-#> 1128                                
-#> 1129                  Simple English
-#> 1130                                
+#> 1117                                
+#> 1118                      žemaitėška
+#> 1119                                
+#> 1120                                
+#> 1121 srpskohrvatski / српскохрватски
+#> 1122       српскохрватски (ћирилица)
+#> 1123       srpskohrvatski (latinica)
+#> 1124                                
+#> 1125                         Taclḥit
+#> 1126                         Taclḥit
+#> 1127                         ⵜⴰⵛⵍⵃⵉⵜ
+#> 1128                              တႆး
+#> 1129                                
+#> 1130                         tacawit
 #> 1131                                
-#> 1132                 кӣллт са̄мь кӣлл
-#> 1133                 bidumsámegiella
-#> 1134                                
+#> 1132                         tacawit
+#> 1133                                
+#> 1134                            සිංහල
 #> 1135                                
 #> 1136                                
-#> 1137                                
+#> 1137                  Simple English
 #> 1138                                
-#> 1139                      slovenčina
-#> 1140                         سرائیکی
-#> 1141                         سرائیکی
-#> 1142                     slovenščina
+#> 1139                                
+#> 1140                 кӣллт са̄мь кӣлл
+#> 1141                 bidumsámegiella
+#> 1142                                
 #> 1143                                
 #> 1144                                
-#> 1145                        Schläsch
+#> 1145                                
 #> 1146                                
-#> 1147                                
-#> 1148                    Gagana Samoa
-#> 1149                   åarjelsaemien
-#> 1150                                
+#> 1147                      slovenčina
+#> 1148                         سرائیکی
+#> 1149                         سرائیکی
+#> 1150                     slovenščina
 #> 1151                                
-#> 1152                     anarâškielâ
-#> 1153                nuõrttsääʹmǩiõll
-#> 1154                        chiShona
+#> 1152                                
+#> 1153                        Schläsch
+#> 1154                                
 #> 1155                                
-#> 1156                                
-#> 1157                      Soomaaliga
+#> 1156                    Gagana Samoa
+#> 1157                   åarjelsaemien
 #> 1158                                
 #> 1159                                
-#> 1160                                
-#> 1161                           shqip
-#> 1162                 српски / srpski
-#> 1163               српски (ћирилица)
-#> 1164               српски (ћирилица)
-#> 1165               srpski (latinica)
-#> 1166               srpski (latinica)
+#> 1160                     anarâškielâ
+#> 1161                nuõrttsääʹmǩiõll
+#> 1162                        chiShona
+#> 1163                                
+#> 1164                                
+#> 1165                      Soomaaliga
+#> 1166                                
 #> 1167                                
 #> 1168                                
-#> 1169                                
-#> 1170                                
-#> 1171                                
-#> 1172                     Sranantongo
-#> 1173               sardu campidanesu
-#> 1174                                
+#> 1169                           shqip
+#> 1170                 српски / srpski
+#> 1171               српски (ћирилица)
+#> 1172               српски (ћирилица)
+#> 1173               srpski (latinica)
+#> 1174               srpski (latinica)
 #> 1175                                
-#> 1176                         SiSwati
+#> 1176                                
 #> 1177                                
 #> 1178                                
 #> 1179                                
-#> 1180                                
-#> 1181                         Sesotho
+#> 1180                     Sranantongo
+#> 1181               sardu campidanesu
 #> 1182                                
-#> 1183                       Seeltersk
-#> 1184                                
-#> 1185                      себертатар
-#> 1186                           Sunda
+#> 1183                                
+#> 1184                         SiSwati
+#> 1185                                
+#> 1186                                
 #> 1187                                
 #> 1188                                
-#> 1189                                
+#> 1189                         Sesotho
 #> 1190                                
-#> 1191                                
+#> 1191                       Seeltersk
 #> 1192                                
-#> 1193                         svenska
-#> 1194                                
-#> 1195                       Kiswahili
+#> 1193                      себертатар
+#> 1194                           Sunda
+#> 1195                                
 #> 1196                                
 #> 1197                                
 #> 1198                                
 #> 1199                                
 #> 1200                                
-#> 1201                           ꠍꠤꠟꠐꠤ
+#> 1201                         svenska
 #> 1202                                
-#> 1203                                
+#> 1203                       Kiswahili
 #> 1204                                
-#> 1205                         ślůnski
-#> 1206                        Sakizaya
-#> 1207                            தமிழ்
+#> 1205                                
+#> 1206                                
+#> 1207                                
 #> 1208                                
-#> 1209                                
-#> 1210                           Tayal
+#> 1209                           ꠍꠤꠟꠐꠤ
+#> 1210                                
 #> 1211                                
 #> 1212                                
-#> 1213                            ತುಳು
-#> 1214                    ᥖᥭᥰ ᥖᥬᥲ ᥑᥨᥒᥰ
-#> 1215                           తెలుగు
+#> 1213                         ślůnski
+#> 1214                        Sakizaya
+#> 1215                            தமிழ்
 #> 1216                                
 #> 1217                                
-#> 1218                                
-#> 1219                           tetun
-#> 1220                          тоҷикӣ
-#> 1221                          тоҷикӣ
-#> 1222                          tojikī
-#> 1223                                
-#> 1224                             ไทย
+#> 1218                           Tayal
+#> 1219                                
+#> 1220                                
+#> 1221                            ತುಳು
+#> 1222                    ᥖᥭᥰ ᥖᥬᥲ ᥑᥨᥒᥰ
+#> 1223                           తెలుగు
+#> 1224                                
 #> 1225                                
 #> 1226                                
-#> 1227                                
-#> 1228                            ትግርኛ
-#> 1229                             ትግሬ
-#> 1230                                
+#> 1227                           tetun
+#> 1228                          тоҷикӣ
+#> 1229                          тоҷикӣ
+#> 1230                          tojikī
 #> 1231                                
-#> 1232                                
-#> 1233                       Türkmençe
+#> 1232                             ไทย
+#> 1233                                
 #> 1234                                
 #> 1235                                
-#> 1236                         Tagalog
-#> 1237                                
+#> 1236                            ትግርኛ
+#> 1237                             ትግሬ
 #> 1238                                
 #> 1239                                
 #> 1240                                
-#> 1241                                
-#> 1242                          tolışi
-#> 1243                          толыши
-#> 1244                                
+#> 1241                       Türkmençe
+#> 1242                                
+#> 1243                                
+#> 1244                         Tagalog
 #> 1245                                
-#> 1246                        Setswana
+#> 1246                                
 #> 1247                                
-#> 1248                  lea faka-Tonga
+#> 1248                                
 #> 1249                                
-#> 1250                                
-#> 1251                       toki pona
-#> 1252                       Tok Pisin
-#> 1253                          Türkçe
-#> 1254                                
-#> 1255                          Ṫuroyo
-#> 1256                          Seediq
+#> 1250                          tolışi
+#> 1251                          толыши
+#> 1252                                
+#> 1253                                
+#> 1254                        Setswana
+#> 1255                                
+#> 1256                  lea faka-Tonga
 #> 1257                                
-#> 1258                        Xitsonga
-#> 1259                                
-#> 1260                                
-#> 1261                                
+#> 1258                                
+#> 1259                       toki pona
+#> 1260                       Tok Pisin
+#> 1261                          Türkçe
 #> 1262                                
-#> 1263               татарча / tatarça
-#> 1264                         татарча
-#> 1265                         tatarça
-#> 1266                        Orutooro
+#> 1263                          Ṫuroyo
+#> 1264                          Seediq
+#> 1265                                
+#> 1266                        Xitsonga
 #> 1267                                
 #> 1268                                
 #> 1269                                
-#> 1270                      chiTumbuka
-#> 1271                                
-#> 1272                                
-#> 1273                                
-#> 1274                                
-#> 1275                             Twi
+#> 1270                                
+#> 1271               татарча / tatarça
+#> 1272                         татарча
+#> 1273                         tatarça
+#> 1274                        Orutooro
+#> 1275                                
 #> 1276                                
 #> 1277                                
-#> 1278                                
+#> 1278                      chiTumbuka
 #> 1279                                
 #> 1280                                
 #> 1281                                
 #> 1282                                
-#> 1283                      reo tahiti
-#> 1284                        тыва дыл
+#> 1283                             Twi
+#> 1284                                
 #> 1285                                
-#> 1286                        ⵜⴰⵎⴰⵣⵉⵖⵜ
-#> 1287                          удмурт
-#> 1288            ئۇيغۇرچە / Uyghurche
-#> 1289                        ئۇيغۇرچە
+#> 1286                                
+#> 1287                                
+#> 1288                                
+#> 1289                                
 #> 1290                                
-#> 1291                       Uyghurche
-#> 1292                                
-#> 1293                      українська
-#> 1294                                
-#> 1295                                
-#> 1296                                
-#> 1297                                
+#> 1291                      reo tahiti
+#> 1292                        тыва дыл
+#> 1293                                
+#> 1294                        ⵜⴰⵎⴰⵣⵉⵖⵜ
+#> 1295                          удмурт
+#> 1296            ئۇيغۇرچە / Uyghurche
+#> 1297                        ئۇيغۇرچە
 #> 1298                                
-#> 1299                                
+#> 1299                       Uyghurche
 #> 1300                                
-#> 1301                                
-#> 1302                            اردو
+#> 1301                      українська
+#> 1302                                
 #> 1303                                
 #> 1304                                
 #> 1305                                
-#> 1306             oʻzbekcha / ўзбекча
-#> 1307                         ўзбекча
-#> 1308                       oʻzbekcha
+#> 1306                                
+#> 1307                                
+#> 1308                                
 #> 1309                                
-#> 1310                       Tshivenda
-#> 1311                          vèneto
-#> 1312                     vepsän kel’
-#> 1313                      Tiếng Việt
-#> 1314                                
-#> 1315                      West-Vlams
-#> 1316                   Mainfränkisch
-#> 1317                        emakhuwa
-#> 1318                         Volapük
-#> 1319                           Vaďďa
-#> 1320                            võro
-#> 1321                                
+#> 1310                            اردو
+#> 1311                                
+#> 1312                                
+#> 1313                                
+#> 1314             oʻzbekcha / ўзбекча
+#> 1315                         ўзбекча
+#> 1316                       oʻzbekcha
+#> 1317                                
+#> 1318                       Tshivenda
+#> 1319                          vèneto
+#> 1320                     vepsän kel’
+#> 1321                      Tiếng Việt
 #> 1322                                
-#> 1323                           walon
-#> 1324                                
-#> 1325                                
-#> 1326                        wolaytta
-#> 1327                         Winaray
-#> 1328                                
+#> 1323                      West-Vlams
+#> 1324                   Mainfränkisch
+#> 1325                        emakhuwa
+#> 1326                         Volapük
+#> 1327                           Vaďďa
+#> 1328                            võro
 #> 1329                                
 #> 1330                                
-#> 1331                                
+#> 1331                           walon
 #> 1332                                
 #> 1333                                
-#> 1334                                
-#> 1335                                
+#> 1334                        wolaytta
+#> 1335                         Winaray
 #> 1336                                
 #> 1337                                
 #> 1338                                
-#> 1339                       Fakaʻuvea
-#> 1340                           waale
-#> 1341                           Wolof
+#> 1339                                
+#> 1340                                
+#> 1341                                
 #> 1342                                
 #> 1343                                
-#> 1344                            吴语
-#> 1345                    吴语（简体）
-#> 1346                    吳語（正體）
-#> 1347                                
-#> 1348                                
-#> 1349                          хальмг
+#> 1344                                
+#> 1345                                
+#> 1346                                
+#> 1347                       Fakaʻuvea
+#> 1348                           waale
+#> 1349                           Wolof
 #> 1350                                
-#> 1351                        isiXhosa
-#> 1352                       მარგალური
-#> 1353                                
-#> 1354                                
+#> 1351                                
+#> 1352                            吴语
+#> 1353                    吴语（简体）
+#> 1354                    吳語（正體）
 #> 1355                                
 #> 1356                                
-#> 1357                                
+#> 1357                          хальмг
 #> 1358                                
-#> 1359                                
-#> 1360                                
+#> 1359                        isiXhosa
+#> 1360                       მარგალური
 #> 1361                                
 #> 1362                                
-#> 1363                        saisiyat
+#> 1363                                
 #> 1364                                
 #> 1365                                
 #> 1366                                
@@ -2807,51 +2815,60 @@ wikipedia_get_language_names()
 #> 1368                                
 #> 1369                                
 #> 1370                                
-#> 1371                                
+#> 1371                        saisiyat
 #> 1372                                
 #> 1373                                
 #> 1374                                
 #> 1375                                
 #> 1376                                
-#> 1377                           ייִדיש
+#> 1377                                
 #> 1378                                
-#> 1379                          Yorùbá
+#> 1379                                
 #> 1380                                
 #> 1381                                
 #> 1382                                
 #> 1383                                
 #> 1384                                
-#> 1385                                
-#> 1386                        Nhẽẽgatú
-#> 1387                     maaya t’aan
-#> 1388                            粵語
-#> 1389                    粵语（简体）
-#> 1390                    粵語（繁體）
-#> 1391                       Vahcuengh
+#> 1385                           ייִדיש
+#> 1386                                
+#> 1387                          Yorùbá
+#> 1388                                
+#> 1389                                
+#> 1390                                
+#> 1391                                
 #> 1392                                
 #> 1393                                
-#> 1394                                
-#> 1395                          Zeêuws
-#> 1396                                
-#> 1397               ⵜⴰⵎⴰⵣⵉⵖⵜ ⵜⴰⵏⴰⵡⴰⵢⵜ
-#> 1398               tamaziɣt tanawayt
-#> 1399                            中文
-#> 1400                            文言
-#> 1401                中文（中国大陆）
-#> 1402                    中文（简体）
-#> 1403                    中文（繁體）
-#> 1404                    中文（香港）
-#> 1405             閩南語 / Bân-lâm-gí
-#> 1406                    中文（澳門）
-#> 1407                中文（马来西亚）
-#> 1408                  中文（新加坡）
-#> 1409                    中文（臺灣）
-#> 1410                            粵語
-#> 1411                                
-#> 1412                                
-#> 1413                                
-#> 1414                         isiZulu
-#> 1415                                
-#> 1416                                
-#> 1417                                
+#> 1394                        Nhẽẽgatú
+#> 1395                     maaya t’aan
+#> 1396                            粵語
+#> 1397                    粵语（简体）
+#> 1398                    粵語（繁體）
+#> 1399                       Vahcuengh
+#> 1400                                
+#> 1401                                
+#> 1402                                
+#> 1403                          Zeêuws
+#> 1404                                
+#> 1405               ⵜⴰⵎⴰⵣⵉⵖⵜ ⵜⴰⵏⴰⵡⴰⵢⵜ
+#> 1406               tamaziɣt tanawayt
+#> 1407                            中文
+#> 1408                            文言
+#> 1409                中文（中国大陆）
+#> 1410                    中文（简体）
+#> 1411                    中文（繁體）
+#> 1412                    中文（香港）
+#> 1413             閩南語 / Bân-lâm-gí
+#> 1414                    中文（澳門）
+#> 1415                中文（马来西亚）
+#> 1416                  中文（新加坡）
+#> 1417                    中文（臺灣）
+#> 1418                            粵語
+#> 1419                                
+#> 1420                                
+#> 1421                                
+#> 1422                         isiZulu
+#> 1423                                
+#> 1424                                
+#> 1425                                
+# }
 ```

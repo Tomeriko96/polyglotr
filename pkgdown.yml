@@ -1,4 +1,4 @@
-pandoc: 3.1.11
+pandoc: 3.8.3
 pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
@@ -8,7 +8,7 @@ articles:
   Movie_Reviews: Movie_Reviews.html
   polyglotr: polyglotr.html
   translation-table-workflow: translation-table-workflow.html
-last_built: 2026-01-24T11:48Z
+last_built: 2026-06-06T11:29Z
 urls:
   reference: https://tomeriko96.github.io/polyglotr/reference
   article: https://tomeriko96.github.io/polyglotr/articles

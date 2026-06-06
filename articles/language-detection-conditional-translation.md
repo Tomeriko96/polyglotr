@@ -1,6 +1,7 @@
 # Language Detection and Conditional Translation
 
 ``` r
+
 library(polyglotr)
 library(dplyr)
 library(tibble)
@@ -29,6 +30,7 @@ Language detection and conditional translation allows you to:
 Let’s start with simple language detection:
 
 ``` r
+
 # Sample texts in different languages
 sample_texts <- c(
   "Hello, how are you today?",           # English
@@ -49,6 +51,7 @@ print(detected_languages)
 Create a function that only translates non-English text:
 
 ``` r
+
 translate_if_not_english <- function(text, target_language = "en") {
   # Detect language of the input text
   detected_lang <- language_detect(text)
@@ -92,6 +95,7 @@ print(paste("Detected language:", result$detected_language))
 Here’s a practical example with a tibble containing mixed-language rows:
 
 ``` r
+
 # Create a dataset with mixed languages (typical of user-generated content)
 mixed_data <- tibble(
   id = 1:8,
@@ -116,6 +120,7 @@ print(mixed_data)
 Now let’s detect languages and conditionally translate:
 
 ``` r
+
 # Function to process each text entry
 process_feedback <- function(text) {
   result <- translate_if_not_english(text)
@@ -142,6 +147,7 @@ print(enhanced_data)
 For more sophisticated data processing workflows:
 
 ``` r
+
 library(stringr)
 
 # Enhanced processing function with more details
@@ -186,6 +192,7 @@ print(result_data %>% select(id, detected_lang, needs_translation, translation_s
 Process large datasets efficiently by filtering and batching:
 
 ``` r
+
 # Create larger sample dataset
 large_dataset <- tibble(
   id = 1:20,

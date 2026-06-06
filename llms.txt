@@ -112,6 +112,7 @@ remotes::install_github(“Tomeriko96/polyglotr”)
 
 
 
+
     # Quick Start
 
     Here's a minimal example to get you started:
@@ -139,6 +140,7 @@ accessible to users without R programming knowledge.
 ## Launching the App
 
 ``` r
+
 library(polyglotr)
 launch_polyglotr_app()
 # Or with custom settings
@@ -159,6 +161,7 @@ launch_polyglotr_app(port = 3838, launch.browser = TRUE)
 To use the Shiny app, install these additional packages:
 
 ``` r
+
 install.packages(c("shiny", "shinydashboard", "DT"))
 ```
 
@@ -180,6 +183,7 @@ create_translation_table(texts, languages)
 es una prueba. \#\> fr de \#\> 1 Bonjour comment allez-vous? Hallo, wie
 geht’s dir? \#\> 2 J’adore programmer ! Ich liebe Programmieren! \#\> 3
 C’est un test. Das ist ein Test.
+
 
 
     # Troubleshooting

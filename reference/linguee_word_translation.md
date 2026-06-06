@@ -48,6 +48,7 @@ Translated word options.
 ``` r
 # \donttest{
 linguee_word_translation("hello", target_language = "es", source_language = "en")
-#> [1] "hola"   "saludo"
+#> linguee-api is unavailable: Couldn't resolve host name [linguee-api.fly.dev]:
+#> Could not resolve host: linguee-api.fly.dev
 # }
 ```
