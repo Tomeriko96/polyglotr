@@ -23,10 +23,10 @@ mymemory_translate <- function(text, target_language = "en", source_language = "
     target_language
   )
 
-  response <- httr::GET(formatted_link) %>%
-    httr::content()
+  response <- safe_http(httr::GET(formatted_link), "MyMemory API")
+  if (is.null(response)) return(invisible(NULL))
 
-  translation <- response$responseData$translatedText
+  translation <- httr::content(response)$responseData$translatedText
 
   return(translation)
 }

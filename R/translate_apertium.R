@@ -22,7 +22,8 @@ apertium_translate <- function(text, target_language, source_language, host = "h
   # Handle vectorized input
   if (length(text) > 1) {
     return(sapply(text, function(single_text) {
-      apertium_translate(single_text, target_language, source_language, host)
+      r <- apertium_translate(single_text, target_language, source_language, host)
+      if (is.null(r)) NA_character_ else r
     }, USE.NAMES = FALSE))
   }
 
@@ -38,10 +39,10 @@ apertium_translate <- function(text, target_language, source_language, host = "h
     target_language
   )
 
-  response <- httr::GET(formatted_link) %>%
-    httr::content()
+  response <- safe_http(httr::GET(formatted_link), "Apertium API")
+  if (is.null(response)) return(invisible(NULL))
 
-  translation <- response$responseData$translatedText
+  translation <- httr::content(response)$responseData$translatedText
 
   return(translation)
 }

@@ -27,10 +27,12 @@ linguee_external_sources <- function(query, src, dst, limit = 5) {
     limit = limit
   )
 
-  response <- httr::GET(url = endpoint, query = params)
+  response <- safe_http(httr::GET(url = endpoint, query = params), "linguee-api")
+  if (is.null(response)) return(invisible(NULL))
 
-  if (response$status_code != 200) {
-    stop("Error: API request failed with status code ", response$status_code)
+  if (httr::status_code(response) != 200) {
+    message("linguee-api request failed with status ", httr::status_code(response))
+    return(invisible(NULL))
   }
 
   external_sources <- httr::content(response, "parsed")

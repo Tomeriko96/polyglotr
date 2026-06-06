@@ -5,8 +5,9 @@
 #' @return A dataframe of language names.
 #'
 #' @examples
-#' # Get language names
+#' \donttest{
 #' wikipedia_get_language_names()
+#' }
 #'
 #' @export
 wikipedia_get_language_names <- function() {
@@ -14,11 +15,13 @@ wikipedia_get_language_names <- function() {
   url <- "https://en.wikipedia.org/w/api.php?action=query&liprop=autonym|name&meta=languageinfo&uselang=en&format=json&origin=*"
 
   # Send the GET request and get the response
-  response <- httr::GET(url)
+  response <- safe_http(httr::GET(url), "Wikipedia API")
+  if (is.null(response)) return(invisible(NULL))
 
   # Check if the request was successful
   if (httr::status_code(response) != 200) {
-    stop("Request failed with status ", httr::status_code(response))
+    message("Wikipedia API request failed with status ", httr::status_code(response))
+    return(invisible(NULL))
   }
 
   # Parse the response

@@ -15,13 +15,15 @@ language_detect <- function(text) {
     q = text
   )
 
-  response <- httr::GET(url, query = params)
+  response <- safe_http(httr::GET(url, query = params), "Google Translate API")
+  if (is.null(response)) return(invisible(NULL))
 
   if (httr::status_code(response) == 200) {
     result <- httr::content(response, "parsed")
     language <- purrr::keep(result, is.character) %>% as.character()
     return(language)
   } else {
-    stop("Language detection failed. Please check your connection and try again.")
+    message("Language detection failed. Please check your connection and try again.")
+    return(invisible(NULL))
   }
 }

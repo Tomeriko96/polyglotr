@@ -53,22 +53,17 @@ google_translate_long_text <- function(text,
     encoded_text <- urltools::url_encode(chunk)
     api_url <- sprintf(
       "https://translate.google.com/m?tl=%s&sl=%s&q=%s",
-      target_language, 
+      target_language,
       source_language,
       encoded_text
     )
-    
-    response <- httr::GET(api_url)
+    response <- safe_http(httr::GET(api_url), "Google Translate")
+    if (is.null(response)) return(NA_character_)
     translated <- httr::content(response) %>%
       rvest::html_nodes("div.result-container") %>%
       rvest::html_text()
-    
     decoded <- urltools::url_decode(translated)
-    
-    # Conditional newline handling
-    if (!preserve_newlines) {
-      decoded <- gsub("\n", " ", decoded)
-    }
+    if (!preserve_newlines) decoded <- gsub("\n", " ", decoded)
     decoded
   })
   

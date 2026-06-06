@@ -27,9 +27,12 @@ linguee_word_translation <- function(word, target_language, source_language, gue
     follow_corrections = follow_corrections
   )
 
-  response <- httr::GET(url = endpoint, query = params)
-  if (response$status_code != 200) {
-    stop("Error: API request failed with status code ", response$status_code)
+  response <- safe_http(httr::GET(url = endpoint, query = params), "linguee-api")
+  if (is.null(response)) return(invisible(NULL))
+
+  if (httr::status_code(response) != 200) {
+    message("linguee-api request failed with status ", httr::status_code(response))
+    return(invisible(NULL))
   }
 
   translation_data <- httr::content(response, "parsed")

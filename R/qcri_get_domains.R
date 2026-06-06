@@ -26,14 +26,13 @@ qcri_get_domains <- function(api_key = qcri_api_key()) {
   url_params <- list(key = api_key)
 
   # Make the request
-  response <- httr::GET(
-    url = "https://mt.qcri.org/api/v1/getDomains",
-    query = url_params
-  )
+  response <- safe_http(httr::GET(url = "https://mt.qcri.org/api/v1/getDomains", query = url_params), "QCRI API")
+  if (is.null(response)) return(invisible(NULL))
 
   # Check the status code
   if (httr::status_code(response) >= 400) {
-    stop("Request failed with status code ", httr::status_code(response))
+    message("QCRI API request failed with status code ", httr::status_code(response))
+    return(invisible(NULL))
   }
 
   # Parse the response

@@ -37,33 +37,25 @@ pons_translate <- function(text, target_language = "pt", source_language = "en")
     `sec-fetch-site` = "same-site"
   )
 
+  pons_url <- "https://api.pons.com/text-translation-web/v4/translate?locale=en"
+
   # Check if the input is a vector
-  if (is.vector(text)) {
-    # If it is, translate each string separately
-    purrr::map_chr(text, function(single_text) {
-      # Update the payload with the current single text
-      payload$text <- single_text
-      # Make the request
-      response <- httr::POST(
-        url = "https://api.pons.com/text-translation-web/v4/translate?locale=en",
-        body = payload,
-        encode = "json",
-        headers = headers
-      )
-      # Parse the response
-      content <- httr::content(response, "parsed")
-      return(content$text)
-    })
-  } else {
-    # If it's not a vector, translate the single string
-    response <- httr::POST(
-      url = "https://api.pons.com/text-translation-web/v4/translate?locale=en",
-      body = payload,
-      encode = "json",
-      headers = headers
+  if (length(text) > 1) {
+    result <- safe_http(
+      purrr::map_chr(text, function(single_text) {
+        payload$text <- single_text
+        response <- httr::POST(url = pons_url, body = payload, encode = "json", headers = headers)
+        httr::content(response, "parsed")$text
+      }),
+      "PONS API"
     )
-    # Parse the response
-    content <- httr::content(response, "parsed")
-    return(content$text)
+    return(result)
+  } else {
+    response <- safe_http(
+      httr::POST(url = pons_url, body = payload, encode = "json", headers = headers),
+      "PONS API"
+    )
+    if (is.null(response)) return(invisible(NULL))
+    return(httr::content(response, "parsed")$text)
   }
 }

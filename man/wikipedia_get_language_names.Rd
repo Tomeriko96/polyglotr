@@ -13,7 +13,8 @@ A dataframe of language names.
 This function sends a GET request to the Wikipedia API and returns the language names as a dataframe.
 }
 \examples{
-# Get language names
+\donttest{
 wikipedia_get_language_names()
+}
 
 }

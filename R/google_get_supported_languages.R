@@ -10,11 +10,13 @@ google_get_supported_languages <- function() {
 
   # Check if the URL is available
   if (!RCurl::url.exists(url)) {
-    stop("The URL is not available.")
+    message("The Google Cloud Translate documentation page is not available.")
+    return(invisible(NULL))
   }
 
   # Read the HTML of the webpage
-  webpage <- rvest::read_html(url)
+  webpage <- safe_http(rvest::read_html(url), "Google Cloud Translate documentation")
+  if (is.null(webpage)) return(invisible(NULL))
 
   # Select the table from the webpage
   table <- webpage %>% rvest::html_nodes('table')

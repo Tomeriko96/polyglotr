@@ -36,14 +36,8 @@ qcri_translate_text <- function(text, langpair, domain, api_key = qcri_api_key()
   )
 
   # Make the request
-  response <- httr::GET(
-    url = "https://mt.qcri.org/api/v1/translate",
-    query = url_params
-  )
+  response <- safe_http(httr::GET(url = "https://mt.qcri.org/api/v1/translate", query = url_params), "QCRI API")
+  if (is.null(response)) return(invisible(NULL))
 
-  # Parse the response
-  content <- httr::content(response, "parsed")
-
-  # Return the response
-  return(content$translatedText)
+  return(httr::content(response, "parsed")$translatedText)
 }

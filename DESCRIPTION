@@ -1,6 +1,6 @@
 Package: polyglotr
 Title: Translate Text
-Version: 1.7.1
+Version: 1.7.2
 Authors@R: 
     person("Tomer", "Iwan", , "iwantomer@hotmail.com", role = c("aut", "cre", "cph"))
 Description: Provide easy methods to translate pieces of text.

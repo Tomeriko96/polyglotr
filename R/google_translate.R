@@ -40,45 +40,38 @@ google_translate <- function(text, target_language = "en", source_language = "au
   is_vector <- is.vector(text) && length(text) > 1
 
   if (is_vector) {
-    ## Translate each sentence in the vector
-    translations <- purrr::map_chr(text, function(t) {
-      replaced <- replace_urls_with_placeholders(t)
-      encoded <- urltools::url_encode(replaced$text)
-
-      ## Construct the Google Translate mobile URL
-      link <- paste0("https://translate.google.com/m?tl=", target_language,
-                     "&sl=", source_language, "&q=", encoded)
-
-      ## Scrape the translation from the resulting page
-      translated <- rvest::read_html(link) %>%
-        rvest::html_nodes("div.result-container") %>%
-        rvest::html_text() %>%
-        urltools::url_decode() %>%
-        gsub("\n", "", .)
-
-      ## Restore URLs and return the final translated string
-      restore_urls_from_placeholders(translated, replaced$urls)
-    })
-
+    translations <- safe_http(
+      purrr::map_chr(text, function(t) {
+        replaced <- replace_urls_with_placeholders(t)
+        encoded <- urltools::url_encode(replaced$text)
+        link <- paste0("https://translate.google.com/m?tl=", target_language,
+                       "&sl=", source_language, "&q=", encoded)
+        translated <- rvest::read_html(link) %>%
+          rvest::html_nodes("div.result-container") %>%
+          rvest::html_text() %>%
+          urltools::url_decode() %>%
+          gsub("\n", "", .)
+        restore_urls_from_placeholders(translated, replaced$urls)
+      }),
+      "Google Translate"
+    )
+    if (is.null(translations)) return(invisible(NULL))
     translations
 
   } else {
-    ## Single input string case
     replaced <- replace_urls_with_placeholders(text)
     encoded <- urltools::url_encode(replaced$text)
-
-    ## Create the translation URL
     link <- paste0("https://translate.google.com/m?tl=", target_language,
                    "&sl=", source_language, "&q=", encoded)
-
-    ## Fetch and decode the translated content
-    translated <- rvest::read_html(link) %>%
-      rvest::html_nodes("div.result-container") %>%
-      rvest::html_text() %>%
-      urltools::url_decode() %>%
-      gsub("\n", "", .)
-
-    ## Return translated sentence with URLs restored
+    translated <- safe_http(
+      rvest::read_html(link) %>%
+        rvest::html_nodes("div.result-container") %>%
+        rvest::html_text() %>%
+        urltools::url_decode() %>%
+        gsub("\n", "", .),
+      "Google Translate"
+    )
+    if (is.null(translated)) return(invisible(NULL))
     restore_urls_from_placeholders(translated, replaced$urls)
   }
 }

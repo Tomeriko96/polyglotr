@@ -17,11 +17,13 @@ microsoft_supported_languages <- function(scope = NULL) {
   }
 
   # Make the GET request
-  response <- httr::GET(url)
+  response <- safe_http(httr::GET(url), "Microsoft Translator API")
+  if (is.null(response)) return(invisible(NULL))
 
   # Check if the request was successful
   if (httr::status_code(response) != 200) {
-    stop("Failed to retrieve supported languages. Status code: ", httr::status_code(response))
+    message("Failed to retrieve supported languages. Status code: ", httr::status_code(response))
+    return(invisible(NULL))
   }
 
   # Parse the JSON response

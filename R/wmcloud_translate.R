@@ -77,11 +77,13 @@ wmcloud_translate <- function(content,
   headers <- c("Content-Type" = "application/json")
 
   # Send the POST request and get the response
-  response <- httr::POST(url, body = json_body, httr::add_headers(headers))
+  response <- safe_http(httr::POST(url, body = json_body, httr::add_headers(headers)), "WMCloud API")
+  if (is.null(response)) return(invisible(NULL))
 
   # Check if the request was successful
   if (httr::status_code(response) != 200) {
-    stop("Request failed with status ", httr::status_code(response))
+    message("WMCloud API request failed with status ", httr::status_code(response))
+    return(invisible(NULL))
   }
 
   # Parse the response

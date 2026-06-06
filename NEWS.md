@@ -1,3 +1,10 @@
+# polyglotr 1.7.2
+* All functions that use internet resources now fail gracefully with an informative
+  message when the service is unavailable (CRAN policy compliance). Network-level
+  errors (DNS failure, connection refused, timeout) are caught via `tryCatch()` and
+  reported via `message()` rather than propagating as errors.
+* `wikipedia_get_language_names()` example wrapped in `\donttest{}`.
+
 # polyglotr 1.7.1
 * Changed maintainer email address.
 

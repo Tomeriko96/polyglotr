@@ -25,7 +25,7 @@ create_transliteration_table <- function(words, languages) {
     transliterations <- transliterations %>%
       dplyr::mutate("{column_name}" := purrr::map_chr(
         original_word,
-        ~ google_transliterate(., language, num=1)
+        ~ { r <- google_transliterate(., language, num = 1); if (is.null(r)) NA_character_ else r[1] }
       ))
   }
 

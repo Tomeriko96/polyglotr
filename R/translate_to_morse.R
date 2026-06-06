@@ -18,26 +18,19 @@ translate_to_morse <- function(text, api_key = NULL) {
   }
 
   # Make the API request
-  response <- httr::POST(url, body = payload, httr::add_headers(headers))
+  response <- safe_http(httr::POST(url, body = payload, httr::add_headers(headers)), "FunTranslations API")
+  if (is.null(response)) return(invisible(NULL))
 
   # Check the response status
   if (httr::status_code(response) == 200) {
-    # Parse the JSON response
     result <- jsonlite::fromJSON(httr::content(response, "text"))
-
-    # Extract the relevant information
-    morse_code <- result$contents$translated
-    text_translated <- result$contents$text
-    translation_type <- result$contents$translation
-
-    # Return the results as a list
     return(list(
-      morse_code = morse_code,
-      text_translated = text_translated,
-      translation_type = translation_type
+      morse_code = result$contents$translated,
+      text_translated = result$contents$text,
+      translation_type = result$contents$translation
     ))
   } else {
-    # Handle error cases
-    stop(paste("Error:", httr::status_code(response), httr::content(response, "text")))
+    message("FunTranslations API request failed with status ", httr::status_code(response))
+    return(invisible(NULL))
   }
 }
