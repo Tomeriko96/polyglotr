@@ -55,7 +55,7 @@ services:
 - [Mymemory](https://mymemory.translated.net/) API
 - [Linguee](https://www.linguee.com/) API
 - [Pons](https://en.pons.com/translate) API
-- [QCRI](https://mt.qcri.org/api/) API
+- [QCRI](https://www.qcri.org/) API
 - [Wikimedia Translation](https://translate.wmcloud.org/) API
 
 ## Why polyglotr?
