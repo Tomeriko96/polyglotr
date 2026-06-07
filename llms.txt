@@ -2,8 +2,6 @@
 
 ![polyglotr](reference/figures/hex-polyglotr.png)
 
-[![Codecov test
-coverage](https://codecov.io/gh/tomeriko96/polyglotr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/tomeriko96/polyglotr?branch=main)
 [![R-CMD-check](https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/polyglotr)](https://CRAN.R-project.org/package=polyglotr/)
