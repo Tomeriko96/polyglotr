@@ -1,0 +1,14 @@
+# Rate-limited or auth-required services
+https://app.codecov.io/
+https://cranlogs.r-pkg.org/
+https://www.r-pkg.org/
+https://diffify.com/
+
+# Shiny app (may be sleeping)
+https://edulytics.shinyapps.io/
+
+# QCRI API is defunct - kept in code for historical reference
+https://mt.qcri.org/
+
+# GitHub Actions badge URLs (only resolve after first workflow run)
+https://github.com/Tomeriko96/polyglotr/actions/

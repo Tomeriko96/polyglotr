@@ -1,0 +1,45 @@
+name: Link Check
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'  # Every Monday at 09:00 UTC
+  workflow_dispatch:
+
+jobs:
+  linkcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restore lychee cache
+        uses: actions/cache@v4
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+
+      - name: Run lychee
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --verbose
+            --no-progress
+            --cache
+            --max-cache-age 1d
+            --timeout 20
+            './README.md'
+            './NEWS.md'
+            './**/*.Rd'
+            './**/*.Rmd'
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create issue from report
+        if: failure()
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: 'Dead links detected'
+          content-filepath: ./lychee/out.md
+          labels: documentation, automated
