@@ -1,8 +1,9 @@
-# Rate-limited or auth-required services
+# Rate-limited or auth-required services (block link checker bots with 403)
 https://app.codecov.io/
 https://cranlogs.r-pkg.org/
 https://www.r-pkg.org/
 https://diffify.com/
+https://mymemory.translated.net/
 
 # Shiny app (may be sleeping)
 https://edulytics.shinyapps.io/
