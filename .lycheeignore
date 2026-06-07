@@ -10,5 +10,8 @@ https://edulytics.shinyapps.io/
 # QCRI API is defunct - kept in code for historical reference
 https://mt.qcri.org/
 
+# Apertium API base URL (not a web page - it's the base path for REST calls)
+https://apertium.org/apy
+
 # GitHub Actions badge URLs (only resolve after first workflow run)
 https://github.com/Tomeriko96/polyglotr/actions/
