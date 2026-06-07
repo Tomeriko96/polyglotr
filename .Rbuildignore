@@ -16,3 +16,4 @@
 
 ^\.devcontainer$
 ^\.claude$
+^\.lycheeignore$

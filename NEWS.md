@@ -1,3 +1,7 @@
+# polyglotr 1.7.3
+* Fixed dead URL in README.md: replaced defunct mt.qcri.org/api/ with qcri.org.
+* Added weekly lychee link-check CI workflow.
+
 # polyglotr 1.7.2
 * All functions that use internet resources now fail gracefully with an informative
   message when the service is unavailable (CRAN policy compliance). Network-level
