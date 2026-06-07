@@ -33,19 +33,22 @@ test_that("long text returns non-empty translation, not character(0) — issue #
   skip_if_offline()
   skip_if_http_error()
 
-  # Reproducer from issue #13: Bulgarian text that exceeds the Google Translate
-  # mobile endpoint URL limit (~1500+ Cyrillic chars → URL too long → character(0)).
-  # Each Cyrillic character encodes to 6 URL chars (%XX%XX), so 1500 chars → ~9000
-  # chars in the URL, which triggers an empty response from Google's mobile endpoint.
+  # Reproducer from issue #13 scaled to 30,000+ characters — far beyond any
+  # plausible URL limit expansion. Each Cyrillic char URL-encodes to 6 ASCII chars
+  # (%D0%XX), so 30k chars → ~180k-char URL. No server accepts that; chunking
+  # is the only way this can succeed.
   phrase <- paste(
     "Гордеем се да бъдем стабилен и предпочитан работодател в региона грижещ се за",
     "безопасността и благополучието на своите работници и служители.",
     "Ангажираността на нашите колеги и техният непрекъснат стремеж към съвършенство",
     "осигуряват растежа ни и признанието което получаваме от нашите клиенти."
   )
-  long_text <- paste(rep(phrase, 15), collapse = " ")
+  long_text <- paste(rep(phrase, 200), collapse = " ")
 
-  expect_true(nchar(long_text) > 4000)
+  # Confirm the URL this would produce is absurdly long without chunking
+  url_encoded_len <- nchar(urltools::url_encode(long_text))
+  expect_true(nchar(long_text) > 30000)
+  expect_true(url_encoded_len > 100000)
 
   result <- google_translate(long_text, target_language = "en", source_language = "auto")
 
