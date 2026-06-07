@@ -22,12 +22,16 @@
 #'   preserve_newlines = TRUE
 #' )
 #' }
-google_translate_long_text <- function(text, 
-                                       target_language = "en", 
-                                       source_language = "auto", 
+google_translate_long_text <- function(text,
+                                       target_language = "en",
+                                       source_language = "auto",
                                        chunk_size = 1000,
                                        preserve_newlines = FALSE) {
-  
+  .Deprecated("google_translate", msg = paste(
+    "'google_translate_long_text' is deprecated.",
+    "Use 'google_translate()', which now handles long texts automatically."
+  ))
+
   # Validation checks
   if (!google_is_valid_language_code(target_language)) {
     stop("Invalid target language code: ", target_language)
