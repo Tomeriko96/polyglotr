@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">polyglotr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,6 +41,11 @@
       <small>Source: <a href="https://github.com/Tomeriko96/polyglotr/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.7.3" id="polyglotr-173">polyglotr 1.7.3<a class="anchor" aria-label="anchor" href="#polyglotr-173"></a></h2>
+<ul><li>Fixed dead URL in README.md: replaced defunct mt.qcri.org/api/ with qcri.org.</li>
+<li>Added weekly lychee link-check CI workflow.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.7.2" id="polyglotr-172">polyglotr 1.7.2<a class="anchor" aria-label="anchor" href="#polyglotr-172"></a></h2>
 <ul><li>All functions that use internet resources now fail gracefully with an informative message when the service is unavailable (CRAN policy compliance). Network-level errors (DNS failure, connection refused, timeout) are caught via <code><a href="https://rdrr.io/r/base/conditions.html" class="external-link">tryCatch()</a></code> and reported via <code><a href="https://rdrr.io/r/base/message.html" class="external-link">message()</a></code> rather than propagating as errors.</li>

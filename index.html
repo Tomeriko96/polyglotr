@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">polyglotr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,235 +60,71 @@
   <main id="main" class="col-md-9"><p align="center">
 <img src="reference/figures/hex-polyglotr.png" alt="polyglotr" height="200"></p>
 <div class="page-header"><h1 align="center">
-polyglotr | Multilingual Text Translation
+polyglotr
 </h1></div>
-<div align="center">
-<p><strong>Versatile R Package for Text Translation</strong><br> Seamless integration with multiple free translation services for R users.<br><sub>Ideal for translating text, files, and creating multilingual datasets.</sub></p>
-</div>
-<div align="center">
-<h3>
-<a href="https://CRAN.R-project.org/package=polyglotr/" class="external-link">CRAN</a> <span> | </span> <a href="#features">Features</a> <span> | </span> <a href="#installation">Installation</a> <span> | </span> <a href="#usage">Usage</a> <span> | </span> <a href="#contribution">Contribution</a>
-</h3>
-</div>
-<div align="center">
-<p><sub>Built by <a href="https://github.com/Tomeriko96" class="external-link">Tomeriko96</a> and <a href="https://github.com/Tomeriko96/polyglotr/graphs/contributors" class="external-link">contributors</a>.</sub></p>
-</div>
 <p align="center">
 <a href="https://app.codecov.io/gh/tomeriko96/polyglotr?branch=main" class="external-link"><img src="https://codecov.io/gh/tomeriko96/polyglotr/branch/main/graph/badge.svg" alt="Codecov test coverage"></a> <a href="https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://CRAN.R-project.org/package=polyglotr/" class="external-link"><img src="https://www.r-pkg.org/badges/version/polyglotr" alt="CRAN status"></a> <a href="https://cran.r-project.org/package=polyglotr/" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/last-month/polyglotr?color=green/" alt="CRAN last month downloads"></a> <a href="https://cran.r-project.org/package=polyglotr/" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/polyglotr?color=green/" alt="CRAN downloads"></a> <a href="https://diffify.com/R/polyglotr" target="_blank" class="external-link"><img src="https://diffify.com/diffify-badge.svg" alt="The diffify page for the R package polyglotr" style="width: 100px; max-width: 100%;"></a> <a href="https://edulytics.shinyapps.io/polyglotr/" target="_blank" class="external-link"><img src="https://img.shields.io/badge/Shiny%20App-Live-blue?logo=R" alt="Shiny App Deployed"></a>
 </p>
+<p>R package for text translation via free APIs — no API keys needed for most services.</p>
+<p>Supports <a href="https://translate.google.com/m" class="external-link">Google Translate</a>, <a href="https://apertium.org/apy/" class="external-link">Apertium</a>, <a href="https://mymemory.translated.net/" class="external-link">MyMemory</a>, <a href="https://www.linguee.com/" class="external-link">Linguee</a>, <a href="https://en.pons.com/translate" class="external-link">PONS</a>, <a href="https://www.qcri.org/" class="external-link">QCRI</a>, and <a href="https://translate.wmcloud.org/" class="external-link">Wikimedia Translation</a>.</p>
 <div class="section level2">
-<h2 id="table-of-contents">Table of Contents<a class="anchor" aria-label="anchor" href="#table-of-contents"></a>
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<ul>
-<li><a href="#overview-">Overview</a></li>
-<li><a href="#features-">Features</a></li>
-<li><a href="#installation-">Installation</a></li>
-<li><a href="#quick-start-">Quick Start</a></li>
-<li><a href="#shiny-web-app-">Shiny Web App</a></li>
-<li><a href="#usage-">Usage</a></li>
-<li><a href="#troubleshooting-">Troubleshooting</a></li>
-<li><a href="#contribution-">Contribution</a></li>
-<li><a href="#license-%EF%B8%8F">License</a></li>
-<li><a href="#citation-">Citation</a></li>
-<li><a href="#related-projects-">Related Projects</a></li>
-</ul>
-</div>
-<div class="section level1">
-<h1 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
-</h1>
-<p>The <code>polyglotr</code> package is a language translation tool for the R programming language. It provides convenient functions to translate text using different (free) translation services. This vignette will guide you through the usage of the package and demonstrate how to translate text and files in various languages.</p>
-<p>Currently, the package has functions to communicate with the following services:</p>
-<ul>
-<li>
-<a href="https://translate.google.com/m" class="external-link">Google Translate</a> API</li>
-<li>
-<a href="https://apertium.org/apy/" class="external-link">Apertium</a> API</li>
-<li>
-<a href="https://mymemory.translated.net/" class="external-link">Mymemory</a> API</li>
-<li>
-<a href="https://www.linguee.com/" class="external-link">Linguee</a> API</li>
-<li>
-<a href="https://en.pons.com/translate" class="external-link">Pons</a> API</li>
-<li>
-<a href="https://www.qcri.org/" class="external-link">QCRI</a> API</li>
-<li>
-<a href="https://translate.wmcloud.org/" class="external-link">Wikimedia Translation</a> API</li>
-</ul>
-<div class="section level2">
-<h2 id="why-polyglotr">Why polyglotr?<a class="anchor" aria-label="anchor" href="#why-polyglotr"></a>
-</h2>
-<p><code>polyglotr</code> offers a streamlined translation experience for R users:</p>
-<ul>
-<li>
-<strong>No API Keys Required</strong> - Start translating immediately after installation</li>
-<li>
-<strong>Multiple Services</strong> - Access 7 translation services through one interface</li>
-<li>
-<strong>R-Native Integration</strong> - Seamlessly incorporate translation into data workflows</li>
-<li>
-<strong>Flexible Usage</strong> - Translate single phrases, datasets, or entire files</li>
-<li>
-<strong>Open Source</strong> - Community-driven with comprehensive documentation</li>
-</ul>
-</div>
-</div>
-<div class="section level1">
-<h1 id="features">Features<a class="anchor" aria-label="anchor" href="#features"></a>
-</h1>
-<ul>
-<li>Translate text using multiple free translation services</li>
-<li>Batch translation capabilities</li>
-<li>Language detection</li>
-<li>Create translation tables for multiple languages</li>
-<li>File translation</li>
-<li>Easy-to-use interface for different translation APIs</li>
-<li><strong>NEW: Interactive Shiny web application for non-R users</strong></li>
-</ul>
-<p>To see which functions are available, please refer to the reference page of the <code>polyglotr</code> package. The <a href="https://Tomeriko96.github.io/polyglotr/reference/index.html" class="external-link">reference</a> page provides a comprehensive list of functions available in the package, organized by category.</p>
-<p>Additionally, the package includes vignettes that provide more detailed information on how to use the functions in the package.</p>
-</div>
-<div class="section level1">
-<h1 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
-</h1>
-<div class="section level2">
-<h2 id="system-requirements">System Requirements<a class="anchor" aria-label="anchor" href="#system-requirements"></a>
-</h2>
-<ul>
-<li>R (&gt;= 3.6.0)</li>
-<li>Internet connection for translation services</li>
-<li>Optional for Shiny app: <code>shiny</code>, <code>shinydashboard</code>, <code>DT</code>
-</li>
-</ul>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"polyglotr"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># development version</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"Tomeriko96/polyglotr"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="install-package">Install Package<a class="anchor" aria-label="anchor" href="#install-package"></a>
-</h2>
-<p>```{r} # The easiest way is to get polyglotr from CRAN install.packages(“polyglotr”)</p>
-</div>
-</div>
-<div class="section level1">
-<h1 id="alternatively-install-the-development-version-from-github">Alternatively, install the development version from GitHub<a class="anchor" aria-label="anchor" href="#alternatively-install-the-development-version-from-github"></a>
-</h1>
-</div>
-<div class="section level1">
-<h1 id="installpackagesremotes">install.packages(“remotes”)<a class="anchor" aria-label="anchor" href="#installpackagesremotes"></a>
-</h1>
-<p>remotes::install_github(“Tomeriko96/polyglotr”)</p>
-<pre><code>
-
-
-# Quick Start
-
-Here's a minimal example to get you started:
-
-```{r}
-library(polyglotr)
-
-# Translate a simple phrase using Google Translate
-text &lt;- "Hello, world!"
-translation &lt;- google_translate(text, target_language = "fr")
-print(translation)
-
-# Translate using Apertium (no API key required)
-translation_apertium &lt;- apertium_translate(text, target_language = "es", source_language = "en")
-print(translation_apertium)</code></pre>
-</div>
-<div class="section level1">
-<h1 id="shiny-web-app">Shiny Web App<a class="anchor" aria-label="anchor" href="#shiny-web-app"></a>
-</h1>
-<p><a href="https://edulytics.shinyapps.io/polyglotr/" target="_blank" class="external-link"><img src="https://img.shields.io/badge/Shiny%20App-Live-blue?logo=R" alt="Shiny App Deployed"></a></p>
-<p><code>polyglotr</code> includes a web application for translation services, accessible to users without R programming knowledge.</p>
-<div class="section level2">
-<h2 id="launching-the-app">Launching the App<a class="anchor" aria-label="anchor" href="#launching-the-app"></a>
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Tomeriko96/polyglotr/" class="external-link">polyglotr</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/launch_polyglotr_app.html">launch_polyglotr_app</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co"># Or with custom settings</span></span>
-<span><span class="fu"><a href="reference/launch_polyglotr_app.html">launch_polyglotr_app</a></span><span class="op">(</span>port <span class="op">=</span> <span class="fl">3838</span>, launch.browser <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="app-features">App Features<a class="anchor" aria-label="anchor" href="#app-features"></a>
-</h2>
-<ul>
-<li>Multiple translation services: Google Translate, MyMemory, PONS, Linguee, QCRI, Apertium, Wikimedia Cloud</li>
-<li>Language detection</li>
-<li>Dynamic language selection based on service</li>
-<li>User-friendly dashboard interface</li>
-<li>No coding required</li>
-</ul>
-</div>
-<div class="section level2">
-<h2 id="installation-requirements">Installation Requirements<a class="anchor" aria-label="anchor" href="#installation-requirements"></a>
-</h2>
-<p>To use the Shiny app, install these additional packages:</p>
+<span></span>
+<span><span class="fu"><a href="reference/google_translate.html">google_translate</a></span><span class="op">(</span><span class="st">"Hello, world!"</span>, target_language <span class="op">=</span> <span class="st">"fr"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/apertium_translate.html">apertium_translate</a></span><span class="op">(</span><span class="st">"Hello, world!"</span>, target_language <span class="op">=</span> <span class="st">"es"</span>, source_language <span class="op">=</span> <span class="st">"en"</span><span class="op">)</span></span></code></pre></div>
+<p>Translate multiple texts into multiple languages at once:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"shiny"</span>, <span class="st">"shinydashboard"</span>, <span class="st">"DT"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">texts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Hello, how are you?"</span>, <span class="st">"I love programming!"</span>, <span class="st">"This is a test."</span><span class="op">)</span></span>
+<span><span class="va">languages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"es"</span>, <span class="st">"fr"</span>, <span class="st">"de"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/create_translation_table.html">create_translation_table</a></span><span class="op">(</span><span class="va">texts</span>, <span class="va">languages</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#&gt;        Original_word                     es                          fr                       de</span></span>
+<span><span class="co">#&gt; 1 Hello, how are you?     ¿Hola, cómo estás? Bonjour comment allez-vous?   Hallo, wie geht's dir?</span></span>
+<span><span class="co">#&gt; 2 I love programming! ¡Me encanta programar!        J'adore programmer ! Ich liebe Programmieren!</span></span>
+<span><span class="co">#&gt; 3     This is a test.    Esto es una prueba.              C'est un test.        Das ist ein Test.</span></span></code></pre></div>
+<p>See the <a href="https://Tomeriko96.github.io/polyglotr/reference/index.html" class="external-link">reference page</a> for all functions and the <a href="https://Tomeriko96.github.io/polyglotr/articles/" class="external-link">vignettes</a> for detailed examples.</p>
 </div>
+<div class="section level2">
+<h2 id="shiny-app">Shiny App<a class="anchor" aria-label="anchor" href="#shiny-app"></a>
+</h2>
+<p><a href="https://edulytics.shinyapps.io/polyglotr/" target="_blank" class="external-link"><img src="https://img.shields.io/badge/Shiny%20App-Live-blue?logo=R" alt="Shiny App Deployed"></a></p>
+<p>A web UI for non-R users. Requires <code>shiny</code>, <code>shinydashboard</code>, and <code>DT</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/launch_polyglotr_app.html">launch_polyglotr_app</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level1">
-<h1 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
-</h1>
-<p>To demonstrate the usage of the <code>polyglotr</code> package, let’s consider an example where we translate a list of texts into multiple languages using the <code>create_translation_table</code> function.</p>
-<p>```{r} texts &lt;- c(“Hello, how are you?”, “I love programming!”, “This is a test.”)</p>
-<p>languages &lt;- c(“es”, “fr”, “de”)</p>
-<p>create_translation_table(texts, languages)</p>
-<p>#&gt; Original_word es #&gt; 1 Hello, how are you? ¿Hola, cómo estás? #&gt; 2 I love programming! ¡Me encanta programar! #&gt; 3 This is a test. Esto es una prueba. #&gt; fr de #&gt; 1 Bonjour comment allez-vous? Hallo, wie geht’s dir? #&gt; 2 J’adore programmer ! Ich liebe Programmieren! #&gt; 3 C’est un test. Das ist ein Test.</p>
-<pre><code>
-
-# Troubleshooting
-
-## Common Issues
-
-**Translation fails or returns empty results**
-- Check your internet connection
-- Verify the target language is supported by the chosen service
-- Some services have rate limits - try again later
-
-**Shiny app won't launch**
-- Ensure required packages are installed: `install.packages(c("shiny", "shinydashboard", "DT"))`
-- Check if the specified port is available
-
-**Language detection not working**
-- Not all services support language detection
-- Try using a different translation service
-
-## Getting Help
-
-- [Package Website](https://Tomeriko96.github.io/polyglotr/)
-- [Reference Manual](https://Tomeriko96.github.io/polyglotr/reference/index.html)
-- [Vignettes](https://Tomeriko96.github.io/polyglotr/articles/)
-- [GitHub Issues](https://github.com/Tomeriko96/polyglotr/issues)
-
-
-
-# Contribution
-
-Contributions are welcome! If you'd like to contribute, please:
-
-1. Fork the repository
-2. Create your feature branch (git checkout -b feature/AmazingFeature)
-3. Commit your changes (git commit -m 'Add some AmazingFeature')
-4. Push to the branch (git push origin feature/AmazingFeature)
-5. Open a Pull Request
-
-
-# License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-
-
-# Citation
-
-If you use polyglotr in your research, please cite it as follows:
-
-</code></pre>
-<p>Iwan, T. (2023). polyglotr: Multilingual Text Translation in R. R package version 1.0.0. <a href="https://github.com/Tomeriko96/polyglotr" class="external-link uri">https://github.com/Tomeriko96/polyglotr</a> ```</p>
+<div class="section level2">
+<h2 id="contributing">Contributing<a class="anchor" aria-label="anchor" href="#contributing"></a>
+</h2>
+<p>PRs welcome. Fork, branch, and open a pull request against <code>main</code>.</p>
 </div>
-<div class="section level1">
-<h1 id="related-projects">Related Projects<a class="anchor" aria-label="anchor" href="#related-projects"></a>
-</h1>
+<div class="section level2">
+<h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
+</h2>
+<p>MIT — see <a href="LICENSE">LICENSE</a>.</p>
+</div>
+<div class="section level2">
+<h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
+</h2>
+<pre><code>Iwan, T. (2023). polyglotr: Multilingual Text Translation in R.
+https://github.com/Tomeriko96/polyglotr</code></pre>
+</div>
+<div class="section level2">
+<h2 id="related">Related<a class="anchor" aria-label="anchor" href="#related"></a>
+</h2>
 <ul>
 <li>
 <a href="https://github.com/ropensci/googleLanguageR" class="external-link">googleLanguageR</a>: R client for the Google Translation API, Cloud Natural Language API, Cloud Speech API, and Cloud Text-to-Speech API</li>
