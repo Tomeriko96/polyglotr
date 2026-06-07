@@ -4,7 +4,6 @@
 </p>
 <h1 align="center">polyglotr</h1>
 <p align="center">
-  <a href="https://app.codecov.io/gh/tomeriko96/polyglotr?branch=main"><img src="https://codecov.io/gh/tomeriko96/polyglotr/branch/main/graph/badge.svg" alt="Codecov test coverage"></a>
   <a href="https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml"><img src="https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a>
   <a href="https://CRAN.R-project.org/package=polyglotr/"><img src="https://www.r-pkg.org/badges/version/polyglotr" alt="CRAN status"></a>
   <a href="https://cran.r-project.org/package=polyglotr/"><img src="https://cranlogs.r-pkg.org/badges/last-month/polyglotr?color=green/" alt="CRAN last month downloads"></a>
