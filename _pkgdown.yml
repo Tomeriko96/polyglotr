@@ -18,13 +18,6 @@ reference:
       - language_detect
       - translate_file
 
-  - title: Linguee Methods
-    desc: Methods using Linguee services
-    contents:
-      - linguee_external_sources
-      - linguee_translation_examples
-      - linguee_word_translation
-
   - title: Microsoft Methods
     desc: Methods using Microsoft Translation services
     contents:

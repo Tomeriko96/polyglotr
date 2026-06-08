@@ -35,10 +35,6 @@ server <- function(input, output, session) {
         "English" = "en", "German" = "de", "French" = "fr", "Spanish" = "es",
         "Italian" = "it", "Portuguese" = "pt", "Russian" = "ru", "Polish" = "pl"
       ),
-      "linguee" = list(
-        "Auto-detect" = "auto", "English" = "en", "German" = "de", "French" = "fr", "Spanish" = "es",
-        "Italian" = "it", "Portuguese" = "pt", "Russian" = "ru", "Chinese" = "zh"
-      ),
       "qcri" = list(
         "English" = "en", "Arabic" = "ar", "Spanish" = "es", "French" = "fr"
       ),
@@ -109,15 +105,6 @@ server <- function(input, output, session) {
       "google" = google_translate(text, target_language = target_lang, source_language = source_lang),
       "mymemory" = mymemory_translate(text, target_language = target_lang, source_language = source_lang),
       "pons" = pons_translate(text, target_language = target_lang, source_language = source_lang),
-      "linguee" = {
-        # Linguee returns multiple options, we'll take the first one
-        result <- linguee_word_translation(text, target_language = target_lang, source_language = source_lang)
-        if (length(result) > 0 && !is.na(result[1]) && result[1] != "") {
-          result[1] 
-        } else {
-          "No translation found. Try a single word or different language pair."
-        }
-      },
       "qcri" = {
         if (is.null(api_key) || api_key == "") {
           stop("API key is required for QCRI service")
@@ -328,7 +315,6 @@ server <- function(input, output, session) {
       "google" = "Google Translate provides fast, neural machine translation for over 100 languages. Supports automatic language detection.",
       "mymemory" = "MyMemory is the world's largest translation memory. Free service with good language coverage. Note: Does not support automatic language detection - please select source language manually.",
       "pons" = "PONS offers dictionary-based translations with high accuracy. Particularly good for European languages. Best for individual words and short phrases.",
-      "linguee" = "Linguee provides context-aware translations by showing how words are used in real documents and websites. Works best with single words.",
       "qcri" = "QCRI (Qatar Computing Research Institute) provides research-quality translations. Requires API key registration.",
       "apertium" = "Apertium is a free, open-source rule-based machine translation platform. Limited language pairs available - works best with closely related languages (e.g., Spanish-Catalan, Spanish-Galician).",
       "wmcloud" = "Wikimedia Cloud Services provides community-driven translations leveraging Wikipedia's multilingual content."

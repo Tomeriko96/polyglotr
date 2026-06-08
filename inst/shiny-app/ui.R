@@ -50,7 +50,6 @@ ui <- dashboardPage(
                          "Google Translate" = "google",
                          "MyMemory" = "mymemory", 
                          "PONS Dictionary" = "pons",
-                         "Linguee" = "linguee",
                          "QCRI" = "qcri",
                          "Apertium" = "apertium",
                          "Wikimedia Cloud" = "wmcloud"
@@ -218,7 +217,6 @@ language_detect("Bonjour le monde")
               tags$li(strong("Google Translate:"), "Fast and accurate translations using Google's service"),
               tags$li(strong("MyMemory:"), "Free translation service with good coverage"),
               tags$li(strong("PONS Dictionary:"), "Dictionary-based translations with high quality"),
-              tags$li(strong("Linguee:"), "Context-aware translations with multiple options"),
               tags$li(strong("QCRI:"), "Research-quality translations (requires API key)"),
               tags$li(strong("Apertium:"), "Open-source rule-based translation"),
               tags$li(strong("Wikimedia Cloud:"), "Community-driven translations")

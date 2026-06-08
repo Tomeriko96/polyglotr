@@ -23,7 +23,7 @@ cat("library(polyglotr)\n")
 cat("launch_polyglotr_app()\n\n")
 
 cat("Features of the Shiny app:\n")
-cat("- Multiple translation services (Google, MyMemory, PONS, Linguee, QCRI, Apertium, WMCloud)\n")
+cat("- Multiple translation services (Google, MyMemory, PONS, QCRI, Apertium, WMCloud)\n")
 cat("- Language detection\n")
 cat("- Dynamic language selection based on service\n")
 cat("- User-friendly dashboard interface\n")

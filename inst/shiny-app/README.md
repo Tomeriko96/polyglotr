@@ -4,7 +4,7 @@ This directory contains a Shiny web application that provides a user-friendly in
 
 ## Features
 
-- **Multiple Translation Services**: Access to Google Translate, MyMemory, PONS, Linguee, QCRI, Apertium, and Wikimedia Cloud
+- **Multiple Translation Services**: Access to Google Translate, MyMemory, PONS, QCRI, Apertium, and Wikimedia Cloud
 - **Language Detection**: Automatic detection of source language
 - **Dynamic Language Selection**: Language options update based on selected service
 - **User-Friendly Interface**: Clean dashboard design with intuitive controls
@@ -71,7 +71,6 @@ Each translation service has different capabilities:
 - **Google Translate**: Best overall coverage and quality
 - **MyMemory**: Free service, good for basic translations
 - **PONS**: Excellent for dictionary-style translations
-- **Linguee**: Shows multiple translation options with context
 - **QCRI**: Research-quality, requires API key
 - **Apertium**: Open-source, good for specific language pairs
 - **Wikimedia Cloud**: Community-driven translations
