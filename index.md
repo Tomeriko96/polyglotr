@@ -20,9 +20,9 @@ most services.
 Supports [Google Translate](https://translate.google.com/m),
 [Apertium](https://apertium.org/apy/),
 [MyMemory](https://mymemory.translated.net/),
-[Linguee](https://www.linguee.com/),
-[PONS](https://en.pons.com/translate), [QCRI](https://www.qcri.org/),
-and [Wikimedia Translation](https://translate.wmcloud.org/).
+[PONS](https://en.pons.com/translate),
+[QCRI](https://www.hbku.edu.qa/en/qcri), and [Wikimedia
+Translation](https://translate.wmcloud.org/).
 
 ## Installation
 

@@ -1,5 +1,13 @@
 # Changelog
 
+## polyglotr 1.7.4
+
+- Fixed 301-redirect URL for QCRI in README.md: replaced `qcri.org` with
+  `hbku.edu.qa/en/qcri`.
+- Removed `linguee_external_sources()`,
+  `linguee_translation_examples()`, and `linguee_word_translation()` —
+  the upstream API (`linguee-api.fly.dev`) is no longer available.
+
 ## polyglotr 1.7.3
 
 - Fixed dead URL in README.md: replaced defunct mt.qcri.org/api/ with

@@ -20,9 +20,9 @@ most services.
 Supports [Google Translate](https://translate.google.com/m),
 [Apertium](https://apertium.org/apy/),
 [MyMemory](https://mymemory.translated.net/),
-[Linguee](https://www.linguee.com/),
-[PONS](https://en.pons.com/translate), [QCRI](https://www.qcri.org/),
-and [Wikimedia Translation](https://translate.wmcloud.org/).
+[PONS](https://en.pons.com/translate),
+[QCRI](https://www.hbku.edu.qa/en/qcri), and [Wikimedia
+Translation](https://translate.wmcloud.org/).
 
 ## Installation
 
@@ -126,17 +126,6 @@ Methods using Google Translation services
 - [`translate_file()`](https://tomeriko96.github.io/polyglotr/reference/translate_file.md)
   : Translate File
 
-## Linguee Methods
-
-Methods using Linguee services
-
-- [`linguee_external_sources()`](https://tomeriko96.github.io/polyglotr/reference/linguee_external_sources.md)
-  : Retrieve external sources using Linguee Translation API
-- [`linguee_translation_examples()`](https://tomeriko96.github.io/polyglotr/reference/linguee_translation_examples.md)
-  : Provide translation examples using Linguee Translation API
-- [`linguee_word_translation()`](https://tomeriko96.github.io/polyglotr/reference/linguee_word_translation.md)
-  : Translate word using Linguee Translation API
-
 ## Microsoft Methods
 
 Methods using Microsoft Translation services
@@ -227,8 +216,6 @@ Shiny app for interactive translation
   polyglotr](https://tomeriko96.github.io/polyglotr/articles/apertium-intro.md):
 - [Language Detection and Conditional
   Translation](https://tomeriko96.github.io/polyglotr/articles/language-detection-conditional-translation.md):
-- [Introduction to Linguee
-  API](https://tomeriko96.github.io/polyglotr/articles/Linguee.md):
 - [Translation of Movie
   Reviews](https://tomeriko96.github.io/polyglotr/articles/Movie_Reviews.md):
 - [Introduction to

@@ -27,17 +27,6 @@ Methods using Google Translation services
 - [`translate_file()`](https://tomeriko96.github.io/polyglotr/reference/translate_file.md)
   : Translate File
 
-## Linguee Methods
-
-Methods using Linguee services
-
-- [`linguee_external_sources()`](https://tomeriko96.github.io/polyglotr/reference/linguee_external_sources.md)
-  : Retrieve external sources using Linguee Translation API
-- [`linguee_translation_examples()`](https://tomeriko96.github.io/polyglotr/reference/linguee_translation_examples.md)
-  : Provide translation examples using Linguee Translation API
-- [`linguee_word_translation()`](https://tomeriko96.github.io/polyglotr/reference/linguee_word_translation.md)
-  : Translate word using Linguee Translation API
-
 ## Microsoft Methods
 
 Methods using Microsoft Translation services

@@ -6,8 +6,6 @@
   polyglotr](https://tomeriko96.github.io/polyglotr/articles/apertium-intro.md):
 - [Language Detection and Conditional
   Translation](https://tomeriko96.github.io/polyglotr/articles/language-detection-conditional-translation.md):
-- [Introduction to Linguee
-  API](https://tomeriko96.github.io/polyglotr/articles/Linguee.md):
 - [Translation of Movie
   Reviews](https://tomeriko96.github.io/polyglotr/articles/Movie_Reviews.md):
 - [Introduction to
