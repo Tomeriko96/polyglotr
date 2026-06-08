@@ -31,6 +31,7 @@ Translated text.
 ``` r
 # \donttest{
 mymemory_translate("Hello World", target_language = "es", source_language = "en")
-#> [1] "Hola mundo"
+#> MyMemory API is unavailable: Timeout was reached [api.mymemory.translated.net]:
+#> Failed to connect to api.mymemory.translated.net port 443 after 10002 ms: Timeout was reached
 # }
 ```
