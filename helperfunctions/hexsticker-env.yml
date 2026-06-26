@@ -1,0 +1,57 @@
+name: polyglotr-hexsticker
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  # R runtime
+  - r-base>=4.3
+
+  # System libraries needed by magick / rsvg (conda-forge builds them reliably)
+  - imagemagick>=7
+  - librsvg>=2.56
+
+  # R packages available on conda-forge
+  - r-magick          # image I/O + SVG → PNG via ImageMagick
+  - r-rsvg            # librsvg bindings (fast SVG rasterisation)
+  - r-showtext        # custom web fonts in R graphics
+  - r-sysfonts        # dependency of showtext; Google Fonts download
+  - r-ggplot2         # plotting (hexSticker subplot alternative)
+  - r-png             # PNG read/write
+
+  # hexSticker is on CRAN but not always on conda-forge builds;
+  # install from R after activating this env:
+  #   Rscript -e "install.packages('hexSticker')"
+  - r-remotes         # in case you prefer remotes::install_cran("hexSticker")
+
+# ---------------------------------------------------------------------------
+# Usage:
+#
+#   1. Create env:
+#        micromamba env create -f helperfunctions/hexsticker-env.yml
+#        micromamba activate polyglotr-hexsticker
+#
+#   2. Install hexSticker from CRAN (not on conda-forge):
+#        Rscript -e "install.packages('hexSticker')"
+#
+#   3. Install Noto fonts for rsvg/PNG export of non-Latin script characters:
+#        mkdir -p ~/.local/share/fonts
+#        # CJK (Chinese + Japanese)
+#        curl -L "https://github.com/googlefonts/noto-cjk/raw/main/Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Regular.otf" \
+#             -o ~/.local/share/fonts/NotoSansCJKsc-Regular.otf
+#        # Arabic
+#        curl -L "https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoNaskhArabic/NotoNaskhArabic-Regular.ttf" \
+#             -o ~/.local/share/fonts/NotoNaskhArabic-Regular.ttf
+#        # Devanagari
+#        curl -L "https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoSerifDevanagari/NotoSerifDevanagari-Regular.ttf" \
+#             -o ~/.local/share/fonts/NotoSerifDevanagari-Regular.ttf
+#        fc-cache -f ~/.local/share/fonts/
+#
+#      Note: in browsers the SVG @import block loads these fonts from Google Fonts
+#      automatically — the manual install is only needed for rsvg/magick PNG export.
+#
+#   4. Generate the sticker:
+#        Rscript helperfunctions/make_hex_sticker.R
+#
+# To remove the env afterwards:
+#   micromamba env remove -n polyglotr-hexsticker
+# ---------------------------------------------------------------------------
