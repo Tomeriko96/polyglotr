@@ -7,7 +7,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/Tomeriko96/polyglotr/blob/v1.7.4/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/Tomeriko96/polyglotr/blob/main/DESCRIPTION)
 
 Iwan T (2026). *polyglotr: Translate Text*. R package version 1.7.4,
 <https://github.com/Tomeriko96/polyglotr/>.

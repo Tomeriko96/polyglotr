@@ -1,6 +1,6 @@
 # polyglotr
 
-![polyglotr](reference/figures/hex-polyglotr.png)
+![polyglotr](reference/figures/hex-polyglotr.svg)
 
 [![R-CMD-check](https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml)
 [![CRAN

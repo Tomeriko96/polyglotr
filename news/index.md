@@ -2,6 +2,8 @@
 
 ## polyglotr 1.7.4
 
+CRAN release: 2026-06-08
+
 - Fixed 301-redirect URL for QCRI in README.md: replaced `qcri.org` with
   `hbku.edu.qa/en/qcri`.
 - Removed `linguee_external_sources()`,
