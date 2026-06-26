@@ -1,16 +1,12 @@
 
-<p align="center">
-  <img src="man/figures/hex-polyglotr.svg" alt="polyglotr" height="200">
-</p>
-<h1 align="center">polyglotr</h1>
-<p align="center">
-  <a href="https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml"><img src="https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a>
-  <a href="https://CRAN.R-project.org/package=polyglotr/"><img src="https://www.r-pkg.org/badges/version/polyglotr" alt="CRAN status"></a>
-  <a href="https://cran.r-project.org/package=polyglotr/"><img src="https://cranlogs.r-pkg.org/badges/last-month/polyglotr?color=green/" alt="CRAN last month downloads"></a>
-  <a href="https://cran.r-project.org/package=polyglotr/"><img src="https://cranlogs.r-pkg.org/badges/grand-total/polyglotr?color=green/" alt="CRAN downloads"></a>
-  <a href="https://diffify.com/R/polyglotr" target="_blank"><img src="https://diffify.com/diffify-badge.svg" alt="The diffify page for the R package polyglotr" style="width: 100px; max-width: 100%;"></a>
-  <a href="https://edulytics.shinyapps.io/polyglotr/" target="_blank"><img src="https://img.shields.io/badge/Shiny%20App-Live-blue?logo=R" alt="Shiny App Deployed"></a>
-</p>
+# polyglotr <a href="https://tomeriko96.github.io/polyglotr/"><img src="man/figures/hex-polyglotr.svg" align="right" height="138" alt="polyglotr" /></a>
+
+[![R-CMD-check](https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml)
+[![CRAN status](https://www.r-pkg.org/badges/version/polyglotr)](https://CRAN.R-project.org/package=polyglotr)
+[![CRAN downloads](https://cranlogs.r-pkg.org/badges/last-month/polyglotr?color=green)](https://cran.r-project.org/package=polyglotr)
+[![CRAN total](https://cranlogs.r-pkg.org/badges/grand-total/polyglotr?color=green)](https://cran.r-project.org/package=polyglotr)
+[![diffify](https://diffify.com/diffify-badge.svg)](https://diffify.com/R/polyglotr)
+[![Shiny App](https://img.shields.io/badge/Shiny%20App-Live-blue?logo=R)](https://edulytics.shinyapps.io/polyglotr/)
 
 R package for text translation via free APIs — no API keys needed for most services.
 
