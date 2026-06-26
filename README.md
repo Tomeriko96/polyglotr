@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="man/figures/hex-polyglotr.png" alt="polyglotr" height="200">
+  <img src="man/figures/hex-polyglotr.svg" alt="polyglotr" height="200">
 </p>
 <h1 align="center">polyglotr</h1>
 <p align="center">

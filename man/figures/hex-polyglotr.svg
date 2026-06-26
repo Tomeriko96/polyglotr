@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  polyglotr hex sticker — speech-bubble redesign
+  Canvas 200 × 231  (R hex sticker ratio, pointy-top)
+  Hex vertices: (100,4) (196,60) (196,171) (100,227) (4,171) (4,60)
+
+  Four speech bubbles orbit a faint globe watermark.
+  Each bubble tail points toward the globe centre (100, 107).
+  Bubbles are slightly rotated for a playful feel.
+
+  Browser rendering: Google Fonts loaded via @import.
+  PNG export (rsvg/magick): install Noto fonts first — see hexsticker-env.yml.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="200" height="231" viewBox="0 0 200 231">
+
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&amp;family=Noto+Serif+SC&amp;family=Noto+Serif+JP&amp;family=Noto+Naskh+Arabic&amp;display=swap');
+    </style>
+
+    <linearGradient id="bg" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%"   stop-color="#03045e"/>
+      <stop offset="100%" stop-color="#0077b6"/>
+    </linearGradient>
+
+    <clipPath id="hexClip">
+      <polygon points="100,4 196,60 196,171 100,227 4,171 4,60"/>
+    </clipPath>
+
+    <!-- Border glow -->
+    <filter id="borderGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Floating bubble shadow -->
+    <filter id="bubbleShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3"
+        flood-color="#010d24" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+
+  <!-- ── Background ─────────────────────────────────────────────────────── -->
+  <polygon
+    points="100,4 196,60 196,171 100,227 4,171 4,60"
+    fill="url(#bg)"/>
+
+  <!-- ── Globe watermark (opacity 0.17, clipped to hex) ────────────────── -->
+  <g opacity="0.17" clip-path="url(#hexClip)">
+    <circle cx="100" cy="107" r="46"
+      fill="none" stroke="#90e0ef" stroke-width="2.2"/>
+    <ellipse cx="100" cy="107" rx="46" ry="11"
+      fill="none" stroke="#90e0ef" stroke-width="1.5"/>
+    <ellipse cx="100" cy="84" rx="39" ry="9.5"
+      fill="none" stroke="#90e0ef" stroke-width="1"/>
+    <ellipse cx="100" cy="130" rx="39" ry="9.5"
+      fill="none" stroke="#90e0ef" stroke-width="1"/>
+    <ellipse cx="100" cy="107" rx="11" ry="46"
+      fill="none" stroke="#90e0ef" stroke-width="1.5"/>
+  </g>
+
+  <!--
+    ── Speech bubbles ───────────────────────────────────────────────────────
+    Each bubble is a <path> with rounded corners (Q beziers, r ≈ 11–12 px)
+    and a triangular tail pointing toward globe centre (100, 107).
+
+    Bubble 1 — Latin "A"
+      Bounds: (57,54)–(103,86)   centre (80, 70)
+      Tail: bottom edge, tip at (85, 103)
+
+    Bubble 2 — Chinese "文"
+      Bounds: (127,80)–(169,110)  centre (148, 95)
+      Tail: left side, tip at (113, 95)
+
+    Bubble 3 — Arabic "ع"
+      Bounds: (36,134)–(74,162)  centre (55, 148)
+      Tail: top edge (upper-right), tip at (89, 128)
+
+    Bubble 4 — Japanese "か"
+      Bounds: (127,138)–(165,166)  centre (146, 152)
+      Tail: top edge (upper-left), tip at (112, 128)
+  -->
+
+  <!-- Bubble 1: "A" — top-centre, -5° tilt -->
+  <g transform="rotate(-5, 80, 70)" filter="url(#bubbleShadow)">
+    <path
+      d="M 69,54 L 91,54
+         Q 103,54 103,66
+         L 103,74
+         Q 103,86 91,86
+         L 86,86 L 85,103 L 74,86
+         L 69,86
+         Q 57,86 57,74
+         L 57,66
+         Q 57,54 69,54 Z"
+      fill="white" stroke="#48cae4" stroke-width="1.8" stroke-linejoin="round"/>
+    <text x="80" y="71"
+      text-anchor="middle" dominant-baseline="central"
+      font-family="Georgia,'Times New Roman',serif"
+      font-size="20" font-weight="bold"
+      fill="#03045e">A</text>
+  </g>
+
+  <!-- Bubble 2: "文" — right side, +4° tilt -->
+  <g transform="rotate(4, 148, 95)" filter="url(#bubbleShadow)">
+    <path
+      d="M 138,80 L 158,80
+         Q 169,80 169,91
+         L 169,99
+         Q 169,110 158,110
+         L 138,110
+         Q 127,110 127,100
+         L 113,95 L 127,90
+         Q 127,80 138,80 Z"
+      fill="white" stroke="#48cae4" stroke-width="1.8" stroke-linejoin="round"/>
+    <text x="148" y="95"
+      text-anchor="middle" dominant-baseline="central"
+      font-family="'Noto Serif SC','Noto Serif CJK SC',serif"
+      font-size="18"
+      fill="#03045e">文</text>
+  </g>
+
+  <!-- Bubble 3: "ع" — bottom-left, -4° tilt -->
+  <g transform="rotate(-4, 55, 148)" filter="url(#bubbleShadow)">
+    <path
+      d="M 47,134
+         L 55,134 L 89,128 L 63,134
+         Q 74,134 74,145
+         L 74,151
+         Q 74,162 63,162
+         L 47,162
+         Q 36,162 36,151
+         L 36,145
+         Q 36,134 47,134 Z"
+      fill="white" stroke="#48cae4" stroke-width="1.8" stroke-linejoin="round"/>
+    <text x="55" y="148"
+      text-anchor="middle" dominant-baseline="central"
+      font-family="'Noto Naskh Arabic','Noto Sans Arabic',serif"
+      font-size="17"
+      fill="#03045e">ع</text>
+  </g>
+
+  <!-- Bubble 4: "か" — bottom-right, +5° tilt -->
+  <g transform="rotate(5, 146, 152)" filter="url(#bubbleShadow)">
+    <path
+      d="M 138,138
+         L 133,138 L 112,128 L 143,138
+         L 154,138
+         Q 165,138 165,149
+         L 165,155
+         Q 165,166 154,166
+         L 138,166
+         Q 127,166 127,155
+         L 127,149
+         Q 127,138 138,138 Z"
+      fill="white" stroke="#48cae4" stroke-width="1.8" stroke-linejoin="round"/>
+    <text x="146" y="152"
+      text-anchor="middle" dominant-baseline="central"
+      font-family="'Noto Serif JP','Noto Serif CJK JP',serif"
+      font-size="17"
+      fill="#03045e">か</text>
+  </g>
+
+  <!-- ── Package name ──────────────────────────────────────────────────── -->
+  <!--
+    At y=184 the hex half-width ≈ 174 px; "polyglotr" at 21 px ≈ 118 px wide.
+  -->
+  <text x="100" y="184"
+    text-anchor="middle" dominant-baseline="central"
+    font-family="Nunito,'Helvetica Neue',Arial,sans-serif"
+    font-size="21" font-weight="700" letter-spacing="0.6"
+    fill="#ffffff">polyglotr</text>
+
+  <!-- ── Hex border: white outer halo + cyan inner accent ──────────────── -->
+  <polygon
+    points="100,4 196,60 196,171 100,227 4,171 4,60"
+    fill="none" stroke="#ffffff" stroke-width="10"
+    stroke-linejoin="round" filter="url(#borderGlow)"/>
+  <polygon
+    points="100,4 196,60 196,171 100,227 4,171 4,60"
+    fill="none" stroke="#00b4d8" stroke-width="4"
+    stroke-linejoin="round"/>
+
+</svg>

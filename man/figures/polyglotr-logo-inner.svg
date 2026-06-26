@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  polyglotr inner logo — transparent background for use as hexSticker subplot.
+  Canvas 200 × 200.  Four speech bubbles around a faint globe watermark.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC&amp;family=Noto+Serif+JP&amp;family=Noto+Naskh+Arabic&amp;display=swap');
+    </style>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="2.5"
+        flood-color="#010d24" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Globe watermark (opacity 0.2, transparent bg) -->
+  <g opacity="0.20">
+    <circle cx="100" cy="100" r="42"
+      fill="none" stroke="#90e0ef" stroke-width="2"/>
+    <ellipse cx="100" cy="100" rx="42" ry="10"
+      fill="none" stroke="#90e0ef" stroke-width="1.4"/>
+    <ellipse cx="100" cy="79"  rx="35" ry="8.5"
+      fill="none" stroke="#90e0ef" stroke-width="0.9"/>
+    <ellipse cx="100" cy="121" rx="35" ry="8.5"
+      fill="none" stroke="#90e0ef" stroke-width="0.9"/>
+    <ellipse cx="100" cy="100" rx="10" ry="42"
+      fill="none" stroke="#90e0ef" stroke-width="1.4"/>
+  </g>
+
+  <!--
+    Bubble positions (centres, then bounding boxes):
+      "A"  → (80, 62)   bounds (55,47)–(105,77)
+      "文" → (145,88)  bounds (122,74)–(168,102)
+      "ع"  → (52,138)  bounds (30,124)–(74,152)
+      "か" → (147,141) bounds (125,127)–(169,155)
+  -->
+
+  <!-- Bubble 1: "A" — top, -5° tilt -->
+  <g transform="rotate(-5, 80, 62)" filter="url(#shadow)">
+    <path
+      d="M 67,47 L 93,47
+         Q 105,47 105,59
+         L 105,65
+         Q 105,77 93,77
+         L 85,77 L 83,94 L 75,77
+         L 67,77
+         Q 55,77 55,65
+         L 55,59
+         Q 55,47 67,47 Z"
+      fill="white" stroke="#48cae4" stroke-width="1.7" stroke-linejoin="round"/>
+    <text x="80" y="63"
+      text-anchor="middle" dominant-baseline="central"
+      font-family="Georgia,'Times New Roman',serif"
+      font-size="19" font-weight="bold" fill="#03045e">A</text>
+  </g>
+
+  <!-- Bubble 2: "文" — right, +4° tilt -->
+  <g transform="rotate(4, 145, 88)" filter="url(#shadow)">
+    <path
+      d="M 134,74 L 156,74
+         Q 168,74 168,86
+         L 168,90
+         Q 168,102 156,102
+         L 134,102
+         Q 122,102 122,92
+         L 108,88 L 122,84
+         Q 122,74 134,74 Z"
+      fill="white" stroke="#48cae4" stroke-width="1.7" stroke-linejoin="round"/>
+    <text x="145" y="88"
+      text-anchor="middle" dominant-baseline="central"
+      font-family="'Noto Serif SC','Noto Serif CJK SC',serif"
+      font-size="17" fill="#03045e">文</text>
+  </g>
+
+  <!-- Bubble 3: "ع" — bottom-left, -4° tilt -->
+  <g transform="rotate(-4, 52, 138)" filter="url(#shadow)">
+    <path
+      d="M 42,124
+         L 50,124 L 82,119 L 62,124
+         Q 74,124 74,136
+         L 74,140
+         Q 74,152 62,152
+         L 42,152
+         Q 30,152 30,140
+         L 30,136
+         Q 30,124 42,124 Z"
+      fill="white" stroke="#48cae4" stroke-width="1.7" stroke-linejoin="round"/>
+    <text x="52" y="138"
+      text-anchor="middle" dominant-baseline="central"
+      font-family="'Noto Naskh Arabic','Noto Sans Arabic',serif"
+      font-size="16" fill="#03045e">ع</text>
+  </g>
+
+  <!-- Bubble 4: "か" — bottom-right, +5° tilt -->
+  <g transform="rotate(5, 147, 141)" filter="url(#shadow)">
+    <path
+      d="M 137,127
+         L 130,127 L 111,118 L 143,127
+         L 157,127
+         Q 169,127 169,139
+         L 169,143
+         Q 169,155 157,155
+         L 137,155
+         Q 125,155 125,143
+         L 125,139
+         Q 125,127 137,127 Z"
+      fill="white" stroke="#48cae4" stroke-width="1.7" stroke-linejoin="round"/>
+    <text x="147" y="141"
+      text-anchor="middle" dominant-baseline="central"
+      font-family="'Noto Serif JP','Noto Serif CJK JP',serif"
+      font-size="16" fill="#03045e">か</text>
+  </g>
+
+</svg>
