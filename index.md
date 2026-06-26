@@ -1,18 +1,15 @@
-# polyglotr
-
-![polyglotr](reference/figures/hex-polyglotr.svg)
+# polyglotr [![polyglotr](reference/figures/hex-polyglotr.svg)](https://tomeriko96.github.io/polyglotr/)
 
 [![R-CMD-check](https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml)
 [![CRAN
-status](https://www.r-pkg.org/badges/version/polyglotr)](https://CRAN.R-project.org/package=polyglotr/)
-[![CRAN last month
-downloads](https://cranlogs.r-pkg.org/badges/last-month/polyglotr?color=green/)](https://cran.r-project.org/package=polyglotr/)
+status](https://www.r-pkg.org/badges/version/polyglotr)](https://CRAN.R-project.org/package=polyglotr)
 [![CRAN
-downloads](https://cranlogs.r-pkg.org/badges/grand-total/polyglotr?color=green/)](https://cran.r-project.org/package=polyglotr/)
-[![The diffify page for the R package
-polyglotr](https://diffify.com/diffify-badge.svg)](https://diffify.com/R/polyglotr)
-[![Shiny App
-Deployed](https://img.shields.io/badge/Shiny%20App-Live-blue?logo=R)](https://edulytics.shinyapps.io/polyglotr/)
+downloads](https://cranlogs.r-pkg.org/badges/last-month/polyglotr?color=green)](https://cran.r-project.org/package=polyglotr)
+[![CRAN
+total](https://cranlogs.r-pkg.org/badges/grand-total/polyglotr?color=green)](https://cran.r-project.org/package=polyglotr)
+[![diffify](https://diffify.com/diffify-badge.svg)](https://diffify.com/R/polyglotr)
+[![Shiny
+App](https://img.shields.io/badge/Shiny%20App-Live-blue?logo=R)](https://edulytics.shinyapps.io/polyglotr/)
 
 R package for text translation via free APIs — no API keys needed for
 most services.
