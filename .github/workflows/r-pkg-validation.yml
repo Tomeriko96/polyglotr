@@ -1,9 +1,11 @@
 ---
 name: R Package Validation report
 
-on: # Run this action when a release is published
-  release:
-    types: [published]
+# Disabled: the upstream insightsengineering/thevalidatoR action crashes in its
+# report-generator step ("there is no package called 'git2r'") on the pinned
+# rocker/verse:4.1.1 container. Fails for every release since v1.7.2.
+# Re-enable after the action or image is fixed.
+on: {}
 
 jobs:
   r-pkg-validation:
