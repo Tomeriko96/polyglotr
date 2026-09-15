@@ -3,13 +3,24 @@ skip_if_interactive <- function() {
 }
 
 skip_if_http_error <- function() {
-  formatted_text <- stringr::str_replace_all("hello", " ", "%20")
-
-  formatted_link <- paste0(
-    "https://translate.google.com/m?tl=",
-    "es", "&sl=", "en",
-    "&q=",
-    formatted_text
+  response <- try(
+    httr::GET(
+      "https://translate.googleapis.com/translate_a/single",
+      query = list(
+        client = "dict-chrome-ex",
+        sl = "en",
+        tl = "es",
+        dt = "t",
+        dj = "1",
+        q = "hello"
+      ),
+      httr::timeout(10)
+    ),
+    silent = TRUE
   )
-  testthat::skip_if(httr::http_error(httr::GET(formatted_link)))
+
+  testthat::skip_if(
+    inherits(response, "try-error") || httr::http_error(response),
+    "Google Translate endpoint is unavailable"
+  )
 }

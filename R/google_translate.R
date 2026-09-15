@@ -1,8 +1,9 @@
 #' Translate text using Google Translate
 #'
-#' Translates input text to a specified language using the Google Translate mobile web interface.
-#' Automatically detects and preserves URLs by temporarily replacing them with placeholders.
-#' Long texts are split on word boundaries and translated in chunks, then reassembled.
+#' Translates input text to a specified language using Google Translate's
+#' undocumented JSON endpoint. Automatically detects and preserves URLs by
+#' temporarily replacing them with placeholders. Long texts are split on word
+#' boundaries and translated in chunks, then reassembled.
 #'
 #' @param text This is the text that you want to translate. Can be a single string or a vector of strings.
 #' @param target_language This is the language that you want to translate the text into.
@@ -26,8 +27,6 @@
 #' google_translate("Visit http://example.com for more info.", target_language = "de")
 #' }
 google_translate <- function(text, target_language = "en", source_language = "auto") {
-  . <- NULL
-
   if (!google_is_valid_language_code(target_language)) {
     stop("Invalid target language code.")
   }
@@ -55,15 +54,12 @@ google_translate <- function(text, target_language = "en", source_language = "au
 
   translate_chunk <- function(t) {
     replaced <- replace_urls_with_placeholders(t)
-    encoded <- urltools::url_encode(replaced$text)
-    link <- paste0("https://translate.google.com/m?tl=", target_language,
-                   "&sl=", source_language, "&q=", encoded)
     result <- safe_http(
-      rvest::read_html(link) %>%
-        rvest::html_nodes("div.result-container") %>%
-        rvest::html_text() %>%
-        urltools::url_decode() %>%
-        gsub("\n", "", .),
+      google_translate_request(
+        replaced$text,
+        target_language = target_language,
+        source_language = source_language
+      ),
       "Google Translate"
     )
     if (is.null(result) || length(result) == 0) return(NA_character_)
@@ -92,4 +88,69 @@ google_translate <- function(text, target_language = "en", source_language = "au
     if (is.null(result) || is.na(result) || nchar(result) == 0) return(invisible(NULL))
     result
   }
+}
+
+# Client identifiers tried in order; "gtx" is currently rejected with HTTP 429.
+# "dict-chrome-ex" (Google Dictionary extension) and "at" still work (issue #32).
+# Fallback is cheap insurance against any single client being retired.
+google_clients <- c("dict-chrome-ex", "at")
+
+# GET the undocumented Google Translate JSON endpoint, trying each known-working
+# client identifier until one answers with HTTP 200.
+# @noRd
+google_api_get <- function(params) {
+  last_response <- NULL
+  for (client in google_clients) {
+    response <- tryCatch(
+      httr::GET(
+        "https://translate.googleapis.com/translate_a/single",
+        query = c(list(client = client), params),
+        httr::timeout(30)
+      ),
+      error = function(e) NULL
+    )
+    if (is.null(response)) next
+    if (httr::status_code(response) == 200) return(response)
+    last_response <- response
+  }
+  # All clients exhausted — signal via the last non-success response.
+  if (!is.null(last_response)) {
+    httr::stop_for_status(last_response, task = "translate text via Google Translate")
+  }
+  stop("Google Translate is unreachable (no network connection).")
+}
+
+# Make one request to the undocumented endpoint and return the translated text.
+# @noRd
+google_translate_request <- function(text, target_language, source_language) {
+  response <- google_api_get(list(
+    sl = source_language,
+    tl = target_language,
+    dt = "t",
+    dj = "1",
+    q = text
+  ))
+  content <- httr::content(response, as = "text", encoding = "UTF-8")
+  parse_google_translate_response(content)
+}
+
+# Extract and join translated sentence fragments from Google's JSON response.
+# @noRd
+parse_google_translate_response <- function(content) {
+  parsed <- jsonlite::fromJSON(content, simplifyVector = FALSE)
+  sentences <- parsed$sentences
+
+  if (is.null(sentences) || length(sentences) == 0) {
+    stop("Google Translate returned an unexpected response.")
+  }
+
+  fragments <- vapply(sentences, function(sentence) {
+    fragment <- sentence$trans
+    if (!is.character(fragment) || length(fragment) != 1) {
+      stop("Google Translate returned an unexpected response.")
+    }
+    fragment
+  }, character(1))
+
+  paste0(fragments, collapse = "")
 }

@@ -1,3 +1,10 @@
+# polyglotr 1.7.5
+* Fixed `google_translate()` after Google's mobile HTML endpoint began redirecting
+  automated requests to an HTTP 429 bot-detection page. Translation now uses the
+  JSON endpoint and `dict-chrome-ex` client identifier (issue #32).
+* Updated `language_detect()` to use the same working client identifier and to
+  parse the detector's structured response instead of scraping the raw array.
+
 # polyglotr 1.7.4
 * Fixed 301-redirect URL for QCRI in README.md: replaced `qcri.org` with `hbku.edu.qa/en/qcri`.
 * Removed `linguee_external_sources()`, `linguee_translation_examples()`, and `linguee_word_translation()` — the upstream API (`linguee-api.fly.dev`) is no longer available.

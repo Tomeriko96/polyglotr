@@ -1,28 +1,27 @@
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
-
-The single NOTE is:
-
-  Found the following (possibly) invalid URLs:
-    URL: https://github.com/Tomeriko96/polyglotr/actions/workflows/R-CMD-check.yaml
-      From: README.md
-      Status: 504
-      Message: Gateway Timeout
-
-This URL is a CI badge link. It returns HTTP 200 when accessed directly and
-is a valid GitHub Actions page. The 504 is a transient timeout from the CRAN
-check server reaching GitHub, not a broken URL.
+0 errors | 0 warnings | 0 notes
 
 ## Reason for resubmission
 
-This release (1.7.4) addresses two issues flagged in the 1.7.3 pre-test:
+This is a new version (1.7.5) fixing `google_translate()` and
+`language_detect()`, which returned errors when Google's mobile HTML
+endpoint began redirecting automated requests to a HTTP 429 bot-detection
+page (issue #32).
 
-1. NOTE: URL https://www.qcri.org/ in README.md returned 301. Replaced with
-   the final destination https://www.hbku.edu.qa/en/qcri.
+Changes:
 
-2. donttest ERROR (BDR check): linguee_external_sources() crashed because the
-   upstream API (linguee-api.fly.dev) is permanently unavailable. Resolved by
-   removing all three Linguee functions (linguee_external_sources,
-   linguee_translation_examples, linguee_word_translation) and all associated
-   documentation, vignette, and Shiny app references.
+1. `google_translate()` now talks to the undocumented JSON endpoint
+   `translate.googleapis.com/translate_a/single` using the `dict-chrome-ex`
+   client identifier (with a fallback to `at`), instead of scraping the
+   retired `translate.google.com/m` HTML page.
+
+2. `language_detect()` uses the same working client identifier and parses the
+   structured detection result instead of scraping the raw response array.
+
+3. URL placeholder handling and long-text chunking behaviour are preserved.
+
+Affected functions and their users (`translate_file()`,
+`create_translation_table()`, `translate_file()` wrappers) are fixed by the
+main change; `google_translate_long_text()` (deprecated) now uses the same
+transport.

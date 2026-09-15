@@ -7,7 +7,7 @@
 language_detect(text)
 }
 \arguments{
-\item{text}{The text for which the language needs to be detected.}
+\item{text}{The text whose language needs to be detected.}
 }
 \value{
 A character string representing the detected language.

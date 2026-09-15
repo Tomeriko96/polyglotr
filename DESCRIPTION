@@ -1,6 +1,6 @@
 Package: polyglotr
 Title: Translate Text
-Version: 1.7.4
+Version: 1.7.5
 Authors@R: 
     person("Tomer", "Iwan", , "iwantomer@hotmail.com", role = c("aut", "cre", "cph"))
 Description: Provide easy methods to translate pieces of text.
@@ -11,7 +11,6 @@ URL: https://github.com/Tomeriko96/polyglotr/,
 BugReports: https://github.com/Tomeriko96/polyglotr/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
 Imports: 
     dplyr,
     httr,
@@ -38,3 +37,4 @@ VignetteBuilder: knitr
 Depends: 
     R (>= 2.10)
 LazyData: true
+Config/roxygen2/version: 8.1.0

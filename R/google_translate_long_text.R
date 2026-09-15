@@ -39,38 +39,34 @@ google_translate_long_text <- function(text,
   if (!google_is_valid_language_code(source_language)) {
     stop("Invalid source language code: ", source_language)
   }
-  
+
   # Chunk splitting logic
   split_text <- function(text, chunk_size) {
     indices <- seq(1, nchar(text), by = chunk_size)
     sapply(indices, function(i) substr(text, i, i + chunk_size - 1))
   }
-  
+
   text_chunks <- if (nchar(text) > chunk_size) {
     split_text(text, chunk_size)
   } else {
     list(text)
   }
-  
+
   # Translation processing
   translations <- sapply(text_chunks, function(chunk) {
-    encoded_text <- urltools::url_encode(chunk)
-    api_url <- sprintf(
-      "https://translate.google.com/m?tl=%s&sl=%s&q=%s",
-      target_language,
-      source_language,
-      encoded_text
+    translated <- safe_http(
+      google_translate_request(
+        chunk,
+        target_language = target_language,
+        source_language = source_language
+      ),
+      "Google Translate"
     )
-    response <- safe_http(httr::GET(api_url), "Google Translate")
-    if (is.null(response)) return(NA_character_)
-    translated <- httr::content(response) %>%
-      rvest::html_nodes("div.result-container") %>%
-      rvest::html_text()
-    decoded <- urltools::url_decode(translated)
-    if (!preserve_newlines) decoded <- gsub("\n", " ", decoded)
-    decoded
+    if (is.null(translated)) return(NA_character_)
+    if (!preserve_newlines) translated <- gsub("\n", " ", translated)
+    translated
   })
-  
+
   # Final assembly
   collapse_char <- ifelse(preserve_newlines, "\n", " ")
   paste(translations, collapse = collapse_char)

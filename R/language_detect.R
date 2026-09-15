@@ -2,28 +2,29 @@
 #'
 #' This function detects the language of a given text using the Google Translate API.
 #'
-#' @param text The text for which the language needs to be detected.
+#' @param text The text whose language needs to be detected.
 #' @return A character string representing the detected language.
 #' @export
 language_detect <- function(text) {
-  url <- "https://translate.googleapis.com/translate_a/single"
-  params <- list(
-    client = "gtx",
-    sl = "auto",
-    tl = "en",
-    dt = "t",
-    q = text
+  response <- safe_http(
+    google_api_get(list(
+      sl = "auto",
+      tl = "en",
+      dt = "t",
+      dj = "1",
+      q = text
+    )),
+    "Google Translate API"
   )
-
-  response <- safe_http(httr::GET(url, query = params), "Google Translate API")
   if (is.null(response)) return(invisible(NULL))
 
-  if (httr::status_code(response) == 200) {
-    result <- httr::content(response, "parsed")
-    language <- purrr::keep(result, is.character) %>% as.character()
-    return(language)
-  } else {
+  content <- httr::content(response, as = "text", encoding = "UTF-8")
+  result <- jsonlite::fromJSON(content, simplifyVector = TRUE)
+  language <- result$ld_result$srclangs[1]
+
+  if (is.null(language) || length(language) == 0) {
     message("Language detection failed. Please check your connection and try again.")
     return(invisible(NULL))
   }
+  language
 }

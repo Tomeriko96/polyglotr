@@ -19,9 +19,10 @@ The default value is "auto", which attempts automatic language detection.}
 A translated string or vector of translated strings, matching the length of the input.
 }
 \description{
-Translates input text to a specified language using the Google Translate mobile web interface.
-Automatically detects and preserves URLs by temporarily replacing them with placeholders.
-Long texts are split on word boundaries and translated in chunks, then reassembled.
+Translates input text to a specified language using Google Translate's
+undocumented JSON endpoint. Automatically detects and preserves URLs by
+temporarily replacing them with placeholders. Long texts are split on word
+boundaries and translated in chunks, then reassembled.
 }
 \examples{
 \donttest{

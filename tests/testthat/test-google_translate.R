@@ -6,6 +6,71 @@ test_that("invalid source language code errors", {
   expect_error(google_translate("Hello", target_language = "en", source_language = "xyz123"))
 })
 
+test_that("Google JSON sentence fragments are parsed and joined", {
+  response <- paste0(
+    '{"sentences":[',
+    '{"trans":"Hallo Welt. ","orig":"Hello world. "},',
+    '{"trans":"Wie geht es dir?","orig":"How are you?"}',
+    '],"src":"en"}'
+  )
+
+  expect_identical(
+    polyglotr:::parse_google_translate_response(response),
+    "Hallo Welt. Wie geht es dir?"
+  )
+})
+
+test_that("an unexpected Google JSON response errors clearly", {
+  expect_error(
+    polyglotr:::parse_google_translate_response('{"src":"en"}'),
+    "unexpected response"
+  )
+})
+
+test_that("a Google JSON sentence without a trans field errors clearly", {
+  expect_error(
+    polyglotr:::parse_google_translate_response(
+      '{"sentences":[{"orig":"Hello"}],"src":"en"}'
+    ),
+    "unexpected response"
+  )
+})
+
+test_that("translations containing URLs restore original URLs", {
+  replaced <- replace_urls_with_placeholders("Visit https://example.com/path?id=1 now.")
+  expect_identical(replaced$text, "Visit __URL1__ now.")
+  expect_identical(replaced$urls, "https://example.com/path?id=1")
+
+  translated <- "Besuchen Sie __url1__ jetzt."
+  expect_identical(
+    restore_urls_from_placeholders(translated, replaced$urls),
+    "Besuchen Sie https://example.com/path?id=1 jetzt."
+  )
+})
+
+test_that("issue #32 reproducer translates with the JSON endpoint", {
+  skip_on_cran()
+  skip_if_offline()
+  skip_if_http_error()
+
+  result <- google_translate(
+    "Hello, how are you?",
+    target_language = "ru"
+  )
+
+  expect_type(result, "character")
+  expect_length(result, 1)
+  expect_true(nchar(result) > 0)
+})
+
+test_that("language detection uses the working Google client", {
+  skip_on_cran()
+  skip_if_offline()
+  skip_if_http_error()
+
+  expect_identical(language_detect("Bonjour tout le monde"), "fr")
+})
+
 test_that("short text translates correctly", {
   skip_on_cran()
   skip_if_offline()
@@ -45,10 +110,7 @@ test_that("long text returns non-empty translation, not character(0) — issue #
   )
   long_text <- paste(rep(phrase, 200), collapse = " ")
 
-  # Confirm the URL this would produce is absurdly long without chunking
-  url_encoded_len <- nchar(urltools::url_encode(long_text))
   expect_true(nchar(long_text) > 30000)
-  expect_true(url_encoded_len > 100000)
 
   result <- google_translate(long_text, target_language = "en", source_language = "auto")
 
