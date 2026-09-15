@@ -1,7 +1,7 @@
 # Translate text using Google Translate
 
-Translates input text to a specified language using the Google Translate
-mobile web interface. Automatically detects and preserves URLs by
+Translates input text to a specified language using Google Translate's
+undocumented JSON endpoint. Automatically detects and preserves URLs by
 temporarily replacing them with placeholders. Long texts are split on
 word boundaries and translated in chunks, then reassembled.
 

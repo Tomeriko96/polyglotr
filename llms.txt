@@ -14,7 +14,7 @@ App](https://img.shields.io/badge/Shiny%20App-Live-blue?logo=R)](https://edulyti
 R package for text translation via free APIs — no API keys needed for
 most services.
 
-Supports [Google Translate](https://translate.google.com/m),
+Supports [Google Translate](https://translate.google.com/),
 [Apertium](https://apertium.org/apy/),
 [MyMemory](https://mymemory.translated.net/),
 [PONS](https://en.pons.com/translate),

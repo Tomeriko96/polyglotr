@@ -13,7 +13,7 @@ language_detect(text)
 
 - text:
 
-  The text for which the language needs to be detected.
+  The text whose language needs to be detected.
 
 ## Value
 

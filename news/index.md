@@ -1,5 +1,18 @@
 # Changelog
 
+## polyglotr 1.7.5
+
+- Fixed
+  [`google_translate()`](https://tomeriko96.github.io/polyglotr/reference/google_translate.md)
+  after Google’s mobile HTML endpoint began redirecting automated
+  requests to an HTTP 429 bot-detection page. Translation now uses the
+  JSON endpoint and `dict-chrome-ex` client identifier (issue
+  [\#32](https://github.com/Tomeriko96/polyglotr/issues/32)).
+- Updated
+  [`language_detect()`](https://tomeriko96.github.io/polyglotr/reference/language_detect.md)
+  to use the same working client identifier and to parse the detector’s
+  structured response instead of scraping the raw array.
+
 ## polyglotr 1.7.4
 
 CRAN release: 2026-06-08
