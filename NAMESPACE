@@ -3,6 +3,7 @@
 export("%>%")
 export(apertium_get_language_pairs)
 export(apertium_translate)
+export(batch_translate)
 export(create_translation_table)
 export(create_transliteration_table)
 export(google_get_supported_languages)
