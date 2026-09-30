@@ -36,3 +36,15 @@ test_that("batch_translate never sends the file path as text", {
 test_that("batch_translate errors on a missing input file", {
   expect_error(batch_translate(tempfile(), "en", "fr"), "does not exist")
 })
+
+test_that("batch_translate validates all languages before writing anything", {
+  local_mocked_bindings(
+    google_translate = function(text, target_language = "en", source_language = "auto") text
+  )
+  dir <- tempfile("batch"); dir.create(dir)
+  input <- file.path(dir, "doc.md")
+  writeLines("Hallo", input)
+  expect_error(batch_translate(input, "nl", c("de", "xx", "fr")), "Invalid language code\\(s\\): xx")
+  expect_error(batch_translate(input, "zz", "de"), "zz")
+  expect_equal(list.files(dir), "doc.md")
+})

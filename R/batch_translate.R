@@ -19,6 +19,12 @@ batch_translate <- function(input_file, source_language, target_languages) {
   if (!file.exists(input_file)) {
     stop("Input file does not exist: ", input_file)
   }
+  # Validate every language up front so a bad code does not leave a partial set of files.
+  invalid <- target_languages[!vapply(target_languages, google_is_valid_language_code, logical(1))]
+  if (!google_is_valid_language_code(source_language)) invalid <- c(source_language, invalid)
+  if (length(invalid) > 0) {
+    stop("Invalid language code(s): ", paste(invalid, collapse = ", "))
+  }
   paths <- vapply(target_languages, function(target_language) {
     translate_file(
       input_file,

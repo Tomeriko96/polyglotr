@@ -20,7 +20,9 @@
   whitespace after `#'` (e.g. indented `@examples` code) is preserved.
 * `batch_translate()` now does what its documentation says: it calls
   `translate_file()` once per target language and writes one file each. It is
-  now exported.
+  now exported. All language codes are validated before any file is written.
+* `translate_file()` no longer produces a trailing dot (`README_de_translated.`)
+  for input files without an extension.
 
 ## Other changes
 * `translate_file()` and `batch_translate()` return the path(s) they wrote,

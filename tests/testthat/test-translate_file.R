@@ -80,3 +80,14 @@ test_that("roxygen lines keep their marker; failures leave the line intact", {
   )
   expect_equal(m$calls(), c("Title here", "FAIL", "Indented", "code()"))
 })
+
+test_that("a file without extension gets no trailing dot", {
+  m <- mock_translate()
+  local_mocked_bindings(google_translate = m$fn)
+  dir <- tempfile("dir"); dir.create(dir)
+  path <- file.path(dir, "README")
+  writeLines("Hallo", path)
+  out <- translate_file(path, "de")
+  expect_equal(basename(out), "README_de_translated")
+  expect_true(file.exists(out))
+})
