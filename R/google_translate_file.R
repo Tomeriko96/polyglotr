@@ -43,9 +43,11 @@ translate_file <- function(file_path, target_language = "en", source_language = 
 
     prefix <- ""
     if (startsWith(body, "#'")) {
-      prefix <- "#' "
-      body <- trimws(substr(body, 3, nchar(body)))
-      if (!nzchar(body)) return(line)
+      rest <- substr(body, 3, nchar(body))
+      if (!nzchar(trimws(rest))) return(line)
+      # keep the marker and the whitespace after it (e.g. indented @examples code)
+      prefix <- paste0("#'", sub("^([ \t]*).*$", "\\1", rest))
+      body <- substr(rest, nchar(prefix) - 1, nchar(rest))
     }
 
     translated <- translate_text(body)

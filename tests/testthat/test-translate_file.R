@@ -71,12 +71,12 @@ test_that("roxygen lines keep their marker; failures leave the line intact", {
   m <- mock_translate()
   local_mocked_bindings(google_translate = m$fn)
   path <- tempfile(fileext = ".R")
-  writeLines(c("#' Title here", "#'", "#' FAIL", "  #' Indented"), path)
+  writeLines(c("#' Title here", "#'", "#' FAIL", "  #' Indented", "#'   code()"), path)
 
   expect_warning(translate_file(path, "nl", overwrite = TRUE), "1 line")
   expect_equal(
     readLines(path),
-    c("#' <nl:Title here>", "#'", "#' FAIL", "  #' <nl:Indented>")
+    c("#' <nl:Title here>", "#'", "#' FAIL", "  #' <nl:Indented>", "#'   <nl:code()>")
   )
-  expect_equal(m$calls(), c("Title here", "FAIL", "Indented"))
+  expect_equal(m$calls(), c("Title here", "FAIL", "Indented", "code()"))
 })

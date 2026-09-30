@@ -11,11 +11,13 @@
 ## Bug fixes
 * `translate_file(overwrite = TRUE)` no longer fails with
   "can only write character objects".
-* `translate_file()` no longer silently drops lines it cannot translate; the
-  original line is kept and a warning reports how many lines were skipped.
+* `translate_file()` no longer silently replaces lines it cannot translate with
+  an empty line; the original line is kept and a warning reports how many
+  lines were skipped.
 * `translate_file()` no longer doubles the indentation of indented lines, and no
   longer sends blank lines to the translation service. A roxygen line that
-  fails to translate keeps its text instead of becoming a bare `#'`.
+  fails to translate keeps its text instead of becoming a bare `#'`, and
+  whitespace after `#'` (e.g. indented `@examples` code) is preserved.
 * `batch_translate()` now does what its documentation says: it calls
   `translate_file()` once per target language and writes one file each. It is
   now exported.
