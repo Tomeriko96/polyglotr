@@ -91,3 +91,12 @@ test_that("a file without extension gets no trailing dot", {
   expect_equal(basename(out), "README_de_translated")
   expect_true(file.exists(out))
 })
+
+test_that("invalid language codes are rejected even if no line needs translating", {
+  dir <- tempfile("dir"); dir.create(dir)
+  path <- file.path(dir, "blank.txt")
+  writeLines(c("", "#'"), path)
+  expect_error(translate_file(path, "not-a-code"), "Invalid target language code")
+  expect_error(translate_file(path, "fr", source_language = "zz"), "Invalid source language code")
+  expect_equal(list.files(dir), "blank.txt")
+})

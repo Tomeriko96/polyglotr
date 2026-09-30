@@ -11,8 +11,8 @@
 #'
 #' @format A tibble with two columns:
 #' \describe{
-#'   \item{Language}{Language name in English.}
-#'   \item{ISO-639 code}{Language code as used by Google Translate.}
+#' \item{Language}{Language name in English.}
+#' \item{ISO-639 code}{Language code as used by Google Translate.}
 #' }
 #' @source Google Cloud Translation documentation, "Language support"
 #'   (<https://cloud.google.com/translate/docs/languages>); snapshot bundled

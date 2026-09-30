@@ -26,7 +26,10 @@
 
 ## Other changes
 * `translate_file()` and `batch_translate()` return the path(s) they wrote,
-  invisibly.
+  invisibly, instead of `NULL`.
+* `translate_file()` now warns when lines could not be translated (code run
+  with `options(warn = 2)` will stop there) and checks language codes before
+  reading the file. `batch_translate()` stops if the input file does not exist.
 * Internal: chunking of long texts moved out of `google_translate()` into
   `split_translation_chunks()`; `create_translation_table()` and
   `create_transliteration_table()` share one implementation. No behaviour

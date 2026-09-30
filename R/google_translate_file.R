@@ -7,7 +7,8 @@
 #' starting with a roxygen comment marker (`#'`) keep the marker and only the
 #' text after it is translated. A line that cannot be translated (for example
 #' because the service is unavailable) is kept in its original form, and a
-#' warning reports how many lines were left untranslated.
+#' warning reports how many lines were left untranslated. Invalid language
+#' codes are rejected before the file is read.
 #'
 #' @param file_path The path to the file to be translated.
 #' @param target_language The target language to translate the file content to. Default is "en".
@@ -16,7 +17,8 @@
 #'
 #' @return The path of the file that was written, invisibly. With
 #'   `overwrite = FALSE` this is a new file next to the input named
-#'   `<name>_<target_language>_translated.<ext>`.
+#'   `<name>_<target_language>_translated.<ext>` (without `.<ext>` if the
+#'   input has no extension).
 #'
 #' @examples
 #' \dontrun{
@@ -24,6 +26,15 @@
 #' }
 #' @export
 translate_file <- function(file_path, target_language = "en", source_language = "auto", overwrite = FALSE) {
+  # Validate up front: blank and comment-only lines never reach google_translate(),
+  # so without this an invalid code would silently produce an untranslated copy.
+  if (!google_is_valid_language_code(target_language)) {
+    stop("Invalid target language code.")
+  }
+  if (!google_is_valid_language_code(source_language)) {
+    stop("Invalid source language code.")
+  }
+
   lines <- readLines(file_path, warn = FALSE, encoding = "UTF-8")
 
   translate_text <- function(text) {

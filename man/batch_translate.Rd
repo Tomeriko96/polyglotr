@@ -23,6 +23,8 @@ This function translates a file into each target language using the polyglotr pa
 \details{
 One file is written per target language, next to the input file, named
 \verb{<name>_<target_language>_translated.<ext>}. The input file is not modified.
+The input file and all language codes are checked before anything is
+written, so an invalid code does not leave a partial set of files behind.
 }
 \examples{
 \dontrun{
