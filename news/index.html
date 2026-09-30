@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">polyglotr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.5.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +41,39 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="1.7.5" id="polyglotr-175">polyglotr 1.7.5<a class="anchor" aria-label="anchor" href="#polyglotr-175"></a></h2>
+<h2 class="pkg-version" data-toc-text="development version" id="polyglotr-development-version">polyglotr (development version)<a class="anchor" aria-label="anchor" href="#polyglotr-development-version"></a></h2>
+<div class="section level3">
+<h3 id="breaking-changes-development-version">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
+<ul><li>
+<code><a href="../reference/google_get_supported_languages.html">google_get_supported_languages()</a></code> now returns the bundled <code>google_supported_languages</code> snapshot (columns <code>Language</code> and <code>ISO-639 code</code>) instead of scraping the Google Cloud documentation. The scrape took the first table on the page, which is no longer the language list, so it returned a different set of languages with different columns. Getter and <code><a href="../reference/google_is_valid_language_code.html">google_is_valid_language_code()</a></code> now agree by construction.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
+<ul><li>
+<code>translate_file(overwrite = TRUE)</code> no longer fails with “can only write character objects”.</li>
+<li>
+<code><a href="../reference/translate_file.html">translate_file()</a></code> no longer silently replaces lines it cannot translate with an empty line; the original line is kept and a warning reports how many lines were skipped.</li>
+<li>
+<code><a href="../reference/translate_file.html">translate_file()</a></code> no longer doubles the indentation of indented lines, and no longer sends blank lines to the translation service. A roxygen line that fails to translate keeps its text instead of becoming a bare <code>#'</code>, and whitespace after <code>#'</code> (e.g. indented <code>@examples</code> code) is preserved.</li>
+<li>
+<code><a href="../reference/batch_translate.html">batch_translate()</a></code> now does what its documentation says: it calls <code><a href="../reference/translate_file.html">translate_file()</a></code> once per target language and writes one file each. It is now exported. All language codes are validated before any file is written.</li>
+<li>
+<code><a href="../reference/translate_file.html">translate_file()</a></code> no longer produces a trailing dot (<code>README_de_translated.</code>) for input files without an extension.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="other-changes-development-version">Other changes<a class="anchor" aria-label="anchor" href="#other-changes-development-version"></a></h3>
+<ul><li>
+<code><a href="../reference/translate_file.html">translate_file()</a></code> and <code><a href="../reference/batch_translate.html">batch_translate()</a></code> return the path(s) they wrote, invisibly, instead of <code>NULL</code>.</li>
+<li>
+<code><a href="../reference/translate_file.html">translate_file()</a></code> now warns when lines could not be translated (code run with <code>options(warn = 2)</code> will stop there) and checks language codes before reading the file. <code><a href="../reference/batch_translate.html">batch_translate()</a></code> stops if the input file does not exist.</li>
+<li>Internal: chunking of long texts moved out of <code><a href="../reference/google_translate.html">google_translate()</a></code> into <code>split_translation_chunks()</code>; <code><a href="../reference/create_translation_table.html">create_translation_table()</a></code> and <code><a href="../reference/create_transliteration_table.html">create_transliteration_table()</a></code> share one implementation. No behaviour change.</li>
+<li>Removed <code>RCurl</code>, <code>rvest</code> and <code>rlang</code> from Imports; they are no longer used. <code>dplyr</code> stays: <code><a href="https://purrr.tidyverse.org/reference/map_dfr.html" class="external-link">purrr::map_dfr()</a></code> in <code><a href="../reference/apertium_get_language_pairs.html">apertium_get_language_pairs()</a></code> needs it.</li>
+<li>Documented the source and staleness of the <code>google_supported_languages</code> dataset.</li>
+<li>Offline tests (mocked with <code><a href="https://testthat.r-lib.org/reference/local_mocked_bindings.html" class="external-link">testthat::local_mocked_bindings()</a></code>) for the functions above.</li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.7.5" id="polyglotr-175">polyglotr 1.7.5<a class="anchor" aria-label="anchor" href="#polyglotr-175"></a></h2><p class="text-muted">CRAN release: 2026-09-15</p>
 <ul><li>Fixed <code><a href="../reference/google_translate.html">google_translate()</a></code> after Google’s mobile HTML endpoint began redirecting automated requests to an HTTP 429 bot-detection page. Translation now uses the JSON endpoint and <code>dict-chrome-ex</code> client identifier (issue <a href="https://github.com/Tomeriko96/polyglotr/issues/32" class="external-link">#32</a>).</li>
 <li>Updated <code><a href="../reference/language_detect.html">language_detect()</a></code> to use the same working client identifier and to parse the detector’s structured response instead of scraping the raw array.</li>
 </ul></div>

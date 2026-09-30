@@ -9,13 +9,13 @@
 Source:
 [`DESCRIPTION`](https://github.com/Tomeriko96/polyglotr/blob/main/DESCRIPTION)
 
-Iwan T (2026). *polyglotr: Translate Text*. R package version 1.7.5,
-<https://github.com/Tomeriko96/polyglotr/>.
+Iwan T (2026). *polyglotr: Translate Text*. R package version
+1.7.5.9000, <https://github.com/Tomeriko96/polyglotr/>.
 
     @Manual{,
       title = {polyglotr: Translate Text},
       author = {Tomer Iwan},
       year = {2026},
-      note = {R package version 1.7.5},
+      note = {R package version 1.7.5.9000},
       url = {https://github.com/Tomeriko96/polyglotr/},
     }
