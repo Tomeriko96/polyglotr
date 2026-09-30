@@ -17,8 +17,6 @@ Imports:
     jsonlite,
     magrittr,
     purrr,
-    RCurl,
-    rvest,
     stringr,
     tibble,
     urltools
