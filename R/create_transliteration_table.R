@@ -6,7 +6,6 @@
 #' @param languages A character vector specifying the target languages for transliteration.
 #' @return A data frame representing the transliteration table with original words and transliterations in each language.
 #'
-#' @importFrom rlang :=
 #' @export
 #'
 #' @examples
@@ -17,17 +16,7 @@
 #' print(transliterations)
 #' }
 create_transliteration_table <- function(words, languages) {
-  original_word <- NULL
-  transliterations <- data.frame(original_word = words)
-
-  for (language in languages) {
-    column_name <- language
-    transliterations <- transliterations %>%
-      dplyr::mutate("{column_name}" := purrr::map_chr(
-        original_word,
-        ~ { r <- google_transliterate(., language, num = 1); if (is.null(r)) NA_character_ else r[1] }
-      ))
-  }
-
-  return(transliterations)
+  translation_table(words, languages, function(word, language) {
+    google_transliterate(word, language, num = 1)
+  })
 }
