@@ -6,7 +6,6 @@
 #' @param languages A character vector specifying the target languages for translation.
 #' @return A data frame representing the translation table with original words and translations in each language.
 #'
-#' @importFrom rlang :=
 #' @export
 #'
 #' @examples
@@ -17,17 +16,23 @@
 #' print(translations)
 #' }
 create_translation_table <- function(words, languages) {
-  original_word <- NULL
-  translations <- data.frame(original_word = words)
+  translation_table(words, languages, function(word, language) {
+    google_translate(word, target_language = language)
+  })
+}
 
+# Build a data frame with one column `original_word` and one column per
+# language, filled by calling `fn(word, language)`. `fn` may return NULL
+# (service unavailable) or a vector; the first element is used, NULL -> NA.
+# Shared by create_translation_table() and create_transliteration_table().
+# @noRd
+translation_table <- function(words, languages, fn) {
+  table <- data.frame(original_word = words)
   for (language in languages) {
-    column_name <- language
-    translations <- translations %>%
-      dplyr::mutate("{column_name}" := purrr::map_chr(
-        original_word,
-        ~ { r <- google_translate(., target_language = language); if (is.null(r)) NA_character_ else r }
-      ))
+    table[[language]] <- vapply(words, function(word) {
+      r <- fn(word, language)
+      if (is.null(r) || length(r) == 0) NA_character_ else as.character(r[1])
+    }, character(1), USE.NAMES = FALSE)
   }
-
-  return(translations)
+  table
 }

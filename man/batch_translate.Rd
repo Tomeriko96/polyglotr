@@ -14,10 +14,17 @@ batch_translate(input_file, source_language, target_languages)
 \item{target_languages}{A character vector indicating the target languages.}
 }
 \value{
-Nothing is returned.
+A character vector with the paths of the translated files, named by
+target language, invisibly.
 }
 \description{
 This function translates a file into each target language using the polyglotr package's translate_file function, and saves the translated files.
+}
+\details{
+One file is written per target language, next to the input file, named
+\verb{<name>_<target_language>_translated.<ext>}. The input file is not modified.
+The input file and all language codes are checked before anything is
+written, so an invalid code does not leave a partial set of files behind.
 }
 \examples{
 \dontrun{

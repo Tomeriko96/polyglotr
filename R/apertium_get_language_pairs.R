@@ -6,6 +6,7 @@
 #'
 #' @return A list of language pairs. Each element contains sourceLanguage and targetLanguage.
 #' @export
+#' @importFrom dplyr bind_rows
 #'
 #' @examples
 #' \donttest{
@@ -13,6 +14,7 @@
 #' head(pairs, 5)
 #'
 #' }
+# dplyr is imported (see @importFrom above) because purrr::map_dfr() needs it at run time.
 apertium_get_language_pairs <- function(host = "https://apertium.org/apy") {
 
   formatted_link <- paste0(host, "/listPairs")

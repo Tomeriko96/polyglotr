@@ -34,24 +34,6 @@ google_translate <- function(text, target_language = "en", source_language = "au
     stop("Invalid source language code.")
   }
 
-  # Split text into chunks at word boundaries, keeping each chunk under max_chars.
-  split_into_chunks <- function(t, max_chars = 1000) {
-    words <- strsplit(t, "\\s+")[[1]]
-    chunks <- character(0)
-    current <- ""
-    for (word in words) {
-      candidate <- if (nchar(current) == 0) word else paste(current, word)
-      if (nchar(candidate) > max_chars && nchar(current) > 0) {
-        chunks <- c(chunks, current)
-        current <- word
-      } else {
-        current <- candidate
-      }
-    }
-    if (nchar(current) > 0) chunks <- c(chunks, current)
-    chunks
-  }
-
   translate_chunk <- function(t) {
     replaced <- replace_urls_with_placeholders(t)
     result <- safe_http(
@@ -68,7 +50,7 @@ google_translate <- function(text, target_language = "en", source_language = "au
 
   translate_single <- function(t) {
     if (nchar(t) > 1000) {
-      chunks <- split_into_chunks(t)
+      chunks <- split_translation_chunks(t)
       parts <- vapply(chunks, translate_chunk, character(1))
       paste(parts[!is.na(parts)], collapse = " ")
     } else {

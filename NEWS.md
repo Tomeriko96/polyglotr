@@ -1,3 +1,46 @@
+# polyglotr (development version)
+
+## Breaking changes
+* `google_get_supported_languages()` now returns the bundled
+  `google_supported_languages` snapshot (columns `Language` and `ISO-639 code`)
+  instead of scraping the Google Cloud documentation. The scrape took the first
+  table on the page, which is no longer the language list, so it returned a
+  different set of languages with different columns. Getter and
+  `google_is_valid_language_code()` now agree by construction.
+
+## Bug fixes
+* `translate_file(overwrite = TRUE)` no longer fails with
+  "can only write character objects".
+* `translate_file()` no longer silently replaces lines it cannot translate with
+  an empty line; the original line is kept and a warning reports how many
+  lines were skipped.
+* `translate_file()` no longer doubles the indentation of indented lines, and no
+  longer sends blank lines to the translation service. A roxygen line that
+  fails to translate keeps its text instead of becoming a bare `#'`, and
+  whitespace after `#'` (e.g. indented `@examples` code) is preserved.
+* `batch_translate()` now does what its documentation says: it calls
+  `translate_file()` once per target language and writes one file each. It is
+  now exported. All language codes are validated before any file is written.
+* `translate_file()` no longer produces a trailing dot (`README_de_translated.`)
+  for input files without an extension.
+
+## Other changes
+* `translate_file()` and `batch_translate()` return the path(s) they wrote,
+  invisibly, instead of `NULL`.
+* `translate_file()` now warns when lines could not be translated (code run
+  with `options(warn = 2)` will stop there) and checks language codes before
+  reading the file. `batch_translate()` stops if the input file does not exist.
+* Internal: chunking of long texts moved out of `google_translate()` into
+  `split_translation_chunks()`; `create_translation_table()` and
+  `create_transliteration_table()` share one implementation. No behaviour
+  change.
+* Removed `RCurl`, `rvest` and `rlang` from Imports; they are no longer used.
+  `dplyr` stays: `purrr::map_dfr()` in `apertium_get_language_pairs()` needs it.
+* Documented the source and staleness of the `google_supported_languages`
+  dataset.
+* Offline tests (mocked with `testthat::local_mocked_bindings()`) for the
+  functions above.
+
 # polyglotr 1.7.5
 * Fixed `google_translate()` after Google's mobile HTML endpoint began redirecting
   automated requests to an HTTP 429 bot-detection page. Translation now uses the

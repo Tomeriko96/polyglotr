@@ -7,8 +7,23 @@
 google_get_supported_languages()
 }
 \value{
-A data frame containing the supported languages and their corresponding ISO 639-1 codes.
+A tibble with the columns \code{Language} and \verb{ISO-639 code}.
 }
 \description{
-This function fetches the supported languages from the Google Cloud Translate documentation page.
+Returns the languages that polyglotr's Google Translate functions accept,
+i.e. the bundled \link{google_supported_languages} snapshot. This is the same
+table \code{\link[=google_is_valid_language_code]{google_is_valid_language_code()}} validates against, so a code listed
+here is always accepted by the validator and vice versa.
+}
+\details{
+Up to polyglotr 1.7.5 this function scraped the Google Cloud Translation
+documentation page and returned its first table. That page now carries
+several tables and the first one is no longer the language list, so the
+scrape returned a different set of languages with different columns.
+}
+\examples{
+head(google_get_supported_languages())
+}
+\seealso{
+\link{google_supported_languages}, \code{\link[=google_is_valid_language_code]{google_is_valid_language_code()}}
 }
