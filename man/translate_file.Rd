@@ -20,8 +20,21 @@ translate_file(
 
 \item{overwrite}{Logical indicating whether to overwrite the original file with the translated content. Default is FALSE.}
 }
+\value{
+The path of the file that was written, invisibly. With
+\code{overwrite = FALSE} this is a new file next to the input named
+\verb{<name>_<target_language>_translated.<ext>}.
+}
 \description{
-Translates the content of a file using Google Translate API.
+Translates the content of a file line by line using Google Translate.
+}
+\details{
+Leading indentation is preserved and is not sent to the translation
+service. Blank lines are kept as they are and are not sent either. Lines
+starting with a roxygen comment marker (\verb{#'}) keep the marker and only the
+text after it is translated. A line that cannot be translated (for example
+because the service is unavailable) is kept in its original form, and a
+warning reports how many lines were left untranslated.
 }
 \examples{
 \dontrun{
